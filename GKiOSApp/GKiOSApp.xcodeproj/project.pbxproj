@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		054AA0752AEA3BCD62D36624 /* libPods-GKiOSApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E854B162092ECD48AFEEB7 /* libPods-GKiOSApp.a */; };
+		0F2398A6228570470059B0FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398A5228570470059B0FE /* AppDelegate.m */; };
+		0F2398AC228570480059B0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AA228570480059B0FE /* Main.storyboard */; };
+		0F2398AE228570490059B0FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AD228570490059B0FE /* Assets.xcassets */; };
+		0F2398B1228570490059B0FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AF228570490059B0FE /* LaunchScreen.storyboard */; };
+		0F2398B4228570490059B0FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398B3228570490059B0FE /* main.m */; };
+		0F2398DF228572510059B0FE /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398BE228572510059B0FE /* BaseTableViewController.m */; };
+		0F2398E0228572510059B0FE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398C0228572510059B0FE /* BaseViewController.m */; };
+		0F2398E1228572510059B0FE /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398C1228572510059B0FE /* BaseNavigationController.m */; };
+		0F2398E2228572510059B0FE /* BaseConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398C2228572510059B0FE /* BaseConnectionController.m */; };
+		0F2398E3228572510059B0FE /* BaseRefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398C6228572510059B0FE /* BaseRefreshController.m */; };
+		0F2398E4228572510059B0FE /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398CA228572510059B0FE /* BaseModel.m */; };
+		0F2398E5228572510059B0FE /* BaseMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398CC228572510059B0FE /* BaseMacro.m */; };
+		0F2398E6228572510059B0FE /* BaseNetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398CE228572510059B0FE /* BaseNetModel.m */; };
+		0F2398E7228572510059B0FE /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398D0228572510059B0FE /* BaseCell.m */; };
+		0F2398E8228572510059B0FE /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398D1228572510059B0FE /* BaseView.m */; };
+		0F2398E9228572510059B0FE /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398D2228572510059B0FE /* BaseTableView.m */; };
+		0F2398EA228572510059B0FE /* BaseNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398D7228572510059B0FE /* BaseNetManager.m */; };
+		0F2398EB228572510059B0FE /* BaseNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398D8228572510059B0FE /* BaseNetTool.m */; };
+		0F2398FD22857F730059B0FE /* GKBaseHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398FB22857F730059B0FE /* GKBaseHomeController.m */; };
+		0F239900228580010059B0FE /* GKTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398FF228580010059B0FE /* GKTabViewController.m */; };
+		0F239903228580790059B0FE /* GKNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F239902228580790059B0FE /* GKNewViewController.m */; };
+		0F239906228580880059B0FE /* GKSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F239905228580880059B0FE /* GKSetViewController.m */; };
+		0F8FB77922891A4D00BE91D3 /* GKRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB77822891A4D00BE91D3 /* GKRecommendController.m */; };
+		0F8FB77C22891A6000BE91D3 /* GKCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB77B22891A6000BE91D3 /* GKCategoryController.m */; };
+		0F8FB77F22891A7B00BE91D3 /* GKNewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB77E22891A7B00BE91D3 /* GKNewsController.m */; };
+		0F8FB78222893F7000BE91D3 /* GKHomeNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB78122893F7000BE91D3 /* GKHomeNetManager.m */; };
+		0F8FB78622894C8000BE91D3 /* GKHomeHotModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB78522894C8000BE91D3 /* GKHomeHotModel.m */; };
+		0F8FB78B22894FD200BE91D3 /* GKHomeHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB78922894FD200BE91D3 /* GKHomeHotCollectionViewCell.m */; };
+		0F8FB78C22894FD200BE91D3 /* GKHomeHotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FB78A22894FD200BE91D3 /* GKHomeHotCollectionViewCell.xib */; };
+		0F8FB78F22896B3E00BE91D3 /* GKHomeCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB78E22896B3E00BE91D3 /* GKHomeCategoryModel.m */; };
+		0F8FB79322896ED500BE91D3 /* GKHomeCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB79122896ED500BE91D3 /* GKHomeCollectionReusableView.m */; };
+		0F8FB79422896ED500BE91D3 /* GKHomeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FB79222896ED500BE91D3 /* GKHomeCollectionReusableView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0F2398A1228570470059B0FE /* GKiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F2398A4228570470059B0FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0F2398A5228570470059B0FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0F2398AB228570480059B0FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0F2398AD228570490059B0FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0F2398B0228570490059B0FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0F2398B2228570490059B0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F2398B3228570490059B0FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0F2398BA228570A50059B0FE /* GKiOSApp.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKiOSApp.pch; sourceTree = "<group>"; };
+		0F2398BE228572510059B0FE /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		0F2398BF228572510059B0FE /* BaseRefreshController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRefreshController.h; sourceTree = "<group>"; };
+		0F2398C0228572510059B0FE /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		0F2398C1228572510059B0FE /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		0F2398C2228572510059B0FE /* BaseConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseConnectionController.m; sourceTree = "<group>"; };
+		0F2398C3228572510059B0FE /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		0F2398C4228572510059B0FE /* BaseConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseConnectionController.h; sourceTree = "<group>"; };
+		0F2398C5228572510059B0FE /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		0F2398C6228572510059B0FE /* BaseRefreshController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRefreshController.m; sourceTree = "<group>"; };
+		0F2398C7228572510059B0FE /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		0F2398C9228572510059B0FE /* BaseMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseMacro.h; sourceTree = "<group>"; };
+		0F2398CA228572510059B0FE /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		0F2398CB228572510059B0FE /* BaseNetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetModel.h; sourceTree = "<group>"; };
+		0F2398CC228572510059B0FE /* BaseMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseMacro.m; sourceTree = "<group>"; };
+		0F2398CD228572510059B0FE /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		0F2398CE228572510059B0FE /* BaseNetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetModel.m; sourceTree = "<group>"; };
+		0F2398D0228572510059B0FE /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
+		0F2398D1228572510059B0FE /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
+		0F2398D2228572510059B0FE /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
+		0F2398D3228572510059B0FE /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
+		0F2398D4228572510059B0FE /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
+		0F2398D5228572510059B0FE /* BaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableView.h; sourceTree = "<group>"; };
+		0F2398D7228572510059B0FE /* BaseNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetManager.m; sourceTree = "<group>"; };
+		0F2398D8228572510059B0FE /* BaseNetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNetTool.m; sourceTree = "<group>"; };
+		0F2398DB228572510059B0FE /* BaseNetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetTool.h; sourceTree = "<group>"; };
+		0F2398DC228572510059B0FE /* BaseNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNetManager.h; sourceTree = "<group>"; };
+		0F2398FB22857F730059B0FE /* GKBaseHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBaseHomeController.m; sourceTree = "<group>"; };
+		0F2398FC22857F730059B0FE /* GKBaseHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBaseHomeController.h; sourceTree = "<group>"; };
+		0F2398FE228580010059B0FE /* GKTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKTabViewController.h; sourceTree = "<group>"; };
+		0F2398FF228580010059B0FE /* GKTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKTabViewController.m; sourceTree = "<group>"; };
+		0F239901228580790059B0FE /* GKNewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewViewController.h; sourceTree = "<group>"; };
+		0F239902228580790059B0FE /* GKNewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewViewController.m; sourceTree = "<group>"; };
+		0F239904228580880059B0FE /* GKSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSetViewController.h; sourceTree = "<group>"; };
+		0F239905228580880059B0FE /* GKSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSetViewController.m; sourceTree = "<group>"; };
+		0F8FB77722891A4D00BE91D3 /* GKRecommendController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKRecommendController.h; sourceTree = "<group>"; };
+		0F8FB77822891A4D00BE91D3 /* GKRecommendController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKRecommendController.m; sourceTree = "<group>"; };
+		0F8FB77A22891A6000BE91D3 /* GKCategoryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKCategoryController.h; sourceTree = "<group>"; };
+		0F8FB77B22891A6000BE91D3 /* GKCategoryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKCategoryController.m; sourceTree = "<group>"; };
+		0F8FB77D22891A7B00BE91D3 /* GKNewsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewsController.h; sourceTree = "<group>"; };
+		0F8FB77E22891A7B00BE91D3 /* GKNewsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewsController.m; sourceTree = "<group>"; };
+		0F8FB78022893F7000BE91D3 /* GKHomeNetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKHomeNetManager.h; sourceTree = "<group>"; };
+		0F8FB78122893F7000BE91D3 /* GKHomeNetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKHomeNetManager.m; sourceTree = "<group>"; };
+		0F8FB78422894C8000BE91D3 /* GKHomeHotModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKHomeHotModel.h; sourceTree = "<group>"; };
+		0F8FB78522894C8000BE91D3 /* GKHomeHotModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKHomeHotModel.m; sourceTree = "<group>"; };
+		0F8FB78822894FD200BE91D3 /* GKHomeHotCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKHomeHotCollectionViewCell.h; sourceTree = "<group>"; };
+		0F8FB78922894FD200BE91D3 /* GKHomeHotCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKHomeHotCollectionViewCell.m; sourceTree = "<group>"; };
+		0F8FB78A22894FD200BE91D3 /* GKHomeHotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKHomeHotCollectionViewCell.xib; sourceTree = "<group>"; };
+		0F8FB78D22896B3E00BE91D3 /* GKHomeCategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKHomeCategoryModel.h; sourceTree = "<group>"; };
+		0F8FB78E22896B3E00BE91D3 /* GKHomeCategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKHomeCategoryModel.m; sourceTree = "<group>"; };
+		0F8FB79022896ED500BE91D3 /* GKHomeCollectionReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKHomeCollectionReusableView.h; sourceTree = "<group>"; };
+		0F8FB79122896ED500BE91D3 /* GKHomeCollectionReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKHomeCollectionReusableView.m; sourceTree = "<group>"; };
+		0F8FB79222896ED500BE91D3 /* GKHomeCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKHomeCollectionReusableView.xib; sourceTree = "<group>"; };
+		35E854B162092ECD48AFEEB7 /* libPods-GKiOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GKiOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5946029D4F68ADA9F297FE29 /* Pods-GKiOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.debug.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FDBC29D23DEA47242B9937C2 /* Pods-GKiOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.release.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0F23989E228570470059B0FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				054AA0752AEA3BCD62D36624 /* libPods-GKiOSApp.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08743BB06919794AA9E583BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35E854B162092ECD48AFEEB7 /* libPods-GKiOSApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F239898228570470059B0FE = {
+			isa = PBXGroup;
+			children = (
+				0F2398A3228570470059B0FE /* GKiOSApp */,
+				0F2398A2228570470059B0FE /* Products */,
+				1E9E7FBEA8415782E095A5A7 /* Pods */,
+				08743BB06919794AA9E583BE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0F2398A2228570470059B0FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398A1228570470059B0FE /* GKiOSApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0F2398A3228570470059B0FE /* GKiOSApp */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398BB228572050059B0FE /* Class */,
+				0F2398A4228570470059B0FE /* AppDelegate.h */,
+				0F2398A5228570470059B0FE /* AppDelegate.m */,
+				0F2398AD228570490059B0FE /* Assets.xcassets */,
+				0F2398BA228570A50059B0FE /* GKiOSApp.pch */,
+				0F2398B2228570490059B0FE /* Info.plist */,
+				0F2398AF228570490059B0FE /* LaunchScreen.storyboard */,
+				0F2398B3228570490059B0FE /* main.m */,
+				0F2398AA228570480059B0FE /* Main.storyboard */,
+			);
+			path = GKiOSApp;
+			sourceTree = "<group>";
+		};
+		0F2398BB228572050059B0FE /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398BC228572510059B0FE /* Base */,
+				0F2398F922857F730059B0FE /* Home */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		0F2398BC228572510059B0FE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398BD228572510059B0FE /* Controller */,
+				0F2398C8228572510059B0FE /* Model */,
+				0F2398CF228572510059B0FE /* View */,
+				0F2398D6228572510059B0FE /* NetManager */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0F2398BD228572510059B0FE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398C4228572510059B0FE /* BaseConnectionController.h */,
+				0F2398C2228572510059B0FE /* BaseConnectionController.m */,
+				0F2398C5228572510059B0FE /* BaseNavigationController.h */,
+				0F2398C1228572510059B0FE /* BaseNavigationController.m */,
+				0F2398BF228572510059B0FE /* BaseRefreshController.h */,
+				0F2398C6228572510059B0FE /* BaseRefreshController.m */,
+				0F2398C3228572510059B0FE /* BaseTableViewController.h */,
+				0F2398BE228572510059B0FE /* BaseTableViewController.m */,
+				0F2398C7228572510059B0FE /* BaseViewController.h */,
+				0F2398C0228572510059B0FE /* BaseViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0F2398C8228572510059B0FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398C9228572510059B0FE /* BaseMacro.h */,
+				0F2398CC228572510059B0FE /* BaseMacro.m */,
+				0F2398CD228572510059B0FE /* BaseModel.h */,
+				0F2398CA228572510059B0FE /* BaseModel.m */,
+				0F2398CB228572510059B0FE /* BaseNetModel.h */,
+				0F2398CE228572510059B0FE /* BaseNetModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F2398CF228572510059B0FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398D3228572510059B0FE /* BaseCell.h */,
+				0F2398D0228572510059B0FE /* BaseCell.m */,
+				0F2398D5228572510059B0FE /* BaseTableView.h */,
+				0F2398D2228572510059B0FE /* BaseTableView.m */,
+				0F2398D4228572510059B0FE /* BaseView.h */,
+				0F2398D1228572510059B0FE /* BaseView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F2398D6228572510059B0FE /* NetManager */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398DC228572510059B0FE /* BaseNetManager.h */,
+				0F2398D7228572510059B0FE /* BaseNetManager.m */,
+				0F2398DB228572510059B0FE /* BaseNetTool.h */,
+				0F2398D8228572510059B0FE /* BaseNetTool.m */,
+				0F8FB78022893F7000BE91D3 /* GKHomeNetManager.h */,
+				0F8FB78122893F7000BE91D3 /* GKHomeNetManager.m */,
+			);
+			path = NetManager;
+			sourceTree = "<group>";
+		};
+		0F2398F922857F730059B0FE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0F8FB78722894FB800BE91D3 /* View */,
+				0F8FB78322894C0600BE91D3 /* Model */,
+				0F2398FA22857F730059B0FE /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0F2398FA22857F730059B0FE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F2398FC22857F730059B0FE /* GKBaseHomeController.h */,
+				0F2398FB22857F730059B0FE /* GKBaseHomeController.m */,
+				0F2398FE228580010059B0FE /* GKTabViewController.h */,
+				0F2398FF228580010059B0FE /* GKTabViewController.m */,
+				0F239901228580790059B0FE /* GKNewViewController.h */,
+				0F239902228580790059B0FE /* GKNewViewController.m */,
+				0F239904228580880059B0FE /* GKSetViewController.h */,
+				0F239905228580880059B0FE /* GKSetViewController.m */,
+				0F8FB77722891A4D00BE91D3 /* GKRecommendController.h */,
+				0F8FB77822891A4D00BE91D3 /* GKRecommendController.m */,
+				0F8FB77A22891A6000BE91D3 /* GKCategoryController.h */,
+				0F8FB77B22891A6000BE91D3 /* GKCategoryController.m */,
+				0F8FB77D22891A7B00BE91D3 /* GKNewsController.h */,
+				0F8FB77E22891A7B00BE91D3 /* GKNewsController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0F8FB78322894C0600BE91D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F8FB78422894C8000BE91D3 /* GKHomeHotModel.h */,
+				0F8FB78522894C8000BE91D3 /* GKHomeHotModel.m */,
+				0F8FB78D22896B3E00BE91D3 /* GKHomeCategoryModel.h */,
+				0F8FB78E22896B3E00BE91D3 /* GKHomeCategoryModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F8FB78722894FB800BE91D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F8FB78822894FD200BE91D3 /* GKHomeHotCollectionViewCell.h */,
+				0F8FB78922894FD200BE91D3 /* GKHomeHotCollectionViewCell.m */,
+				0F8FB78A22894FD200BE91D3 /* GKHomeHotCollectionViewCell.xib */,
+				0F8FB79022896ED500BE91D3 /* GKHomeCollectionReusableView.h */,
+				0F8FB79122896ED500BE91D3 /* GKHomeCollectionReusableView.m */,
+				0F8FB79222896ED500BE91D3 /* GKHomeCollectionReusableView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E9E7FBEA8415782E095A5A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5946029D4F68ADA9F297FE29 /* Pods-GKiOSApp.debug.xcconfig */,
+				FDBC29D23DEA47242B9937C2 /* Pods-GKiOSApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0F2398A0228570470059B0FE /* GKiOSApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F2398B7228570490059B0FE /* Build configuration list for PBXNativeTarget "GKiOSApp" */;
+			buildPhases = (
+				1FA6F43E83E52EBDF96EF3AB /* [CP] Check Pods Manifest.lock */,
+				0F23989D228570470059B0FE /* Sources */,
+				0F23989E228570470059B0FE /* Frameworks */,
+				0F23989F228570470059B0FE /* Resources */,
+				3B2D87FCF09432DBFB329CC6 /* [CP] Embed Pods Frameworks */,
+				E05ACB482D4B0E8AFB476656 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GKiOSApp;
+			productName = GKiOSApp;
+			productReference = 0F2398A1228570470059B0FE /* GKiOSApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0F239899228570470059B0FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = wangws1990;
+				TargetAttributes = {
+					0F2398A0228570470059B0FE = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 0F23989C228570470059B0FE /* Build configuration list for PBXProject "GKiOSApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0F239898228570470059B0FE;
+			productRefGroup = 0F2398A2228570470059B0FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0F2398A0228570470059B0FE /* GKiOSApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0F23989F228570470059B0FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F2398B1228570490059B0FE /* LaunchScreen.storyboard in Resources */,
+				0F8FB78C22894FD200BE91D3 /* GKHomeHotCollectionViewCell.xib in Resources */,
+				0F2398AE228570490059B0FE /* Assets.xcassets in Resources */,
+				0F8FB79422896ED500BE91D3 /* GKHomeCollectionReusableView.xib in Resources */,
+				0F2398AC228570480059B0FE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FA6F43E83E52EBDF96EF3AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GKiOSApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B2D87FCF09432DBFB329CC6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E05ACB482D4B0E8AFB476656 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0F23989D228570470059B0FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F8FB77C22891A6000BE91D3 /* GKCategoryController.m in Sources */,
+				0F2398E6228572510059B0FE /* BaseNetModel.m in Sources */,
+				0F8FB78F22896B3E00BE91D3 /* GKHomeCategoryModel.m in Sources */,
+				0F8FB78622894C8000BE91D3 /* GKHomeHotModel.m in Sources */,
+				0F2398E5228572510059B0FE /* BaseMacro.m in Sources */,
+				0F8FB77922891A4D00BE91D3 /* GKRecommendController.m in Sources */,
+				0F2398B4228570490059B0FE /* main.m in Sources */,
+				0F2398E0228572510059B0FE /* BaseViewController.m in Sources */,
+				0F8FB77F22891A7B00BE91D3 /* GKNewsController.m in Sources */,
+				0F2398E4228572510059B0FE /* BaseModel.m in Sources */,
+				0F239906228580880059B0FE /* GKSetViewController.m in Sources */,
+				0F239900228580010059B0FE /* GKTabViewController.m in Sources */,
+				0F2398E2228572510059B0FE /* BaseConnectionController.m in Sources */,
+				0F2398DF228572510059B0FE /* BaseTableViewController.m in Sources */,
+				0F8FB78222893F7000BE91D3 /* GKHomeNetManager.m in Sources */,
+				0F8FB78B22894FD200BE91D3 /* GKHomeHotCollectionViewCell.m in Sources */,
+				0F2398E3228572510059B0FE /* BaseRefreshController.m in Sources */,
+				0F2398EB228572510059B0FE /* BaseNetTool.m in Sources */,
+				0F8FB79322896ED500BE91D3 /* GKHomeCollectionReusableView.m in Sources */,
+				0F2398A6228570470059B0FE /* AppDelegate.m in Sources */,
+				0F239903228580790059B0FE /* GKNewViewController.m in Sources */,
+				0F2398E9228572510059B0FE /* BaseTableView.m in Sources */,
+				0F2398FD22857F730059B0FE /* GKBaseHomeController.m in Sources */,
+				0F2398E7228572510059B0FE /* BaseCell.m in Sources */,
+				0F2398E1228572510059B0FE /* BaseNavigationController.m in Sources */,
+				0F2398EA228572510059B0FE /* BaseNetManager.m in Sources */,
+				0F2398E8228572510059B0FE /* BaseView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0F2398AA228570480059B0FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F2398AB228570480059B0FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0F2398AF228570490059B0FE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0F2398B0228570490059B0FE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0F2398B5228570490059B0FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0F2398B6228570490059B0FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0F2398B8228570490059B0FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5946029D4F68ADA9F297FE29 /* Pods-GKiOSApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GKiOSApp/GKiOSApp.pch";
+				INFOPLIST_FILE = GKiOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = wangws1990.GKiOSApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0F2398B9228570490059B0FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDBC29D23DEA47242B9937C2 /* Pods-GKiOSApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GKiOSApp/GKiOSApp.pch";
+				INFOPLIST_FILE = GKiOSApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = wangws1990.GKiOSApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0F23989C228570470059B0FE /* Build configuration list for PBXProject "GKiOSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F2398B5228570490059B0FE /* Debug */,
+				0F2398B6228570490059B0FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0F2398B7228570490059B0FE /* Build configuration list for PBXNativeTarget "GKiOSApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F2398B8228570490059B0FE /* Debug */,
+				0F2398B9228570490059B0FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0F239899228570470059B0FE /* Project object */;
+}

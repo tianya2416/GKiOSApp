@@ -1,0 +1,36 @@
+//
+//  GKiOSApp.pch
+//  GKiOSApp
+//
+//  Created by wangws1990 on 2019/5/10.
+//  Copyright © 2019 wangws1990. All rights reserved.
+//
+
+#ifndef GKiOSApp_pch
+#define GKiOSApp_pch
+#import "Masonry.h"
+#import "YYKit.h"
+#import "MGJRouter.h"
+#import "CategoryKit.h"
+#import "MBProgressHUD.h"
+#import <SDWebImage/SDWebImageManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIViewController+HHTransition.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "VTMagic.h"
+
+
+#import "BaseMacro.h"
+#import "BaseModel.h"
+#import "BaseConnectionController.h"
+#import "BaseRefreshController.h"
+#import "BaseNavigationController.h"
+#import "BaseNetManager.h"
+#import "BaseCell.h"
+
+#import "GKHomeNetManager.h"
+
+#define URL_String @"http://service.picasso.adesk.com"
+#define kFirsterUrl(url)  [NSString stringWithFormat:@"%@%@", URL_String, url]
+#define placeholder [UIImage imageWithColor:[UIColor colorWithRGB:0xf6f6f6]]
+#endif /* GKiOSApp_pch */
