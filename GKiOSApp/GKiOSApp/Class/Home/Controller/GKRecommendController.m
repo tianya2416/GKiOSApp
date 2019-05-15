@@ -49,7 +49,7 @@
     GKHomeHotCollectionViewCell *cell = [GKHomeHotCollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
     GKHomeHotPaperModel *model = self.hotModel.wallpaper[indexPath.row];
     cell.titleLab.text = @"";
-    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:placeholder];
+    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:placeholders];
     return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{

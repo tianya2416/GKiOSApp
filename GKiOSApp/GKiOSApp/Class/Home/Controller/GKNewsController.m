@@ -42,7 +42,7 @@
     GKHomeHotCollectionViewCell *cell = [GKHomeHotCollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
     GKHomeNewsModel *model = self.listData[indexPath.row];
     cell.titleLab.text = @"";
-    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.thumb] placeholderImage:placeholder];
+    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.thumb] placeholderImage:placeholders];
     return cell;
 }
 @end

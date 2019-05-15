@@ -10,6 +10,7 @@
 #import "GKNewsController.h"
 #import "GKCategoryController.h"
 #import "GKRecommendController.h"
+#import "GKSearchViewController.h"
 @interface GKBaseHomeController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 @property (strong, nonatomic) VTMagicController * magicController;
 
@@ -36,7 +37,22 @@
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
     [self.magicController.magicView reloadData];
+    [self integrateComponents];
     // Do any additional setup after loading the view.
+}
+- (void)integrateComponents {
+    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [searchButton setImage:[UIImage imageNamed:@"search_white"] forState:UIControlStateNormal];
+    [searchButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
+    searchButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    searchButton.frame = CGRectMake(0, 0,60, 40);
+    [self.magicController.magicView setRightNavigatoinItem:searchButton];
+}
+- (void)searchAction{
+    GKSearchViewController *vc = [[GKSearchViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc showNavTitle:@"" backItem:YES];
 }
 #pragma mark VTMagicViewDataSource,VTMagicViewDelegate
 /**
@@ -132,12 +148,12 @@
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(3,3,3,3);
+    return UIEdgeInsetsMake(1,1,1,1);
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat width = (SCREEN_WIDTH - 3*3)/2.0;
-    CGFloat height = width * 1.25;
+    CGFloat width = (SCREEN_WIDTH - 3*1)/2.0;
+    CGFloat height = width * 1.35;
     return CGSizeMake(width, height);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -145,9 +161,9 @@
     return [UICollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 3;
+    return 1;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 3;
+    return 1;
 }
 @end

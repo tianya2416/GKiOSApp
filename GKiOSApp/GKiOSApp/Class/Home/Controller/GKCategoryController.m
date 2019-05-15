@@ -9,6 +9,7 @@
 #import "GKCategoryController.h"
 #import "GKHomeCategoryModel.h"
 #import "GKHomeHotCollectionViewCell.h"
+
 @interface GKCategoryController()
 @property (strong, nonatomic) NSArray <GKHomeCategoryModel *>*listData;
 @end
@@ -35,7 +36,7 @@
     GKHomeHotCollectionViewCell *cell = [GKHomeHotCollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
     GKHomeCategoryModel *model = self.listData[indexPath.row];
     cell.titleLab.text = model.rname ?:@"";
-    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:placeholder];
+    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:placeholders];
     return cell;
 }
 @end
