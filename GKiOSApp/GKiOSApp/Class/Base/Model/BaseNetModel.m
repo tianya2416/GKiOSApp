@@ -31,6 +31,9 @@
     model.requestUrl = urlString;
     model.params = params;
     model.headParams = headParams;
+    if (!model.resultset) {
+        model.resultset = model.allResultData;
+    }
     if(![model isDataSuccess])
     {
         NSLog(@"%@\n%@\n%@\n%@\n",urlString,params,headParams,model.allResultData);
@@ -51,6 +54,8 @@
     }
     else if ([response isKindOfClass:[NSDictionary class]])
     {
+        obj = response;
+    }else if ([response isKindOfClass:[NSArray class]]){
         obj = response;
     }
     return obj;

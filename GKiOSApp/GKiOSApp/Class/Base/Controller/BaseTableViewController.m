@@ -22,9 +22,9 @@
     }];
     self.tableView.tableHeaderView = [UIView new];
     self.tableView.tableFooterView = [UIView new];
-    [self setupEmpty:self.tableView];
-    [self setupRefresh:self.tableView option:ATRefreshNone];
-    [self headerRefreshing];
+//    [self setupEmpty:self.tableView];
+//    [self setupRefresh:self.tableView option:ATRefreshNone];
+//    [self headerRefreshing];
 }
 
 - (UITableView *)tableView

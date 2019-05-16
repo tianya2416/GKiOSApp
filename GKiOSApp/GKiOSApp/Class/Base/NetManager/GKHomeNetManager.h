@@ -20,6 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSURLSessionDataTask *)homeNews:(NSDictionary *)params
                            success:(void(^)(id object))success
                            failure:(void(^)(NSString *error))failure;
+
++ (NSURLSessionDataTask *)homeSearch:(NSString *)searchText
+                              params:(NSDictionary *)params
+                             success:(void(^)(id object))success
+                             failure:(void(^)(NSString *error))failure;
++ (NSURLSessionDataTask *)newHot:(NSString *)categoryId
+                            page:(NSInteger)page
+                         success:(void(^)(id object))success
+                         failure:(void(^)(NSString *error))failure;
 @end
 
 NS_ASSUME_NONNULL_END

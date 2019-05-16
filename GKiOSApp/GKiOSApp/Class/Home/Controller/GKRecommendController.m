@@ -34,23 +34,13 @@
         [self.hotModel.banner enumerateObjectsUsingBlock:^(GKHomeHotBannerModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [listData addObject:obj.thumb];
         }];
+        self.listData = self.hotModel.wallpaper.mutableCopy;
         self.carouselView.imageURLStringsGroup = listData.copy;
         [self.collectionView reloadData];
-        [self endRefresh:NO];
+        [self endRefresh:YES];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];
-}
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.hotModel.wallpaper.count;
-}
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    GKHomeHotCollectionViewCell *cell = [GKHomeHotCollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
-    GKHomeHotPaperModel *model = self.hotModel.wallpaper[indexPath.row];
-    cell.titleLab.text = @"";
-    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:placeholders];
-    return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
     return CGSizeMake(SCREEN_WIDTH,SCALEW(self.hotModel.banner ? 180 : 0.0f));
@@ -70,6 +60,10 @@
     }
     return [UICollectionReusableView new];
 }
+#pragma mark SDCycleScrollViewDelegate
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    [ATIDMPhotoBrowser photoBrowsers:self.carouselView.imageURLStringsGroup selectIndex:index];
+}
 - (SDCycleScrollView *)carouselView
 {
     if (!_carouselView) {
@@ -80,7 +74,6 @@
         _carouselView.autoScrollTimeInterval  = 5.0f;
         _carouselView.delegate = self;
         _carouselView.tag = 100;
-        
     }
     return _carouselView;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "GKSearchViewController.h"
+#import "GKSearchResultController.h"
 #import "GKSearchViewCell.h"
 @interface GKSearchViewController ()<UISearchBarDelegate>
 @property (copy, nonatomic) NSArray *listData;
@@ -48,6 +49,8 @@
             [self refreshData:1];
         }
     }];
+    [self searchText:content];
+    
 }
 - (void)refreshData:(NSInteger)page{
     [GKDataQueue getDatasFromDataBase:^(NSArray<GKSearchModel *> * _Nonnull listData) {
@@ -78,6 +81,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    GKSearchModel *model = self.listData[indexPath.row];
+    [self searchText:model.searchKey];
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -95,6 +100,10 @@
             [self refreshData:1];
         }
     }];
+}
+- (void)searchText:(NSString *)searchText{
+    GKSearchResultController *vc = [GKSearchResultController vcWithSearchText:searchText];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSString *)timeStampTurnToTimesType:(NSString *)timesTamp
 {

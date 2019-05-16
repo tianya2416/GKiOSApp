@@ -16,3 +16,15 @@
     return vc;
 }
 @end
+
+@implementation GKSearchResultModel
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"search" : GKSearchItemsModel.class};
+}
+@end
+
+@implementation GKSearchItemsModel
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"items" : GKHomeHotPaperModel.class};
+}
+@end

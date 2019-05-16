@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GKBaseHotController : BaseConnectionController
 
+@property (strong, nonatomic) NSMutableArray *listData;
+
 @end
 
 NS_ASSUME_NONNULL_END

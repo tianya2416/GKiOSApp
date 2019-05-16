@@ -11,6 +11,8 @@
 #import "GKCategoryController.h"
 #import "GKRecommendController.h"
 #import "GKSearchViewController.h"
+#import "GKHomeHotCollectionViewCell.h"
+#import "GKHomeHotModel.h"
 @interface GKBaseHomeController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 @property (strong, nonatomic) VTMagicController * magicController;
 
@@ -85,7 +87,7 @@
     [menuItem setTitle:self.listTitles[itemIndex] forState:UIControlStateNormal];
     [menuItem setTitleColor:[UIColor colorWithRGB:0xffffff] forState:UIControlStateNormal];
     [menuItem setTitleColor:[UIColor colorWithRGB:0xffffff] forState:UIControlStateSelected];
-    menuItem.titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightHeavy];
+    menuItem.titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightSemibold];
     return menuItem;
 }
 /**
@@ -144,7 +146,7 @@
     return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 0;
+    return self.listData.count;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
@@ -158,12 +160,27 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [UICollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
+    GKHomeHotCollectionViewCell *cell = [GKHomeHotCollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
+    GKHomeHotPaperModel *model = self.listData[indexPath.row];
+    if ([model isKindOfClass:GKHomeHotPaperModel.class]) {
+        cell.titleLab.text = @"";
+        [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.thumb] placeholderImage:placeholders];
+    }
+    return cell;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return 1;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 1;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableArray *datas = [[NSMutableArray alloc] init];
+    [self.listData enumerateObjectsUsingBlock:^(GKHomeHotPaperModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.thumb) {
+            [datas addObject:obj.thumb];
+        }
+    }];
+    [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
 }
 @end

@@ -11,7 +11,7 @@
 #import "GKHomeHotCollectionViewCell.h"
 
 @interface GKCategoryController()
-@property (strong, nonatomic) NSArray <GKHomeCategoryModel *>*listData;
+
 @end
 @implementation GKCategoryController
 - (void)viewDidLoad{
@@ -21,15 +21,12 @@
 }
 - (void)refreshData:(NSInteger)page{
     [GKHomeNetManager homeCategory:@{} success:^(id  _Nonnull object) {
-        self.listData = [NSArray modelArrayWithClass:GKHomeCategoryModel.class json:object[@"category"]];
+        self.listData = [NSArray modelArrayWithClass:GKHomeCategoryModel.class json:object[@"category"]].mutableCopy;
         [self.collectionView reloadData];
         [self endRefresh:NO];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];
-}
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.listData.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -38,5 +35,13 @@
     cell.titleLab.text = model.rname ?:@"";
     [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:placeholders];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableArray *datas = [[NSMutableArray alloc] init];
+    [self.listData enumerateObjectsUsingBlock:^(GKHomeCategoryModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [datas addObject:obj.cover];
+    }];
+    [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
 }
 @end

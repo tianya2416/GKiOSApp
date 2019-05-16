@@ -18,7 +18,7 @@
 #import "UIViewController+HHTransition.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "VTMagic.h"
-
+#import "MBProgressHUD+ATAdd.h"
 
 #import "BaseMacro.h"
 #import "BaseModel.h"
@@ -30,8 +30,19 @@
 
 #import "GKHomeNetManager.h"
 #import "GKDataQueue.h"
+#import "ATIDMPhotoBrowser.h"
 
-#define URL_String @"http://service.picasso.adesk.com"
-#define kFirsterUrl(url)  [NSString stringWithFormat:@"%@%@", URL_String, url]
+
+#define URL_Service @"http://service.picasso.adesk.com"
+#define URL_So      @"http://so.picasso.adesk.com"
+#define URL_News    @"http://api.ipadown.com/apple-news-client/news.list.php?"
+
+#define kUrlService(url)  [NSString stringWithFormat:@"%@%@", URL_Service, url]
+#define kUrlSo(url)       [NSString stringWithFormat:@"%@%@", URL_So, url]
+#define kUrlNews(url)     [NSString stringWithFormat:@"%@%@", URL_News, url]
+
+
 #define placeholders [UIImage imageWithColor:[UIColor colorWithRGB:0xf6f6f6]]
+
+
 #endif /* GKiOSApp_pch */

@@ -10,6 +10,7 @@ target :GKiOSApp  do
     pod 'Masonry'
     pod 'AFNetworking'
     pod 'YYKit'
+    pod 'SDWebImage'
     pod 'EAIntroView'
     pod 'Qiniu', '~> 7.1.8'
     pod 'IDMPhotoBrowser'
@@ -25,5 +26,7 @@ target :GKiOSApp  do
     pod 'HHTransition'
     pod 'VTMagic'
     pod 'SDCycleScrollView'
+#    pod 'YYImage'
+#    pod 'YBImageBrowser'
 end
 
