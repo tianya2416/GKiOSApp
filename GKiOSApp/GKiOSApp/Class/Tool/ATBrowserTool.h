@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ATBrowserTool : NSObject
 
-+ (instancetype)browserTools:(NSArray *)browserTools selectIndex:(NSInteger)selectIndex;
+//+ (instancetype)browserTools:(NSArray *)browserTools selectIndex:(NSInteger)selectIndex;
 
 @end
 
