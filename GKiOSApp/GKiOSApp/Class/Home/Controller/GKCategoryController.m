@@ -40,8 +40,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     GKHomeCategoryModel *model = self.listData[indexPath.row];
     GKCategoryItemController *vc = [GKCategoryItemController vcWithCategoryId:model.categoryId];
-    
-    [self.navigationController pushViewController:vc animated:YES];
     [vc showNavTitle:model.rname backItem:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

@@ -181,6 +181,8 @@
             [datas addObject:obj.thumb];
         }
     }];
-    [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
+    if (datas.count) {
+         [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
+    }
 }
 @end

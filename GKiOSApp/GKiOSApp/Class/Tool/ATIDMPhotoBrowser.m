@@ -14,13 +14,16 @@
 @implementation ATIDMPhotoBrowser
 + (instancetype)photoBrowsers:(NSArray *)arrayUrl selectIndex:(NSInteger)selectIndex
 {
+    
     NSMutableArray<IDMPhoto *> *imageArray = [[NSMutableArray alloc]init];
     for (int i = 0; i< [arrayUrl count]; i++) {
         NSURL * imageURL = [NSURL URLWithString:arrayUrl[i]];
         IDMPhoto * poho = [IDMPhoto photoWithURL:imageURL];
         [imageArray addObject:poho];
     }
-    return [self photoBrowsers:imageArray currentIndex:selectIndex dismiss:nil];
+    return [self photoBrowsers:imageArray currentIndex:selectIndex dismiss:^(IDMPhotoBrowser * _Nonnull brower, NSUInteger index) {
+        
+    }];
 }
 + (instancetype)photoBrowsers:(NSArray<IDMPhoto *> *)photos currentIndex:(NSInteger)currentIndex dismiss:(void (^)(IDMPhotoBrowser *, NSUInteger))dismiss {
     ATIDMPhotoBrowser * vc = [[ATIDMPhotoBrowser alloc]init];

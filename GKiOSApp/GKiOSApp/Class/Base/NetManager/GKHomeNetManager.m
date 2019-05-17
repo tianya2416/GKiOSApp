@@ -48,4 +48,34 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@category_ids=%@&max_id=0&count=%@", URL_News, categoryId?:@"",@(20)];
     return [GKHomeNetManager method:HttpMethodGet urlString:urlStr params:nil success:success failure:failure];
 }
+
++ (NSURLSessionDataTask *)app_login:(NSString *)account
+                           password:(NSString *)password
+                            success:(void(^)(id object))success
+                            failure:(void(^)(NSString *error))failure
+{
+    NSMutableDictionary * params = [@{} mutableCopy];
+    params[@"db"] = App_DB;
+    params[@"function"] = @"app_login";
+    params[@"login_name"] = account?:@"";
+    params[@"pwd"] = password ?: @"";
+    return [GKHomeNetManager method:HttpMethodPost urlString:App_LoginURL params:params success:^(id object) {
+        [GKHomeNetManager loginSuccessSaveData:object];
+        !success ?: success(object);
+    } failure:failure];
+}
++ (void)loginSuccessSaveData:(id)resultset
+{
+    if ([resultset isKindOfClass:[NSArray class]]) {
+        NSArray * array = resultset;
+        NSDictionary * dic = [array firstObject];
+        GKUserModel * model = [GKUserModel modelWithDictionary:dic];
+        if ([model.login_state isEqualToString:@"0"]) {
+            BOOL res = [GKUserManager saveUserModel:model];
+            if (res) {
+                NSLog(@"写入成功");
+            }
+        }
+    }
+}
 @end

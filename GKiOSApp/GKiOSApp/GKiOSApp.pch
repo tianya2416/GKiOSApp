@@ -31,6 +31,11 @@
 #import "GKHomeNetManager.h"
 #import "GKDataQueue.h"
 #import "ATIDMPhotoBrowser.h"
+#import "GKUserManager.h"
+#import "ATAlertView.h"
+#pragma mark login
+#define App_DB       @"mssql"
+#define App_LoginURL @"http://cxc3561713.gnway.cc:28199/restful/rpc"
 
 
 #define URL_Service @"http://service.picasso.adesk.com"

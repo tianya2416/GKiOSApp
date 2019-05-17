@@ -7,18 +7,52 @@
 //
 
 #import "GKSetViewController.h"
-
+#import "GKSetTableViewCell.h"
+#import "GKLoginViewController.h"
+static NSString *about = @"关于我们";
+static NSString *video =  @"视频介绍";
+static NSString *info =  @"版权信息";
+static NSString *tenec = @"技术支持";
+static NSString *loginOut = @"退出登录";
 @interface GKSetViewController ()
-
+@property (strong, nonatomic) NSArray *listData;
 @end
 
 @implementation GKSetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupEmpty:self.tableView];
+    [self setupRefresh:self.tableView option:ATRefreshNone];
+    [self headerRefreshing];
     // Do any additional setup after loading the view.
 }
-
+- (void)refreshData:(NSInteger)page{
+    self.listData = @[about,video,info,tenec,loginOut];
+    [self.tableView reloadData];
+    [self endRefresh:NO];
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.listData.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewAutomaticDimension;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    GKSetTableViewCell *cell = [GKSetTableViewCell cellForTableView:tableView indexPath:indexPath];
+    cell.titleLab.text = self.listData[indexPath.row];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *title = self.listData[indexPath.row];
+    if ([title isEqualToString:loginOut]) {
+        [GKUserManager loginOut];
+    }
+}
 /*
 #pragma mark - Navigation
 

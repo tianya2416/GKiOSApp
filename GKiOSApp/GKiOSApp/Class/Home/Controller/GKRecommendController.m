@@ -20,6 +20,9 @@
     [super viewDidLoad];
     [self setupEmpty:self.collectionView];
     [self setupRefresh:self.collectionView option:ATHeaderRefresh|ATHeaderAutoRefresh];
+    [GKUserManager needLogin:^(BOOL success) {
+        
+    }];
 }
 - (void)refreshData:(NSInteger)page{
     NSDictionary *params = @{

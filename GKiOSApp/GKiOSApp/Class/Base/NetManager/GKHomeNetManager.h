@@ -35,6 +35,11 @@ NS_ASSUME_NONNULL_BEGIN
                             page:(NSInteger)page
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure;
+//登录接口
++ (NSURLSessionDataTask *)app_login:(NSString *)account
+                           password:(NSString *)password
+                            success:(void(^)(id object))success
+                            failure:(void(^)(NSString *error))failure;
 @end
 
 NS_ASSUME_NONNULL_END
