@@ -10,16 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class GKHomeHotPaperModel,GKHomeHotBannerModel;
-@interface GKHomeHotModel : BaseNetModel
+@interface GKHomeHotModel : BaseModel
 @property (strong, nonatomic) NSArray<GKHomeHotBannerModel *>*banner;
 @property (strong, nonatomic) NSArray<GKHomeHotPaperModel *>*wallpaper;
 @end
 
-@interface GKHomeHotBannerModel : BaseNetModel
+@interface GKHomeHotBannerModel : BaseModel
 @property (copy, nonatomic) NSString *thumb;
 @end
 
-@interface GKHomeHotPaperModel : BaseNetModel
+@interface GKHomeHotPaperModel : BaseModel
 @property (nonatomic, assign) NSInteger atime;
 @property (nonatomic, strong) NSArray * cid;
 @property (nonatomic, assign) BOOL cr;

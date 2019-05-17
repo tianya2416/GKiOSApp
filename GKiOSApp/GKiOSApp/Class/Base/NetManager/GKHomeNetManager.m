@@ -19,6 +19,13 @@
                                failure:(void(^)(NSString *error))failure{
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrlService(@"/v1/wallpaper/category") params:params success:success failure:failure];
 }
++ (NSURLSessionDataTask *)homeCategory:(NSString *)categoryId
+                                params:(NSDictionary *)params
+                               success:(void(^)(id object))success
+                               failure:(void(^)(NSString *error))failure{
+    NSString *urlString = [NSString stringWithFormat:@"/v1/wallpaper/category/%@/wallpaper",categoryId?:@""];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlService(urlString) params:params success:success failure:failure];
+}
 + (NSURLSessionDataTask *)homeNews:(NSDictionary *)params
                            success:(void(^)(id object))success
                            failure:(void(^)(NSString *error))failure{

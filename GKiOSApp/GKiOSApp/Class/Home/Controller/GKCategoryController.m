@@ -9,7 +9,7 @@
 #import "GKCategoryController.h"
 #import "GKHomeCategoryModel.h"
 #import "GKHomeHotCollectionViewCell.h"
-
+#import "GKCategoryItemController.h"
 @interface GKCategoryController()
 
 @end
@@ -38,10 +38,10 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSMutableArray *datas = [[NSMutableArray alloc] init];
-    [self.listData enumerateObjectsUsingBlock:^(GKHomeCategoryModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [datas addObject:obj.cover];
-    }];
-    [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
+    GKHomeCategoryModel *model = self.listData[indexPath.row];
+    GKCategoryItemController *vc = [GKCategoryItemController vcWithCategoryId:model.categoryId];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc showNavTitle:model.rname backItem:YES];
 }
 @end

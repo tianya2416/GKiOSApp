@@ -16,6 +16,7 @@
 		0F0CB6E8228D5BA300EC26EE /* GKNewItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6E6228D5BA300EC26EE /* GKNewItemTableViewCell.m */; };
 		0F0CB6E9228D5BA300EC26EE /* GKNewItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0CB6E7228D5BA300EC26EE /* GKNewItemTableViewCell.xib */; };
 		0F0CB6EC228D696700EC26EE /* GKNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6EB228D696700EC26EE /* GKNewsModel.m */; };
+		0F0CB6EF228D706A00EC26EE /* GKCategoryItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6EE228D706A00EC26EE /* GKCategoryItemController.m */; };
 		0F1AD5EC228A9477008EDE02 /* GKSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AD5EB228A9477008EDE02 /* GKSearchViewController.m */; };
 		0F2398A6228570470059B0FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398A5228570470059B0FE /* AppDelegate.m */; };
 		0F2398AC228570480059B0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AA228570480059B0FE /* Main.storyboard */; };
@@ -72,6 +73,8 @@
 		0F0CB6E7228D5BA300EC26EE /* GKNewItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKNewItemTableViewCell.xib; sourceTree = "<group>"; };
 		0F0CB6EA228D696700EC26EE /* GKNewsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewsModel.h; sourceTree = "<group>"; };
 		0F0CB6EB228D696700EC26EE /* GKNewsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewsModel.m; sourceTree = "<group>"; };
+		0F0CB6ED228D706A00EC26EE /* GKCategoryItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKCategoryItemController.h; sourceTree = "<group>"; };
+		0F0CB6EE228D706A00EC26EE /* GKCategoryItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKCategoryItemController.m; sourceTree = "<group>"; };
 		0F1AD5EA228A9477008EDE02 /* GKSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSearchViewController.h; sourceTree = "<group>"; };
 		0F1AD5EB228A9477008EDE02 /* GKSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSearchViewController.m; sourceTree = "<group>"; };
 		0F2398A1228570470059B0FE /* GKiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +315,8 @@
 				0F2398FB22857F730059B0FE /* GKBaseHomeController.m */,
 				0F8FB77A22891A6000BE91D3 /* GKCategoryController.h */,
 				0F8FB77B22891A6000BE91D3 /* GKCategoryController.m */,
+				0F0CB6ED228D706A00EC26EE /* GKCategoryItemController.h */,
+				0F0CB6EE228D706A00EC26EE /* GKCategoryItemController.m */,
 				0F0CB6E2228D50A900EC26EE /* GKNewItemViewController.h */,
 				0F0CB6E3228D50A900EC26EE /* GKNewItemViewController.m */,
 				0F8FB77D22891A7B00BE91D3 /* GKNewsController.h */,
@@ -521,6 +526,7 @@
 				0F2398E5228572510059B0FE /* BaseMacro.m in Sources */,
 				0F8FB77922891A4D00BE91D3 /* GKRecommendController.m in Sources */,
 				0F2398B4228570490059B0FE /* main.m in Sources */,
+				0F0CB6EF228D706A00EC26EE /* GKCategoryItemController.m in Sources */,
 				0F2398E0228572510059B0FE /* BaseViewController.m in Sources */,
 				0F8FB77F22891A7B00BE91D3 /* GKNewsController.m in Sources */,
 				0F2398E4228572510059B0FE /* BaseModel.m in Sources */,

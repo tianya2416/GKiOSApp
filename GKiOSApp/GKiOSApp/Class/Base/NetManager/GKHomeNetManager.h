@@ -17,6 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSURLSessionDataTask *)homeCategory:(NSDictionary *)params
                                success:(void(^)(id object))success
                                failure:(void(^)(NSString *error))failure;
++ (NSURLSessionDataTask *)homeCategory:(NSString *)categoryId
+                                params:(NSDictionary *)params
+                               success:(void(^)(id object))success
+                               failure:(void(^)(NSString *error))failure;
+
+
 + (NSURLSessionDataTask *)homeNews:(NSDictionary *)params
                            success:(void(^)(id object))success
                            failure:(void(^)(NSString *error))failure;

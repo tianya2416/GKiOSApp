@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKHomeCategoryModel : GKHomeHotPaperModel
-
+@property (copy, nonatomic) NSString *categoryId;
 @end
 
 @interface GKHomeNewsModel : GKHomeHotPaperModel

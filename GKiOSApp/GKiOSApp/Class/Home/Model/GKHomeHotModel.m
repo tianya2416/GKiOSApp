@@ -18,5 +18,4 @@
 
 @end
 @implementation GKHomeHotPaperModel
-
 @end
