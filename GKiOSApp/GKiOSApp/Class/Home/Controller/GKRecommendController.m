@@ -21,7 +21,9 @@
     [self setupEmpty:self.collectionView];
     [self setupRefresh:self.collectionView option:ATHeaderRefresh|ATHeaderAutoRefresh];
     [GKUserManager needLogin:^(BOOL success) {
-        
+        if (success) {
+            NSLog(@"登录成功");
+        }
     }];
 }
 - (void)refreshData:(NSInteger)page{

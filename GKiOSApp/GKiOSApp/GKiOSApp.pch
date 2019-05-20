@@ -34,13 +34,12 @@
 #import "GKUserManager.h"
 #import "ATAlertView.h"
 #pragma mark login
-#define App_DB       @"mssql"
-#define App_LoginURL @"http://cxc3561713.gnway.cc:28199/restful/rpc"
+#define App_DB       @"ecom"
+#define App_LoginURL @"http://27.154.58.198:28099/restful/rpc"
 
-
-#define URL_Service @"http://service.picasso.adesk.com"
-#define URL_So      @"http://so.picasso.adesk.com"
-#define URL_News    @"http://api.ipadown.com/apple-news-client/news.list.php?"
+#define URL_Service  @"http://service.picasso.adesk.com"
+#define URL_So       @"http://so.picasso.adesk.com"
+#define URL_News     @"http://api.ipadown.com/apple-news-client/news.list.php?"
 
 #define kUrlService(url)  [NSString stringWithFormat:@"%@%@", URL_Service, url]
 #define kUrlSo(url)       [NSString stringWithFormat:@"%@%@", URL_So, url]

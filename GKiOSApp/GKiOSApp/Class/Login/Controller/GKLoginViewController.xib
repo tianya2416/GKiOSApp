@@ -90,20 +90,40 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQQ-Nv-ntB">
+                    <rect key="frame" x="20" y="215" width="82" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                    <state key="normal" title="忘记密码">
+                        <color key="titleColor" red="1" green="0.50980392159999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdI-CV-hjj">
+                    <rect key="frame" x="273" y="215" width="82" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                    <state key="normal" title="注册账号">
+                        <color key="titleColor" red="1" green="0.50980392159999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="EQQ-Nv-ntB" firstAttribute="top" secondItem="GUZ-NU-q5d" secondAttribute="bottom" constant="10" id="22Z-Nd-vqF"/>
                 <constraint firstAttribute="trailing" secondItem="sxs-ih-yJj" secondAttribute="trailing" constant="20" id="4CL-Mb-0vP"/>
                 <constraint firstItem="4Bg-Nt-M8c" firstAttribute="trailing" secondItem="FSi-ad-78O" secondAttribute="trailing" id="EQD-ei-YHP"/>
                 <constraint firstItem="4Bg-Nt-M8c" firstAttribute="height" secondItem="FSi-ad-78O" secondAttribute="height" id="IMH-zL-xEX"/>
                 <constraint firstItem="lHI-fg-AC9" firstAttribute="trailing" secondItem="sxs-ih-yJj" secondAttribute="trailing" id="Ilc-5H-5XB"/>
                 <constraint firstItem="GUZ-NU-q5d" firstAttribute="trailing" secondItem="lHI-fg-AC9" secondAttribute="trailing" id="S7I-X3-CgM"/>
                 <constraint firstItem="GUZ-NU-q5d" firstAttribute="leading" secondItem="lHI-fg-AC9" secondAttribute="leading" id="VsK-N3-2YJ"/>
+                <constraint firstItem="VdI-CV-hjj" firstAttribute="trailing" secondItem="GUZ-NU-q5d" secondAttribute="trailing" id="ZaX-kR-fe7"/>
+                <constraint firstItem="VdI-CV-hjj" firstAttribute="centerY" secondItem="EQQ-Nv-ntB" secondAttribute="centerY" id="aRW-cs-JJV"/>
                 <constraint firstItem="lHI-fg-AC9" firstAttribute="top" secondItem="sxs-ih-yJj" secondAttribute="bottom" constant="10" id="hwh-40-w3n"/>
                 <constraint firstItem="4Bg-Nt-M8c" firstAttribute="leading" secondItem="FSi-ad-78O" secondAttribute="leading" id="kG9-jy-xWX"/>
                 <constraint firstItem="sxs-ih-yJj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="lyM-Ik-UQA"/>
                 <constraint firstItem="GUZ-NU-q5d" firstAttribute="top" secondItem="lHI-fg-AC9" secondAttribute="bottom" constant="30" id="mNm-kp-NF6"/>
                 <constraint firstItem="lHI-fg-AC9" firstAttribute="leading" secondItem="sxs-ih-yJj" secondAttribute="leading" id="oAz-Nx-9vT"/>
+                <constraint firstItem="EQQ-Nv-ntB" firstAttribute="leading" secondItem="GUZ-NU-q5d" secondAttribute="leading" id="pfr-fo-1Vh"/>
                 <constraint firstItem="sxs-ih-yJj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="wp2-bN-URX"/>
             </constraints>
         </view>

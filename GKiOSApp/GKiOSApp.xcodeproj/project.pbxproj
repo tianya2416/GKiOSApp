@@ -405,14 +405,14 @@
 		0F8FB78322894C0600BE91D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0F8FB78422894C8000BE91D3 /* GKHomeHotModel.h */,
-				0F8FB78522894C8000BE91D3 /* GKHomeHotModel.m */,
 				0F8FB78D22896B3E00BE91D3 /* GKHomeCategoryModel.h */,
 				0F8FB78E22896B3E00BE91D3 /* GKHomeCategoryModel.m */,
-				0F58F491228BFDCC00FA5BD0 /* GKSearchModel.h */,
-				0F58F492228BFDCC00FA5BD0 /* GKSearchModel.m */,
+				0F8FB78422894C8000BE91D3 /* GKHomeHotModel.h */,
+				0F8FB78522894C8000BE91D3 /* GKHomeHotModel.m */,
 				0F0CB6EA228D696700EC26EE /* GKNewsModel.h */,
 				0F0CB6EB228D696700EC26EE /* GKNewsModel.m */,
+				0F58F491228BFDCC00FA5BD0 /* GKSearchModel.h */,
+				0F58F492228BFDCC00FA5BD0 /* GKSearchModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
