@@ -91,6 +91,8 @@
         [UIView animateWithDuration:0.3 animations:^{
             self.imageV.alpha = 0.0f;
             [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            
         }];
     }
     NSLog(@"statusDidChange %@========%lf",@(state), [player getVolume]);

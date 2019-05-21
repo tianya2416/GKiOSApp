@@ -61,6 +61,7 @@
         }else{
             [self endRefresh:NO];
         }
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"NotificationSet" object:@{@"count":@(self.listData.count)}];
     }];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

@@ -11,7 +11,7 @@
 #import "GKSetViewController.h"
 #import "GKNewViewController.h"
 #import "GKVideoHomeController.h"
-@interface GKTabViewController ()
+@interface GKTabViewController ()<UITabBarControllerDelegate>
 
 @end
 
@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadUI];
+    [self loadNotification];
     // Do any additional setup after loading the view.
 }
 - (void)loadUI{
@@ -46,6 +47,23 @@
     self.viewControllers = listNV;
     self.tabBar.translucent = NO;
     self.view.backgroundColor = [UIColor whiteColor];
+    self.delegate = self;
 }
-
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    NSInteger selectedIndex = [tabBarController.viewControllers indexOfObject:viewController];
+    if (selectedIndex == 3) {
+        [self notificationAction:nil];
+    }
+}
+- (void)loadNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationAction:) name:@"NotificationSet" object:nil];
+}
+- (void)notificationAction:(NSNotification *)notification{
+    if ([notification.name isEqualToString:@"NotificationSet"]) {
+        NSDictionary *userInfo = notification.object;
+        NSInteger count = [userInfo[@"count"] integerValue];
+        UIViewController *vc = self.viewControllers.lastObject;
+        vc.tabBarItem.badgeValue = count > 0 ? [NSString stringWithFormat:@"%@",@(count)] : nil;
+    }
+}
 @end
