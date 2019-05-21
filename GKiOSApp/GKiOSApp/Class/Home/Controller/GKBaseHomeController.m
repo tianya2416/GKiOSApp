@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
     self.listTitles = @[@"推荐",@"分类",@"最新"];
     GKRecommendController *vcRecom = [[GKRecommendController alloc] init];
     GKCategoryController *vcCategory = [[GKCategoryController alloc] init];
@@ -32,23 +33,38 @@
     self.listControllers = @[vcRecom,vcCategory,vcNews];
     
     [self addChildViewController:self.magicController];
-    [self.view addSubview:self.magicController.view];
+    [self.view addSubview:_magicController.view];
     [self.view setNeedsUpdateConstraints];
-    UIView * magicView = self.magicController.view;
-    [magicView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsZero);
-    }];
     [self.magicController.magicView reloadData];
     [self integrateComponents];
     // Do any additional setup after loading the view.
+}
+- (void)updateViewConstraints {
+    UIView *magicView = _magicController.view;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[magicView]-0-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:NSDictionaryOfVariableBindings(magicView)]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[magicView]-0-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:NSDictionaryOfVariableBindings(magicView)]];
+    
+    [super updateViewConstraints];
 }
 - (void)integrateComponents {
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [searchButton setImage:[UIImage imageNamed:@"search_white"] forState:UIControlStateNormal];
     [searchButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
     searchButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    searchButton.frame = CGRectMake(0, 0,60, 40);
-    [self.magicController.magicView setRightNavigatoinItem:searchButton];
+    if (iPhone_Bang) {
+        searchButton.frame = CGRectMake(0,0,50,64);
+        [searchButton setImageEdgeInsets:UIEdgeInsetsMake(10, 0, -10, 0)];
+    }else{
+        searchButton.frame = CGRectMake(0,0,50,44);
+    }
+    self.magicController.magicView.rightNavigatoinItem = searchButton;
+//    [self.magicController.magicView setRightNavigatoinItem:searchButton];
 }
 - (void)searchAction{
     GKSearchViewController *vc = [[GKSearchViewController alloc] init];
@@ -106,28 +122,28 @@
     
     if (!_magicController) {
         _magicController = [[VTMagicController alloc] init];
-        _magicController.magicView.separatorHeight = 0.0f;
-        _magicController.magicView.backgroundColor = [UIColor whiteColor];
-        _magicController.magicView.navigationInset = UIEdgeInsetsMake(0, 12, 0, 12);
-        _magicController.magicView.navigationColor = AppColor;
+        _magicController.view.translatesAutoresizingMaskIntoConstraints = NO;
         _magicController.magicView.switchStyle = VTSwitchStyleDefault;
+        _magicController.magicView.layoutStyle = VTLayoutStyleDefault;
+        
+        _magicController.magicView.backgroundColor = [UIColor whiteColor];
+//        _magicController.magicView.navigationInset = UIEdgeInsetsMake(0, 12, 0, 12);
+        _magicController.magicView.navigationColor = AppColor;
+        
         
         _magicController.magicView.sliderColor = [UIColor colorWithRGB:0xffffff];
         _magicController.magicView.sliderExtension = 2;
         _magicController.magicView.bubbleRadius = 2;
         _magicController.magicView.sliderWidth = 35;
-        
-        _magicController.magicView.layoutStyle = VTLayoutStyleDefault;
-        _magicController.magicView.navigationHeight = 44.0;
+        _magicController.magicView.navigationHeight = 44;
+        _magicController.magicView.headerHeight = 44;
         _magicController.magicView.sliderHeight = 4.0;
         _magicController.magicView.itemSpacing = 20;
         
         _magicController.magicView.againstStatusBar = YES;
         _magicController.magicView.dataSource = self;
         _magicController.magicView.delegate = self;
-        _magicController.magicView.separatorColor = [UIColor colorWithRGB:0xffffff];
         _magicController.magicView.needPreloading = true;
-        _magicController.magicView.bounces = false;
         
     }
     return _magicController;

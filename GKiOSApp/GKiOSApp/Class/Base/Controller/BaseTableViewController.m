@@ -17,14 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.tableView.superview);
-    }];
+
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    [temp addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_tableView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_tableView)]];
+    [temp addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_tableView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_tableView)]];
+    [self.view addConstraints:temp];
+    
     self.tableView.tableHeaderView = [UIView new];
     self.tableView.tableFooterView = [UIView new];
-//    [self setupEmpty:self.tableView];
-//    [self setupRefresh:self.tableView option:ATRefreshNone];
-//    [self headerRefreshing];
 }
 
 - (UITableView *)tableView

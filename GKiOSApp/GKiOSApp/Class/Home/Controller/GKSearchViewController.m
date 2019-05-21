@@ -108,7 +108,7 @@
 - (NSString *)timeStampTurnToTimesType:(NSString *)timesTamp
 {
     NSTimeInterval interval    = [timesTamp doubleValue];
-    NSDate *date               = [NSDate dateWithTimeIntervalSinceNow:interval];
+    NSDate *date               = [NSDate dateWithTimeIntervalSince1970:interval];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY/MM/dd HH:mm:ss"];
     NSString *dateString       = [formatter stringFromDate: date];

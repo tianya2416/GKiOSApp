@@ -17,9 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.collectionView];
-    [self.collectionView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.bottom.equalTo(self.collectionView.superview);
-    }];
+    
+    [self.collectionView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    [temp addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[_collectionView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_collectionView)]];
+    [temp addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_collectionView]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_collectionView)]];
+    [self.view addConstraints:temp];
+    
     self.collectionView.backgroundColor = [UIColor colorWithRGB:0xffffff];
 }
 

@@ -9,7 +9,6 @@
 #import "BaseViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
-#import <Masonry.h>
 #import <YYKit.h>
 #import <KVOController.h>
 /**

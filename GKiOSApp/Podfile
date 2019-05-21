@@ -23,6 +23,7 @@ target :GKiOSApp  do
     pod 'MGJRouter'
     pod 'FDFullscreenPopGesture', '1.1'
     pod 'PLPlayerKit', :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
+    pod 'TXLiteAVSDK_Player'
     pod 'HHTransition'
     pod 'VTMagic'
     pod 'SDCycleScrollView'

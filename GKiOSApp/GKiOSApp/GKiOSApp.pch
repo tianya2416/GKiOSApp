@@ -19,6 +19,7 @@
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "VTMagic.h"
 #import "MBProgressHUD+ATAdd.h"
+#import "TXLiteAVSDK.h"
 
 #import "BaseMacro.h"
 #import "BaseModel.h"

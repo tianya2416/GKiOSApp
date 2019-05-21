@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.watchBtn setTitleColor:AppColor forState:UIControlStateNormal];
+    self.watchBtn.userInteractionEnabled = NO;
     // Initialization code
 }
 
@@ -26,5 +28,6 @@
     self.subTitleLab.text = model.desc ?:@"";
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.litpic] completed:nil];
     self.timeLab.text = model.pubDate ?:@"";
+    [self.watchBtn setTitle:model.views forState:UIControlStateNormal];
 }
 @end

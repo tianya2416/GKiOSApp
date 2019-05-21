@@ -10,6 +10,7 @@
 #import "GKBaseHomeController.h"
 #import "GKSetViewController.h"
 #import "GKNewViewController.h"
+#import "GKVideoHomeController.h"
 @interface GKTabViewController ()
 
 @end
@@ -24,11 +25,12 @@
 - (void)loadUI{
     GKBaseHomeController *vcHome = [[GKBaseHomeController alloc]init];
     GKNewViewController * vcMy = [[GKNewViewController alloc]init];
+    GKVideoHomeController *video = [[GKVideoHomeController alloc] init];
     GKSetViewController * vcInfo = [[GKSetViewController alloc]init];
-    NSArray *titles = @[@"首页",@"新闻",@"设置"];
-    NSArray *listNormal = @[@"item-01-normal",@"item-02-normal",@"item-04-normal"];
-    NSArray *listHi = @[@"item-01-select",@"item-02-select",@"item-04-select"];
-    NSArray *listVc =@[vcHome,vcMy,vcInfo];
+    NSArray *titles = @[@"首页",@"新闻",@"视频",@"设置"];
+    NSArray *listNormal = @[@"item-01-normal",@"item-02-normal",@"item-03-normal",@"item-04-normal"];
+    NSArray *listHi = @[@"item-01-select",@"item-02-select",@"item-03-select",@"item-04-select"];
+    NSArray *listVc =@[vcHome,vcMy,video,vcInfo];
     
     
     NSMutableArray *listNV = [[NSMutableArray alloc] init];
