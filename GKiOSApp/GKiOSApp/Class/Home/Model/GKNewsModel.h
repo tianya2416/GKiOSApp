@@ -13,17 +13,24 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GKNewsModel : BaseModel
 
 @property (copy, nonatomic) NSString *title;
-@property (copy, nonatomic) NSString *desc;
-@property (copy, nonatomic) NSString *link;
-@property (copy, nonatomic) NSString *litpic;
-@property (copy, nonatomic) NSString *litpic_2;
-@property (copy, nonatomic) NSString *news_id;
-@property (copy, nonatomic) NSString *pubDate;
-@property (copy, nonatomic) NSString *tags;
-@property (copy, nonatomic) NSString *views;
-@property (copy, nonatomic) NSString *writer;
+@property (copy, nonatomic) NSString *digest;
+@property (copy, nonatomic) NSString *imgsrc;
+
+@property (copy, nonatomic) NSString *mtime;
+@property (copy, nonatomic) NSString *url;
+@property (copy, nonatomic) NSString *url_3w;
+@property (copy, nonatomic) NSString *votecount;
+//@property (copy, nonatomic) NSString *tags;
+//@property (copy, nonatomic) NSString *views;
+//@property (copy, nonatomic) NSString *writer;
 
 
 @end
+
+@interface GKNewsTopModel : BaseModel
+@property (copy, nonatomic) NSString *tname;
+@property (copy, nonatomic) NSString *tid;
+@end
+
 
 NS_ASSUME_NONNULL_END

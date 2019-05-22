@@ -8,7 +8,6 @@
 
 #import "GKVideoContentController.h"
 #import "GKVideoItemController.h"
-
 @interface GKVideoContentController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 @property (assign, nonatomic) NSInteger index;
 @property (strong, nonatomic) NSArray <GKVideoModel *>*listDatas;
@@ -29,6 +28,9 @@
     [super viewDidLoad];
     [self loadUI];
     [self loadData];
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 - (void)loadUI{
     self.fd_prefersNavigationBarHidden = YES;

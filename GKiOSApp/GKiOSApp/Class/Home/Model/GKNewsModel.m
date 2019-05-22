@@ -11,3 +11,6 @@
 @implementation GKNewsModel
 
 @end
+@implementation GKNewsTopModel
+
+@end

@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) PLPlayer *player;
 @property (nonatomic, strong) UIImageView *imageV;
+@property (nonatomic, strong) UIPanGestureRecognizer *panRecognizer;
 @end
 
 @implementation GKVideoItemController

@@ -7,7 +7,7 @@
 //
 
 #import "BaseNetManager.h"
-static BOOL AFRequest = YES;
+static BOOL AFRequest = NO;
 @implementation BaseNetManager
 - (void)dealloc
 {

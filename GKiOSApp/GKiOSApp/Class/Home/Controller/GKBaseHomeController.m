@@ -7,6 +7,7 @@
 //
 
 #import "GKBaseHomeController.h"
+#import "GKDetailViewController.h"
 #import "GKNewsController.h"
 #import "GKCategoryController.h"
 #import "GKRecommendController.h"
@@ -171,7 +172,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat width = (SCREEN_WIDTH - 3*1)/2.0;
-    CGFloat height = width * 1.35;
+    CGFloat height = width * 1.4;
     return CGSizeMake(width, height);
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -191,15 +192,11 @@
     return 1;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSMutableArray *datas = [[NSMutableArray alloc] init];
-    [self.listData enumerateObjectsUsingBlock:^(GKBabyModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.coverImgUrl) {
-            [datas addObject:obj.coverImgUrl];
-        }
-    }];
-    if (datas.count) {
-         [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
-    }
+    GKBabyModel *model = self.listData[indexPath.row];
+    GKDetailViewController *vc = [GKDetailViewController vcWithGid:model.gId];
+    vc.hidesBottomBarWhenPushed = YES;
+    [vc showNavTitle:model.gName];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSMutableArray *)listData{
     if (!_listData) {

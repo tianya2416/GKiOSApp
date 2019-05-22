@@ -18,10 +18,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="81.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1E-vn-Mxj">
-                        <rect key="frame" x="15" y="20" width="290" height="41.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="246" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1E-vn-Mxj">
+                        <rect key="frame" x="15" y="20" width="273" height="41.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGm-lj-lIn">
+                        <rect key="frame" x="277" y="33" width="33" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vt-pV-60g">
@@ -34,18 +40,21 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="j1E-vn-Mxj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="AJK-6u-MVR"/>
+                    <constraint firstItem="RGm-lj-lIn" firstAttribute="centerY" secondItem="j1E-vn-Mxj" secondAttribute="centerY" id="FO9-sI-EP3"/>
                     <constraint firstAttribute="trailing" secondItem="8vt-pV-60g" secondAttribute="trailing" id="IWP-4T-yc4"/>
                     <constraint firstAttribute="bottom" secondItem="j1E-vn-Mxj" secondAttribute="bottom" constant="20" id="LqD-Hp-fAm"/>
                     <constraint firstAttribute="bottom" secondItem="8vt-pV-60g" secondAttribute="bottom" id="QTo-0w-eJN"/>
+                    <constraint firstAttribute="trailing" secondItem="RGm-lj-lIn" secondAttribute="trailing" constant="10" id="bMc-m5-bSg"/>
+                    <constraint firstItem="RGm-lj-lIn" firstAttribute="leading" secondItem="j1E-vn-Mxj" secondAttribute="trailing" constant="-11" id="fgW-uz-3UP"/>
                     <constraint firstItem="8vt-pV-60g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="g8s-Mw-yKM"/>
                     <constraint firstItem="j1E-vn-Mxj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="jka-2s-BrL"/>
-                    <constraint firstAttribute="trailing" secondItem="j1E-vn-Mxj" secondAttribute="trailing" constant="15" id="uxC-J4-1q2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="subTitleLab" destination="RGm-lj-lIn" id="bC1-ii-4dW"/>
                 <outlet property="titleLab" destination="j1E-vn-Mxj" id="HbG-hR-4cY"/>
             </connections>
-            <point key="canvasLocation" x="137.59999999999999" y="143.92803598200899"/>
+            <point key="canvasLocation" x="137.59999999999999" y="143.02848575712144"/>
         </tableViewCell>
     </objects>
 </document>

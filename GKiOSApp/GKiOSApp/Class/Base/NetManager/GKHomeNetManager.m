@@ -46,14 +46,26 @@
 //    NSString *urlString = [NSString stringWithFormat:@"/v1/search/all/resource/%@?",searchText?:@""];
 //    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlSo(urlString) params:params success:success failure:failure];
 }
-
++ (NSURLSessionDataTask *)detail:(NSString *)gId
+                         success:(void(^)(id object))success
+                         failure:(void(^)(NSString *error))failure{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"gId"]= gId ?:@"";
+    CGRect rect = [UIScreen mainScreen].bounds;
+    NSInteger width = (int) (rect.size.width * 2);
+    NSInteger height = (int) (rect.size.height * 2);
+    width = height < 961 ? 320 : 480;
+    height = height < 961 ? 480 : 854;
+    params[@"picSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
+     return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"/corp/bizhiClient/getGroupPic.php") params:params success:success failure:failure];
+}
 + (NSURLSessionDataTask *)newHot:(NSString *)categoryId
                             page:(NSInteger)page
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure{
-    
-    NSString *urlStr = [NSString stringWithFormat:@"%@category_ids=%@&max_id=0&count=%@", URL_News, categoryId?:@"",@(20)];
-    return [GKHomeNetManager method:HttpMethodGet urlString:urlStr params:nil success:success failure:failure];
+    NSString *url = [NSString stringWithFormat:@"article/headline/%@/%@-20.html",categoryId,@((page - 1)*20)];
+//    NSString *urlStr = [NSString stringWithFormat:@"%@category_ids=%@&max_id=0&count=%@", URL_News, categoryId?:@"",@(20)];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
 
 + (NSURLSessionDataTask *)app_login:(NSString *)account

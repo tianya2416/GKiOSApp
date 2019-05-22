@@ -49,10 +49,11 @@
 
 #define placeholders [UIImage imageWithColor:[UIColor colorWithRGB:0xf6f6f6]]
 
-#define URL_Kyon       @"http://kyson.cn/wallpaper/index.php"
 #define URL_Wall       @"http://sj.zol.com.cn"
-#define kUrlWall(url)  [NSString stringWithFormat:@"%@%@", URL_Wall, url]
-#define kUrlKyon(url)  [NSString stringWithFormat:@"%@%@", URL_Kyon, url]
+#define URL_163New     @"http://c.m.163.com/nc/"
+
+#define kUrlWall(url)    [NSString stringWithFormat:@"%@%@", URL_Wall, url]
+#define kUrl163New(url)  [NSString stringWithFormat:@"%@%@", URL_163New, url]
 
 
 #endif /* GKiOSApp_pch */

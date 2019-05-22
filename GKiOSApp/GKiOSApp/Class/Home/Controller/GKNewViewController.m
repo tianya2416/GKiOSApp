@@ -8,10 +8,11 @@
 
 #import "GKNewViewController.h"
 #import "GKNewItemViewController.h"
+#import "GKNewsModel.h"
 @interface GKNewViewController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 @property (strong, nonatomic) VTMagicController * magicController;
-@property (strong, nonatomic) NSArray *listTitles;
-@property (strong, nonatomic) NSArray *listCategorys;
+@property (strong, nonatomic) NSMutableArray *listTitles;
+@property (strong, nonatomic) NSArray *listData;
 @end
 
 @implementation GKNewViewController
@@ -26,11 +27,27 @@
     [magicView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
-    self.listTitles = @[@"全部", @"头条",@"快讯", @"游戏", @"应用",@"业界", @"Jobs",@"库克",@"炫配",@"活动",@"ipone技巧", @"iPad技巧", @"Mac技巧",@"iTunes技巧"];
-    self.listCategorys = @[@"0", @"9999",@"1",@"11",@"1967",@"4",@"43",@"2634",@"3",@"8", @"6", @"5", @"230", @"12"];
+//    self.listTitles = @[@"全部", @"头条",@"快讯", @"游戏", @"应用",@"业界", @"Jobs",@"库克",@"炫配",@"活动",@"ipone技巧", @"iPad技巧", @"Mac技巧",@"iTunes技巧"];
+//    self.listCategorys = @[@"0", @"9999",@"1",@"11",@"1967",@"4",@"43",@"2634",@"3",@"8", @"6", @"5", @"230", @"12"];
+    [self loadData];
+}
+- (void)loadData{
+    self.listTitles = @[].mutableCopy;
+    NSError *error = nil;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"topic_news" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    if (!error) {
+        self.listData = [NSArray modelArrayWithClass:GKNewsTopModel.class json:rootDict[@"tList"]];
+        [self.listData  enumerateObjectsUsingBlock:^(GKNewsTopModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.listTitles addObject:obj.tname];
+            if (self.listTitles.count > 9) {
+                *stop = YES;
+            }
+        }];
+    }
     [self.magicController.magicView reloadData];
 }
-
 #pragma mark VTMagicViewDataSource,VTMagicViewDelegate
 /**
  *  获取所有菜单名，数组中存放字符串类型对象
@@ -81,7 +98,8 @@
     {
         viewCtrl = [[GKNewItemViewController alloc] init];
     }
-    viewCtrl.categoryId = self.listCategorys[pageIndex];
+    GKNewsTopModel *model = self.listData[pageIndex];
+    viewCtrl.categoryId = model.tid;
     return viewCtrl;
 }
 -(VTMagicController *)magicController {

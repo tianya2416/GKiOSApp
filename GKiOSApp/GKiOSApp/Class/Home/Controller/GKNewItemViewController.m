@@ -10,11 +10,12 @@
 #import "GKNewItemTableViewCell.h"
 #import "GKNewsModel.h"
 @interface GKNewItemViewController()
-@property (strong, nonatomic) NSArray *listData;
+@property (strong, nonatomic) NSMutableArray *listData;
 @end
 @implementation GKNewItemViewController
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.listData = @[].mutableCopy;
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATRefreshDefault];
 
@@ -24,11 +25,15 @@
     [self refreshData:1];
 }
 - (void)refreshData:(NSInteger)page{
-    [GKHomeNetManager newHot:self.categoryId page:20 success:^(id  _Nonnull object) {
+    [GKHomeNetManager newHot:self.categoryId page:page success:^(id  _Nonnull object) {
         NSLog(@"====%@",object);
-        self.listData = [NSArray modelArrayWithClass:GKNewsModel.class json:object];
+        if (page == 1) {
+            [self.listData removeAllObjects];
+        }
+        NSArray *datas = [NSArray modelArrayWithClass:GKNewsModel.class json:object[self.categoryId]];
+        [self.listData addObjectsFromArray:datas];
         [self.tableView reloadData];
-        [self endRefresh:NO];
+        [self endRefresh:datas.count >=20];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];

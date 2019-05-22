@@ -50,6 +50,7 @@
 		0F239900228580010059B0FE /* GKTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398FF228580010059B0FE /* GKTabViewController.m */; };
 		0F239903228580790059B0FE /* GKNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F239902228580790059B0FE /* GKNewViewController.m */; };
 		0F239906228580880059B0FE /* GKSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F239905228580880059B0FE /* GKSetViewController.m */; };
+		0F2654CD22952020004B3439 /* GKDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2654CC22952020004B3439 /* GKDetailViewController.m */; };
 		0F58F490228BFC5700FA5BD0 /* BaseDataQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F58F48F228BFC5700FA5BD0 /* BaseDataQueue.m */; };
 		0F58F493228BFDCC00FA5BD0 /* GKSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F58F492228BFDCC00FA5BD0 /* GKSearchModel.m */; };
 		0F58F496228BFE4F00FA5BD0 /* GKDataQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F58F495228BFE4F00FA5BD0 /* GKDataQueue.m */; };
@@ -67,6 +68,8 @@
 		0F8FB79322896ED500BE91D3 /* GKHomeCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB79122896ED500BE91D3 /* GKHomeCollectionReusableView.m */; };
 		0F8FB79422896ED500BE91D3 /* GKHomeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FB79222896ED500BE91D3 /* GKHomeCollectionReusableView.xib */; };
 		0F9F2BA622929DCD008F5849 /* GKVideoContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9F2BA522929DCD008F5849 /* GKVideoContentController.m */; };
+		0FCE07C4229521BD005AEA17 /* GKDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE07C3229521BD005AEA17 /* GKDetailModel.m */; };
+		0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FCE07CB22955A4C005AEA17 /* topic_news.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +152,8 @@
 		0F239902228580790059B0FE /* GKNewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewViewController.m; sourceTree = "<group>"; };
 		0F239904228580880059B0FE /* GKSetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSetViewController.h; sourceTree = "<group>"; };
 		0F239905228580880059B0FE /* GKSetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSetViewController.m; sourceTree = "<group>"; };
+		0F2654CB22952020004B3439 /* GKDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDetailViewController.h; sourceTree = "<group>"; };
+		0F2654CC22952020004B3439 /* GKDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDetailViewController.m; sourceTree = "<group>"; };
 		0F58F48E228BFC5700FA5BD0 /* BaseDataQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDataQueue.h; sourceTree = "<group>"; };
 		0F58F48F228BFC5700FA5BD0 /* BaseDataQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDataQueue.m; sourceTree = "<group>"; };
 		0F58F491228BFDCC00FA5BD0 /* GKSearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSearchModel.h; sourceTree = "<group>"; };
@@ -180,6 +185,9 @@
 		0F8FB79222896ED500BE91D3 /* GKHomeCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKHomeCollectionReusableView.xib; sourceTree = "<group>"; };
 		0F9F2BA422929DCD008F5849 /* GKVideoContentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKVideoContentController.h; sourceTree = "<group>"; };
 		0F9F2BA522929DCD008F5849 /* GKVideoContentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKVideoContentController.m; sourceTree = "<group>"; };
+		0FCE07C2229521BD005AEA17 /* GKDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKDetailModel.h; sourceTree = "<group>"; };
+		0FCE07C3229521BD005AEA17 /* GKDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKDetailModel.m; sourceTree = "<group>"; };
+		0FCE07CB22955A4C005AEA17 /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
 		35E854B162092ECD48AFEEB7 /* libPods-GKiOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GKiOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5946029D4F68ADA9F297FE29 /* Pods-GKiOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.debug.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FDBC29D23DEA47242B9937C2 /* Pods-GKiOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.release.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +216,7 @@
 		0F096C632292945C009E0AF5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0FCE07CB22955A4C005AEA17 /* topic_news.json */,
 				0F096C642292948B009E0AF5 /* data.json */,
 			);
 			path = Resources;
@@ -424,6 +433,8 @@
 				0F9F2BA522929DCD008F5849 /* GKVideoContentController.m */,
 				0F8C9F6D2292A007000C5934 /* GKVideoItemController.h */,
 				0F8C9F6E2292A007000C5934 /* GKVideoItemController.m */,
+				0F2654CB22952020004B3439 /* GKDetailViewController.h */,
+				0F2654CC22952020004B3439 /* GKDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -441,6 +452,8 @@
 				0F58F492228BFDCC00FA5BD0 /* GKSearchModel.m */,
 				0F096C69229296A0009E0AF5 /* GKVideoModel.h */,
 				0F096C6A229296A0009E0AF5 /* GKVideoModel.m */,
+				0FCE07C2229521BD005AEA17 /* GKDetailModel.h */,
+				0FCE07C3229521BD005AEA17 /* GKDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -543,6 +556,7 @@
 				0F58F49B228C06FD00FA5BD0 /* GKSearchViewCell.xib in Resources */,
 				0F2398AE228570490059B0FE /* Assets.xcassets in Resources */,
 				0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */,
+				0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */,
 				0F0CB6E9228D5BA300EC26EE /* GKNewItemTableViewCell.xib in Resources */,
 				0F8FB79422896ED500BE91D3 /* GKHomeCollectionReusableView.xib in Resources */,
 				0F2398AC228570480059B0FE /* Main.storyboard in Resources */,
@@ -630,6 +644,7 @@
 				0F8FB77F22891A7B00BE91D3 /* GKNewsController.m in Sources */,
 				0F2398E4228572510059B0FE /* BaseModel.m in Sources */,
 				0F58F496228BFE4F00FA5BD0 /* GKDataQueue.m in Sources */,
+				0F2654CD22952020004B3439 /* GKDetailViewController.m in Sources */,
 				0F186FE1228EA1C7006B825E /* GKUserManager.m in Sources */,
 				0F0CB6D5228D381E00EC26EE /* ATBrowserTool.m in Sources */,
 				0F0CB6E8228D5BA300EC26EE /* GKNewItemTableViewCell.m in Sources */,
@@ -660,6 +675,7 @@
 				0F186FE4228EA806006B825E /* ATAlertView.m in Sources */,
 				0F2398FD22857F730059B0FE /* GKBaseHomeController.m in Sources */,
 				0F2398E7228572510059B0FE /* BaseCell.m in Sources */,
+				0FCE07C4229521BD005AEA17 /* GKDetailModel.m in Sources */,
 				0F2398E1228572510059B0FE /* BaseNavigationController.m in Sources */,
 				0F2398EA228572510059B0FE /* BaseNetManager.m in Sources */,
 				0F2398E8228572510059B0FE /* BaseView.m in Sources */,

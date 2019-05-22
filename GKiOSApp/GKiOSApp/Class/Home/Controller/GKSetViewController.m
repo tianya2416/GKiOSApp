@@ -12,10 +12,11 @@
 static NSString *about = @"关于我们";
 static NSString *video =  @"视频介绍";
 static NSString *info =  @"版权信息";
-static NSString *tenec = @"技术支持";
+static NSString *tenec = @"清除缓存";
 static NSString *loginOut = @"退出登录";
 @interface GKSetViewController ()
 @property (strong, nonatomic) NSArray *listData;
+@property (strong, nonatomic) NSArray *listValue;
 @end
 
 @implementation GKSetViewController
@@ -29,6 +30,7 @@ static NSString *loginOut = @"退出登录";
 }
 - (void)refreshData:(NSInteger)page{
     self.listData = @[about,video,info,tenec,loginOut];
+    //self.listValue = @[@"",@"",@"",cache,@""];
     [self.tableView reloadData];
     [self endRefresh:NO];
 }
@@ -44,6 +46,7 @@ static NSString *loginOut = @"退出登录";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GKSetTableViewCell *cell = [GKSetTableViewCell cellForTableView:tableView indexPath:indexPath];
     cell.titleLab.text = self.listData[indexPath.row];
+    cell.subTitleLab.text = @"";
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
