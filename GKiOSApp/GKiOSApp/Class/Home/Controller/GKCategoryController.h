@@ -7,10 +7,10 @@
 //
 
 #import "GKBaseHomeController.h"
-
+#import "BaseTableViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKCategoryController : GKBaseHotController
+@interface GKCategoryController : BaseTableViewController
 
 @end
 

@@ -8,45 +8,53 @@
 
 #import "GKCategoryController.h"
 #import "GKHomeCategoryModel.h"
-#import "GKHomeHotCollectionViewCell.h"
+#import "GKNewItemTableViewCell.h"
 #import "GKCategoryItemController.h"
 @interface GKCategoryController()
 
+@property (strong, nonatomic) NSArray *listData;
 @end
 @implementation GKCategoryController
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self setupEmpty:self.collectionView];
-    [self setupRefresh:self.collectionView option:ATHeaderRefresh|ATHeaderAutoRefresh];
+    [self setupEmpty:self.tableView];
+    [self setupRefresh:self.tableView option:ATHeaderRefresh|ATHeaderAutoRefresh];
 }
 - (void)refreshData:(NSInteger)page{
     [GKHomeNetManager homeCategory:@{} success:^(id  _Nonnull object) {
-        self.listData = [NSArray modelArrayWithClass:GKHomeCategoryModel.class json:object[@"classificationlist"]].mutableCopy;
-        [self.collectionView reloadData];
+        self.listData = [NSArray modelArrayWithClass:GKHomeCategoryModel.class json:object[@"classificationlist"]];
+        [self.tableView reloadData];
         [self endRefresh:NO];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];
 }
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat width = SCALEW(120);
-    CGFloat height = SCALEW(90);
-    return CGSizeMake(width, height);
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
 }
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    GKHomeHotCollectionViewCell *cell = [GKHomeHotCollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
+    return self.listData.count;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return SCALEW(100);;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    GKNewItemTableViewCell *cell = [GKNewItemTableViewCell cellForTableView:tableView indexPath:indexPath];
     GKHomeCategoryModel *model = self.listData[indexPath.row];
+    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.coverImgUrl]];
     cell.titleLab.text = model.cateName ?:@"";
-    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.coverImgUrl] placeholderImage:placeholders];
+    cell.subTitleLab.text = model.keyword ?:@"";
+    [cell.watchBtn setTitle:model.cateEnglish forState:UIControlStateNormal];
+    cell.timeLab.text = model.level ?:@"";
     return cell;
 }
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     GKHomeCategoryModel *model = self.listData[indexPath.row];
     GKCategoryItemController *vc = [GKCategoryItemController vcWithCategoryId:model.cateId];
     [vc showNavTitle:model.cateName backItem:YES];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 @end
