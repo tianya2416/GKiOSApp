@@ -10,12 +10,15 @@
 
 @implementation GKHomeHotModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"banner" : GKHomeHotBannerModel.class,
-             @"wallpaper" : GKHomeHotPaperModel.class };
+    return @{@"groupList" : GKBabyModel.class };
+}
+- (NSArray *)banner{
+    GKBabyModel *model = self.groupList.firstObject;
+    GKBabyModel *model1 = self.groupList.lastObject;
+    GKBabyModel *model2 = self.groupList[1];
+    return @[model.coverImgUrl,model1.coverImgUrl,model2.coverImgUrl];
 }
 @end
-@implementation GKHomeHotBannerModel
+@implementation GKBabyModel
 
-@end
-@implementation GKHomeHotPaperModel
 @end

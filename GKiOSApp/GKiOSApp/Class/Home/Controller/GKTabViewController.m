@@ -59,11 +59,9 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationAction:) name:@"NotificationSet" object:nil];
 }
 - (void)notificationAction:(NSNotification *)notification{
-    if ([notification.name isEqualToString:@"NotificationSet"]) {
-        NSDictionary *userInfo = notification.object;
-        NSInteger count = [userInfo[@"count"] integerValue];
-        UIViewController *vc = self.viewControllers.lastObject;
-        vc.tabBarItem.badgeValue = count > 0 ? [NSString stringWithFormat:@"%@",@(count)] : nil;
-    }
+    NSDictionary *userInfo = notification.object;
+    NSInteger count = [userInfo[@"count"] integerValue];
+    UIViewController *vc = self.viewControllers.lastObject;
+    vc.tabBarItem.badgeValue = count > 0 ? [NSString stringWithFormat:@"%@",@(count)] : nil;
 }
 @end

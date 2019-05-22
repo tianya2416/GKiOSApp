@@ -35,11 +35,11 @@
 - (BOOL)isDataSuccess;
 - (BOOL)isNetError;
 
-+ (BaseNetModel *)successModel:(id)response
-                     urlString:(NSString *)urlString
-                        params:(NSDictionary *)params
-                    headParams:(NSDictionary *)headParams;
-+ (BaseNetModel *)netErrorModel:(NSString *)error;
++ (instancetype)successModel:(id)response
+                   urlString:(NSString *)urlString
+                      params:(NSDictionary *)params
+                  headParams:(NSDictionary *)headParams;
++ (instancetype)netErrorModel:(NSString *)error;
 + (NSDictionary *)analysisData:(id)response;
 + (NSString *)analysisError:(NSError *)error;
 @end

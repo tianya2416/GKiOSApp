@@ -18,7 +18,7 @@ static BOOL AFRequest = YES;
                           params:(NSDictionary *)params
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure{
-    return [BaseNetManager method:method serializer:HttpSerializeJSON urlString:urlString params:params success:^(id object) {
+    return [BaseNetManager method:method serializer:HttpSerializeDefault urlString:urlString params:params success:^(id object) {
         BaseNetModel *model = [BaseNetModel successModel:object urlString:urlString params:params headParams:nil];
         if ([model isDataSuccess]) {
             !success ?: success(model.resultset);

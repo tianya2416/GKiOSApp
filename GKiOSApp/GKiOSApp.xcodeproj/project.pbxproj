@@ -22,7 +22,6 @@
 		0F0CB6EF228D706A00EC26EE /* GKCategoryItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6EE228D706A00EC26EE /* GKCategoryItemController.m */; };
 		0F186FC9228E8B1F006B825E /* GKSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FC7228E8B1F006B825E /* GKSetTableViewCell.m */; };
 		0F186FCA228E8B1F006B825E /* GKSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F186FC8228E8B1F006B825E /* GKSetTableViewCell.xib */; };
-		0F186FD3228E9734006B825E /* login.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0F186FD2228E9734006B825E /* login.mp4 */; };
 		0F186FDA228E9C25006B825E /* GKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FD8228E9C25006B825E /* GKLoginViewController.m */; };
 		0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F186FD9228E9C25006B825E /* GKLoginViewController.xib */; };
 		0F186FDE228EA1B1006B825E /* GKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FDD228EA1B1006B825E /* GKUserModel.m */; };
@@ -96,7 +95,6 @@
 		0F186FC6228E8B1F006B825E /* GKSetTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSetTableViewCell.h; sourceTree = "<group>"; };
 		0F186FC7228E8B1F006B825E /* GKSetTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSetTableViewCell.m; sourceTree = "<group>"; };
 		0F186FC8228E8B1F006B825E /* GKSetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKSetTableViewCell.xib; sourceTree = "<group>"; };
-		0F186FD2228E9734006B825E /* login.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = login.mp4; sourceTree = "<group>"; };
 		0F186FD7228E9C25006B825E /* GKLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLoginViewController.h; sourceTree = "<group>"; };
 		0F186FD8228E9C25006B825E /* GKLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLoginViewController.m; sourceTree = "<group>"; };
 		0F186FD9228E9C25006B825E /* GKLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKLoginViewController.xib; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 		0F186FCC228E8E72006B825E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0F186FD2228E9734006B825E /* login.mp4 */,
 				0F186FD7228E9C25006B825E /* GKLoginViewController.h */,
 				0F186FD8228E9C25006B825E /* GKLoginViewController.m */,
 				0F186FD9228E9C25006B825E /* GKLoginViewController.xib */,
@@ -544,7 +541,6 @@
 				0F2398B1228570490059B0FE /* LaunchScreen.storyboard in Resources */,
 				0F8FB78C22894FD200BE91D3 /* GKHomeHotCollectionViewCell.xib in Resources */,
 				0F58F49B228C06FD00FA5BD0 /* GKSearchViewCell.xib in Resources */,
-				0F186FD3228E9734006B825E /* login.mp4 in Resources */,
 				0F2398AE228570490059B0FE /* Assets.xcassets in Resources */,
 				0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */,
 				0F0CB6E9228D5BA300EC26EE /* GKNewItemTableViewCell.xib in Resources */,

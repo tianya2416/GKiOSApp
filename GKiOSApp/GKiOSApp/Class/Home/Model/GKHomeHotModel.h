@@ -9,49 +9,21 @@
 #import "BaseNetModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class GKHomeHotPaperModel,GKHomeHotBannerModel;
+@class GKBabyModel;
 @interface GKHomeHotModel : BaseModel
-@property (strong, nonatomic) NSArray<GKHomeHotBannerModel *>*banner;
-@property (strong, nonatomic) NSArray<GKHomeHotPaperModel *>*wallpaper;
+@property (strong, nonatomic) NSArray<GKBabyModel *>*groupList;
+@property (strong, nonatomic) NSArray *banner;
 @end
 
-@interface GKHomeHotBannerModel : BaseModel
-@property (copy, nonatomic) NSString *thumb;
-@end
-
-@interface GKHomeHotPaperModel : BaseModel
-@property (nonatomic, assign) NSInteger atime;
-@property (nonatomic, strong) NSArray * cid;
-@property (nonatomic, assign) BOOL cr;
-@property (nonatomic, strong) NSString * Id;
-@property (nonatomic, strong) NSString * desc;
-@property (nonatomic, assign) NSInteger favs;
-@property (nonatomic, strong) NSString * idField;
-@property (nonatomic, strong) NSString * img;
-@property (nonatomic, assign) NSInteger ncos;
-@property (nonatomic, strong) NSString * preview;
-@property (nonatomic, assign) NSInteger rank;
-@property (nonatomic, strong) NSString * rule;
-@property (nonatomic, strong) NSString * ruleNew;
-@property (nonatomic, strong) NSString * sourceType;
-@property (nonatomic, strong) NSString * store;
-@property (nonatomic, strong) NSArray * tag;
-@property (nonatomic, strong) NSString * thumb;
-@property (nonatomic, strong) NSString * type;
-@property (nonatomic, strong) NSArray * url;
-@property (nonatomic, assign) NSInteger views;
-@property (nonatomic, strong) NSString * wp;
-@property (nonatomic, assign) BOOL xr;
-@property (nonatomic, assign) BOOL isStar;
-
-@property (nonatomic, copy) NSString * name;
-@property (nonatomic, copy) NSString * ename;
+@interface GKBabyModel : BaseModel
+@property (nonatomic, copy) NSString * coverImgUrl;
+@property (nonatomic, copy) NSString * gName;
 @property (nonatomic, copy) NSString * cover;
-@property (nonatomic, copy) NSString * rname;
-@property (nonatomic, copy) NSString * icover;
-@property (nonatomic, assign) NSUInteger count;
-@property (nonatomic, copy) NSString * coverTemp;
-@property (nonatomic, copy) NSString * picassoCover;
-
+@property (nonatomic, copy) NSString * editDate;
+@property (nonatomic, copy) NSString * gId;
+@property (nonatomic, assign) NSUInteger picNum;
+@property (nonatomic, copy) NSString * subId;
+@property (nonatomic, copy) NSString * voteGood;
 @end
+
 NS_ASSUME_NONNULL_END

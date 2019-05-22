@@ -177,10 +177,10 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GKHomeHotCollectionViewCell *cell = [GKHomeHotCollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
-    GKHomeHotPaperModel *model = self.listData[indexPath.row];
-    if ([model isKindOfClass:GKHomeHotPaperModel.class]) {
+    GKBabyModel *model = self.listData[indexPath.row];
+    if ([model isKindOfClass:GKBabyModel.class]) {
         cell.titleLab.text = @"";
-        [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.thumb] placeholderImage:placeholders];
+        [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.coverImgUrl] placeholderImage:placeholders];
     }
     return cell;
 }
@@ -192,13 +192,19 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSMutableArray *datas = [[NSMutableArray alloc] init];
-    [self.listData enumerateObjectsUsingBlock:^(GKHomeHotPaperModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.thumb) {
-            [datas addObject:obj.thumb];
+    [self.listData enumerateObjectsUsingBlock:^(GKBabyModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.coverImgUrl) {
+            [datas addObject:obj.coverImgUrl];
         }
     }];
     if (datas.count) {
          [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
     }
+}
+- (NSMutableArray *)listData{
+    if (!_listData) {
+        _listData = [[NSMutableArray alloc] init];
+    }
+    return _listData;
 }
 @end

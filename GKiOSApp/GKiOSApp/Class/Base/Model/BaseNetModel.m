@@ -11,7 +11,7 @@
 @implementation BaseNetModel
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
-    return @{@"msg" : @[@"msg", @"err"],@"resultset":@[@"resultset",@"res"]};
+    return @{@"msg" : @[@"msg", @"err"],@"resultset":@[@"resultset",@"res",@"result"],@"code":@[@"code",@"errorCode"]};
 }
 //数据是否正常
 -(BOOL)isDataSuccess
@@ -23,9 +23,9 @@
 {
     return self.code != 0;
 }
-+ (BaseNetModel *)successModel:(id)response urlString:(NSString *)urlString params:(NSDictionary *)params headParams:(NSDictionary *)headParams
++ (instancetype)successModel:(id)response urlString:(NSString *)urlString params:(NSDictionary *)params headParams:(NSDictionary *)headParams
 {
-    BaseNetModel * model = [[BaseNetModel alloc] init];
+    BaseNetModel * model = [[[self class] alloc] init];
     [model modelSetWithJSON:response];
     model.allResultData = response;
     model.requestUrl = urlString;
@@ -50,7 +50,6 @@
     }else if ([response isKindOfClass:[NSData class]])
     {
         obj = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
-
     }
     else if ([response isKindOfClass:[NSDictionary class]])
     {
@@ -61,9 +60,9 @@
     NSLog(@"%@",obj);
     return obj;
 }
-+ (BaseNetModel *)netErrorModel:(NSString *)error
++ (instancetype)netErrorModel:(NSString *)error
 {
-    BaseNetModel * model = [[BaseNetModel alloc] init];
+    BaseNetModel * model = [[[self class] alloc] init];
     model.msg = error;
     model.code = 404;
     model.resultset = nil;

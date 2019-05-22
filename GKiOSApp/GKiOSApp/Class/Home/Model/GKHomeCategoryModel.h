@@ -10,12 +10,22 @@
 #import "GKHomeHotModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKHomeCategoryModel : GKHomeHotPaperModel
-@property (copy, nonatomic) NSString *categoryId;
+@interface GKHomeCategoryModel : BaseModel
+@property (copy, nonatomic) NSString *cateId;
+@property (copy, nonatomic) NSString *cateName;
+@property (copy, nonatomic) NSString *cateEnglish;
+@property (copy, nonatomic) NSString *cateShortName;
+@property (copy, nonatomic) NSString *coverImgUrl;
+@property (copy, nonatomic) NSString *fatherId;
+@property (copy, nonatomic) NSString *keyword;
+@property (copy, nonatomic) NSString *level;
 @end
 
-@interface GKHomeNewsModel : GKHomeHotPaperModel
+@interface GKHomeCategoryItemModel : GKBabyModel
+
+@property (copy, nonatomic) NSString *downNum;
 
 @end
+
 
 NS_ASSUME_NONNULL_END

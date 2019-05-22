@@ -19,30 +19,30 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self setupEmpty:self.collectionView];
-    [self setupRefresh:self.collectionView option:ATHeaderRefresh|ATHeaderAutoRefresh];
+    [self setupRefresh:self.collectionView option:ATRefreshDefault];
     [GKUserManager needLogin:^(BOOL success) {
         if (success) {
-            NSLog(@"登录成功");
+            NSLog(@"登录成功,做你想做");
         }
     }];
 }
 - (void)refreshData:(NSInteger)page{
-    NSDictionary *params = @{
-                             @"order": @"hot",
-                             @"adult": @"false",
-                             @"first": @(page),
-                             @"limit": @"60"
-                             };
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"start"] = @(1+(page-1)*30);
+    params[@"end"] = @(30);
+    CGRect rect = [UIScreen mainScreen].bounds;
+    NSInteger width = (int) (rect.size.width * 2);
+    NSInteger height = (int) (rect.size.height * 2);
+    params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
     [GKHomeNetManager homeHot:params success:^(id  _Nonnull object) {
+        if (page == 1) {
+            [self.listData removeAllObjects];
+        }
         self.hotModel = [GKHomeHotModel modelWithJSON:object];
-        NSMutableArray *listData = @[].mutableCopy;
-        [self.hotModel.banner enumerateObjectsUsingBlock:^(GKHomeHotBannerModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [listData addObject:obj.thumb];
-        }];
-        self.listData = self.hotModel.wallpaper.mutableCopy;
-        self.carouselView.imageURLStringsGroup = listData.copy;
+        [self.listData addObjectsFromArray:self.hotModel.groupList];
+        self.carouselView.imageURLStringsGroup = self.hotModel.banner;
         [self.collectionView reloadData];
-        [self endRefresh:YES];
+        [self endRefresh:self.hotModel.groupList.count >=30];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];
@@ -65,10 +65,15 @@
     }
     return [UICollectionReusableView new];
 }
+
 #pragma mark SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     [ATIDMPhotoBrowser photoBrowsers:self.carouselView.imageURLStringsGroup selectIndex:index];
 }
+#pragma mark DZNEmptyDataSetSource
+//- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView{
+//    return SCALEW(180)/2;
+//}
 - (SDCycleScrollView *)carouselView
 {
     if (!_carouselView) {

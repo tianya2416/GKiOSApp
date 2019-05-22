@@ -9,12 +9,10 @@
 #import "GKHomeCategoryModel.h"
 
 @implementation GKHomeCategoryModel
-+ (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"categoryId" : @"id"};
-}
+
 @end
 
 
-@implementation GKHomeNewsModel
+@implementation GKHomeCategoryItemModel
 
 @end

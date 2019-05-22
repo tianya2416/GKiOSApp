@@ -20,16 +20,23 @@
     [self setupRefresh:self.collectionView option:ATHeaderRefresh|ATHeaderAutoRefresh];
 }
 - (void)refreshData:(NSInteger)page{
-    NSDictionary *params = @{
-                             @"order": @"new",
-                             @"adult": @"false",
-                             @"first": @(page),
-                             @"limit": @(30)
-                             };
-    [GKHomeNetManager homeNews:params success:^(id  _Nonnull object) {
-        self.listData = [NSArray modelArrayWithClass:GKHomeNewsModel.class json:object[@"wallpaper"]].mutableCopy;
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"cateId"]   = @"1";
+    params[@"isNow"]    = @"1";
+    params[@"start"]    = @(1+(page-1)*30);
+    params[@"end"]      = @(30);
+    CGRect rect     = [UIScreen mainScreen].bounds;
+    NSInteger width = (int) (rect.size.width * 2);
+    NSInteger height   = (int) (rect.size.height * 2);
+    params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
+    [GKHomeNetManager homeCategory:@"" params:params success:^(id  _Nonnull object) {
+        if (page == 1) {
+            [self.listData removeAllObjects];
+        }
+        NSArray *listData= [NSArray modelArrayWithClass:GKHomeCategoryItemModel.class json:object[@"groupList"]];
+        [self.listData addObjectsFromArray:listData];
         [self.collectionView reloadData];
-        [self endRefresh:NO];
+        [self endRefresh:listData.count >=30];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];

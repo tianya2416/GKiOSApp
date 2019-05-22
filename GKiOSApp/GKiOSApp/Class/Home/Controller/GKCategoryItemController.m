@@ -7,6 +7,7 @@
 //
 
 #import "GKCategoryItemController.h"
+#import "GKHomeHotCollectionViewCell.h"
 #import "GKHomeCategoryModel.h"
 @interface GKCategoryItemController ()
 @property (nonatomic, strong) NSString *categoryID;
@@ -26,20 +27,28 @@
     // Do any additional setup after loading the view.
 }
 - (void)refreshData:(NSInteger)page{
-    NSDictionary *params = @{
-                             @"order": @"new",
-                             @"adult": @"false",
-                             @"first": @(page),
-                             @"limit": @(30)
-                             };
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"cateId"]   = self.categoryID ?:@"";
+    params[@"isDown"]    = @"1";
+    params[@"start"]    = @(1+(page-1)*30);
+    params[@"end"]      = @(30);
+    CGRect rect     = [UIScreen mainScreen].bounds;
+    NSInteger width = (int) (rect.size.width * 2);
+    NSInteger height   = (int) (rect.size.height * 2);
+    params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
     [GKHomeNetManager homeCategory:self.categoryID params:params success:^(id  _Nonnull object) {
-        self.listData = [NSArray modelArrayWithClass:GKHomeCategoryModel.class json:object[@"wallpaper"]].mutableCopy;
+        if (page == 1) {
+            [self.listData removeAllObjects];
+        }
+        NSArray *listData= [NSArray modelArrayWithClass:GKHomeCategoryItemModel.class json:object[@"groupList"]];
+        [self.listData addObjectsFromArray:listData];
         [self.collectionView reloadData];
-        [self endRefresh:NO];
+        [self endRefresh:listData.count >=30];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];
 }
+
 /*
 #pragma mark - Navigation
 
