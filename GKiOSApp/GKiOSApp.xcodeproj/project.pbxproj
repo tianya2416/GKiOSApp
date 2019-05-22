@@ -70,6 +70,7 @@
 		0F9F2BA622929DCD008F5849 /* GKVideoContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9F2BA522929DCD008F5849 /* GKVideoContentController.m */; };
 		0FCE07C4229521BD005AEA17 /* GKDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE07C3229521BD005AEA17 /* GKDetailModel.m */; };
 		0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FCE07CB22955A4C005AEA17 /* topic_news.json */; };
+		8FCF30D22295823400AA6879 /* VTContentView+GKBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF30D12295823400AA6879 /* VTContentView+GKBack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +191,8 @@
 		0FCE07CB22955A4C005AEA17 /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
 		35E854B162092ECD48AFEEB7 /* libPods-GKiOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GKiOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5946029D4F68ADA9F297FE29 /* Pods-GKiOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.debug.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8FCF30D02295823400AA6879 /* VTContentView+GKBack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VTContentView+GKBack.h"; sourceTree = "<group>"; };
+		8FCF30D12295823400AA6879 /* VTContentView+GKBack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VTContentView+GKBack.m"; sourceTree = "<group>"; };
 		FDBC29D23DEA47242B9937C2 /* Pods-GKiOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.release.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,6 +234,8 @@
 				0F0CB6D4228D381E00EC26EE /* ATBrowserTool.m */,
 				0F0CB6D9228D3FE600EC26EE /* ATIDMPhotoBrowser.h */,
 				0F0CB6DA228D3FE600EC26EE /* ATIDMPhotoBrowser.m */,
+				8FCF30D02295823400AA6879 /* VTContentView+GKBack.h */,
+				8FCF30D12295823400AA6879 /* VTContentView+GKBack.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -660,6 +665,7 @@
 				0F58F49A228C06FD00FA5BD0 /* GKSearchViewCell.m in Sources */,
 				0F8FB78222893F7000BE91D3 /* GKHomeNetManager.m in Sources */,
 				0F9F2BA622929DCD008F5849 /* GKVideoContentController.m in Sources */,
+				8FCF30D22295823400AA6879 /* VTContentView+GKBack.m in Sources */,
 				0F096C68229294E6009E0AF5 /* GKVideoHomeController.m in Sources */,
 				0F8FB78B22894FD200BE91D3 /* GKHomeHotCollectionViewCell.m in Sources */,
 				0F2398E3228572510059B0FE /* BaseRefreshController.m in Sources */,
