@@ -57,10 +57,11 @@
     
 }
 - (void)loadData{
+    self.imageV.userInteractionEnabled = YES;
     UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longAction:)];
     longTap.minimumPressDuration = 0.5;
     longTap.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:longTap];
+    [self.imageV addGestureRecognizer:longTap];
 }
 - (void)longAction:(UILongPressGestureRecognizer *)sender{
     UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"是否保存该图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
