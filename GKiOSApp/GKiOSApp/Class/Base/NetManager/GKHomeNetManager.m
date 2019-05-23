@@ -64,11 +64,20 @@
                             page:(NSInteger)page
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure{
-    NSString *url = [NSString stringWithFormat:@"article/headline/%@/%@-20.html",categoryId,@((page - 1)*20)];
+    NSString *url = [NSString stringWithFormat:@"nc/article/headline/%@/%@-20.html",categoryId,@((page - 1)*20)];
 //    NSString *urlStr = [NSString stringWithFormat:@"%@category_ids=%@&max_id=0&count=%@", URL_News, categoryId?:@"",@(20)];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
-
++ (NSURLSessionDataTask *)apiPhotoSet:(NSString *)photoSetId
+                              success:(void(^)(id object))success
+                              failure:(void(^)(NSString *error))failure{
+    NSArray *list = nil;
+    if (photoSetId.length > 4) {
+        list = [[photoSetId substringFromIndex:4] componentsSeparatedByString:@"|"];
+    }
+   NSString *url = [NSString stringWithFormat:@"photo/api/set/%@/%@.json",list.firstObject,list.lastObject];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
+}
 + (NSURLSessionDataTask *)app_login:(NSString *)account
                            password:(NSString *)password
                             success:(void(^)(id object))success

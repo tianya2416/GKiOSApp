@@ -18,22 +18,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="229.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UQF-rf-yCe">
-                        <rect key="frame" x="15" y="10" width="290" height="163"/>
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UQF-rf-yCe">
+                        <rect key="frame" x="10" y="10" width="300" height="169"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="UQF-rf-yCe" secondAttribute="height" multiplier="16:9" id="UzV-Hc-VTx"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJp-7f-6hh">
+                        <rect key="frame" x="18" y="153" width="284" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="UQF-rf-yCe" secondAttribute="trailing" constant="15" id="29K-1v-RGw"/>
-                    <constraint firstItem="UQF-rf-yCe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="5gk-01-bZi"/>
+                    <constraint firstAttribute="trailing" secondItem="UQF-rf-yCe" secondAttribute="trailing" constant="10" id="29K-1v-RGw"/>
+                    <constraint firstItem="UQF-rf-yCe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5gk-01-bZi"/>
                     <constraint firstItem="UQF-rf-yCe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="DAO-GO-bPR"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UQF-rf-yCe" secondAttribute="bottom" constant="10" id="kyH-QU-4l2"/>
+                    <constraint firstItem="TJp-7f-6hh" firstAttribute="bottom" secondItem="UQF-rf-yCe" secondAttribute="bottom" constant="-8" id="Fuw-s8-8oS"/>
+                    <constraint firstItem="TJp-7f-6hh" firstAttribute="trailing" secondItem="UQF-rf-yCe" secondAttribute="trailing" constant="-8" id="MRP-ii-CHo"/>
+                    <constraint firstItem="TJp-7f-6hh" firstAttribute="leading" secondItem="UQF-rf-yCe" secondAttribute="leading" constant="8" id="biT-Xu-xei"/>
+                    <constraint firstAttribute="bottom" secondItem="UQF-rf-yCe" secondAttribute="bottom" priority="900" constant="10" id="kyH-QU-4l2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageV" destination="UQF-rf-yCe" id="snm-wE-RIQ"/>
+                <outlet property="titleLab" destination="TJp-7f-6hh" id="a6p-i0-V6t"/>
             </connections>
             <point key="canvasLocation" x="132.80000000000001" y="253.67316341829087"/>
         </tableViewCell>

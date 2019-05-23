@@ -41,6 +41,9 @@
         _collectionView.scrollEnabled = YES;
         [_collectionView registerClass:UICollectionViewCell.class forCellWithReuseIdentifier:NSStringFromClass(UICollectionViewCell.class)];
         layout.minimumLineSpacing = 10;
+        if (@available(iOS 11.0, *)) {
+            _collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
         
     }
     return _collectionView;

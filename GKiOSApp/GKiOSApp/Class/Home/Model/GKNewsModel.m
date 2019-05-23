@@ -15,7 +15,7 @@
 @implementation GKNewsModel
 - (NSString *)replyCount{
     CGFloat count = _replyCount.integerValue;
-    return count > 10000 ? [NSString stringWithFormat:@"%.1f万跟帖", count/10000.f] :  [NSString stringWithFormat:@"%.0f跟帖", count];
+    return count > 10000 ? [NSString stringWithFormat:@"%.1f万帖", count/10000.f] :  [NSString stringWithFormat:@"%.0f帖", count];
 }
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
@@ -23,7 +23,7 @@
 }
 - (GKNewsStates )states{
     GKNewsStates state = GKNewsDefault;
-    if (self.ads) {
+    if (self.photosetID.length > 0) {
         state = GKNewsAdvertise;
     } else if (self.imgextra.count == 2) {
         state = GKNewsImgextra;

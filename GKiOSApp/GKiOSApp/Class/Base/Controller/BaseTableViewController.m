@@ -39,6 +39,11 @@
         _tableView.separatorColor = [UIColor clearColor];
         _tableView.estimatedRowHeight = 200;
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
         
     }
     return _tableView;

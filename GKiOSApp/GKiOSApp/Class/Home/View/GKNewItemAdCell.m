@@ -12,10 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.imageV addSubview:self.carouselView];
-    [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.carouselView.superview);
-    }];
+//    [self.imageV addSubview:self.carouselView];
+//    [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.carouselView.superview);
+//    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -38,14 +38,16 @@
 }
 - (void)setModel:(GKNewsModel *)model{
     [super setModel:model];
-    NSMutableArray *listData = @[].mutableCopy;
-    NSMutableArray *listTitles = @[].mutableCopy;
-    [model.ads enumerateObjectsUsingBlock:^(GKNewsAdsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [listData addObject:model.imgsrc ?:@""];
-        //obj.url 这边图片无法使用
-        [listTitles addObject:obj.title ?:@""];
-    }];
-    self.carouselView.imageURLStringsGroup = listData.copy;
-    self.carouselView.titlesGroup = listTitles.copy;
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholders];
+    self.titleLab.text  = model.title ?:@"";
+//    NSMutableArray *listData = @[].mutableCopy;
+//    NSMutableArray *listTitles = @[].mutableCopy;
+//    [model.ads enumerateObjectsUsingBlock:^(GKNewsAdsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        [listData addObject:model.imgsrc ?:@""];
+//        //obj.url 这边图片无法使用
+//        [listTitles addObject:obj.title ?:@""];
+//    }];
+//    self.carouselView.imageURLStringsGroup = listData.copy;
+//    self.carouselView.titlesGroup = listTitles.copy;
 }
 @end

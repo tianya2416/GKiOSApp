@@ -31,13 +31,18 @@ NS_ASSUME_NONNULL_BEGIN
                               params:(NSDictionary *)params
                              success:(void(^)(id object))success
                              failure:(void(^)(NSString *error))failure;
++ (NSURLSessionDataTask *)detail:(NSString *)gId
+                         success:(void(^)(id object))success
+                         failure:(void(^)(NSString *error))failure;
 + (NSURLSessionDataTask *)newHot:(NSString *)categoryId
                             page:(NSInteger)page
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure;
-+ (NSURLSessionDataTask *)detail:(NSString *)gId
-                         success:(void(^)(id object))success
-                         failure:(void(^)(NSString *error))failure;
+
+
++ (NSURLSessionDataTask *)apiPhotoSet:(NSString *)photoSetId
+                              success:(void(^)(id object))success
+                              failure:(void(^)(NSString *error))failure;
 //登录接口
 + (NSURLSessionDataTask *)app_login:(NSString *)account
                            password:(NSString *)password

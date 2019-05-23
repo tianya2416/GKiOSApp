@@ -9,5 +9,8 @@
 #import "GKDetailModel.h"
 
 @implementation GKDetailModel
-
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"title" : @[@"title",@"gName"],
+             @"url":@[@"url",@"imgUrl"]};
+}
 @end

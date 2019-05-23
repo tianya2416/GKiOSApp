@@ -19,40 +19,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuU-n5-ymO">
-                        <rect key="frame" x="15" y="10" width="290" height="18"/>
+                        <rect key="frame" x="10" y="10" width="300" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qvd-A1-ysi">
-                        <rect key="frame" x="15" y="36" width="91.5" height="91.5"/>
+                        <rect key="frame" x="10" y="36" width="96.5" height="64.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="Qvd-A1-ysi" secondAttribute="height" multiplier="1:1" id="yZn-bz-s2D"/>
+                            <constraint firstAttribute="width" secondItem="Qvd-A1-ysi" secondAttribute="height" multiplier="3:2" id="yZn-bz-s2D"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iuh-Bl-bIs">
-                        <rect key="frame" x="114.5" y="36" width="91" height="91.5"/>
+                        <rect key="frame" x="111.5" y="36" width="97" height="64.5"/>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PaA-Ce-BLh">
-                        <rect key="frame" x="213.5" y="36" width="91.5" height="91.5"/>
+                        <rect key="frame" x="213.5" y="36" width="96.5" height="64.5"/>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="PaA-Ce-BLh" firstAttribute="width" secondItem="Iuh-Bl-bIs" secondAttribute="width" id="0qH-Ht-tAw"/>
-                    <constraint firstAttribute="trailing" secondItem="LuU-n5-ymO" secondAttribute="trailing" constant="15" id="65c-rD-jWV"/>
+                    <constraint firstAttribute="trailing" secondItem="LuU-n5-ymO" secondAttribute="trailing" constant="10" id="65c-rD-jWV"/>
                     <constraint firstItem="PaA-Ce-BLh" firstAttribute="top" secondItem="Iuh-Bl-bIs" secondAttribute="top" id="7Je-Hl-gby"/>
-                    <constraint firstItem="Iuh-Bl-bIs" firstAttribute="leading" secondItem="Qvd-A1-ysi" secondAttribute="trailing" constant="8" id="Cp8-ty-8uR"/>
+                    <constraint firstItem="Iuh-Bl-bIs" firstAttribute="leading" secondItem="Qvd-A1-ysi" secondAttribute="trailing" constant="5" id="Cp8-ty-8uR"/>
                     <constraint firstItem="Qvd-A1-ysi" firstAttribute="top" secondItem="LuU-n5-ymO" secondAttribute="bottom" constant="8" id="Kw2-eh-Xgr"/>
                     <constraint firstItem="Qvd-A1-ysi" firstAttribute="leading" secondItem="LuU-n5-ymO" secondAttribute="leading" id="XZz-Ua-RgZ"/>
                     <constraint firstItem="Iuh-Bl-bIs" firstAttribute="top" secondItem="Qvd-A1-ysi" secondAttribute="top" id="ZId-rl-JTM"/>
-                    <constraint firstItem="PaA-Ce-BLh" firstAttribute="leading" secondItem="Iuh-Bl-bIs" secondAttribute="trailing" constant="8" id="eGH-4M-etl"/>
+                    <constraint firstItem="PaA-Ce-BLh" firstAttribute="leading" secondItem="Iuh-Bl-bIs" secondAttribute="trailing" constant="5" id="eGH-4M-etl"/>
                     <constraint firstItem="Iuh-Bl-bIs" firstAttribute="width" secondItem="Qvd-A1-ysi" secondAttribute="width" id="igW-oh-BAs"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Qvd-A1-ysi" secondAttribute="bottom" constant="10" id="lKW-OL-TCR"/>
                     <constraint firstItem="PaA-Ce-BLh" firstAttribute="trailing" secondItem="LuU-n5-ymO" secondAttribute="trailing" id="nGz-6Q-WSF"/>
                     <constraint firstItem="LuU-n5-ymO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="pmN-Dg-e1W"/>
                     <constraint firstItem="Iuh-Bl-bIs" firstAttribute="bottom" secondItem="Qvd-A1-ysi" secondAttribute="bottom" id="qO4-U1-zwo"/>
                     <constraint firstItem="PaA-Ce-BLh" firstAttribute="bottom" secondItem="Iuh-Bl-bIs" secondAttribute="bottom" id="yru-CI-9bz"/>
-                    <constraint firstItem="LuU-n5-ymO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="zKF-58-puo"/>
+                    <constraint firstItem="LuU-n5-ymO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zKF-58-puo"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -40,20 +40,22 @@
     GKDetailModel *model = self.listData[indexPath.row];
     if ([model isKindOfClass:GKDetailModel.class]) {
         cell.titleLab.text = @"";
-        [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgUrl] placeholderImage:placeholders];
+        [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.url] placeholderImage:placeholders];
     }
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSMutableArray *datas = [[NSMutableArray alloc] init];
-    [self.listData enumerateObjectsUsingBlock:^(GKDetailModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.imgUrl) {
-            [datas addObject:obj.imgUrl];
-        }
-    }];
-    if (datas.count) {
-        [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
-    }
+    ATBrowserController *vc = [ATBrowserController vcWithDatas:self.listData selectIndex:indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+//    NSMutableArray *datas = [[NSMutableArray alloc] init];
+//    [self.listData enumerateObjectsUsingBlock:^(GKDetailModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        if (obj.imgUrl) {
+//            [datas addObject:obj.imgUrl];
+//        }
+//    }];
+//    if (datas.count) {
+//        [ATIDMPhotoBrowser photoBrowsers:datas selectIndex:indexPath.row];
+//    }
 }
 @end

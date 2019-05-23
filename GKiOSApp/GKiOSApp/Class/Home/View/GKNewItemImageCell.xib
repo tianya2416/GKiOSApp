@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nId-c4-fQe">
-                        <rect key="frame" x="15" y="10" width="290" height="18"/>
+                        <rect key="frame" x="10" y="10" width="300" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="66U-fw-dWT">
-                        <rect key="frame" x="15" y="34.5" width="290" height="163"/>
+                        <rect key="frame" x="10" y="34.5" width="300" height="169"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="66U-fw-dWT" secondAttribute="height" multiplier="16:9" id="Atu-Dh-Nml"/>
                         </constraints>
@@ -36,8 +36,8 @@
                     <constraint firstItem="66U-fw-dWT" firstAttribute="leading" secondItem="nId-c4-fQe" secondAttribute="leading" id="AA0-Ua-ImB"/>
                     <constraint firstItem="66U-fw-dWT" firstAttribute="trailing" secondItem="nId-c4-fQe" secondAttribute="trailing" id="FhF-76-h7d"/>
                     <constraint firstItem="66U-fw-dWT" firstAttribute="firstBaseline" secondItem="nId-c4-fQe" secondAttribute="baseline" constant="10" id="TxE-UQ-IvX"/>
-                    <constraint firstItem="nId-c4-fQe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Y4G-Gm-V63"/>
-                    <constraint firstAttribute="trailing" secondItem="nId-c4-fQe" secondAttribute="trailing" constant="15" id="hEv-JB-lr7"/>
+                    <constraint firstItem="nId-c4-fQe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Y4G-Gm-V63"/>
+                    <constraint firstAttribute="trailing" secondItem="nId-c4-fQe" secondAttribute="trailing" constant="10" id="hEv-JB-lr7"/>
                     <constraint firstItem="nId-c4-fQe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="mpv-eh-HFW"/>
                 </constraints>
             </tableViewCellContentView>

@@ -32,6 +32,7 @@
 #import "GKHomeNetManager.h"
 #import "GKDataQueue.h"
 #import "ATIDMPhotoBrowser.h"
+#import "ATBrowser.h"
 #import "GKUserManager.h"
 #import "ATAlertView.h"
 #pragma mark login
@@ -42,7 +43,7 @@
 #define placeholders [UIImage imageWithColor:[UIColor colorWithRGB:0xf8f8f8]]
 
 #define URL_Wall       @"http://sj.zol.com.cn"
-#define URL_163New     @"http://c.m.163.com/nc/"
+#define URL_163New     @"http://c.m.163.com/"
 
 #define kUrlWall(url)    [NSString stringWithFormat:@"%@%@", URL_Wall, url]
 #define kUrl163New(url)  [NSString stringWithFormat:@"%@%@", URL_163New, url]

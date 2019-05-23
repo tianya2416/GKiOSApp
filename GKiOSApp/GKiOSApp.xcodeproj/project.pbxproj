@@ -13,8 +13,6 @@
 		0F096C6B229296A0009E0AF5 /* GKVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F096C6A229296A0009E0AF5 /* GKVideoModel.m */; };
 		0F0CB6CE228CF96E00EC26EE /* GKSearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6CD228CF96E00EC26EE /* GKSearchResultController.m */; };
 		0F0CB6D1228D05DD00EC26EE /* GKSearchItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6D0228D05DD00EC26EE /* GKSearchItemController.m */; };
-		0F0CB6D5228D381E00EC26EE /* ATBrowserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6D4228D381E00EC26EE /* ATBrowserTool.m */; };
-		0F0CB6DB228D3FE600EC26EE /* ATIDMPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6DA228D3FE600EC26EE /* ATIDMPhotoBrowser.m */; };
 		0F0CB6E4228D50A900EC26EE /* GKNewItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6E3228D50A900EC26EE /* GKNewItemViewController.m */; };
 		0F0CB6E8228D5BA300EC26EE /* GKNewItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6E6228D5BA300EC26EE /* GKNewItemTableViewCell.m */; };
 		0F0CB6E9228D5BA300EC26EE /* GKNewItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0CB6E7228D5BA300EC26EE /* GKNewItemTableViewCell.xib */; };
@@ -27,13 +25,19 @@
 		0F11DE1D2296389500F1A470 /* GKNewItemImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE1B2296389500F1A470 /* GKNewItemImageCell.m */; };
 		0F11DE1E2296389500F1A470 /* GKNewItemImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F11DE1C2296389500F1A470 /* GKNewItemImageCell.xib */; };
 		0F11DE2122963C4500F1A470 /* GKNewItemBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE2022963C4500F1A470 /* GKNewItemBaseCell.m */; };
+		0F11DE2D2296870E00F1A470 /* GKNewPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE2C2296870E00F1A470 /* GKNewPhotoModel.m */; };
+		0F11DE4122969BAA00F1A470 /* VTContentView+GKBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE3222969BAA00F1A470 /* VTContentView+GKBack.m */; };
+		0F11DE4222969BAA00F1A470 /* ATBrowserItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE3422969BAA00F1A470 /* ATBrowserItemController.m */; };
+		0F11DE4322969BAA00F1A470 /* ATBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE3522969BAA00F1A470 /* ATBrowserController.m */; };
+		0F11DE4422969BAA00F1A470 /* ATBrowserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE3622969BAA00F1A470 /* ATBrowserModel.m */; };
+		0F11DE4522969BAA00F1A470 /* ATIDMPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE3D22969BAA00F1A470 /* ATIDMPhotoBrowser.m */; };
+		0F11DE4622969BAA00F1A470 /* ATAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE3F22969BAA00F1A470 /* ATAlertView.m */; };
 		0F186FC9228E8B1F006B825E /* GKSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FC7228E8B1F006B825E /* GKSetTableViewCell.m */; };
 		0F186FCA228E8B1F006B825E /* GKSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F186FC8228E8B1F006B825E /* GKSetTableViewCell.xib */; };
 		0F186FDA228E9C25006B825E /* GKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FD8228E9C25006B825E /* GKLoginViewController.m */; };
 		0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F186FD9228E9C25006B825E /* GKLoginViewController.xib */; };
 		0F186FDE228EA1B1006B825E /* GKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FDD228EA1B1006B825E /* GKUserModel.m */; };
 		0F186FE1228EA1C7006B825E /* GKUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FE0228EA1C7006B825E /* GKUserManager.m */; };
-		0F186FE4228EA806006B825E /* ATAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FE2228EA806006B825E /* ATAlertView.m */; };
 		0F1AD5EC228A9477008EDE02 /* GKSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AD5EB228A9477008EDE02 /* GKSearchViewController.m */; };
 		0F2398A6228570470059B0FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398A5228570470059B0FE /* AppDelegate.m */; };
 		0F2398AC228570480059B0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AA228570480059B0FE /* Main.storyboard */; };
@@ -77,7 +81,6 @@
 		0F9F2BA622929DCD008F5849 /* GKVideoContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9F2BA522929DCD008F5849 /* GKVideoContentController.m */; };
 		0FCE07C4229521BD005AEA17 /* GKDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE07C3229521BD005AEA17 /* GKDetailModel.m */; };
 		0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FCE07CB22955A4C005AEA17 /* topic_news.json */; };
-		8FCF30D22295823400AA6879 /* VTContentView+GKBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FCF30D12295823400AA6879 /* VTContentView+GKBack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,10 +93,6 @@
 		0F0CB6CD228CF96E00EC26EE /* GKSearchResultController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSearchResultController.m; sourceTree = "<group>"; };
 		0F0CB6CF228D05DD00EC26EE /* GKSearchItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSearchItemController.h; sourceTree = "<group>"; };
 		0F0CB6D0228D05DD00EC26EE /* GKSearchItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSearchItemController.m; sourceTree = "<group>"; };
-		0F0CB6D3228D381E00EC26EE /* ATBrowserTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATBrowserTool.h; sourceTree = "<group>"; };
-		0F0CB6D4228D381E00EC26EE /* ATBrowserTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATBrowserTool.m; sourceTree = "<group>"; };
-		0F0CB6D9228D3FE600EC26EE /* ATIDMPhotoBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATIDMPhotoBrowser.h; sourceTree = "<group>"; };
-		0F0CB6DA228D3FE600EC26EE /* ATIDMPhotoBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATIDMPhotoBrowser.m; sourceTree = "<group>"; };
 		0F0CB6E2228D50A900EC26EE /* GKNewItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewItemViewController.h; sourceTree = "<group>"; };
 		0F0CB6E3228D50A900EC26EE /* GKNewItemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewItemViewController.m; sourceTree = "<group>"; };
 		0F0CB6E5228D5BA300EC26EE /* GKNewItemTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewItemTableViewCell.h; sourceTree = "<group>"; };
@@ -114,6 +113,22 @@
 		0F11DE1C2296389500F1A470 /* GKNewItemImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKNewItemImageCell.xib; sourceTree = "<group>"; };
 		0F11DE1F22963C4500F1A470 /* GKNewItemBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewItemBaseCell.h; sourceTree = "<group>"; };
 		0F11DE2022963C4500F1A470 /* GKNewItemBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewItemBaseCell.m; sourceTree = "<group>"; };
+		0F11DE2B2296870E00F1A470 /* GKNewPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewPhotoModel.h; sourceTree = "<group>"; };
+		0F11DE2C2296870E00F1A470 /* GKNewPhotoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewPhotoModel.m; sourceTree = "<group>"; };
+		0F11DE3122969BAA00F1A470 /* VTContentView+GKBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VTContentView+GKBack.h"; sourceTree = "<group>"; };
+		0F11DE3222969BAA00F1A470 /* VTContentView+GKBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VTContentView+GKBack.m"; sourceTree = "<group>"; };
+		0F11DE3422969BAA00F1A470 /* ATBrowserItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATBrowserItemController.m; sourceTree = "<group>"; };
+		0F11DE3522969BAA00F1A470 /* ATBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATBrowserController.m; sourceTree = "<group>"; };
+		0F11DE3622969BAA00F1A470 /* ATBrowserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATBrowserModel.m; sourceTree = "<group>"; };
+		0F11DE3722969BAA00F1A470 /* ATBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATBrowserController.h; sourceTree = "<group>"; };
+		0F11DE3822969BAA00F1A470 /* ATBrowserProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATBrowserProtocol.h; sourceTree = "<group>"; };
+		0F11DE3922969BAA00F1A470 /* ATBrowserItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATBrowserItemController.h; sourceTree = "<group>"; };
+		0F11DE3A22969BAA00F1A470 /* ATBrowserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATBrowserModel.h; sourceTree = "<group>"; };
+		0F11DE3C22969BAA00F1A470 /* ATIDMPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATIDMPhotoBrowser.h; sourceTree = "<group>"; };
+		0F11DE3D22969BAA00F1A470 /* ATIDMPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATIDMPhotoBrowser.m; sourceTree = "<group>"; };
+		0F11DE3F22969BAA00F1A470 /* ATAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAlertView.m; sourceTree = "<group>"; };
+		0F11DE4022969BAA00F1A470 /* ATAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAlertView.h; sourceTree = "<group>"; };
+		0F11DE4722969C0F00F1A470 /* ATBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATBrowser.h; sourceTree = "<group>"; };
 		0F186FC6228E8B1F006B825E /* GKSetTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSetTableViewCell.h; sourceTree = "<group>"; };
 		0F186FC7228E8B1F006B825E /* GKSetTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSetTableViewCell.m; sourceTree = "<group>"; };
 		0F186FC8228E8B1F006B825E /* GKSetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKSetTableViewCell.xib; sourceTree = "<group>"; };
@@ -124,8 +139,6 @@
 		0F186FDD228EA1B1006B825E /* GKUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKUserModel.m; sourceTree = "<group>"; };
 		0F186FDF228EA1C6006B825E /* GKUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKUserManager.h; sourceTree = "<group>"; };
 		0F186FE0228EA1C7006B825E /* GKUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKUserManager.m; sourceTree = "<group>"; };
-		0F186FE2228EA806006B825E /* ATAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATAlertView.m; sourceTree = "<group>"; };
-		0F186FE3228EA806006B825E /* ATAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATAlertView.h; sourceTree = "<group>"; };
 		0F1AD5EA228A9477008EDE02 /* GKSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSearchViewController.h; sourceTree = "<group>"; };
 		0F1AD5EB228A9477008EDE02 /* GKSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSearchViewController.m; sourceTree = "<group>"; };
 		0F2398A1228570470059B0FE /* GKiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,8 +222,6 @@
 		0FCE07CB22955A4C005AEA17 /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
 		35E854B162092ECD48AFEEB7 /* libPods-GKiOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GKiOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5946029D4F68ADA9F297FE29 /* Pods-GKiOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.debug.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.debug.xcconfig"; sourceTree = "<group>"; };
-		8FCF30D02295823400AA6879 /* VTContentView+GKBack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VTContentView+GKBack.h"; sourceTree = "<group>"; };
-		8FCF30D12295823400AA6879 /* VTContentView+GKBack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VTContentView+GKBack.m"; sourceTree = "<group>"; };
 		FDBC29D23DEA47242B9937C2 /* Pods-GKiOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.release.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,19 +254,57 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		0F0CB6D2228D37F500EC26EE /* Tool */ = {
+		0F11DE2F22969BAA00F1A470 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				0F186FE3228EA806006B825E /* ATAlertView.h */,
-				0F186FE2228EA806006B825E /* ATAlertView.m */,
-				0F0CB6D3228D381E00EC26EE /* ATBrowserTool.h */,
-				0F0CB6D4228D381E00EC26EE /* ATBrowserTool.m */,
-				0F0CB6D9228D3FE600EC26EE /* ATIDMPhotoBrowser.h */,
-				0F0CB6DA228D3FE600EC26EE /* ATIDMPhotoBrowser.m */,
-				8FCF30D02295823400AA6879 /* VTContentView+GKBack.h */,
-				8FCF30D12295823400AA6879 /* VTContentView+GKBack.m */,
+				0F11DE3022969BAA00F1A470 /* Category */,
+				0F11DE3322969BAA00F1A470 /* ATBrowser */,
+				0F11DE3B22969BAA00F1A470 /* IDMPhoto */,
+				0F11DE3E22969BAA00F1A470 /* ATAlertView */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		0F11DE3022969BAA00F1A470 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				0F11DE3122969BAA00F1A470 /* VTContentView+GKBack.h */,
+				0F11DE3222969BAA00F1A470 /* VTContentView+GKBack.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		0F11DE3322969BAA00F1A470 /* ATBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				0F11DE4722969C0F00F1A470 /* ATBrowser.h */,
+				0F11DE3722969BAA00F1A470 /* ATBrowserController.h */,
+				0F11DE3522969BAA00F1A470 /* ATBrowserController.m */,
+				0F11DE3922969BAA00F1A470 /* ATBrowserItemController.h */,
+				0F11DE3422969BAA00F1A470 /* ATBrowserItemController.m */,
+				0F11DE3A22969BAA00F1A470 /* ATBrowserModel.h */,
+				0F11DE3622969BAA00F1A470 /* ATBrowserModel.m */,
+				0F11DE3822969BAA00F1A470 /* ATBrowserProtocol.h */,
+			);
+			path = ATBrowser;
+			sourceTree = "<group>";
+		};
+		0F11DE3B22969BAA00F1A470 /* IDMPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				0F11DE3C22969BAA00F1A470 /* ATIDMPhotoBrowser.h */,
+				0F11DE3D22969BAA00F1A470 /* ATIDMPhotoBrowser.m */,
+			);
+			path = IDMPhoto;
+			sourceTree = "<group>";
+		};
+		0F11DE3E22969BAA00F1A470 /* ATAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				0F11DE4022969BAA00F1A470 /* ATAlertView.h */,
+				0F11DE3F22969BAA00F1A470 /* ATAlertView.m */,
+			);
+			path = ATAlertView;
 			sourceTree = "<group>";
 		};
 		0F186FCB228E8E72006B825E /* Login */ = {
@@ -333,11 +382,11 @@
 		0F2398BB228572050059B0FE /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				0F11DE2F22969BAA00F1A470 /* Tool */,
 				0F2398BC228572510059B0FE /* Base */,
 				0F2398F922857F730059B0FE /* Home */,
 				0F186FCB228E8E72006B825E /* Login */,
 				0F096C632292945C009E0AF5 /* Resources */,
-				0F0CB6D2228D37F500EC26EE /* Tool */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -465,18 +514,20 @@
 		0F8FB78322894C0600BE91D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0FCE07C2229521BD005AEA17 /* GKDetailModel.h */,
+				0FCE07C3229521BD005AEA17 /* GKDetailModel.m */,
 				0F8FB78D22896B3E00BE91D3 /* GKHomeCategoryModel.h */,
 				0F8FB78E22896B3E00BE91D3 /* GKHomeCategoryModel.m */,
 				0F8FB78422894C8000BE91D3 /* GKHomeHotModel.h */,
 				0F8FB78522894C8000BE91D3 /* GKHomeHotModel.m */,
+				0F11DE2B2296870E00F1A470 /* GKNewPhotoModel.h */,
+				0F11DE2C2296870E00F1A470 /* GKNewPhotoModel.m */,
 				0F0CB6EA228D696700EC26EE /* GKNewsModel.h */,
 				0F0CB6EB228D696700EC26EE /* GKNewsModel.m */,
 				0F58F491228BFDCC00FA5BD0 /* GKSearchModel.h */,
 				0F58F492228BFDCC00FA5BD0 /* GKSearchModel.m */,
 				0F096C69229296A0009E0AF5 /* GKVideoModel.h */,
 				0F096C6A229296A0009E0AF5 /* GKVideoModel.m */,
-				0FCE07C2229521BD005AEA17 /* GKDetailModel.h */,
-				0FCE07C3229521BD005AEA17 /* GKDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -673,9 +724,11 @@
 				0F8FB78622894C8000BE91D3 /* GKHomeHotModel.m in Sources */,
 				0F2398E5228572510059B0FE /* BaseMacro.m in Sources */,
 				0F8FB77922891A4D00BE91D3 /* GKRecommendController.m in Sources */,
+				0F11DE4122969BAA00F1A470 /* VTContentView+GKBack.m in Sources */,
 				0F2398B4228570490059B0FE /* main.m in Sources */,
 				0F11DE102296384800F1A470 /* GKNewItemAdCell.m in Sources */,
 				0F186FDE228EA1B1006B825E /* GKUserModel.m in Sources */,
+				0F11DE4622969BAA00F1A470 /* ATAlertView.m in Sources */,
 				0F0CB6EF228D706A00EC26EE /* GKCategoryItemController.m in Sources */,
 				0F096C6B229296A0009E0AF5 /* GKVideoModel.m in Sources */,
 				0F2398E0228572510059B0FE /* BaseViewController.m in Sources */,
@@ -684,7 +737,6 @@
 				0F58F496228BFE4F00FA5BD0 /* GKDataQueue.m in Sources */,
 				0F2654CD22952020004B3439 /* GKDetailViewController.m in Sources */,
 				0F186FE1228EA1C7006B825E /* GKUserManager.m in Sources */,
-				0F0CB6D5228D381E00EC26EE /* ATBrowserTool.m in Sources */,
 				0F0CB6E8228D5BA300EC26EE /* GKNewItemTableViewCell.m in Sources */,
 				0F1AD5EC228A9477008EDE02 /* GKSearchViewController.m in Sources */,
 				0F239906228580880059B0FE /* GKSetViewController.m in Sources */,
@@ -696,11 +748,10 @@
 				0F2398DF228572510059B0FE /* BaseTableViewController.m in Sources */,
 				0F11DE2122963C4500F1A470 /* GKNewItemBaseCell.m in Sources */,
 				0F186FDA228E9C25006B825E /* GKLoginViewController.m in Sources */,
-				0F0CB6DB228D3FE600EC26EE /* ATIDMPhotoBrowser.m in Sources */,
 				0F58F49A228C06FD00FA5BD0 /* GKSearchViewCell.m in Sources */,
 				0F8FB78222893F7000BE91D3 /* GKHomeNetManager.m in Sources */,
+				0F11DE4422969BAA00F1A470 /* ATBrowserModel.m in Sources */,
 				0F9F2BA622929DCD008F5849 /* GKVideoContentController.m in Sources */,
-				8FCF30D22295823400AA6879 /* VTContentView+GKBack.m in Sources */,
 				0F096C68229294E6009E0AF5 /* GKVideoHomeController.m in Sources */,
 				0F8FB78B22894FD200BE91D3 /* GKHomeHotCollectionViewCell.m in Sources */,
 				0F11DE1D2296389500F1A470 /* GKNewItemImageCell.m in Sources */,
@@ -708,18 +759,21 @@
 				0F2398EB228572510059B0FE /* BaseNetTool.m in Sources */,
 				0F8C9F6F2292A007000C5934 /* GKVideoItemController.m in Sources */,
 				0F58F490228BFC5700FA5BD0 /* BaseDataQueue.m in Sources */,
+				0F11DE4222969BAA00F1A470 /* ATBrowserItemController.m in Sources */,
 				0F8FB79322896ED500BE91D3 /* GKHomeCollectionReusableView.m in Sources */,
 				0F2398A6228570470059B0FE /* AppDelegate.m in Sources */,
 				0F239903228580790059B0FE /* GKNewViewController.m in Sources */,
 				0F2398E9228572510059B0FE /* BaseTableView.m in Sources */,
+				0F11DE4322969BAA00F1A470 /* ATBrowserController.m in Sources */,
 				0F186FC9228E8B1F006B825E /* GKSetTableViewCell.m in Sources */,
 				0F0CB6EC228D696700EC26EE /* GKNewsModel.m in Sources */,
-				0F186FE4228EA806006B825E /* ATAlertView.m in Sources */,
 				0F2398FD22857F730059B0FE /* GKBaseHomeController.m in Sources */,
 				0F2398E7228572510059B0FE /* BaseCell.m in Sources */,
 				0FCE07C4229521BD005AEA17 /* GKDetailModel.m in Sources */,
+				0F11DE2D2296870E00F1A470 /* GKNewPhotoModel.m in Sources */,
 				0F2398E1228572510059B0FE /* BaseNavigationController.m in Sources */,
 				0F2398EA228572510059B0FE /* BaseNetManager.m in Sources */,
+				0F11DE4522969BAA00F1A470 /* ATIDMPhotoBrowser.m in Sources */,
 				0F2398E8228572510059B0FE /* BaseView.m in Sources */,
 				0F58F493228BFDCC00FA5BD0 /* GKSearchModel.m in Sources */,
 			);

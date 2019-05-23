@@ -12,6 +12,7 @@
 #import "GKNewItemImageCell.h"
 #import "GKNewItemTraCell.h"
 #import "GKNewsModel.h"
+#import "GKNewPhotoModel.h"
 @interface GKNewItemViewController()
 @property (strong, nonatomic) NSMutableArray *listData;
 @end
@@ -85,6 +86,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     GKNewsModel *model = self.listData[indexPath.row];
+    switch (model.states) {
+        case GKNewsImgexType:
+        {
+            
+        }break;
+        case GKNewsAdvertise:
+        {
+            [GKHomeNetManager apiPhotoSet:model.photosetID success:^(id  _Nonnull object) {
+                GKNewPhotoModel *model = [GKNewPhotoModel modelWithJSON:object];
+                ATBrowserController *vc = [ATBrowserController vcWithDatas:model.photos selectIndex:indexPath.row];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            } failure:^(NSString * _Nonnull error) {
+                [MBProgressHUD showMessage:error];
+            }];
+        }break;
+        case GKNewsImgextra:
+        {
+           
+        }break;
+        default:
+        {
+            
+        }break;
+    }
     NSLog(@"%@ %@",model.title,model.digest);
 }
 @end
