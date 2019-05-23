@@ -35,7 +35,8 @@
 + (NSURLSessionDataTask *)homeNews:(NSDictionary *)params
                            success:(void(^)(id object))success
                            failure:(void(^)(NSString *error))failure{
-    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlService(@"/v1/wallpaper/wallpaper") params:params success:success failure:failure];
+     return [GKHomeNetManager method:HttpMethodGet urlString:kUrlWall(@"") params:params success:success failure:failure];
+//    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlService(@"/v1/wallpaper/wallpaper") params:params success:success failure:failure];
 }
 + (NSURLSessionDataTask *)homeSearch:(NSString *)searchText
                               params:(NSDictionary *)params

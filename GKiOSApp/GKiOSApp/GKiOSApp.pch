@@ -38,16 +38,8 @@
 #define App_DB       @"ecom"
 #define App_LoginURL @"http://27.154.58.198:28099/restful/rpc"
 
-#define URL_Service  @"http://service.picasso.adesk.com"
-#define URL_So       @"http://so.picasso.adesk.com"
-#define URL_News     @"http://api.ipadown.com/apple-news-client/news.list.php?"
 
-#define kUrlService(url)  [NSString stringWithFormat:@"%@%@", URL_Service, url]
-#define kUrlSo(url)       [NSString stringWithFormat:@"%@%@", URL_So, url]
-#define kUrlNews(url)     [NSString stringWithFormat:@"%@%@", URL_News, url]
-
-
-#define placeholders [UIImage imageWithColor:[UIColor colorWithRGB:0xf6f6f6]]
+#define placeholders [UIImage imageWithColor:[UIColor colorWithRGB:0xf8f8f8]]
 
 #define URL_Wall       @"http://sj.zol.com.cn"
 #define URL_163New     @"http://c.m.163.com/nc/"

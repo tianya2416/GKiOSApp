@@ -8,6 +8,9 @@
 
 #import "GKNewItemViewController.h"
 #import "GKNewItemTableViewCell.h"
+#import "GKNewItemAdCell.h"
+#import "GKNewItemImageCell.h"
+#import "GKNewItemTraCell.h"
 #import "GKNewsModel.h"
 @interface GKNewItemViewController()
 @property (strong, nonatomic) NSMutableArray *listData;
@@ -45,14 +48,43 @@
     return self.listData.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return SCALEW(100);
+    GKNewsModel *model = self.listData[indexPath.row];
+    return model.cellHeight;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GKNewItemTableViewCell *cell =  [GKNewItemTableViewCell cellForTableView:tableView indexPath:indexPath];
-    cell.model = self.listData[indexPath.row];
+    GKNewsModel *model = self.listData[indexPath.row];
+    switch (model.states) {
+        case GKNewsImgexType:
+        {
+            GKNewItemImageCell *cell =  [GKNewItemImageCell cellForTableView:tableView indexPath:indexPath];
+            cell.model = self.listData[indexPath.row];
+            return cell;
+        }break;
+        case GKNewsAdvertise:
+        {
+            GKNewItemAdCell *cell =  [GKNewItemAdCell cellForTableView:tableView indexPath:indexPath];
+            cell.model = self.listData[indexPath.row];
+            return cell;
+        }break;
+        case GKNewsImgextra:
+        {
+            GKNewItemTraCell *cell =  [GKNewItemTraCell cellForTableView:tableView indexPath:indexPath];
+            cell.model = self.listData[indexPath.row];
+            return cell;
+        }break;
+        default:
+        {
+            GKNewItemTableViewCell *cell =  [GKNewItemTableViewCell cellForTableView:tableView indexPath:indexPath];
+            cell.model = self.listData[indexPath.row];
+            return cell;
+        }break;
+    }
+    UITableViewCell *cell =  [UITableViewCell cellForTableView:tableView indexPath:indexPath];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    GKNewsModel *model = self.listData[indexPath.row];
+    NSLog(@"%@ %@",model.title,model.digest);
 }
 @end

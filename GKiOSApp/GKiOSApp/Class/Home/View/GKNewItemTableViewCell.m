@@ -23,11 +23,11 @@
     // Configure the view for the selected state
 }
 - (void)setModel:(GKNewsModel *)model{
-    _model = model;
+    [super setModel:model];
     self.titleLab.text = model.title ?:@"";
     self.subTitleLab.text = model.digest ?:@"";
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] completed:nil];
     self.timeLab.text = model.mtime ?:@"";
-    [self.watchBtn setTitle:model.votecount forState:UIControlStateNormal];
+    [self.watchBtn setTitle:model.replyCount forState:UIControlStateNormal];
 }
 @end

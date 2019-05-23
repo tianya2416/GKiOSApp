@@ -57,7 +57,7 @@
     }else if ([response isKindOfClass:[NSArray class]]){
         obj = response;
     }
-    NSLog(@"%@",obj);
+//    NSLog(@"%@",obj);
     return obj;
 }
 + (instancetype)netErrorModel:(NSString *)error

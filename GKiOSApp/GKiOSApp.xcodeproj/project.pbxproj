@@ -20,6 +20,13 @@
 		0F0CB6E9228D5BA300EC26EE /* GKNewItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F0CB6E7228D5BA300EC26EE /* GKNewItemTableViewCell.xib */; };
 		0F0CB6EC228D696700EC26EE /* GKNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6EB228D696700EC26EE /* GKNewsModel.m */; };
 		0F0CB6EF228D706A00EC26EE /* GKCategoryItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CB6EE228D706A00EC26EE /* GKCategoryItemController.m */; };
+		0F11DE102296384800F1A470 /* GKNewItemAdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE0E2296384800F1A470 /* GKNewItemAdCell.m */; };
+		0F11DE112296384800F1A470 /* GKNewItemAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F11DE0F2296384800F1A470 /* GKNewItemAdCell.xib */; };
+		0F11DE182296388400F1A470 /* GKNewItemTraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE162296388400F1A470 /* GKNewItemTraCell.m */; };
+		0F11DE192296388400F1A470 /* GKNewItemTraCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F11DE172296388400F1A470 /* GKNewItemTraCell.xib */; };
+		0F11DE1D2296389500F1A470 /* GKNewItemImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE1B2296389500F1A470 /* GKNewItemImageCell.m */; };
+		0F11DE1E2296389500F1A470 /* GKNewItemImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F11DE1C2296389500F1A470 /* GKNewItemImageCell.xib */; };
+		0F11DE2122963C4500F1A470 /* GKNewItemBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F11DE2022963C4500F1A470 /* GKNewItemBaseCell.m */; };
 		0F186FC9228E8B1F006B825E /* GKSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FC7228E8B1F006B825E /* GKSetTableViewCell.m */; };
 		0F186FCA228E8B1F006B825E /* GKSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F186FC8228E8B1F006B825E /* GKSetTableViewCell.xib */; };
 		0F186FDA228E9C25006B825E /* GKLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FD8228E9C25006B825E /* GKLoginViewController.m */; };
@@ -96,6 +103,17 @@
 		0F0CB6EB228D696700EC26EE /* GKNewsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewsModel.m; sourceTree = "<group>"; };
 		0F0CB6ED228D706A00EC26EE /* GKCategoryItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKCategoryItemController.h; sourceTree = "<group>"; };
 		0F0CB6EE228D706A00EC26EE /* GKCategoryItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKCategoryItemController.m; sourceTree = "<group>"; };
+		0F11DE0D2296384800F1A470 /* GKNewItemAdCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewItemAdCell.h; sourceTree = "<group>"; };
+		0F11DE0E2296384800F1A470 /* GKNewItemAdCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewItemAdCell.m; sourceTree = "<group>"; };
+		0F11DE0F2296384800F1A470 /* GKNewItemAdCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKNewItemAdCell.xib; sourceTree = "<group>"; };
+		0F11DE152296388400F1A470 /* GKNewItemTraCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewItemTraCell.h; sourceTree = "<group>"; };
+		0F11DE162296388400F1A470 /* GKNewItemTraCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewItemTraCell.m; sourceTree = "<group>"; };
+		0F11DE172296388400F1A470 /* GKNewItemTraCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKNewItemTraCell.xib; sourceTree = "<group>"; };
+		0F11DE1A2296389500F1A470 /* GKNewItemImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewItemImageCell.h; sourceTree = "<group>"; };
+		0F11DE1B2296389500F1A470 /* GKNewItemImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewItemImageCell.m; sourceTree = "<group>"; };
+		0F11DE1C2296389500F1A470 /* GKNewItemImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKNewItemImageCell.xib; sourceTree = "<group>"; };
+		0F11DE1F22963C4500F1A470 /* GKNewItemBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewItemBaseCell.h; sourceTree = "<group>"; };
+		0F11DE2022963C4500F1A470 /* GKNewItemBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewItemBaseCell.m; sourceTree = "<group>"; };
 		0F186FC6228E8B1F006B825E /* GKSetTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSetTableViewCell.h; sourceTree = "<group>"; };
 		0F186FC7228E8B1F006B825E /* GKSetTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSetTableViewCell.m; sourceTree = "<group>"; };
 		0F186FC8228E8B1F006B825E /* GKSetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKSetTableViewCell.xib; sourceTree = "<group>"; };
@@ -472,9 +490,20 @@
 				0F8FB78822894FD200BE91D3 /* GKHomeHotCollectionViewCell.h */,
 				0F8FB78922894FD200BE91D3 /* GKHomeHotCollectionViewCell.m */,
 				0F8FB78A22894FD200BE91D3 /* GKHomeHotCollectionViewCell.xib */,
+				0F11DE0D2296384800F1A470 /* GKNewItemAdCell.h */,
+				0F11DE0E2296384800F1A470 /* GKNewItemAdCell.m */,
+				0F11DE0F2296384800F1A470 /* GKNewItemAdCell.xib */,
+				0F11DE1F22963C4500F1A470 /* GKNewItemBaseCell.h */,
+				0F11DE2022963C4500F1A470 /* GKNewItemBaseCell.m */,
+				0F11DE1A2296389500F1A470 /* GKNewItemImageCell.h */,
+				0F11DE1B2296389500F1A470 /* GKNewItemImageCell.m */,
+				0F11DE1C2296389500F1A470 /* GKNewItemImageCell.xib */,
 				0F0CB6E5228D5BA300EC26EE /* GKNewItemTableViewCell.h */,
 				0F0CB6E6228D5BA300EC26EE /* GKNewItemTableViewCell.m */,
 				0F0CB6E7228D5BA300EC26EE /* GKNewItemTableViewCell.xib */,
+				0F11DE152296388400F1A470 /* GKNewItemTraCell.h */,
+				0F11DE162296388400F1A470 /* GKNewItemTraCell.m */,
+				0F11DE172296388400F1A470 /* GKNewItemTraCell.xib */,
 				0F58F497228C06FD00FA5BD0 /* GKSearchViewCell.h */,
 				0F58F498228C06FD00FA5BD0 /* GKSearchViewCell.m */,
 				0F58F499228C06FD00FA5BD0 /* GKSearchViewCell.xib */,
@@ -558,11 +587,14 @@
 				0F186FCA228E8B1F006B825E /* GKSetTableViewCell.xib in Resources */,
 				0F2398B1228570490059B0FE /* LaunchScreen.storyboard in Resources */,
 				0F8FB78C22894FD200BE91D3 /* GKHomeHotCollectionViewCell.xib in Resources */,
+				0F11DE192296388400F1A470 /* GKNewItemTraCell.xib in Resources */,
+				0F11DE112296384800F1A470 /* GKNewItemAdCell.xib in Resources */,
 				0F58F49B228C06FD00FA5BD0 /* GKSearchViewCell.xib in Resources */,
 				0F2398AE228570490059B0FE /* Assets.xcassets in Resources */,
 				0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */,
 				0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */,
 				0F0CB6E9228D5BA300EC26EE /* GKNewItemTableViewCell.xib in Resources */,
+				0F11DE1E2296389500F1A470 /* GKNewItemImageCell.xib in Resources */,
 				0F8FB79422896ED500BE91D3 /* GKHomeCollectionReusableView.xib in Resources */,
 				0F2398AC228570480059B0FE /* Main.storyboard in Resources */,
 			);
@@ -642,6 +674,7 @@
 				0F2398E5228572510059B0FE /* BaseMacro.m in Sources */,
 				0F8FB77922891A4D00BE91D3 /* GKRecommendController.m in Sources */,
 				0F2398B4228570490059B0FE /* main.m in Sources */,
+				0F11DE102296384800F1A470 /* GKNewItemAdCell.m in Sources */,
 				0F186FDE228EA1B1006B825E /* GKUserModel.m in Sources */,
 				0F0CB6EF228D706A00EC26EE /* GKCategoryItemController.m in Sources */,
 				0F096C6B229296A0009E0AF5 /* GKVideoModel.m in Sources */,
@@ -656,10 +689,12 @@
 				0F1AD5EC228A9477008EDE02 /* GKSearchViewController.m in Sources */,
 				0F239906228580880059B0FE /* GKSetViewController.m in Sources */,
 				0F239900228580010059B0FE /* GKTabViewController.m in Sources */,
+				0F11DE182296388400F1A470 /* GKNewItemTraCell.m in Sources */,
 				0F0CB6E4228D50A900EC26EE /* GKNewItemViewController.m in Sources */,
 				0F0CB6CE228CF96E00EC26EE /* GKSearchResultController.m in Sources */,
 				0F2398E2228572510059B0FE /* BaseConnectionController.m in Sources */,
 				0F2398DF228572510059B0FE /* BaseTableViewController.m in Sources */,
+				0F11DE2122963C4500F1A470 /* GKNewItemBaseCell.m in Sources */,
 				0F186FDA228E9C25006B825E /* GKLoginViewController.m in Sources */,
 				0F0CB6DB228D3FE600EC26EE /* ATIDMPhotoBrowser.m in Sources */,
 				0F58F49A228C06FD00FA5BD0 /* GKSearchViewCell.m in Sources */,
@@ -668,6 +703,7 @@
 				8FCF30D22295823400AA6879 /* VTContentView+GKBack.m in Sources */,
 				0F096C68229294E6009E0AF5 /* GKVideoHomeController.m in Sources */,
 				0F8FB78B22894FD200BE91D3 /* GKHomeHotCollectionViewCell.m in Sources */,
+				0F11DE1D2296389500F1A470 /* GKNewItemImageCell.m in Sources */,
 				0F2398E3228572510059B0FE /* BaseRefreshController.m in Sources */,
 				0F2398EB228572510059B0FE /* BaseNetTool.m in Sources */,
 				0F8C9F6F2292A007000C5934 /* GKVideoItemController.m in Sources */,

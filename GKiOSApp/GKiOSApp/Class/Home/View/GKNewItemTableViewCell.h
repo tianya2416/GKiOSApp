@@ -7,18 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GKNewsModel.h"
+#import "GKNewItemBaseCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKNewItemTableViewCell : UITableViewCell
+@interface GKNewItemTableViewCell : GKNewItemBaseCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;
 @property (weak, nonatomic) IBOutlet UILabel *titleLab;
 @property (weak, nonatomic) IBOutlet UILabel *subTitleLab;
 @property (weak, nonatomic) IBOutlet UIButton *watchBtn;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
 
-@property (strong, nonatomic) GKNewsModel *model;
 @end
 
 NS_ASSUME_NONNULL_END
