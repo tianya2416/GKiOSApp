@@ -16,8 +16,8 @@
 
 @implementation GKNewPhotoItem
 + (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"title" : @[@"note",@"title"],
-             @"url" : @[@"url",@"imgurl"]};
+    return @{@"url" : @[@"url",@"imgurl"],
+             @"desc":@[@"desc",@"note"]};
 }
 @end
 

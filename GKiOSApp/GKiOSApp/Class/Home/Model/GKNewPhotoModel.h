@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) UIImage *image;
 @property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *desc;
 @property (copy, nonatomic) NSString *url;
 
 @property (copy, nonatomic) NSString *cimgurl;

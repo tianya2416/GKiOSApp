@@ -19,7 +19,7 @@
 @interface ATBrowserItemController ()
 
 @property (strong, nonatomic) UIImageView *imageV;
-
+@property (strong, nonatomic) UIImage *image;
 @end
 
 @implementation ATBrowserItemController
@@ -35,13 +35,17 @@
     _object = object;
     if ([object isKindOfClass:UIImage.class]) {
         self.imageV.image = object;
+        self.image = object;
     }else if ([object isKindOfClass:NSString.class]){
-        [self.imageV sd_setImageWithURL:[NSURL URLWithString:object] placeholderImage:placeholders];
+        [self.imageV sd_setImageWithURL:[NSURL URLWithString:object] placeholderImage:placeholders completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            self.image = image;
+        }];
     }
 }
 
 - (void)vtm_prepareForReuse{
     self.imageV.image = nil;
+    self.imageV = nil;
 }
 - (void)loadUI{
     self.view.backgroundColor = [UIColor blackColor];
@@ -53,9 +57,31 @@
     
 }
 - (void)loadData{
-    
+    UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longAction:)];
+    longTap.minimumPressDuration = 0.5;
+    longTap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:longTap];
 }
-
+- (void)longAction:(UILongPressGestureRecognizer *)sender{
+    UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"是否保存该图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self saveImageToPhotos:self.image];
+    }];
+    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [vc addAction:sure];
+    [vc addAction:cancle];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+- (void)saveImageToPhotos:(UIImage*)savedImage
+{
+    UIImageWriteToSavedPhotosAlbum(savedImage, self, @selector(saveImageToPhotos:didFinishSavingWithError:contextInfo:), NULL);
+}
+- (void)saveImageToPhotos:(UIImage *)image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
+{
+    [MBProgressHUD showMessage:error ? @"保存图片失败" :  @"保存图片成功"];
+}
 - (UIImageView *)imageV{
     if (!_imageV) {
         _imageV = [[UIImageView alloc] init];

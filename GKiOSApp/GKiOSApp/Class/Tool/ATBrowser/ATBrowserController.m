@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) UIButton *backBtn;
 @property (strong, nonatomic) UILabel *titleLab;
+@property (strong, nonatomic) UILabel *subTitleLab;
 @property (strong, nonatomic) UILabel *indexLab;
 @end
 
@@ -34,6 +35,7 @@
     self.fd_prefersNavigationBarHidden = YES;
     [self loadUI];
     [self loadData];
+    [self loadAction];
     // Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -65,13 +67,19 @@
         make.left.equalTo(self.backBtn.superview).offset(10);
         make.top.equalTo(self.backBtn.superview).offset(STATUS_BAR_HIGHT);
     }];
-    
+    [self.view addSubview:self.subTitleLab];
     [self.view addSubview:self.titleLab];
-    [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.titleLab.superview).offset(-TAB_BAR_ADDING - 20);
-        make.left.equalTo(self.titleLab.superview).offset(15);
-        make.right.equalTo(self.titleLab.superview).offset(-15);
+    [self.subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.subTitleLab.superview).offset(-TAB_BAR_ADDING - 20);
+        make.left.equalTo(self.subTitleLab.superview).offset(15);
+        make.right.equalTo(self.subTitleLab.superview).offset(-15);
     }];
+    [self.titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.subTitleLab);
+        make.bottom.equalTo(self.subTitleLab.mas_top).offset(-15);
+    }];
+    
+    
     [self.view addSubview:self.indexLab];
     [self.indexLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.backBtn);
@@ -86,6 +94,19 @@
         }
     }];
     [self.magicController.magicView reloadDataToPage:self.index];
+}
+- (void)loadAction{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [self.view addGestureRecognizer:tap];
+}
+- (void)tapAction:(UITapGestureRecognizer *)sender{
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionPush;
+    animation.duration = 0.3;
+    [self.titleLab.layer addAnimation:animation forKey:nil];
+    [self.subTitleLab.layer addAnimation:animation forKey:nil];
+    self.titleLab.hidden = !self.titleLab.hidden;
+    self.subTitleLab.hidden = self.titleLab.hidden;
 }
 
 #pragma mark VTMagicViewDataSource,VTMagicViewDelegate
@@ -141,8 +162,8 @@
 - (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof  UIViewController*)viewController atPage:(NSUInteger)pageIndex{
     ATBrowserModel *model = self.listDatas[pageIndex];
     self.indexLab.text = [NSString stringWithFormat:@"%@/%@",@(pageIndex+1),@(self.listDatas.count)];
-    
-    self.titleLab.attributedText = [self getTitle:model.title ?:@""];
+    self.titleLab.text = model.title ?:@"";
+    self.subTitleLab.attributedText = [self getTitle:model.desc ?:@""];
 }
 - (void)magicView:(VTMagicView *)magicView viewDidDisappear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex{
 
@@ -175,17 +196,6 @@
     }
     return _backBtn;
 }
-
-- (UILabel *)titleLab{
-    if (!_titleLab) {
-        _titleLab = [[UILabel alloc] init];
-        _titleLab.font = [UIFont systemFontOfSize:16];
-        _titleLab.textColor = [UIColor whiteColor];
-        _titleLab.translatesAutoresizingMaskIntoConstraints = NO;
-        _titleLab.numberOfLines = 0;
-    }
-    return _titleLab;
-}
 - (UILabel *)indexLab{
     if (!_indexLab) {
         _indexLab = [[UILabel alloc] init];
@@ -196,6 +206,27 @@
     }
     return _indexLab;
 }
+- (UILabel *)titleLab{
+    if (!_titleLab) {
+        _titleLab = [[UILabel alloc] init];
+        _titleLab.font = [UIFont systemFontOfSize:16];
+        _titleLab.textColor = [UIColor whiteColor];
+        _titleLab.translatesAutoresizingMaskIntoConstraints = NO;
+        _titleLab.numberOfLines = 1;
+    }
+    return _titleLab;
+}
+- (UILabel *)subTitleLab{
+    if (!_subTitleLab) {
+        _subTitleLab = [[UILabel alloc] init];
+        _subTitleLab.font = [UIFont systemFontOfSize:16];
+        _subTitleLab.textColor = [UIColor whiteColor];
+        _subTitleLab.translatesAutoresizingMaskIntoConstraints = NO;
+        _subTitleLab.numberOfLines = 0;
+    }
+    return _subTitleLab;
+}
+
 - (NSMutableAttributedString*)getTitle:(NSString*)str {
     
     NSMutableParagraphStyle   *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
