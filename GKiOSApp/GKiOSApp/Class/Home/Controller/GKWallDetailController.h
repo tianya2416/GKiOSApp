@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKDetailViewController : GKBaseHotController
+@interface GKWallDetailController : GKBaseHotController
 + (instancetype)vcWithGid:(NSString *)gId;
 @end
 

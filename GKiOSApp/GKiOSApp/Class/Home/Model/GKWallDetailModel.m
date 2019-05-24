@@ -6,9 +6,9 @@
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKDetailModel.h"
+#import "GKWallDetailModel.h"
 
-@implementation GKDetailModel
+@implementation GKWallDetailModel
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{@"title" : @[@"title",@"gName"],
              @"url":@[@"url",@"imgUrl"]};

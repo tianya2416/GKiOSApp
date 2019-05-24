@@ -7,8 +7,8 @@
 //
 
 #import "GKBaseHomeController.h"
-#import "GKDetailViewController.h"
-#import "GKNewsController.h"
+#import "GKWallDetailController.h"
+#import "GKMostNewController.h"
 #import "GKCategoryController.h"
 #import "GKRecommendController.h"
 #import "GKSearchViewController.h"
@@ -30,7 +30,7 @@
     self.listTitles = @[@"推荐",@"分类",@"最新"];
     GKRecommendController *vcRecom = [[GKRecommendController alloc] init];
     GKCategoryController *vcCategory = [[GKCategoryController alloc] init];
-    GKNewsController *vcNews = [[GKNewsController alloc] init];
+    GKMostNewController *vcNews = [[GKMostNewController alloc] init];
     self.listControllers = @[vcRecom,vcCategory,vcNews];
     
     [self addChildViewController:self.magicController];
@@ -193,7 +193,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     GKBabyModel *model = self.listData[indexPath.row];
-    GKDetailViewController *vc = [GKDetailViewController vcWithGid:model.gId];
+    GKWallDetailController *vc = [GKWallDetailController vcWithGid:model.gId];
     vc.hidesBottomBarWhenPushed = YES;
     [vc showNavTitle:model.gName];
     [self.navigationController pushViewController:vc animated:YES];

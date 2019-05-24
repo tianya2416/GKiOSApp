@@ -6,13 +6,13 @@
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKNewsController.h"
+#import "GKMostNewController.h"
 #import "GKHomeCategoryModel.h"
 #import "GKHomeHotCollectionViewCell.h"
-@interface GKNewsController()
+@interface GKMostNewController()
 
 @end
-@implementation GKNewsController
+@implementation GKMostNewController
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];

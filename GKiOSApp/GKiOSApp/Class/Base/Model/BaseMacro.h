@@ -22,8 +22,8 @@
 
 #pragma mark login
 #define App_DB       @"ecom"
-#define App_LoginURL @"http://27.154.58.198:28099/restful/rpc"//登录
-#define URL_Wall       @"http://sj.zol.com.cn"//壁纸
+#define App_LoginURL   @"http://27.154.58.198:28099/restful/rpc"//登录
+#define URL_Wall       @"http://sj.zol.com.cn/"//壁纸
 #define URL_163New     @"http://c.m.163.com/"//新闻
 
 #define kUrlWall(url)    [NSString stringWithFormat:@"%@%@", URL_Wall, url]

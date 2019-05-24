@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKDetailModel : BaseModel<ATBrowserProtocol>
+@interface GKWallDetailModel : BaseModel<ATBrowserProtocol>
 
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *url;

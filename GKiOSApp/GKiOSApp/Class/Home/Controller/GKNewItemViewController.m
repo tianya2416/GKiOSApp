@@ -7,6 +7,7 @@
 //
 
 #import "GKNewItemViewController.h"
+#import "GKNewDetailController.h"
 #import "GKNewItemTableViewCell.h"
 #import "GKNewItemAdCell.h"
 #import "GKNewItemImageCell.h"
@@ -87,10 +88,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     GKNewsModel *model = self.listData[indexPath.row];
     switch (model.states) {
-        case GKNewsImgexType:
-        {
-            
-        }break;
         case GKNewsAdvertise:
         {
             [GKHomeNetManager apiPhotoSet:model.photosetID success:^(id  _Nonnull object) {
@@ -102,13 +99,11 @@
                 [MBProgressHUD showMessage:error];
             }];
         }break;
-        case GKNewsImgextra:
-        {
-           
-        }break;
         default:
         {
-            
+            GKNewDetailController *vc = [GKNewDetailController vcWithModel:model];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }break;
     }
     NSLog(@"%@ %@",model.title,model.digest);

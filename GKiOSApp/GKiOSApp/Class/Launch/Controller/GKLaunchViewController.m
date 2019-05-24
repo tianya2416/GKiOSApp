@@ -66,7 +66,6 @@
         }else{
              [self skipAction];
         }
-        NSLog(@"%@",object);
     } failure:^(NSString * _Nonnull error) {
         [self skipAction];
     }];

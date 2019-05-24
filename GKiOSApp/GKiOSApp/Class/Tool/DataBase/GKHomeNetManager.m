@@ -13,43 +13,34 @@
                           success:(void(^)(id object))success
                           failure:(void(^)(NSString *error))failure{
     //宝贝
-    return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"/corp/bizhiClient/getGroupInfo.php?isAttion=1") params:params success:success failure:failure];
-    //壁纸
-//    return [GKHomeNetManager method:HttpMethodPost urlString:URL_Kyon params:params success:success failure:failure];
-//    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlService(@"/v2/homepage") params:params success:success failure:failure];
+    return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"corp/bizhiClient/getGroupInfo.php?isAttion=1") params:params success:success failure:failure];
 }
 + (NSURLSessionDataTask *)homeCategory:(NSDictionary *)params
                                success:(void(^)(id object))success
                                failure:(void(^)(NSString *error))failure{
-     return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"/corp/bizhiClient/getCateInfo.php") params:params success:success failure:failure];
-//    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlService(@"/v1/wallpaper/category") params:params success:success failure:failure];
+     return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"corp/bizhiClient/getCateInfo.php") params:params success:success failure:failure];
 }
 + (NSURLSessionDataTask *)homeCategory:(NSString *)categoryId
                                 params:(NSDictionary *)params
                                success:(void(^)(id object))success
                                failure:(void(^)(NSString *error))failure{
-     return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"/corp/bizhiClient/getGroupInfo.php") params:params success:success failure:failure];
-//    NSString *urlString = [NSString stringWithFormat:@"/v1/wallpaper/category/%@/wallpaper",categoryId?:@""];
-//    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlService(urlString) params:params success:success failure:failure];
+     return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"corp/bizhiClient/getGroupInfo.php") params:params success:success failure:failure];
 }
 + (NSURLSessionDataTask *)homeNews:(NSDictionary *)params
                            success:(void(^)(id object))success
                            failure:(void(^)(NSString *error))failure{
      return [GKHomeNetManager method:HttpMethodGet urlString:kUrlWall(@"") params:params success:success failure:failure];
-//    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlService(@"/v1/wallpaper/wallpaper") params:params success:success failure:failure];
 }
 + (NSURLSessionDataTask *)homeSearch:(NSString *)searchText
                               params:(NSDictionary *)params
                              success:(void(^)(id object))success
                              failure:(void(^)(NSString *error))failure{
     
-    return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"/corp/bizhiClient/getSearchInfo.php") params:params success:success failure:failure];
-//    NSString *urlString = [NSString stringWithFormat:@"/v1/search/all/resource/%@?",searchText?:@""];
-//    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlSo(urlString) params:params success:success failure:failure];
+    return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"corp/bizhiClient/getSearchInfo.php") params:params success:success failure:failure];
 }
-+ (NSURLSessionDataTask *)detail:(NSString *)gId
-                         success:(void(^)(id object))success
-                         failure:(void(^)(NSString *error))failure{
++ (NSURLSessionDataTask *)wallDetail:(NSString *)gId
+                             success:(void(^)(id object))success
+                             failure:(void(^)(NSString *error))failure{
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"gId"]= gId ?:@"";
     CGRect rect = [UIScreen mainScreen].bounds;
@@ -58,14 +49,19 @@
     width = height < 961 ? 320 : 480;
     height = height < 961 ? 480 : 854;
     params[@"picSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-     return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"/corp/bizhiClient/getGroupPic.php") params:params success:success failure:failure];
+     return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"corp/bizhiClient/getGroupPic.php") params:params success:success failure:failure];
 }
 + (NSURLSessionDataTask *)newHot:(NSString *)categoryId
                             page:(NSInteger)page
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure{
     NSString *url = [NSString stringWithFormat:@"nc/article/headline/%@/%@-20.html",categoryId,@((page - 1)*20)];
-//    NSString *urlStr = [NSString stringWithFormat:@"%@category_ids=%@&max_id=0&count=%@", URL_News, categoryId?:@"",@(20)];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
+}
++ (NSURLSessionDataTask *)newsDetail:(NSString *)docid
+                             success:(void(^)(id object))success
+                             failure:(void(^)(NSString *error))failure{
+    NSString *url = [NSString stringWithFormat:@"nc/article/%@/full.html",docid];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
 + (NSURLSessionDataTask *)apiPhotoSet:(NSString *)photoSetId
@@ -75,7 +71,7 @@
     if (photoSetId.length > 4) {
         list = [[photoSetId substringFromIndex:4] componentsSeparatedByString:@"|"];
     }
-   NSString *url = [NSString stringWithFormat:@"photo/api/set/%@/%@.json",list.firstObject,list.lastObject];
+    NSString *url = [NSString stringWithFormat:@"photo/api/set/%@/%@.json",list.firstObject,list.lastObject];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
 + (NSURLSessionDataTask *)app_login:(NSString *)account

@@ -31,13 +31,16 @@ NS_ASSUME_NONNULL_BEGIN
                               params:(NSDictionary *)params
                              success:(void(^)(id object))success
                              failure:(void(^)(NSString *error))failure;
-+ (NSURLSessionDataTask *)detail:(NSString *)gId
-                         success:(void(^)(id object))success
-                         failure:(void(^)(NSString *error))failure;
++ (NSURLSessionDataTask *)wallDetail:(NSString *)gId
+                             success:(void(^)(id object))success
+                             failure:(void(^)(NSString *error))failure;
 + (NSURLSessionDataTask *)newHot:(NSString *)categoryId
                             page:(NSInteger)page
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure;
++ (NSURLSessionDataTask *)newsDetail:(NSString *)docid
+                             success:(void(^)(id object))success
+                             failure:(void(^)(NSString *error))failure;
 
 
 + (NSURLSessionDataTask *)apiPhotoSet:(NSString *)photoSetId

@@ -2,7 +2,7 @@
 //  ProgressWKWebView.m
 //  FDLive
 //
-//  Created by 林锦乾 on 2017/2/28.
+//  Created by wws1990 on 2017/2/28.
 //  Copyright © 2017年 Linjw. All rights reserved.
 //
 
