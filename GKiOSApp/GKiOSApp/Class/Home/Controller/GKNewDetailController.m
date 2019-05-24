@@ -30,7 +30,8 @@
 }
 - (void)loadData{
     [GKHomeNetManager newsDetail:self.model.docid success:^(id  _Nonnull object) {
-        //self.deta
+        self.detailModel = [GKNewDetailModel modelWithJSON:object[self.model.docid]];
+        [self loadHTMLString:[self getHtmlString]];
     } failure:^(NSString * _Nonnull error) {
         
     }];
@@ -38,49 +39,50 @@
 - (NSString *)getHtmlString
 {
     NSMutableString *html = [NSMutableString string];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"new" ofType:@"css"];
+    NSString * htmlCont = [NSString stringWithContentsOfFile:path
+                                                    encoding:NSUTF8StringEncoding
+                                                       error:nil];
     [html appendString:@"<html>"];
     [html appendString:@"<head>"];
-    [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">",[[NSBundle mainBundle] URLForResource:@"SXDetails.css" withExtension:nil]];
+    [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">",htmlCont];
     [html appendString:@"</head>"];
-    
     [html appendString:@"<body style=\"background:#f6f6f6\">"];
     [html appendString:[self getBodyString]];
     [html appendString:@"</body>"];
     
     [html appendString:@"</html>"];
-    
     return html;
 }
 
 - (NSString *)getBodyString
 {
     NSMutableString *body = [NSMutableString string];
-//    [body appendFormat:@"<div class=\"title\">%@</div>",self.detailModel.title];
-//    [body appendFormat:@"<div class=\"time\">%@</div>",self.detailModel.ptime];
-//    if (self.detailModel.body != nil) {
-//        [body appendString:self.detailModel.body];
-//    }
-//    for (SXDetailImgEntity *detailImgModel in self.detailModel.img) {
-//        NSMutableString *imgHtml = [NSMutableString string];
-//        // 设置img的div
-//        [imgHtml appendString:@"<div class=\"img-parent\">"];
-//        NSArray *pixel = [detailImgModel.pixel componentsSeparatedByString:@"*"];
-//        CGFloat width = [[pixel firstObject]floatValue];
-//        CGFloat height = [[pixel lastObject]floatValue];
-//        // 判断是否超过最大宽度
-//        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width * 0.96;
-//        if (width > maxWidth) {
-//            height = maxWidth / width * height;
-//            width = maxWidth;
-//        }
-//
-//        NSString *onload = @"this.onclick = function() {"
-//        "  window.location.href = 'sx://github.com/dsxNiubility?src=' +this.src+'&top=' + this.getBoundingClientRect().top + '&whscale=' + this.clientWidth/this.clientHeight ;"
-//        "};";
-//        [imgHtml appendFormat:@"<img onload=\"%@\" width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,detailImgModel.src];
-//        [imgHtml appendString:@"</div>"];
-//        [body replaceOccurrencesOfString:detailImgModel.ref withString:imgHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
-//    }
+    [body appendFormat:@"<div class=\"title\">%@</div>",self.detailModel.title];
+    [body appendFormat:@"<div class=\"time\">%@</div>",self.detailModel.ptime];
+    if (self.detailModel.body != nil) {
+        [body appendString:self.detailModel.body];
+    }
+    for (GKNewImgModel *model in self.detailModel.img) {
+        NSMutableString *imgHtml = [NSMutableString string];
+        // 设置img的div
+        [imgHtml appendString:@"<div class=\"img-parent\">"];
+        NSArray *pixel = [model.pixel componentsSeparatedByString:@"*"];
+        CGFloat width = [[pixel firstObject]floatValue];
+        CGFloat height = [[pixel lastObject]floatValue];
+        // 判断是否超过最大宽度
+        CGFloat maxWidth = [UIScreen mainScreen].bounds.size.width * 0.96;
+        if (width > maxWidth) {
+            height = maxWidth / width * height;
+            width = maxWidth;
+        }
+        NSString *onload = @"this.onclick = function() {"
+        "  window.location.href = 'sx://github.com/dsxNiubility?src=' +this.src+'&top=' + this.getBoundingClientRect().top + '&whscale=' + this.clientWidth/this.clientHeight ;"
+        "};";
+        [imgHtml appendFormat:@"<img onload=\"%@\" width=\"%f\" height=\"%f\" src=\"%@\">",onload,width,height,model.src];
+        [imgHtml appendString:@"</div>"];
+        [body replaceOccurrencesOfString:model.ref withString:imgHtml options:NSCaseInsensitiveSearch range:NSMakeRange(0, body.length)];
+    }
     return body;
 }
 /*

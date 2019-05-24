@@ -18,9 +18,14 @@ static void *FDWebBrowserContext = &FDWebBrowserContext;
 @end
 
 @implementation ProgressWKWebView
+- (instancetype) initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self createContentView];
+    }
+    return self;
+}
 
-
--(instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self)
@@ -45,15 +50,15 @@ static void *FDWebBrowserContext = &FDWebBrowserContext;
 {
     if (_wkWebView == nil) {
         _wkWebView = [[WKWebView alloc] initWithFrame:self.frame];
-        [self.wkWebView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-        [self.wkWebView setNavigationDelegate:self];
-        [self.wkWebView setUIDelegate:self];
-        [self.wkWebView setMultipleTouchEnabled:YES];
-        [self.wkWebView setAutoresizesSubviews:YES];
-        [self.wkWebView.scrollView setAlwaysBounceVertical:YES];
-        self.wkWebView.scrollView.bounces = YES;
-        [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:FDWebBrowserContext];
-        [self.wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(title)) options:NSKeyValueObservingOptionNew context:NULL];
+        [_wkWebView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+        [_wkWebView setNavigationDelegate:self];
+        [_wkWebView setUIDelegate:self];
+        [_wkWebView setMultipleTouchEnabled:YES];
+        [_wkWebView setAutoresizesSubviews:YES];
+        [_wkWebView.scrollView setAlwaysBounceVertical:YES];
+        _wkWebView.scrollView.bounces = YES;
+        [_wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(estimatedProgress)) options:0 context:FDWebBrowserContext];
+        [_wkWebView addObserver:self forKeyPath:NSStringFromSelector(@selector(title)) options:NSKeyValueObservingOptionNew context:NULL];
 
     }
     return _wkWebView;
@@ -73,20 +78,17 @@ static void *FDWebBrowserContext = &FDWebBrowserContext;
 #pragma mark - 界面生成
 -(void)createContentView
 {
-    @weakify(self)
     self.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.wkWebView];
     [self.wkWebView mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(self)
-        make.edges.equalTo(self);
+        make.edges.equalTo(self.wkWebView.superview);
     }];
     
     [self addSubview:self.progressView];
     [self.progressView mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(self)
-        make.left.right.equalTo(self);
+        make.left.right.equalTo(self.progressView.superview);
         make.height.equalTo(@(2.0f));
-        make.top.equalTo(self).offset(0);
+        make.top.equalTo(self.progressView.superview).offset(0);
     }];
 }
 

@@ -87,6 +87,7 @@
 		0F8FB79322896ED500BE91D3 /* GKHomeCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F8FB79122896ED500BE91D3 /* GKHomeCollectionReusableView.m */; };
 		0F8FB79422896ED500BE91D3 /* GKHomeCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F8FB79222896ED500BE91D3 /* GKHomeCollectionReusableView.xib */; };
 		0F9F2BA622929DCD008F5849 /* GKVideoContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9F2BA522929DCD008F5849 /* GKVideoContentController.m */; };
+		0FBC9DFD2297F17C00BBA7B0 /* new.css in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC9DFC2297F17C00BBA7B0 /* new.css */; };
 		0FCE07C4229521BD005AEA17 /* GKWallDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE07C3229521BD005AEA17 /* GKWallDetailModel.m */; };
 		0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FCE07CB22955A4C005AEA17 /* topic_news.json */; };
 /* End PBXBuildFile section */
@@ -240,6 +241,7 @@
 		0F8FB79222896ED500BE91D3 /* GKHomeCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKHomeCollectionReusableView.xib; sourceTree = "<group>"; };
 		0F9F2BA422929DCD008F5849 /* GKVideoContentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKVideoContentController.h; sourceTree = "<group>"; };
 		0F9F2BA522929DCD008F5849 /* GKVideoContentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKVideoContentController.m; sourceTree = "<group>"; };
+		0FBC9DFC2297F17C00BBA7B0 /* new.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = new.css; sourceTree = "<group>"; };
 		0FCE07C2229521BD005AEA17 /* GKWallDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKWallDetailModel.h; sourceTree = "<group>"; };
 		0FCE07C3229521BD005AEA17 /* GKWallDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKWallDetailModel.m; sourceTree = "<group>"; };
 		0FCE07CB22955A4C005AEA17 /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		0F096C632292945C009E0AF5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0FBC9DFC2297F17C00BBA7B0 /* new.css */,
 				0FCE07CB22955A4C005AEA17 /* topic_news.json */,
 				0F096C642292948B009E0AF5 /* data.json */,
 			);
@@ -728,6 +731,7 @@
 				0F11DE112296384800F1A470 /* GKNewItemAdCell.xib in Resources */,
 				0F58F49B228C06FD00FA5BD0 /* GKSearchViewCell.xib in Resources */,
 				0F2398AE228570490059B0FE /* Assets.xcassets in Resources */,
+				0FBC9DFD2297F17C00BBA7B0 /* new.css in Resources */,
 				0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */,
 				0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */,
 				0F18B1F022979B23002A968A /* GKLaunchViewController.xib in Resources */,
@@ -1024,7 +1028,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.3733SDK.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1045,7 +1049,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.3733SDK.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
