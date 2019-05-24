@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GKTabViewController.h"
+#import "GKLaunchViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -20,10 +21,20 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [GKTabViewController new];
     [self.window makeKeyAndVisible];
+    [self setAppLaunchController];
     return YES;
 }
 
-
+- (void)setAppLaunchController{
+//    UIViewController *rootViewController = self.window.rootViewController;
+    UIView *contentView = [MBProgressHUD defaultView];
+    GKLaunchViewController *launchController = [[GKLaunchViewController alloc]init];
+    [contentView addSubview:launchController.view];
+    launchController.view.frame = contentView.frame;
+//    [rootViewController addChildViewController:launchController];
+//    launchController.view.frame = rootViewController.view.frame;
+//    [rootViewController.view addSubview:launchController.view];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

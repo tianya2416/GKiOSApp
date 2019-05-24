@@ -107,4 +107,16 @@
         }
     }
 }
++ (NSURLSessionDataTask *)appLaunch:(NSTimeInterval )timeStamp
+                            success:(void(^)(id object))success
+                            failure:(void(^)(NSString *error))failure{
+    NSString *path = [NSString stringWithFormat:@"http://g1.163.com/madr"];
+    NSMutableDictionary * params = [@{} mutableCopy];
+    params[@"app"] = @"7A16FBB6";
+    params[@"platform"] = @"ios";
+    params[@"category"] = @"startup";
+    params[@"location"] =  @"1";
+    params[@"timestamp"] =  [NSString stringWithFormat:@"%ld",(long)timeStamp];
+   return [BaseNetManager method:HttpMethodGet serializer:HttpSerializeDefault urlString:path params:params timeOut:2 success:success failure:failure];
+}
 @end

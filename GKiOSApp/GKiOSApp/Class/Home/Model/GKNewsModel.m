@@ -25,7 +25,7 @@
     GKNewsStates state = GKNewsDefault;
     if (self.photosetID.length > 0) {
         state = GKNewsAdvertise;
-    } else if (self.imgextra.count == 2) {
+    }else if (self.imgextra.count == 2) {
         state = GKNewsImgextra;
     } else if (self.imgType) {
         state = GKNewsImgexType;

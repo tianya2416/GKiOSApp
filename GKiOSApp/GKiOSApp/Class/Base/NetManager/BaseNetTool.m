@@ -9,10 +9,12 @@
 #import "BaseNetTool.h"
 
 @implementation AFRequestTool
+
 + (NSURLSessionDataTask *)method:(HttpMethod)method
                       serializer:(HttpSerializer)serializer
                        urlString:(NSString *)urlString
                           params:(NSDictionary *)params
+                         timeOut:(NSTimeInterval)timeOut
                          success:(void(^)(id object))success
                          failure:(void(^)(NSError *error))failure
 {
@@ -30,7 +32,7 @@
             netManager.responseSerializer = [AFJSONResponseSerializer serializer];
             break;
     }
-    netManager.requestSerializer.timeoutInterval = 10.0;
+    netManager.requestSerializer.timeoutInterval = timeOut;
     netManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html",@"text/plain", nil];
     [netManager.requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
     // 2.加上这个函数，https ssl 验证。
@@ -97,10 +99,12 @@
     });
     return _netManager;
 }
+
 + (NSURLSessionDataTask *)method:(HttpMethod)method
                       serializer:(HttpSerializer)serializer
                        urlString:(NSString *)urlString
                           params:(NSDictionary *)params
+                         timeOut:(NSTimeInterval)timeOut
                          success:(void(^)(id object))success
                          failure:(void(^)(NSError *error))failure
 {

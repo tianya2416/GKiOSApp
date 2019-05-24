@@ -25,8 +25,10 @@ typedef NS_ENUM(NSInteger, HttpSerializer) {
                       serializer:(HttpSerializer)serializer
                        urlString:(NSString *)urlString
                           params:(NSDictionary *)params
+                         timeOut:(NSTimeInterval)timeOut
                          success:(void(^)(id object))success
                          failure:(void(^)(NSError *error))failure;
+
 @end
 @interface AFRequestTool : NSObject<BaseNetToolObject>
 

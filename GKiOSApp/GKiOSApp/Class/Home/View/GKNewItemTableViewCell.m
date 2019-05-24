@@ -26,7 +26,7 @@
     [super setModel:model];
     self.titleLab.text = model.title ?:@"";
     self.subTitleLab.text = model.digest ?:@"";
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] completed:nil];
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholdersmall];
     self.timeLab.text = model.mtime ?:@"";
     [self.watchBtn setTitle:model.replyCount forState:UIControlStateNormal];
 }

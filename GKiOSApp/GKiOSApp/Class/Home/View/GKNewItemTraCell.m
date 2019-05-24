@@ -23,7 +23,7 @@
 - (void)setModel:(GKNewsModel *)model{
     [super setModel:model];
     self.titleLab.text = model.title ?:@"";
-    [self.imageFirst sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholders];
+    [self.imageFirst sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholdersmall];
     NSString *firstUrl = model.imgextra.firstObject[@"imgsrc"];
     NSString *lastUrl = model.imgextra.lastObject[@"imgsrc"];
     [self.imageCenter sd_setImageWithURL:[NSURL URLWithString:firstUrl] placeholderImage:placeholders];

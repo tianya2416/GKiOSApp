@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GKLaunchViewController">
+            <connections>
+                <outlet property="bottomCon" destination="DFQ-ew-TyQ" id="gF2-JH-6mY"/>
+                <outlet property="imageV" destination="1mA-85-INu" id="4DZ-fC-2wT"/>
+                <outlet property="skipBtn" destination="6hp-wv-z37" id="Xeq-jt-8TD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1mA-85-INu">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6hp-wv-z37">
+                    <rect key="frame" x="285" y="605" width="80" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="O6P-0Y-tUQ"/>
+                        <constraint firstAttribute="width" constant="80" id="e17-2A-Fog"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="6hp-wv-z37" secondAttribute="bottom" constant="30" id="DFQ-ew-TyQ"/>
+                <constraint firstAttribute="bottom" secondItem="1mA-85-INu" secondAttribute="bottom" id="Qcw-Ub-HwV"/>
+                <constraint firstItem="1mA-85-INu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ssy-0V-xBM"/>
+                <constraint firstItem="1mA-85-INu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iD7-qm-Wz6"/>
+                <constraint firstAttribute="trailing" secondItem="6hp-wv-z37" secondAttribute="trailing" constant="10" id="w6q-KQ-zEq"/>
+                <constraint firstAttribute="trailing" secondItem="1mA-85-INu" secondAttribute="trailing" id="xwM-Hn-aTo"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

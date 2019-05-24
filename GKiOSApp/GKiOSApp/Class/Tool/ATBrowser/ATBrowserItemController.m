@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadUI];
-    [self loadData];
+    //[self loadData];
 }
 - (void)setObject:(id)object{
     _object = object;
@@ -45,7 +45,7 @@
 
 - (void)vtm_prepareForReuse{
     self.imageV.image = nil;
-    self.imageV = nil;
+    self.image = nil;
 }
 - (void)loadUI{
     self.view.backgroundColor = [UIColor blackColor];
@@ -57,23 +57,12 @@
     
 }
 - (void)loadData{
-    self.imageV.userInteractionEnabled = YES;
-    UILongPressGestureRecognizer *longTap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longAction:)];
-    longTap.minimumPressDuration = 0.5;
-    longTap.numberOfTapsRequired = 1;
-    [self.imageV addGestureRecognizer:longTap];
+
 }
-- (void)longAction:(UILongPressGestureRecognizer *)sender{
-    UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"是否保存该图片" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+- (void)saveAction{
+    if (self.image) {
         [self saveImageToPhotos:self.image];
-    }];
-    UIAlertAction *cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    [vc addAction:sure];
-    [vc addAction:cancle];
-    [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 - (void)saveImageToPhotos:(UIImage*)savedImage
 {
@@ -81,7 +70,7 @@
 }
 - (void)saveImageToPhotos:(UIImage *)image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo
 {
-    [MBProgressHUD showMessage:error ? @"保存图片失败" :  @"保存图片成功"];
+    [MBProgressHUD showMessage:error ? @"下载图片失败" :  @"下载图片成功"];
 }
 - (UIImageView *)imageV{
     if (!_imageV) {

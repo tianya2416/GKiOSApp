@@ -7,7 +7,7 @@
 //
 
 #import "BaseNetManager.h"
-static BOOL AFRequest = NO;
+static BOOL AFRequest = YES;
 @implementation BaseNetManager
 - (void)dealloc
 {
@@ -35,8 +35,17 @@ static BOOL AFRequest = NO;
                           params:(NSDictionary *)params
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure{
+    return [BaseNetManager method:method serializer:serializer urlString:urlString params:params timeOut:10.0f success:success failure:failure];
+}
++ (NSURLSessionDataTask *)method:(HttpMethod)method
+                      serializer:(HttpSerializer)serializer
+                       urlString:(NSString *)urlString
+                          params:(NSDictionary *)params
+                         timeOut:(NSTimeInterval)timeOut
+                         success:(void(^)(id object))success
+                         failure:(void(^)(NSString *error))failure{
     if (AFRequest) {
-        return [AFRequestTool method:method serializer:serializer urlString:urlString params:params success:^(id  _Nonnull object) {
+        return [AFRequestTool method:method serializer:serializer urlString:urlString params:params timeOut:timeOut success:^(id  _Nonnull object) {
             NSDictionary *dic = [BaseNetModel analysisData:object];
             dispatch_async(dispatch_get_main_queue(), ^{
                 !success ?: success(dic);
@@ -47,7 +56,7 @@ static BOOL AFRequest = NO;
             });
         }];
     }
-    return [SectionTool method:method serializer:serializer urlString:urlString params:params success:^(id  _Nonnull object) {
+    return [SectionTool method:method serializer:serializer urlString:urlString params:params timeOut:timeOut success:^(id  _Nonnull object) {
         NSDictionary *dic = [BaseNetModel analysisData:object];
         dispatch_async(dispatch_get_main_queue(), ^{
             !success ?: success(dic);

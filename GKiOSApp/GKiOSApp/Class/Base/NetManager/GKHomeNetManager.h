@@ -48,6 +48,11 @@ NS_ASSUME_NONNULL_BEGIN
                            password:(NSString *)password
                             success:(void(^)(id object))success
                             failure:(void(^)(NSString *error))failure;
+
++ (NSURLSessionDataTask *)appLaunch:(NSTimeInterval )timeStamp
+                            success:(void(^)(id object))success
+                            failure:(void(^)(NSString *error))failure;
+
 @end
 
 NS_ASSUME_NONNULL_END

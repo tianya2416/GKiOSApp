@@ -1,0 +1,19 @@
+//
+//  BaseWebController.h
+//  FDLive
+//
+//  Created by 林锦乾 on 2017/2/28.
+//  Copyright © 2017年 Linjw. All rights reserved.
+//
+
+#import "BaseViewController.h"
+#import "ProgressWKWebView.h"
+
+/**
+ *  网页
+ */
+@interface BaseWebController : BaseViewController<ProgressWKDelegate>
+@property (nonatomic,strong)ProgressWKWebView *webView;
+- (void)loadURLString:(NSString *)URLString;
+- (void)loadHTMLString:(NSString *)HTMLString;
+@end

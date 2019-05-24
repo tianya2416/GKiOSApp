@@ -15,9 +15,11 @@
 @property (strong, nonatomic) VTMagicController * magicController;
 
 @property (strong, nonatomic) UIButton *backBtn;
+@property (strong, nonatomic) UIButton *downBtn;
 @property (strong, nonatomic) UILabel *titleLab;
 @property (strong, nonatomic) UILabel *subTitleLab;
 @property (strong, nonatomic) UILabel *indexLab;
+@property (strong, nonatomic) ATBrowserItemController *currentVc;
 @end
 
 @implementation ATBrowserController
@@ -67,6 +69,13 @@
         make.left.equalTo(self.backBtn.superview).offset(10);
         make.top.equalTo(self.backBtn.superview).offset(STATUS_BAR_HIGHT);
     }];
+    [self.view addSubview:self.downBtn];
+    [self.downBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.offset(26);
+        make.right.equalTo(self.downBtn.superview).offset(-10);
+        make.centerY.equalTo(self.backBtn);
+    }];
+    
     [self.view addSubview:self.subTitleLab];
     [self.view addSubview:self.titleLab];
     [self.subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -108,7 +117,11 @@
     self.titleLab.hidden = !self.titleLab.hidden;
     self.subTitleLab.hidden = self.titleLab.hidden;
 }
-
+- (void)saveAction{
+    if ([self.currentVc respondsToSelector:@selector(saveAction)] && self.currentVc) {
+        [self.currentVc saveAction];
+    }
+}
 #pragma mark VTMagicViewDataSource,VTMagicViewDelegate
 /**
  *  获取所有菜单名，数组中存放字符串类型对象
@@ -154,16 +167,16 @@
     if (!vc) {
         vc = [[ATBrowserItemController alloc] init];
     }
-
     ATBrowserModel *model = self.listDatas[pageIndex];
     vc.object = model.url ?: model.image;
     return vc;
 }
-- (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof  UIViewController*)viewController atPage:(NSUInteger)pageIndex{
+- (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof UIViewController*)viewController atPage:(NSUInteger)pageIndex{
     ATBrowserModel *model = self.listDatas[pageIndex];
     self.indexLab.text = [NSString stringWithFormat:@"%@/%@",@(pageIndex+1),@(self.listDatas.count)];
     self.titleLab.text = model.title ?:@"";
     self.subTitleLab.attributedText = [self getTitle:model.desc ?:@""];
+    self.currentVc = (ATBrowserItemController *)viewController;
 }
 - (void)magicView:(VTMagicView *)magicView viewDidDisappear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex{
 
@@ -195,6 +208,18 @@
         [_backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     }
     return _backBtn;
+}
+- (UIButton *)downBtn{
+    if (!_downBtn) {
+        _downBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_downBtn setImage:[UIImage imageNamed:@"icon_down"] forState:UIControlStateNormal];
+        [_downBtn addTarget:self action:@selector(saveAction) forControlEvents:UIControlEventTouchUpInside];
+        _downBtn.layer.masksToBounds = YES;
+        _downBtn.layer.cornerRadius = 13;
+        _downBtn.layer.borderWidth = 1.0f;
+        _downBtn.layer.borderColor = [UIColor colorWithRGB:0xdddddd].CGColor;
+    }
+    return _downBtn;
 }
 - (UILabel *)indexLab{
     if (!_indexLab) {

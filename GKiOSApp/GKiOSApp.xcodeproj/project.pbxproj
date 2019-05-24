@@ -38,6 +38,12 @@
 		0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F186FD9228E9C25006B825E /* GKLoginViewController.xib */; };
 		0F186FDE228EA1B1006B825E /* GKUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FDD228EA1B1006B825E /* GKUserModel.m */; };
 		0F186FE1228EA1C7006B825E /* GKUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F186FE0228EA1C7006B825E /* GKUserManager.m */; };
+		0F18B1EF22979B23002A968A /* GKLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F18B1ED22979B23002A968A /* GKLaunchViewController.m */; };
+		0F18B1F022979B23002A968A /* GKLaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F18B1EE22979B23002A968A /* GKLaunchViewController.xib */; };
+		0F18B1F32297C1B7002A968A /* GKLaunchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F18B1F22297C1B7002A968A /* GKLaunchModel.m */; };
+		0F18B1FB2297D026002A968A /* ProgressWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F18B1F62297D025002A968A /* ProgressWKWebView.m */; };
+		0F18B1FC2297D026002A968A /* BaseWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F18B1F72297D025002A968A /* BaseWebController.m */; };
+		0F18B1FD2297D026002A968A /* GKWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F18B1F82297D025002A968A /* GKWebController.m */; };
 		0F1AD5EC228A9477008EDE02 /* GKSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1AD5EB228A9477008EDE02 /* GKSearchViewController.m */; };
 		0F2398A6228570470059B0FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398A5228570470059B0FE /* AppDelegate.m */; };
 		0F2398AC228570480059B0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AA228570480059B0FE /* Main.storyboard */; };
@@ -139,6 +145,17 @@
 		0F186FDD228EA1B1006B825E /* GKUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKUserModel.m; sourceTree = "<group>"; };
 		0F186FDF228EA1C6006B825E /* GKUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKUserManager.h; sourceTree = "<group>"; };
 		0F186FE0228EA1C7006B825E /* GKUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKUserManager.m; sourceTree = "<group>"; };
+		0F18B1EC22979B23002A968A /* GKLaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLaunchViewController.h; sourceTree = "<group>"; };
+		0F18B1ED22979B23002A968A /* GKLaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLaunchViewController.m; sourceTree = "<group>"; };
+		0F18B1EE22979B23002A968A /* GKLaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKLaunchViewController.xib; sourceTree = "<group>"; };
+		0F18B1F12297C1B7002A968A /* GKLaunchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLaunchModel.h; sourceTree = "<group>"; };
+		0F18B1F22297C1B7002A968A /* GKLaunchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKLaunchModel.m; sourceTree = "<group>"; };
+		0F18B1F52297D025002A968A /* GKWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKWebController.h; sourceTree = "<group>"; };
+		0F18B1F62297D025002A968A /* ProgressWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWKWebView.m; sourceTree = "<group>"; };
+		0F18B1F72297D025002A968A /* BaseWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebController.m; sourceTree = "<group>"; };
+		0F18B1F82297D025002A968A /* GKWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKWebController.m; sourceTree = "<group>"; };
+		0F18B1F92297D026002A968A /* ProgressWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWKWebView.h; sourceTree = "<group>"; };
+		0F18B1FA2297D026002A968A /* BaseWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebController.h; sourceTree = "<group>"; };
 		0F1AD5EA228A9477008EDE02 /* GKSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKSearchViewController.h; sourceTree = "<group>"; };
 		0F1AD5EB228A9477008EDE02 /* GKSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKSearchViewController.m; sourceTree = "<group>"; };
 		0F2398A1228570470059B0FE /* GKiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +362,55 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0F18B1E822979AAA002A968A /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				0F18B1E922979AAA002A968A /* Controller */,
+				0F18B1EA22979AAA002A968A /* Model */,
+				0F18B1EB22979AAA002A968A /* View */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		0F18B1E922979AAA002A968A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F18B1EC22979B23002A968A /* GKLaunchViewController.h */,
+				0F18B1ED22979B23002A968A /* GKLaunchViewController.m */,
+				0F18B1EE22979B23002A968A /* GKLaunchViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0F18B1EA22979AAA002A968A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F18B1F12297C1B7002A968A /* GKLaunchModel.h */,
+				0F18B1F22297C1B7002A968A /* GKLaunchModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F18B1EB22979AAA002A968A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F18B1F42297D025002A968A /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				0F18B1FA2297D026002A968A /* BaseWebController.h */,
+				0F18B1F72297D025002A968A /* BaseWebController.m */,
+				0F18B1F92297D026002A968A /* ProgressWKWebView.h */,
+				0F18B1F62297D025002A968A /* ProgressWKWebView.m */,
+				0F18B1F52297D025002A968A /* GKWebController.h */,
+				0F18B1F82297D025002A968A /* GKWebController.m */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
 		0F239898228570470059B0FE = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +448,7 @@
 		0F2398BB228572050059B0FE /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				0F18B1E822979AAA002A968A /* Launch */,
 				0F11DE2F22969BAA00F1A470 /* Tool */,
 				0F2398BC228572510059B0FE /* Base */,
 				0F2398F922857F730059B0FE /* Home */,
@@ -394,6 +461,7 @@
 		0F2398BC228572510059B0FE /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0F18B1F42297D025002A968A /* Web */,
 				0F2398BD228572510059B0FE /* Controller */,
 				0F2398C8228572510059B0FE /* Model */,
 				0F2398CF228572510059B0FE /* View */,
@@ -644,6 +712,7 @@
 				0F2398AE228570490059B0FE /* Assets.xcassets in Resources */,
 				0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */,
 				0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */,
+				0F18B1F022979B23002A968A /* GKLaunchViewController.xib in Resources */,
 				0F0CB6E9228D5BA300EC26EE /* GKNewItemTableViewCell.xib in Resources */,
 				0F11DE1E2296389500F1A470 /* GKNewItemImageCell.xib in Resources */,
 				0F8FB79422896ED500BE91D3 /* GKHomeCollectionReusableView.xib in Resources */,
@@ -725,6 +794,7 @@
 				0F2398E5228572510059B0FE /* BaseMacro.m in Sources */,
 				0F8FB77922891A4D00BE91D3 /* GKRecommendController.m in Sources */,
 				0F11DE4122969BAA00F1A470 /* VTContentView+GKBack.m in Sources */,
+				0F18B1F32297C1B7002A968A /* GKLaunchModel.m in Sources */,
 				0F2398B4228570490059B0FE /* main.m in Sources */,
 				0F11DE102296384800F1A470 /* GKNewItemAdCell.m in Sources */,
 				0F186FDE228EA1B1006B825E /* GKUserModel.m in Sources */,
@@ -736,6 +806,7 @@
 				0F2398E4228572510059B0FE /* BaseModel.m in Sources */,
 				0F58F496228BFE4F00FA5BD0 /* GKDataQueue.m in Sources */,
 				0F2654CD22952020004B3439 /* GKDetailViewController.m in Sources */,
+				0F18B1FB2297D026002A968A /* ProgressWKWebView.m in Sources */,
 				0F186FE1228EA1C7006B825E /* GKUserManager.m in Sources */,
 				0F0CB6E8228D5BA300EC26EE /* GKNewItemTableViewCell.m in Sources */,
 				0F1AD5EC228A9477008EDE02 /* GKSearchViewController.m in Sources */,
@@ -744,8 +815,10 @@
 				0F11DE182296388400F1A470 /* GKNewItemTraCell.m in Sources */,
 				0F0CB6E4228D50A900EC26EE /* GKNewItemViewController.m in Sources */,
 				0F0CB6CE228CF96E00EC26EE /* GKSearchResultController.m in Sources */,
+				0F18B1EF22979B23002A968A /* GKLaunchViewController.m in Sources */,
 				0F2398E2228572510059B0FE /* BaseConnectionController.m in Sources */,
 				0F2398DF228572510059B0FE /* BaseTableViewController.m in Sources */,
+				0F18B1FC2297D026002A968A /* BaseWebController.m in Sources */,
 				0F11DE2122963C4500F1A470 /* GKNewItemBaseCell.m in Sources */,
 				0F186FDA228E9C25006B825E /* GKLoginViewController.m in Sources */,
 				0F58F49A228C06FD00FA5BD0 /* GKSearchViewCell.m in Sources */,
@@ -767,6 +840,7 @@
 				0F11DE4322969BAA00F1A470 /* ATBrowserController.m in Sources */,
 				0F186FC9228E8B1F006B825E /* GKSetTableViewCell.m in Sources */,
 				0F0CB6EC228D696700EC26EE /* GKNewsModel.m in Sources */,
+				0F18B1FD2297D026002A968A /* GKWebController.m in Sources */,
 				0F2398FD22857F730059B0FE /* GKBaseHomeController.m in Sources */,
 				0F2398E7228572510059B0FE /* BaseCell.m in Sources */,
 				0FCE07C4229521BD005AEA17 /* GKDetailModel.m in Sources */,

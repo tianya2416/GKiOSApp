@@ -17,10 +17,21 @@
 #define Appxf8f8f8               [UIColor colorWithRGB:0xf8f8f8]
 #define CornerRadius             5.0f
 
+#define placeholders     [UIImage imageNamed:@"placeholder_big"]
+#define placeholdersmall [UIImage imageNamed:@"placeholder_small"]
+
+#pragma mark login
+#define App_DB       @"ecom"
+#define App_LoginURL @"http://27.154.58.198:28099/restful/rpc"//登录
+#define URL_Wall       @"http://sj.zol.com.cn"//壁纸
+#define URL_163New     @"http://c.m.163.com/"//新闻
+
+#define kUrlWall(url)    [NSString stringWithFormat:@"%@%@", URL_Wall, url]
+#define kUrl163New(url)  [NSString stringWithFormat:@"%@%@", URL_163New, url]
 
 #ifdef DEBUG
 #ifndef NSLog
-#   define NSLog(...)
+//#   define NSLog(...)
 #endif
 #endif
 NS_ASSUME_NONNULL_BEGIN

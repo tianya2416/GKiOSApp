@@ -11,7 +11,7 @@
 @implementation BaseNetModel
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
-    return @{@"msg" : @[@"msg", @"err"],@"resultset":@[@"resultset",@"res",@"result"],@"code":@[@"code",@"errorCode"]};
+    return @{@"msg" : @[@"msg", @"err",@"error"],@"resultset":@[@"resultset",@"res",@"result"],@"code":@[@"code",@"errorCode"]};
 }
 //数据是否正常
 -(BOOL)isDataSuccess
@@ -50,6 +50,13 @@
     }else if ([response isKindOfClass:[NSData class]])
     {
         obj = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
+        
+        if ([error.userInfo[@"NSDebugDescription"] isEqualToString:@"Unable to convert data to string around character 375."]) {
+            NSString* strdata = [[NSString alloc]initWithData:response encoding:NSISOLatin1StringEncoding];//在将NSString类型转为NSData
+            NSData * data = [strdata dataUsingEncoding:NSUTF8StringEncoding];//这样解决的乱码问题。
+            obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error ];
+        }
+        
     }
     else if ([response isKindOfClass:[NSDictionary class]])
     {
@@ -57,7 +64,7 @@
     }else if ([response isKindOfClass:[NSArray class]]){
         obj = response;
     }
-//    NSLog(@"%@",obj);
+    NSLog(@"%@",obj);
     return obj;
 }
 + (instancetype)netErrorModel:(NSString *)error
