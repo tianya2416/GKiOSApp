@@ -48,7 +48,7 @@
 {
     [self.view addSubview:self.webView];
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.top.bottom.mas_equalTo(0);
+        make.edges.equalTo(self.webView.superview);
     }];
 }
 
@@ -90,10 +90,15 @@
     }
    [self isNeedGetTicketWithUrlStr:URLString];
 }
-- (void)loadHTMLString:(NSString *)HTMLString {
-    [self.webView.wkWebView loadHTMLString:HTMLString baseURL:nil];
+- (void)loadHTMLString:(NSString *)HTMLString{
+    [self loadHTMLString:HTMLString baseURL:nil];
 }
-
+- (void)loadHTMLString:(NSString *)HTMLString baseURL:(NSURL *)baseURL{
+    [self.webView.wkWebView loadHTMLString:HTMLString baseURL:baseURL];
+}
+- (void)loadFileURL:(NSURL *)loadFileURL allowingReadAccessToURL:(NSURL *)allowingReadAccessToURL{
+    [self.webView.wkWebView loadFileURL:loadFileURL allowingReadAccessToURL:allowingReadAccessToURL];
+}
 
 
 //TODO: 判断是否需要登录操作

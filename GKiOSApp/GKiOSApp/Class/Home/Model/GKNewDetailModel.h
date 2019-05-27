@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *body;
 
 @property (nonatomic, strong) NSArray <GKNewImgModel *>*img;
+@property (nonatomic, strong) NSString *baseURL;
+- (NSString *)html;
 @end
 
 @interface GKNewImgModel : BaseModel

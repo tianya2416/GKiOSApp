@@ -27,6 +27,7 @@
 }
 - (void)setCategoryId:(NSString *)categoryId{
     _categoryId = categoryId;
+    [self.tableView setContentOffset:CGPointMake(0,0) animated:NO];
     [self refreshData:1];
 }
 - (void)refreshData:(NSInteger)page{
@@ -92,7 +93,7 @@
         {
             [GKHomeNetManager apiPhotoSet:model.photosetID success:^(id  _Nonnull object) {
                 GKNewPhotoModel *model = [GKNewPhotoModel modelWithJSON:object];
-                ATBrowserController *vc = [ATBrowserController vcWithDatas:model.photos selectIndex:indexPath.row];
+                ATBrowserController *vc = [ATBrowserController vcWithDatas:model.photos selectIndex:0];
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             } failure:^(NSString * _Nonnull error) {

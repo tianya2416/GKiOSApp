@@ -48,8 +48,23 @@ static void *FDWebBrowserContext = &FDWebBrowserContext;
 #pragma mark - 控件数据初始化
 -(WKWebView *)wkWebView
 {
-    if (_wkWebView == nil) {
-        _wkWebView = [[WKWebView alloc] initWithFrame:self.frame];
+    if (!_wkWebView) {
+//        NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+//
+//        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+//        WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+//        [wkUController addUserScript:wkUScript];
+        
+        WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+        //config.userContentController = wkUController;
+        // 创建设置对象
+        WKPreferences *preference = [[WKPreferences alloc]init];
+        // 设置字体大小(最小的字体大小)
+//        preference.minimumFontSize = 16;
+        // 设置偏好设置对象
+        config.preferences = preference;
+
+        _wkWebView = [[WKWebView alloc] initWithFrame:self.bounds configuration:config];;
         [_wkWebView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         [_wkWebView setNavigationDelegate:self];
         [_wkWebView setUIDelegate:self];
@@ -93,6 +108,7 @@ static void *FDWebBrowserContext = &FDWebBrowserContext;
 }
 
 #pragma mark - WKNavigationDelegate
+
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
 {
     if([self.delegate respondsToSelector:@selector(fdwebViewDidStartLoad:)])
@@ -102,6 +118,12 @@ static void *FDWebBrowserContext = &FDWebBrowserContext;
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+//    NSString *injectionJSString = @"var script = document.createElement('meta');"
+//    "script.name = 'viewport';"
+//    "script.content=\"width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0, user-scalable=no\";"
+//    "document.getElementsByTagName('head')[0].appendChild(script);";
+//    [webView evaluateJavaScript:injectionJSString completionHandler:nil];
+    
     if([self.delegate respondsToSelector:@selector(fdwebView:didFinishLoadingURL:)])
     {
         [self.delegate fdwebView:self didFinishLoadingURL:self.wkWebView.URL];

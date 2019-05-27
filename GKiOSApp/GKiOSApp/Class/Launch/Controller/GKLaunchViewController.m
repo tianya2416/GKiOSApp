@@ -48,6 +48,10 @@
     self.imageV.image = placeholder;
     NSTimeInterval now = [[[NSDate alloc] init] timeIntervalSince1970];
     [GKHomeNetManager appLaunch:now success:^(id  _Nonnull object) {
+        if (!object) {
+            [self skipAction];
+            return ;
+        }
         self.listData = [NSArray modelArrayWithClass:GKLaunchModel.class json:object[@"ads"]];
         NSInteger index = arc4random() % [self.listData count];
         self.model = self.listData[index] ;

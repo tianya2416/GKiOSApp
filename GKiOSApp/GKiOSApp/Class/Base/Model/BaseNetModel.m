@@ -50,11 +50,13 @@
     }else if ([response isKindOfClass:[NSData class]])
     {
         obj = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:&error];
-        
-        if ([error.userInfo[@"NSDebugDescription"] isEqualToString:@"Unable to convert data to string around character 375."]) {
-            NSString* strdata = [[NSString alloc]initWithData:response encoding:NSISOLatin1StringEncoding];//在将NSString类型转为NSData
-            NSData * data = [strdata dataUsingEncoding:NSUTF8StringEncoding];//这样解决的乱码问题。
-            obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error ];
+        if (error) {
+            NSString *errorStr = error.userInfo[@"NSDebugDescription"];
+            if ([errorStr containsString:@"Unable to convert data"]) {
+                NSString* strdata = [[NSString alloc]initWithData:response encoding:NSISOLatin1StringEncoding];//在将NSString类型转为NSData
+                NSData * data = [strdata dataUsingEncoding:NSUTF8StringEncoding];//这样解决的乱码问题。
+                obj = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error ];
+            }
         }
         
     }
