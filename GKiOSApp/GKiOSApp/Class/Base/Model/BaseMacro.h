@@ -15,7 +15,7 @@
 #define Appx666666               [UIColor colorWithRGB:0x666666]
 #define Appx999999               [UIColor colorWithRGB:0x999999]
 #define Appxf8f8f8               [UIColor colorWithRGB:0xf8f8f8]
-#define CornerRadius             5.0f
+#define AppRadius             4.0f
 
 #define placeholders     [UIImage imageNamed:@"placeholder_big"]
 #define placeholdersmall [UIImage imageNamed:@"placeholder_small"]

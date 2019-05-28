@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="GKNewNavBarView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSl-Cb-I7Q">
+                    <rect key="frame" x="323" y="56" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="8zd-20-vlQ"/>
+                        <constraint firstAttribute="width" constant="44" id="Lnd-21-ayz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" image="top_navigation_menuicon"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSI-dJ-2Gv">
+                    <rect key="frame" x="15" y="60.5" width="300" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Kzx-lg-c1c"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="-10" maxY="0.0"/>
+                    <state key="normal" title="应届月薪不足六千" image="ic_strategy_search">
+                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.50980392159999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="rSI-dJ-2Gv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Iah-pX-9bh"/>
+                <constraint firstItem="MSl-Cb-I7Q" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="NfQ-ts-cRA"/>
+                <constraint firstItem="rSI-dJ-2Gv" firstAttribute="centerY" secondItem="MSl-Cb-I7Q" secondAttribute="centerY" id="X2H-Ky-IHv"/>
+                <constraint firstAttribute="trailing" secondItem="MSl-Cb-I7Q" secondAttribute="trailing" constant="8" id="dDo-RZ-Tb8"/>
+                <constraint firstItem="MSl-Cb-I7Q" firstAttribute="leading" secondItem="rSI-dJ-2Gv" secondAttribute="trailing" constant="8" id="ihx-52-RqM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="moreBtn" destination="MSl-Cb-I7Q" id="lzY-86-PrC"/>
+                <outlet property="searchBtn" destination="rSI-dJ-2Gv" id="TkO-bp-txI"/>
+            </connections>
+            <point key="canvasLocation" x="138.40000000000001" y="97.151424287856074"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_strategy_search" width="12" height="13"/>
+        <image name="top_navigation_menuicon" width="30" height="30"/>
+    </resources>
+</document>

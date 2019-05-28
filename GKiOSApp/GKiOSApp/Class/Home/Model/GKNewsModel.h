@@ -41,9 +41,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface GKNewsTopModel : BaseModel
+
 @property (copy, nonatomic) NSString *tname;
-@property (copy, nonatomic) NSString *tid;
+@property (copy, nonatomic) NSString *userId;
+@property (assign, nonatomic) NSInteger sort;
+
+@property (assign, nonatomic) BOOL select;
+@property (assign, nonatomic) BOOL editor;//select =yes 有值 不需要编辑
 @end
+
 
 @interface GKNewsAdsModel : BaseModel
 @property (copy, nonatomic) NSString *imgsrc;

@@ -10,11 +10,16 @@
 #import "GKHomeHotModel.h"
 #import "GKHomeCategoryModel.h"
 NS_ASSUME_NONNULL_BEGIN
+typedef NS_ENUM(NSUInteger, GKSearchState) {
+    GKSearchWall = 0,
+    GKSearchNew  = 1
+};
 @class GKSearchItemsModel,GKSearchBaseModel;
 @interface GKSearchModel : BaseModel
 @property (copy, nonatomic) NSString *userId;
 @property (copy, nonatomic) NSString *searchKey;
-+ (instancetype)vcWithUserId:(NSString *)userId searchKey:(NSString *)searchKey;
+@property (assign, nonatomic) GKSearchState searchState;
++ (instancetype)vcWithUserId:(NSString *)userId searchKey:(NSString *)searchKey state:(GKSearchState)state;
 @end
 
 @interface GKSearchResultModel : GKHomeCategoryItemModel

@@ -12,6 +12,11 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.editorBtn.selected = NO;
+    self.editorBtn.layer.masksToBounds = YES;
+    self.editorBtn.layer.cornerRadius = 4;
+    self.editorBtn.layer.borderWidth = 0.6;
+    self.editorBtn.layer.borderColor = AppColor.CGColor;
     // Initialization code
 }
 

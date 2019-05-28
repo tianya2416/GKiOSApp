@@ -14,28 +14,46 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  @brief 插入数据
  */
-+ (void)insertDataToDataBase:(NSDictionary *)userInfo completion:(void(^)(BOOL success))completion;
++ (void)insertDataToDataBase:(NSString *)tableName
+                   primaryId:(NSString *)primaryId
+                    userInfo:(NSDictionary *)userInfo
+                  completion:(void(^)(BOOL success))completion;
 /**
  *  @brief 数据更新
  */
-+ (void)updateDataToDataBase:(NSDictionary *)userInfo completion:(void(^)(BOOL success))completion;
++ (void)updateDataToDataBase:(NSString *)tableName
+                   primaryId:(NSString *)primaryId
+                    userInfo:(NSDictionary *)userInfo
+                  completion:(void(^)(BOOL success))completion;
 /**
  *  @brief 删除数据
  */
-+ (void)deleteDataToDataBase:(NSString *)userId completion:(void(^)(BOOL success))completion;
++ (void)deleteDataToDataBase:(NSString *)tableName
+                   primaryId:(NSString *)primaryId
+                primaryValue:(NSString *)primaryValue
+                  completion:(void(^)(BOOL success))completion;
 /**
  *  @brief 使用事务来处理批量插入数据问题 效率比较高
  */
-+ (void)insertDatasDataBase:(NSArray <NSDictionary *>*)listData completion:(void(^)(BOOL success))completion;
++ (void)insertDatasDataBase:(NSString *)tableName
+                  primaryId:(NSString *)primaryId
+                   listData:(NSArray <NSDictionary *>*)listData
+                 completion:(void(^)(BOOL success))completion;
 /**
  *  @brief 获取数据
  */
-+ (void)getDatasFromDataBase:(void(^)(NSArray <NSDictionary *>*listData))completion;
-+ (void)getDatasFromDataBase:(NSString *)userId completion:(void(^)(NSDictionary *dictionary))completion;
++ (void)getDatasFromDataBase:(NSString *)tableName
+                   primaryId:(NSString *)primaryId
+                  completion:(void(^)(NSArray <NSDictionary *>*listData))completion;
++ (void)getDatasFromDataBase:(NSString *)tableName
+                   primaryId:(NSString *)primaryId
+                primaryValue:(NSString *)primaryValue
+                  completion:(void(^)(NSDictionary *dictionary))completion;
 /**
  *  @brief 删除表
  */
-+ (void)dropTheTableGroupDataBase:(void (^)(BOOL))completion;
++ (void)dropTableDataBase:(NSString *)tableName
+               completion:(void (^)(BOOL))completion;
 @end
 
 NS_ASSUME_NONNULL_END

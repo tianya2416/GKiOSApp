@@ -9,58 +9,66 @@
 #import "GKSearchViewController.h"
 #import "GKSearchResultController.h"
 #import "GKSearchViewCell.h"
-@interface GKSearchViewController ()<UISearchBarDelegate>
-@property (copy, nonatomic) NSArray *listData;
+#import "GKSearchTextView.h"
+@interface GKSearchViewController ()<UITextFieldDelegate>
+@property (strong, nonatomic) NSMutableArray *listData;
+@property (assign, nonatomic) GKSearchState state;
+@property (strong, nonatomic) GKSearchTextView *searchView;
 @end
 
 @implementation GKSearchViewController
-
++ (instancetype)vcWithSearchState:(GKSearchState)state{
+    GKSearchViewController *vc = [[[self class] alloc] init];
+    vc.state = state;
+    return vc;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadUI];
     // Do any additional setup after loading the view.
 }
 - (void)loadUI {
-    UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100, 32)];
-    titleView.layer.masksToBounds = YES;
-    titleView.layer.cornerRadius = 16;
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:titleView.bounds];
-    searchBar.delegate = self;
-    searchBar.tintColor = AppColor;
-    searchBar.placeholder = @"请输入关键字...";
-    searchBar.layer.masksToBounds = YES;
-    searchBar.layer.cornerRadius = 16;
-    [titleView addSubview:searchBar];
-    self.navigationItem.titleView = titleView;
-    [self.navigationItem.titleView sizeToFit];
-    
+    self.fd_prefersNavigationBarHidden = YES;
+//    [self showNavTitle:nil];
+//    UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100,40)];
+//    titleView.layer.masksToBounds = YES;
+//    titleView.layer.cornerRadius = 0;
+//    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:titleView.bounds];
+//    UITextField *searchField = [searchBar valueForKey:@"searchField"];
+//    if (searchField) {
+//        searchField.layer.masksToBounds = YES;
+//        searchField.layer.cornerRadius = 0;
+//    }
+//    searchBar.delegate = self;
+//    searchBar.tintColor = AppColor;
+//    searchBar.placeholder = @"请输入关键字...";
+//    searchBar.layer.masksToBounds = YES;
+//    searchBar.layer.cornerRadius = 0;
+//    [titleView addSubview:searchBar];
+//    self.navigationItem.titleView = titleView;
+//    [self.navigationItem.titleView sizeToFit];
+    [self.view addSubview:self.searchView];
+    [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self.searchView.superview);
+        make.height.offset(NAVI_BAR_HIGHT);
+    }];
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.tableView.superview);
+        make.top.equalTo(self.searchView.mas_bottom);
+    }];
+    self.listData = @[].mutableCopy;
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATHeaderRefresh|ATHeaderAutoRefresh];
 }
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    if (searchBar.text.length == 0) {
-        return;
-    }
-    NSString *content = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
-    GKSearchModel *model = [GKSearchModel vcWithUserId:[NSString stringWithFormat:@"%ld",(long)time] searchKey:content];
-    [GKDataQueue insertDataToDataBase:model completion:^(BOOL success) {
-        if (success) {
-            [self refreshData:1];
-        }
-    }];
-    [self searchText:content];
-    
-}
 - (void)refreshData:(NSInteger)page{
+    
     [GKDataQueue getDatasFromDataBase:^(NSArray<GKSearchModel *> * _Nonnull listData) {
-        self.listData = listData;
+        [self.listData removeAllObjects];
+        [listData enumerateObjectsUsingBlock:^(GKSearchModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            (obj.searchState == self.state) ? [self.listData addObject:obj] : nil;
+        }];
+        self.listData.count ==0 ? [self endRefreshFailure] : [self endRefresh:NO];
         [self.tableView reloadData];
-        if (self.listData.count == 0) {
-            [self endRefreshFailure];
-        }else{
-            [self endRefresh:NO];
-        }
         [[NSNotificationCenter defaultCenter]postNotificationName:@"NotificationSet" object:@{@"count":@(self.listData.count)}];
     }];
 }
@@ -103,8 +111,12 @@
     }];
 }
 - (void)searchText:(NSString *)searchText{
-    GKSearchResultController *vc = [GKSearchResultController vcWithSearchText:searchText];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.state == GKSearchWall) {
+        GKSearchResultController *vc = [GKSearchResultController vcWithSearchText:searchText];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else{
+        
+    }
 }
 - (NSString *)timeStampTurnToTimesType:(NSString *)timesTamp
 {
@@ -119,7 +131,35 @@
     }
     return dateString;
 }
+#pragma mark UITextFieldDelegate
+- (void)textFieldDidEndEditing:(UITextField *)textField{
 
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.text.length == 0) {
+        return NO;
+    }
+    NSString *content = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    GKSearchModel *model = [GKSearchModel vcWithUserId:[NSString stringWithFormat:@"%ld",(long)time] searchKey:content state:self.state];
+    [GKDataQueue insertDataToDataBase:model completion:^(BOOL success) {
+        if (success) {
+            [self refreshData:1];
+        }
+    }];
+    [self searchText:content];
+    return YES;
+}
+#pragma mark get
+- (GKSearchTextView *)searchView{
+    if (!_searchView) {
+        _searchView = [GKSearchTextView instanceView];
+        [_searchView.cancleBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+        _searchView.textField.delegate = self;
+    }
+    return _searchView;
+}
 /*
 #pragma mark - Navigation
 

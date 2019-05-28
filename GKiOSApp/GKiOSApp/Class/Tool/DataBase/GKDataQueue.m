@@ -7,21 +7,22 @@
 //
 
 #import "GKDataQueue.h"
-
+static NSString *tableName = @"SearchTable";
+static NSString *primaryId1 = @"userId";
 @implementation GKDataQueue
 + (void)insertDataToDataBase:(GKSearchModel *)model completion:(void(^)(BOOL success))completion{
     NSDictionary *userInfo = [model modelToJSONObject];
-    [BaseDataQueue insertDataToDataBase:userInfo completion:completion];
+    [BaseDataQueue insertDataToDataBase:tableName primaryId:primaryId1 userInfo:userInfo completion:completion];
 }
 + (void)updateDataToDataBase:(GKSearchModel *)model completion:(void(^)(BOOL success))completion{
     NSDictionary *userInfo = [model modelToJSONObject];
-    [BaseDataQueue updateDataToDataBase:userInfo completion:completion];
+    [BaseDataQueue updateDataToDataBase:tableName primaryId:primaryId1 userInfo:userInfo completion:completion];
 }
 /**
  *  @brief 删除数据
  */
 + (void)deleteDataToDataBase:(NSString *)userId completion:(void(^)(BOOL success))completion{
-    [BaseDataQueue deleteDataToDataBase:userId completion:completion];
+    [BaseDataQueue deleteDataToDataBase:tableName primaryId:primaryId1 primaryValue:userId completion:completion];
 }
 /**
  *  @brief 使用事务来处理批量插入数据问题 效率比较高
@@ -31,20 +32,20 @@
     [listData enumerateObjectsUsingBlock:^(GKSearchModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [arrayData addObject:[obj modelToJSONObject]];
     }];
-    [BaseDataQueue insertDatasDataBase:arrayData completion:completion];
+    [BaseDataQueue insertDatasDataBase:tableName primaryId:primaryId1 listData:arrayData completion:completion];
 }
 
 /**
  *  @brief 获取数据
  */
 + (void)getDatasFromDataBase:(void(^)(NSArray <GKSearchModel *>*listData))completion{
-    [BaseDataQueue getDatasFromDataBase:^(NSArray<NSDictionary *> * _Nonnull listData) {
+    [BaseDataQueue getDatasFromDataBase:tableName primaryId:primaryId1 completion:^(NSArray<NSDictionary *> * _Nonnull listData) {
         NSArray *datas = [NSArray modelArrayWithClass:GKSearchModel.class json:listData];
         !completion ?: completion(datas);
     }];
 }
 + (void)getDatasFromDataBase:(NSString *)userId completion:(void(^)(GKSearchModel *model))completion{
-    [BaseDataQueue getDatasFromDataBase:userId completion:^(NSDictionary * _Nonnull dictionary) {
+    [BaseDataQueue getDatasFromDataBase:tableName primaryId:primaryId1 primaryValue:userId completion:^(NSDictionary * _Nonnull dictionary) {
         GKSearchModel *info = [GKSearchModel modelWithJSON:dictionary];
         !completion ?: completion(info);
     }];
@@ -53,6 +54,6 @@
  *  @brief 删除表
  */
 + (void)dropTheTableGroupDataBase:(void (^)(BOOL))completion{
-    [BaseDataQueue dropTheTableGroupDataBase:completion];
+    [BaseDataQueue dropTableDataBase:tableName completion:completion];
 }
 @end

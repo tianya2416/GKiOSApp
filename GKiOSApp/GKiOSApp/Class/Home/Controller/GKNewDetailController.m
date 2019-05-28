@@ -33,9 +33,6 @@
         self.detailModel = [GKNewDetailModel modelWithJSON:object[self.model.docid]];
         NSString* htmlstr = [[NSString alloc]initWithContentsOfURL:[NSURL fileURLWithPath:self.detailModel.baseURL] encoding:NSUTF8StringEncoding error:nil];
         [self loadHTMLString:htmlstr];
-//        NSURL *filePathURL = [NSURL fileURLWithPath:self.detailModel.baseURL];
-//        NSURL *fileDirectoryURL = [filePathURL URLByDeletingLastPathComponent];
-//        [self loadFileURL:filePathURL allowingReadAccessToURL:fileDirectoryURL];
     } failure:^(NSString * _Nonnull error) {
         
     }];

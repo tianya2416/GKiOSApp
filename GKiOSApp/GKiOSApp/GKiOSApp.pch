@@ -31,6 +31,7 @@
 
 #import "GKHomeNetManager.h"
 #import "GKDataQueue.h"
+#import "GKNewTopQueue.h"
 #import "ATIDMPhotoBrowser.h"
 #import "ATBrowser.h"
 #import "GKUserManager.h"

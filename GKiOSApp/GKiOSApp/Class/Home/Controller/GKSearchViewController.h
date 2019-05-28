@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKSearchViewController : BaseTableViewController
-
++ (instancetype)vcWithSearchState:(GKSearchState)state;
 @end
 
 NS_ASSUME_NONNULL_END

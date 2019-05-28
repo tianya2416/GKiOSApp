@@ -53,7 +53,15 @@
 @end
 @implementation GKNewsTopModel
 
++ (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
+     return @{@"userId": @[@"userId",@"tid"]};
+}
+- (BOOL)editor{
+    return self.select &&([self.userId isEqualToString:@"T1348647853363"] || [self.userId isEqualToString:@"T1370583240249"]);
+}
 @end
+
+
 @implementation GKNewsAdsModel
 
 @end

@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKHomeCollectionReusableView : UICollectionReusableView
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLab;
+@property (weak, nonatomic) IBOutlet UIButton *editorBtn;
 
 @end
 
