@@ -29,6 +29,9 @@
 }
 - (void)loadUI {
     self.fd_prefersNavigationBarHidden = YES;
+    if ([self.searchView.textField canBecomeFirstResponder]) {
+        [self.searchView.textField becomeFirstResponder];
+    }
 //    [self showNavTitle:nil];
 //    UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100,40)];
 //    titleView.layer.masksToBounds = YES;
@@ -71,6 +74,9 @@
         [self.tableView reloadData];
         [[NSNotificationCenter defaultCenter]postNotificationName:@"NotificationSet" object:@{@"count":@(self.listData.count)}];
     }];
+}
+- (void)goBack:(BOOL)animated{
+    [super goBack:NO];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -155,19 +161,14 @@
 - (GKSearchTextView *)searchView{
     if (!_searchView) {
         _searchView = [GKSearchTextView instanceView];
-        [_searchView.cancleBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
         _searchView.textField.delegate = self;
+        _searchView.backgroundColor = AppColor;
+        [_searchView.cancleBtn addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _searchView;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
-*/
 
 @end

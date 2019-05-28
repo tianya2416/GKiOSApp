@@ -94,7 +94,7 @@
 - (void)searchAction{
     GKSearchViewController *vc = [GKSearchViewController vcWithSearchState:GKSearchNew];
     vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:NO];
 }
 #pragma mark VTMagicViewDataSource,VTMagicViewDelegate
 /**
