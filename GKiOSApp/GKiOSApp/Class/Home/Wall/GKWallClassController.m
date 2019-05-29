@@ -42,7 +42,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GKNewItemTableViewCell *cell = [GKNewItemTableViewCell cellForTableView:tableView indexPath:indexPath];
     GKWallClassModel *model = self.listData[indexPath.row];
-    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.coverImgUrl]];
+    [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.coverImgUrl] placeholderImage:placeholdersmall];
     cell.titleLab.text = model.cateName ?:@"";
     cell.subTitleLab.text = model.keyword ?:@"";
     [cell.watchBtn setTitle:model.cateEnglish forState:UIControlStateNormal];

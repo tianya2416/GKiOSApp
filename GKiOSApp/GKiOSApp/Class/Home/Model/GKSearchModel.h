@@ -14,7 +14,6 @@ typedef NS_ENUM(NSUInteger, GKSearchState) {
     GKSearchWall = 0,
     GKSearchNew  = 1
 };
-@class GKSearchItemsModel,GKSearchBaseModel;
 @interface GKSearchModel : BaseModel
 @property (copy, nonatomic) NSString *userId;
 @property (copy, nonatomic) NSString *searchKey;
@@ -22,7 +21,7 @@ typedef NS_ENUM(NSUInteger, GKSearchState) {
 + (instancetype)vcWithUserId:(NSString *)userId searchKey:(NSString *)searchKey state:(GKSearchState)state;
 @end
 
-@interface GKSearchResultModel : GKWallClassModel
+@interface GKSearchResultModel : GKWallCommenModel
 
 @end
 

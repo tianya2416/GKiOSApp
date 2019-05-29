@@ -19,7 +19,7 @@
 @property (strong, nonatomic) VTMagicController * magicController;
 @property (strong, nonatomic) NSMutableArray <NSString *>*listTitles;
 @property (strong, nonatomic) NSMutableArray <GKNewTopModel *>*listData;
-@property (strong, nonatomic) NSArray <GKNewHotWord *>*listHotWords;
+@property (strong, nonatomic) NSArray *listHotWords;
 @property (strong, nonatomic) GKNewNavBarView *navBarView;
 @property (nonatomic, strong) KLRecycleScrollView *vmessage;
 @end
@@ -57,6 +57,8 @@
     [GKNewTopQueue getDatasFromDataBase:^(NSArray<GKNewTopModel *> * _Nonnull listData) {
         listData.count == 0 ? [self getJSONData] :[self reloadUI:listData];
     }];
+    self.listHotWords = @[@""];
+    [self.vmessage reloadData:self.listHotWords.count];
     [GKHomeNetManager newSearchHotWord:^(id  _Nonnull object) {
         self.listHotWords = [NSArray modelArrayWithClass:GKNewHotWord.class json:object[@"RollhotWordList"]];
         [self.vmessage reloadData:self.listHotWords.count];
@@ -178,11 +180,11 @@
 }
 #pragma mark KLRecycleScrollViewDelegate
 - (UIView *)recycleScrollView:(KLRecycleScrollView *)recycleScrollView viewForItemAtIndex:(NSInteger)index {
-    GKNewHotWord *model = self.listHotWords[index];
     UILabel *label = [[UILabel alloc] init];
     label.font = [UIFont systemFontOfSize:14];
     label.textColor = Appx333333;
-    label.text = model.hotWord ?:@"瑞幸纳斯达克上市";
+    GKNewHotWord *model = self.listHotWords[index];
+    label.text =[model isKindOfClass:GKNewHotWord.class] ? model.hotWord :@"瑞幸纳斯达克上市";
     label.textAlignment = NSTextAlignmentLeft;
     return label;
 }
