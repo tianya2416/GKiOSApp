@@ -12,13 +12,13 @@
 @interface GKNewSelectController ()
 @property (strong, nonatomic) NSMutableArray *listData;
 @property (strong, nonatomic) NSMutableArray *listTitles;
-@property (strong, nonatomic) GKNewsTopModel *model;
+@property (strong, nonatomic) GKNewTopModel *model;
 @property (assign, nonatomic)id<GKNewSelectDelegate>delegate;
 @property (assign, nonatomic) BOOL editor;
 @end
 
 @implementation GKNewSelectController
-+ (instancetype)vcWithSelect:(GKNewsTopModel *)model delegate:(id<GKNewSelectDelegate>)delegate{
++ (instancetype)vcWithSelect:(GKNewTopModel *)model delegate:(id<GKNewSelectDelegate>)delegate{
     GKNewSelectController *vc = [[[self class] alloc] init];
     vc.model = model;
     vc.delegate = delegate;
@@ -40,10 +40,10 @@
     [self.collectionView addGestureRecognizer:longPressGesture];
 }
 - (void)refreshData:(NSInteger)page{
-    [GKNewTopQueue getDatasFromDataBase:^(NSArray<GKNewsTopModel *> * _Nonnull listData) {
+    [GKNewTopQueue getDatasFromDataBase:^(NSArray<GKNewTopModel *> * _Nonnull listData) {
         [self.listTitles removeAllObjects];
         [self.listData removeAllObjects];
-        [listData enumerateObjectsUsingBlock:^(GKNewsTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [listData enumerateObjectsUsingBlock:^(GKNewTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.select ? [self.listTitles addObject:obj] : [self.listData addObject:obj];
         }];
         [self.collectionView reloadData];
@@ -56,7 +56,7 @@
     [self.collectionView reloadData];
 }
 //添加删除
-- (void)updateAction:(GKNewsTopModel *)model{
+- (void)updateAction:(GKNewTopModel *)model{
     if (model.editor) {
         return;
     }
@@ -121,7 +121,7 @@
 {
     GKNewSelectCell *cell = [GKNewSelectCell cellForCollectionView:collectionView indexPath:indexPath];
     NSArray *listData = indexPath.section == 0 ? self.listTitles : self.listData;
-    GKNewsTopModel *model = listData[indexPath.row];
+    GKNewTopModel *model = listData[indexPath.row];
     cell.titleLab.textColor = [model.userId isEqualToString:self.model.userId] &&!self.editor ? AppColor : Appx333333;
     cell.titleLab.text = indexPath.section == 0 ? model.tname ?:@"" :[NSString stringWithFormat:@"+%@",model.tname?:@""];
     cell.imageV.hidden =  model.select && self.editor&&!model.editor? NO : YES;
@@ -129,7 +129,7 @@
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSArray *listData = indexPath.section == 0 ? self.listTitles : self.listData;
-    GKNewsTopModel *model = listData[indexPath.row];
+    GKNewTopModel *model = listData[indexPath.row];
     if (indexPath.section == 1) {
         [self updateAction:model];
     }else if (indexPath.section == 0){
@@ -146,15 +146,15 @@
 }
 - (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *listData = indexPath.section == 0 ? self.listTitles : self.listData;
-    GKNewsTopModel *model = listData[indexPath.row];
+    GKNewTopModel *model = listData[indexPath.row];
     return indexPath.section == 0 && !model.editor;
 }
 - (void)collectionView:(UICollectionView *)collectionView moveItemAtIndexPath:(nonnull NSIndexPath *)sourceIndexPath toIndexPath:(nonnull NSIndexPath *)destinationIndexPath
 {
     if (sourceIndexPath.section == 0 && destinationIndexPath.section == 0) {
-        GKNewsTopModel *model = self.listTitles[destinationIndexPath.row];
+        GKNewTopModel *model = self.listTitles[destinationIndexPath.row];
         if (!model.editor) {
-            GKNewsTopModel *topModel = self.listTitles[sourceIndexPath.row];
+            GKNewTopModel *topModel = self.listTitles[sourceIndexPath.row];
             NSInteger sort = model.sort;
             model.sort = topModel.sort;
             topModel.sort = sort;

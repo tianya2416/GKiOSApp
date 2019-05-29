@@ -6,13 +6,13 @@
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKHomeCategoryModel.h"
+#import "GKWallClassModel.h"
 
-@implementation GKHomeCategoryModel
+@implementation GKWallClassModel
 
 @end
 
 
-@implementation GKHomeCategoryItemModel
+@implementation GKWallClassItemModel
 
 @end

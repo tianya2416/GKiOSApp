@@ -8,12 +8,12 @@
 
 #import "GKBaseHomeController.h"
 #import "GKWallDetailController.h"
-#import "GKMostNewController.h"
-#import "GKCategoryController.h"
-#import "GKRecommendController.h"
+#import "GKWallHotController.h"
+#import "GKWallClassController.h"
+#import "GKWallCommenController.h"
 #import "GKSearchViewController.h"
 #import "GKHomeHotCollectionViewCell.h"
-#import "GKHomeHotModel.h"
+#import "GKWallCommenModel.h"
 @interface GKBaseHomeController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 @property (strong, nonatomic) VTMagicController * magicController;
 
@@ -27,11 +27,11 @@
     [super viewDidLoad];
     self.fd_prefersNavigationBarHidden = YES;
     self.edgesForExtendedLayout = UIRectEdgeAll;
-    self.listTitles = @[@"推荐",@"分类",@"最新"];
-    GKRecommendController *vcRecom = [[GKRecommendController alloc] init];
-    GKCategoryController *vcCategory = [[GKCategoryController alloc] init];
-    GKMostNewController *vcNews = [[GKMostNewController alloc] init];
-    self.listControllers = @[vcRecom,vcCategory,vcNews];
+    self.listTitles = @[@"推荐",@"分类",@"最热"];
+    GKWallCommenController *vcRecom = [[GKWallCommenController alloc] init];
+    GKWallClassController *vcClass = [[GKWallClassController alloc] init];
+    GKWallHotController *vcHot = [[GKWallHotController alloc] init];
+    self.listControllers = @[vcRecom,vcClass,vcHot];
     
     [self addChildViewController:self.magicController];
     [self.view addSubview:_magicController.view];
@@ -127,7 +127,7 @@
         _magicController.magicView.layoutStyle = VTLayoutStyleDefault;
         
         _magicController.magicView.backgroundColor = [UIColor whiteColor];
-//        _magicController.magicView.navigationInset = UIEdgeInsetsMake(0, 12, 0, 12);
+        _magicController.magicView.navigationInset = UIEdgeInsetsMake(0,10, 0,10);
         _magicController.magicView.navigationColor = AppColor;
         
         
@@ -177,8 +177,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GKHomeHotCollectionViewCell *cell = [GKHomeHotCollectionViewCell cellForCollectionView:collectionView indexPath:indexPath];
-    GKBabyModel *model = self.listData[indexPath.row];
-    if ([model isKindOfClass:GKBabyModel.class]) {
+    GKWallCommenModel *model = self.listData[indexPath.row];
+    if ([model isKindOfClass:GKWallCommenModel.class]) {
         cell.titleLab.text = @"";
         [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.coverImgUrl] placeholderImage:placeholders];
     }
@@ -191,7 +191,7 @@
     return 1;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    GKBabyModel *model = self.listData[indexPath.row];
+    GKWallCommenModel *model = self.listData[indexPath.row];
     GKWallDetailController *vc = [GKWallDetailController vcWithGid:model.gId];
     vc.hidesBottomBarWhenPushed = YES;
     [vc showNavTitle:model.gName];

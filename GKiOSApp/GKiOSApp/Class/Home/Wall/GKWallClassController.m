@@ -6,15 +6,15 @@
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKCategoryController.h"
-#import "GKHomeCategoryModel.h"
+#import "GKWallClassController.h"
+#import "GKWallClassModel.h"
 #import "GKNewItemTableViewCell.h"
-#import "GKCategoryItemController.h"
-@interface GKCategoryController()
+#import "GKWallClassItemController.h"
+@interface GKWallClassController()
 
 @property (strong, nonatomic) NSArray *listData;
 @end
-@implementation GKCategoryController
+@implementation GKWallClassController
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self setupEmpty:self.tableView];
@@ -22,7 +22,7 @@
 }
 - (void)refreshData:(NSInteger)page{
     [GKHomeNetManager wallCategory:@{} success:^(id  _Nonnull object) {
-        self.listData = [NSArray modelArrayWithClass:GKHomeCategoryModel.class json:object[@"classificationlist"]];
+        self.listData = [NSArray modelArrayWithClass:GKWallClassModel.class json:object[@"classificationlist"]];
         [self.tableView reloadData];
         [self endRefresh:NO];
     } failure:^(NSString * _Nonnull error) {
@@ -41,7 +41,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GKNewItemTableViewCell *cell = [GKNewItemTableViewCell cellForTableView:tableView indexPath:indexPath];
-    GKHomeCategoryModel *model = self.listData[indexPath.row];
+    GKWallClassModel *model = self.listData[indexPath.row];
     [cell.imageV sd_setImageWithURL:[NSURL URLWithString:model.coverImgUrl]];
     cell.titleLab.text = model.cateName ?:@"";
     cell.subTitleLab.text = model.keyword ?:@"";
@@ -51,8 +51,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    GKHomeCategoryModel *model = self.listData[indexPath.row];
-    GKCategoryItemController *vc = [GKCategoryItemController vcWithCategoryId:model.cateId];
+    GKWallClassModel *model = self.listData[indexPath.row];
+    GKWallClassItemController *vc = [GKWallClassItemController vcWithCategoryId:model.cateId];
     [vc showNavTitle:model.cateName backItem:YES];
     [self.navigationController pushViewController:vc animated:YES];
 }

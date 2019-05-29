@@ -7,7 +7,7 @@
 //
 
 #import "GKSearchViewController.h"
-#import "GKSearchResultController.h"
+#import "GKWallSearchResultController.h"
 #import "GKNewSearchResultController.h"
 #import "GKSearchViewCell.h"
 #import "GKSearchTextView.h"
@@ -101,7 +101,7 @@
 }
 - (void)searchText:(NSString *)searchText{
     UIViewController *vc = nil;
-    vc = self.state == GKSearchWall ? [GKSearchResultController vcWithSearchText:searchText] : [GKNewSearchResultController vcWithSearchText:searchText];
+    vc = self.state == GKSearchWall ? [GKWallSearchResultController vcWithSearchText:searchText] : [GKNewSearchResultController vcWithSearchText:searchText];
      [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSString *)timeStampTurnToTimesType:(NSString *)timesTamp

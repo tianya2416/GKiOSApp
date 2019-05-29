@@ -1,5 +1,5 @@
 //
-//  GKSearchItemController.h
+//  GKCategoryItemController.h
 //  GKiOSApp
 //
 //  Created by wangws1990 on 2019/5/16.
@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKSearchItemController : GKBaseHotController
-@property (strong, nonatomic) NSArray *items;
+@interface GKWallClassItemController : GKBaseHotController
++ (instancetype)vcWithCategoryId:(NSString *)categoryId;
 @end
 
 NS_ASSUME_NONNULL_END

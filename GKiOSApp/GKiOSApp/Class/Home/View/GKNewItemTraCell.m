@@ -20,7 +20,7 @@
 
     // Configure the view for the selected state
 }
-- (void)setModel:(GKNewsModel *)model{
+- (void)setModel:(GKNewModel *)model{
     [super setModel:model];
     self.titleLab.text = model.title ?:@"";
     [self.imageFirst sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholdersmall];

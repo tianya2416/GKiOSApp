@@ -1,5 +1,5 @@
 //
-//  GKNewsController.h
+//  GKWallCommenController.h
 //  GKiOSApp
 //
 //  Created by wangws1990 on 2019/5/13.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKMostNewController : GKBaseHotController
+@interface GKWallCommenController : GKBaseHotController
 
 @end
 

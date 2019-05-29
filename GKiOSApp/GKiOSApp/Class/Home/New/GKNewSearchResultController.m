@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadUI];
-    [self loadData];
 }
 - (void)loadUI{
     [self showNavTitle:self.keyWord];
@@ -32,14 +31,16 @@
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATHeaderRefresh|ATHeaderAutoRefresh];
 }
-- (void)loadData{
+- (void)refreshData:(NSInteger)page{
     [GKHomeNetManager newSearch:self.keyWord success:^(id  _Nonnull object) {
         self.listData = [NSArray modelArrayWithClass:GKNewSearchResult.class json:object[@"doc"][@"result"]].mutableCopy;
         [self.tableView reloadData];
+        [self endRefresh:NO];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];
 }
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -63,7 +64,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     GKNewSearchResult *model = self.listData[indexPath.row];
-    GKNewsModel *new = [GKNewsModel modelWithJSON:[model modelToJSONObject]];
+    NSLog(@"%@",model.docid);
+    GKNewModel *new = [GKNewModel modelWithJSON:[model modelToJSONObject]];
     GKNewDetailController *vc = [GKNewDetailController vcWithModel:new];
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -36,13 +36,13 @@
     }
     return _carouselView;
 }
-- (void)setModel:(GKNewsModel *)model{
+- (void)setModel:(GKNewModel *)model{
     [super setModel:model];
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholders];
     self.titleLab.text  = model.title ?:@"";
 //    NSMutableArray *listData = @[].mutableCopy;
 //    NSMutableArray *listTitles = @[].mutableCopy;
-//    [model.ads enumerateObjectsUsingBlock:^(GKNewsAdsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//    [model.ads enumerateObjectsUsingBlock:^(GKNewAdsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        [listData addObject:model.imgsrc ?:@""];
 //        //obj.url 这边图片无法使用
 //        [listTitles addObject:obj.title ?:@""];

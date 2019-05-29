@@ -6,16 +6,16 @@
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKCategoryItemController.h"
+#import "GKWallClassItemController.h"
 #import "GKHomeHotCollectionViewCell.h"
-#import "GKHomeCategoryModel.h"
-@interface GKCategoryItemController ()
+#import "GKWallClassModel.h"
+@interface GKWallClassItemController ()
 @property (nonatomic, strong) NSString *categoryID;
 @end
 
-@implementation GKCategoryItemController
+@implementation GKWallClassItemController
 + (instancetype)vcWithCategoryId:(NSString *)categoryId{
-    GKCategoryItemController *vc = [[GKCategoryItemController alloc] init];
+    GKWallClassItemController *vc = [[GKWallClassItemController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.categoryID = categoryId;
     return vc;
@@ -40,7 +40,7 @@
         if (page == 1) {
             [self.listData removeAllObjects];
         }
-        NSArray *listData= [NSArray modelArrayWithClass:GKHomeCategoryItemModel.class json:object[@"groupList"]];
+        NSArray *listData= [NSArray modelArrayWithClass:GKWallClassItemModel.class json:object[@"groupList"]];
         [self.listData addObjectsFromArray:listData];
         [self.collectionView reloadData];
         [self endRefresh:listData.count >=30];

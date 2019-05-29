@@ -14,9 +14,9 @@ typedef NS_ENUM(NSInteger, GKNewsStates) {
     GKNewsImgexType,
 };
 NS_ASSUME_NONNULL_BEGIN
-@class GKNewsAdsModel;
+@class GKNewAdsModel;
 
-@interface GKNewsModel : BaseModel
+@interface GKNewModel : BaseModel
 
 @property (copy, nonatomic) NSString *docid;
 @property (copy, nonatomic) NSString *title;//标题
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray *imgextra;//多图imgsrc
 @property (assign, nonatomic) BOOL imgType;//大图
 
-@property (copy, nonatomic) NSArray <GKNewsAdsModel*>*ads;//图片轮播的图
+@property (copy, nonatomic) NSArray <GKNewAdsModel*>*ads;//图片轮播的图
 @property (copy, nonatomic) NSString *photosetID;
 
 @property (copy, nonatomic) NSString *url;
@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface GKNewsTopModel : BaseModel
+@interface GKNewTopModel : BaseModel
 
 @property (copy, nonatomic) NSString *tname;
 @property (copy, nonatomic) NSString *userId;
@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface GKNewsAdsModel : BaseModel
+@interface GKNewAdsModel : BaseModel
 @property (copy, nonatomic) NSString *imgsrc;
 @property (copy, nonatomic) NSString *skipID;
 @property (copy, nonatomic) NSString *skipType;

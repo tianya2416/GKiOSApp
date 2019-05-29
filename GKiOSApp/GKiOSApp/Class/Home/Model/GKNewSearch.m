@@ -26,8 +26,9 @@
 }
 - (NSAttributedString *)getTitleAtt{
     NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithString:self.title];
-    //att addAttribute:<#(nonnull NSAttributedStringKey)#> value:<#(nonnull id)#> range:<#(NSRange)#>
-    
     return att;
+}
+- (NSString *)docid{
+    return [self.skipType isEqualToString:@"doc"] ? _docid : self.postid;
 }
 @end

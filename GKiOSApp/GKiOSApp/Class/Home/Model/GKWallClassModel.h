@@ -7,10 +7,10 @@
 //
 
 #import "BaseModel.h"
-#import "GKHomeHotModel.h"
+#import "GKWallCommenModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKHomeCategoryModel : BaseModel
+@interface GKWallClassModel : BaseModel
 @property (copy, nonatomic) NSString *cateId;
 @property (copy, nonatomic) NSString *cateName;
 @property (copy, nonatomic) NSString *cateEnglish;
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *level;
 @end
 
-@interface GKHomeCategoryItemModel : GKBabyModel
+@interface GKWallClassItemModel : GKWallCommenModel
 
 @property (copy, nonatomic) NSString *downNum;
 

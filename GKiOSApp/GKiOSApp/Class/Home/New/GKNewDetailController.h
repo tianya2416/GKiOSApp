@@ -7,11 +7,11 @@
 //
 
 #import "BaseWebController.h"
-#import "GKNewsModel.h"
+#import "GKNewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKNewDetailController : BaseWebController
-+ (instancetype)vcWithModel:(GKNewsModel *)model;
++ (instancetype)vcWithModel:(GKNewModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

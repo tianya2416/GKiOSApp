@@ -35,7 +35,7 @@
                             </constraints>
                         </imageView>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zjD-ay-IYX">
-                            <rect key="frame" x="32" y="2.5" width="257" height="30"/>
+                            <rect key="frame" x="32" y="4.5" width="267" height="30"/>
                             <color key="tintColor" red="1" green="0.50980392159999999" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="p9J-ff-aUs"/>
@@ -48,10 +48,10 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Yib-xa-rNx" firstAttribute="leading" secondItem="lF0-rS-6jj" secondAttribute="leading" constant="10" id="075-4x-nfZ"/>
-                        <constraint firstAttribute="trailing" secondItem="zjD-ay-IYX" secondAttribute="trailing" constant="10" id="6of-KC-XxY"/>
+                        <constraint firstAttribute="trailing" secondItem="zjD-ay-IYX" secondAttribute="trailing" id="6of-KC-XxY"/>
                         <constraint firstItem="Yib-xa-rNx" firstAttribute="centerY" secondItem="lF0-rS-6jj" secondAttribute="centerY" id="SNE-p2-T0r"/>
                         <constraint firstItem="zjD-ay-IYX" firstAttribute="leading" secondItem="Yib-xa-rNx" secondAttribute="trailing" constant="10" id="VEo-MZ-aqR"/>
-                        <constraint firstItem="zjD-ay-IYX" firstAttribute="centerY" secondItem="Yib-xa-rNx" secondAttribute="centerY" id="aGg-gJ-iNS"/>
+                        <constraint firstItem="zjD-ay-IYX" firstAttribute="centerY" secondItem="Yib-xa-rNx" secondAttribute="centerY" constant="2" id="aGg-gJ-iNS"/>
                         <constraint firstAttribute="height" constant="35" id="dLU-sE-lOF"/>
                     </constraints>
                 </view>

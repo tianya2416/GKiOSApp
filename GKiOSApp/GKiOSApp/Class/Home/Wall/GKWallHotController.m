@@ -6,13 +6,13 @@
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKMostNewController.h"
-#import "GKHomeCategoryModel.h"
+#import "GKWallHotController.h"
+#import "GKWallClassModel.h"
 #import "GKHomeHotCollectionViewCell.h"
-@interface GKMostNewController()
+@interface GKWallHotController()
 
 @end
-@implementation GKMostNewController
+@implementation GKWallHotController
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -33,7 +33,7 @@
         if (page == 1) {
             [self.listData removeAllObjects];
         }
-        NSArray *listData= [NSArray modelArrayWithClass:GKHomeCategoryItemModel.class json:object[@"groupList"]];
+        NSArray *listData= [NSArray modelArrayWithClass:GKWallClassItemModel.class json:object[@"groupList"]];
         [self.listData addObjectsFromArray:listData];
         [self.collectionView reloadData];
         [self endRefresh:listData.count >=30];

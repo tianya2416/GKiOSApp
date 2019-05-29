@@ -7,8 +7,8 @@
 //
 
 #import "BaseModel.h"
-#import "GKHomeHotModel.h"
-#import "GKHomeCategoryModel.h"
+#import "GKWallCommenModel.h"
+#import "GKWallClassModel.h"
 NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, GKSearchState) {
     GKSearchWall = 0,
@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, GKSearchState) {
 + (instancetype)vcWithUserId:(NSString *)userId searchKey:(NSString *)searchKey state:(GKSearchState)state;
 @end
 
-@interface GKSearchResultModel : GKHomeCategoryItemModel
+@interface GKSearchResultModel : GKWallClassModel
 
 @end
 

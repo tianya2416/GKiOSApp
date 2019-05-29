@@ -31,7 +31,7 @@
     }
     return _lineView;
 }
-- (void)setModel:(GKNewsModel *)model{
+- (void)setModel:(GKNewModel *)model{
     _model = model;
 }
 @end

@@ -12,7 +12,7 @@
 #import "GKNewItemAdCell.h"
 #import "GKNewItemImageCell.h"
 #import "GKNewItemTraCell.h"
-#import "GKNewsModel.h"
+#import "GKNewModel.h"
 #import "GKNewPhotoModel.h"
 @interface GKNewItemViewController()
 @property (strong, nonatomic) NSMutableArray *listData;
@@ -36,7 +36,7 @@
         if (page == 1) {
             [self.listData removeAllObjects];
         }
-        NSArray *datas = [NSArray modelArrayWithClass:GKNewsModel.class json:object[self.categoryId]];
+        NSArray *datas = [NSArray modelArrayWithClass:GKNewModel.class json:object[self.categoryId]];
         [self.listData addObjectsFromArray:datas];
         [self.tableView reloadData];
         [self endRefresh:datas.count >=20];
@@ -51,11 +51,11 @@
     return self.listData.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GKNewsModel *model = self.listData[indexPath.row];
+    GKNewModel *model = self.listData[indexPath.row];
     return model.cellHeight;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GKNewsModel *model = self.listData[indexPath.row];
+    GKNewModel *model = self.listData[indexPath.row];
     switch (model.states) {
         case GKNewsImgexType:
         {
@@ -87,7 +87,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    GKNewsModel *model = self.listData[indexPath.row];
+    GKNewModel *model = self.listData[indexPath.row];
     switch (model.states) {
         case GKNewsAdvertise:
         {

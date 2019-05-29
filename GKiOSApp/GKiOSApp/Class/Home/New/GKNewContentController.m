@@ -6,25 +6,25 @@
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKNewViewController.h"
+#import "GKNewContentController.h"
 #import "GKNewSelectController.h"
 #import "GKNewItemViewController.h"
 #import "GKSearchViewController.h"
 #import "KLRecycleScrollView.h"
 #import "GKNewNavBarView.h"
-#import "GKNewsModel.h"
+#import "GKNewModel.h"
 #import "GKNewSearch.h"
-@interface GKNewViewController ()<VTMagicViewDataSource,VTMagicViewDelegate,GKNewSelectDelegate,KLRecycleScrollViewDelegate>
+@interface GKNewContentController ()<VTMagicViewDataSource,VTMagicViewDelegate,GKNewSelectDelegate,KLRecycleScrollViewDelegate>
 
 @property (strong, nonatomic) VTMagicController * magicController;
 @property (strong, nonatomic) NSMutableArray <NSString *>*listTitles;
-@property (strong, nonatomic) NSMutableArray <GKNewsTopModel *>*listData;
+@property (strong, nonatomic) NSMutableArray <GKNewTopModel *>*listData;
 @property (strong, nonatomic) NSArray <GKNewHotWord *>*listHotWords;
 @property (strong, nonatomic) GKNewNavBarView *navBarView;
 @property (nonatomic, strong) KLRecycleScrollView *vmessage;
 @end
 
-@implementation GKNewViewController
+@implementation GKNewContentController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,11 +54,11 @@
     
 }
 - (void)loadData{
-    [GKNewTopQueue getDatasFromDataBase:^(NSArray<GKNewsTopModel *> * _Nonnull listData) {
+    [GKNewTopQueue getDatasFromDataBase:^(NSArray<GKNewTopModel *> * _Nonnull listData) {
         listData.count == 0 ? [self getJSONData] :[self reloadUI:listData];
     }];
     [GKHomeNetManager newSearchHotWord:^(id  _Nonnull object) {
-        self.listHotWords = [NSArray modelArrayWithClass:GKNewHotWord.class json:object[@"hotWordList"]];
+        self.listHotWords = [NSArray modelArrayWithClass:GKNewHotWord.class json:object[@"RollhotWordList"]];
         [self.vmessage reloadData:self.listHotWords.count];
     } failure:^(NSString * _Nonnull error) {
         
@@ -70,8 +70,8 @@
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     if (!error) {
-        NSArray *datas = [NSArray modelArrayWithClass:GKNewsTopModel.class json:rootDict[@"tList"]];
-        [datas enumerateObjectsUsingBlock:^(GKNewsTopModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSArray *datas = [NSArray modelArrayWithClass:GKNewTopModel.class json:rootDict[@"tList"]];
+        [datas enumerateObjectsUsingBlock:^(GKNewTopModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.sort = idx;;
             if (idx < 10) {
                 obj.select = YES;
@@ -83,11 +83,11 @@
         }];
     }
 }
-- (void)reloadUI:(NSArray <GKNewsTopModel *>*)datas
+- (void)reloadUI:(NSArray <GKNewTopModel *>*)datas
 {
     [self.listTitles removeAllObjects];
     [self.listData removeAllObjects];
-    [datas  enumerateObjectsUsingBlock:^(GKNewsTopModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [datas  enumerateObjectsUsingBlock:^(GKNewTopModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.select) {
             [self.listTitles addObject:obj.tname] ;
             [self.listData addObject:obj] ;
@@ -97,7 +97,7 @@
 
 }
 - (void)addAction{
-    GKNewsTopModel *model = self.listData[self.magicController.currentPage];
+    GKNewTopModel *model = self.listData[self.magicController.currentPage];
     GKNewSelectController *vc = [GKNewSelectController vcWithSelect:model delegate:self];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
@@ -157,23 +157,23 @@
     {
         viewCtrl = [[GKNewItemViewController alloc] init];
     }
-    GKNewsTopModel *model = self.listData[pageIndex];
+    GKNewTopModel *model = self.listData[pageIndex];
     viewCtrl.categoryId = model.userId;
     return viewCtrl;
 }
 #pragma mark GKNewSelectDelegate
-- (void)viewDidItem:(GKNewSelectController *)vc topModel:(GKNewsTopModel *)topModel{
+- (void)viewDidItem:(GKNewSelectController *)vc topModel:(GKNewTopModel *)topModel{
     if (!topModel.userId) {
         return;
     }
-    [self.listData enumerateObjectsUsingBlock:^(GKNewsTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.listData enumerateObjectsUsingBlock:^(GKNewTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj.userId isEqualToString:topModel.userId]) {
             [self.magicController.magicView reloadDataToPage:idx];
             *stop = YES;
         }
     }];
 }
-- (void)viewDidLoad:(GKNewSelectController *)vc topModel:(GKNewsTopModel *)topModel{
+- (void)viewDidLoad:(GKNewSelectController *)vc topModel:(GKNewTopModel *)topModel{
     [self loadData];
 }
 #pragma mark KLRecycleScrollViewDelegate

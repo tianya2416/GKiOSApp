@@ -1,8 +1,8 @@
 //
-//  GKNewViewController.h
+//  GKNewsController.h
 //  GKiOSApp
 //
-//  Created by wangws1990 on 2019/5/10.
+//  Created by wangws1990 on 2019/5/13.
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKNewViewController : BaseViewController
+@interface GKWallHotController : GKBaseHotController
 
 @end
 

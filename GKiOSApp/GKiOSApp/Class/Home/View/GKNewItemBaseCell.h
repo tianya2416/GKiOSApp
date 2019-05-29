@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GKNewsModel.h"
+#import "GKNewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKNewItemBaseCell : UITableViewCell
 @property (strong, nonatomic) UIView *lineView;
 
-@property (strong, nonatomic) GKNewsModel *model;
+@property (strong, nonatomic) GKNewModel *model;
 @end
 
 NS_ASSUME_NONNULL_END

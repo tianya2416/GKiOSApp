@@ -6,20 +6,20 @@
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKNewsModel.h"
+#import "GKNewModel.h"
 
-@interface GKNewsModel()
+@interface GKNewModel()
 @property (assign, nonatomic) GKNewsStates states;
 @end
 
-@implementation GKNewsModel
+@implementation GKNewModel
 - (NSString *)replyCount{
     CGFloat count = _replyCount.integerValue;
     return count > 10000 ? [NSString stringWithFormat:@"%.1f万帖", count/10000.f] :  [NSString stringWithFormat:@"%.0f帖", count];
 }
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
-        return @{@"ads" : GKNewsAdsModel.class};
+        return @{@"ads" : GKNewAdsModel.class};
 }
 - (GKNewsStates )states{
     GKNewsStates state = GKNewsDefault;
@@ -51,7 +51,7 @@
     return height;
 }
 @end
-@implementation GKNewsTopModel
+@implementation GKNewTopModel
 
 + (nullable NSDictionary<NSString *, id> *)modelCustomPropertyMapper{
      return @{@"userId": @[@"userId",@"tid"]};
@@ -62,7 +62,7 @@
 @end
 
 
-@implementation GKNewsAdsModel
+@implementation GKNewAdsModel
 
 @end
 

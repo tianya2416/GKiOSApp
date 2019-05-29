@@ -14,7 +14,7 @@
     [super awakeFromNib];
     self.searchView.layer.masksToBounds = YES;
     self.searchView.layer.cornerRadius = AppRadius;
-    self.textField.placeholder = @"输入搜索名称...";
+    self.textField.placeholder = @"请输入关键词...";
     
 }
 

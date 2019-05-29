@@ -10,11 +10,11 @@
 static NSString *topTableName = @"NewTopTable";
 static NSString *primaryId1 = @"userId";
 @implementation GKNewTopQueue
-+ (void)insertDataToDataBase:(GKNewsTopModel *)model completion:(void(^)(BOOL success))completion{
++ (void)insertDataToDataBase:(GKNewTopModel *)model completion:(void(^)(BOOL success))completion{
     NSDictionary *userInfo = [model modelToJSONObject];
     [BaseDataQueue insertDataToDataBase:topTableName primaryId:primaryId1 userInfo:userInfo completion:completion];
 }
-+ (void)updateDataToDataBase:(GKNewsTopModel *)model completion:(void(^)(BOOL success))completion{
++ (void)updateDataToDataBase:(GKNewTopModel *)model completion:(void(^)(BOOL success))completion{
     NSDictionary *userInfo = [model modelToJSONObject];
     [BaseDataQueue updateDataToDataBase:topTableName primaryId:primaryId1 userInfo:userInfo completion:completion];
 }
@@ -27,9 +27,9 @@ static NSString *primaryId1 = @"userId";
 /**
  *  @brief 使用事务来处理批量插入数据问题 效率比较高
  */
-+ (void)insertDatasDataBase:(NSArray <GKNewsTopModel *>*)listData completion:(void(^)(BOOL success))completion{
++ (void)insertDatasDataBase:(NSArray <GKNewTopModel *>*)listData completion:(void(^)(BOOL success))completion{
     NSMutableArray *arrayData = [[NSMutableArray alloc] init];
-    [listData enumerateObjectsUsingBlock:^(GKNewsTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [listData enumerateObjectsUsingBlock:^(GKNewTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [arrayData addObject:[obj modelToJSONObject]];
     }];
     [BaseDataQueue insertDatasDataBase:topTableName primaryId:primaryId1 listData:arrayData completion:completion];
@@ -38,15 +38,15 @@ static NSString *primaryId1 = @"userId";
 /**
  *  @brief 获取数据
  */
-+ (void)getDatasFromDataBase:(void(^)(NSArray <GKNewsTopModel *>*listData))completion{
++ (void)getDatasFromDataBase:(void(^)(NSArray <GKNewTopModel *>*listData))completion{
     [BaseDataQueue getDatasFromDataBase:topTableName primaryId:primaryId1 completion:^(NSArray<NSDictionary *> * _Nonnull listData) {
-        NSArray *datas = [NSArray modelArrayWithClass:GKNewsTopModel.class json:listData];
+        NSArray *datas = [NSArray modelArrayWithClass:GKNewTopModel.class json:listData];
         !completion ?: completion([GKNewTopQueue sortedArrayUsingComparator:datas key:nil ascending:YES]);
     }];
 }
-+ (void)getDatasFromDataBase:(NSString *)userId completion:(void(^)(GKNewsTopModel *model))completion{
++ (void)getDatasFromDataBase:(NSString *)userId completion:(void(^)(GKNewTopModel *model))completion{
     [BaseDataQueue getDatasFromDataBase:topTableName primaryId:primaryId1 primaryValue:userId completion:^(NSDictionary * _Nonnull dictionary) {
-        GKNewsTopModel *info = [GKNewsTopModel modelWithJSON:dictionary];
+        GKNewTopModel *info = [GKNewTopModel modelWithJSON:dictionary];
         !completion ?: completion(info);
     }];
 }
@@ -56,7 +56,7 @@ static NSString *primaryId1 = @"userId";
 + (void)dropTheTableGroupDataBase:(void (^)(BOOL))completion{
     [BaseDataQueue dropTableDataBase:topTableName completion:completion];
 }
-+ (NSArray *)sortedArrayUsingComparator:(NSArray <GKNewsTopModel *>*)listData key:(NSString *)key ascending:(BOOL)ascending
++ (NSArray *)sortedArrayUsingComparator:(NSArray <GKNewTopModel *>*)listData key:(NSString *)key ascending:(BOOL)ascending
 {
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:key?:@"sort" ascending:ascending];
     return [listData sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];

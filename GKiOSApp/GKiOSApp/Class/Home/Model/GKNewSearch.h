@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *title;
 @property(nonatomic,copy)NSString *score;
 @property(nonatomic,copy)NSString *skipID;
-
+@property(nonatomic,copy)NSString *skipType;
 @property(nonatomic,copy)NSString *replyCount;
 
 - (NSAttributedString *)getTitleAtt;

@@ -9,13 +9,14 @@
 #import "BaseNetModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class GKBabyModel;
-@interface GKHomeHotModel : BaseModel
-@property (strong, nonatomic) NSArray<GKBabyModel *>*groupList;
+@class GKWallCommenModel;
+@interface GKWallCommenInfo : BaseModel
+@property (strong, nonatomic) NSArray<GKWallCommenModel *>*groupList;
 @property (strong, nonatomic) NSArray *banner;
 @end
 
-@interface GKBabyModel : BaseModel
+@interface GKWallCommenModel : BaseModel
+
 @property (nonatomic, copy) NSString * coverImgUrl;
 @property (nonatomic, copy) NSString * gName;
 @property (nonatomic, copy) NSString * cover;
@@ -24,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSUInteger picNum;
 @property (nonatomic, copy) NSString * subId;
 @property (nonatomic, copy) NSString * voteGood;
+
 @end
 
 NS_ASSUME_NONNULL_END

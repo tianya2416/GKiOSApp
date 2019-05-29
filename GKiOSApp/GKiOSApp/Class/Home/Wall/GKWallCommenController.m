@@ -1,21 +1,21 @@
 //
-//  GKRecommendController.m
+//  GKWallCommenController.m
 //  GKiOSApp
 //
 //  Created by wangws1990 on 2019/5/13.
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKRecommendController.h"
+#import "GKWallCommenController.h"
 #import "GKHomeHotCollectionViewCell.h"
-#import "GKHomeHotModel.h"
+#import "GKWallCommenModel.h"
 #import "GKHomeCollectionReusableView.h"
 #import "SDCycleScrollView.h"
-@interface GKRecommendController()<SDCycleScrollViewDelegate>
-@property (strong, nonatomic) GKHomeHotModel *hotModel;
+@interface GKWallCommenController()<SDCycleScrollViewDelegate>
+@property (strong, nonatomic) GKWallCommenInfo *hotModel;
 @property (strong, nonatomic) SDCycleScrollView *carouselView;
 @end
-@implementation GKRecommendController
+@implementation GKWallCommenController
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self setupEmpty:self.collectionView];
@@ -38,7 +38,7 @@
         if (page == 1) {
             [self.listData removeAllObjects];
         }
-        self.hotModel = [GKHomeHotModel modelWithJSON:object];
+        self.hotModel = [GKWallCommenInfo modelWithJSON:object];
         [self.listData addObjectsFromArray:self.hotModel.groupList];
         self.carouselView.imageURLStringsGroup = self.hotModel.banner;
         [self.collectionView reloadData];
