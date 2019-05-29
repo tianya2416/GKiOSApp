@@ -34,7 +34,7 @@
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
     params[@"imgSize"] = [NSString stringWithFormat:@"%lix%li",(long)width,(long)height];
-    [GKHomeNetManager homeHot:params success:^(id  _Nonnull object) {
+    [GKHomeNetManager wallHot:params success:^(id  _Nonnull object) {
         if (page == 1) {
             [self.listData removeAllObjects];
         }

@@ -9,29 +9,24 @@
 #import "GKHomeNetManager.h"
 
 @implementation GKHomeNetManager
-+ (NSURLSessionDataTask *)homeHot:(NSDictionary *)params
++ (NSURLSessionDataTask *)wallHot:(NSDictionary *)params
                           success:(void(^)(id object))success
                           failure:(void(^)(NSString *error))failure{
     //宝贝
     return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"corp/bizhiClient/getGroupInfo.php?isAttion=1") params:params success:success failure:failure];
 }
-+ (NSURLSessionDataTask *)homeCategory:(NSDictionary *)params
++ (NSURLSessionDataTask *)wallCategory:(NSDictionary *)params
                                success:(void(^)(id object))success
                                failure:(void(^)(NSString *error))failure{
      return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"corp/bizhiClient/getCateInfo.php") params:params success:success failure:failure];
 }
-+ (NSURLSessionDataTask *)homeCategory:(NSString *)categoryId
-                                params:(NSDictionary *)params
-                               success:(void(^)(id object))success
-                               failure:(void(^)(NSString *error))failure{
++ (NSURLSessionDataTask *)wallCategoryItem:(NSString *)categoryId
+                                    params:(NSDictionary *)params
+                                   success:(void(^)(id object))success
+                                   failure:(void(^)(NSString *error))failure{
      return [GKHomeNetManager method:HttpMethodPost urlString:kUrlWall(@"corp/bizhiClient/getGroupInfo.php") params:params success:success failure:failure];
 }
-+ (NSURLSessionDataTask *)homeNews:(NSDictionary *)params
-                           success:(void(^)(id object))success
-                           failure:(void(^)(NSString *error))failure{
-     return [GKHomeNetManager method:HttpMethodGet urlString:kUrlWall(@"") params:params success:success failure:failure];
-}
-+ (NSURLSessionDataTask *)homeSearch:(NSString *)searchText
++ (NSURLSessionDataTask *)wallSearch:(NSString *)searchText
                               params:(NSDictionary *)params
                              success:(void(^)(id object))success
                              failure:(void(^)(NSString *error))failure{
@@ -74,6 +69,17 @@
     NSString *url = [NSString stringWithFormat:@"photo/api/set/%@/%@.json",list.firstObject,list.lastObject];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
++ (NSURLSessionDataTask *)newSearchHotWord:(void(^)(id object))success
+                                   failure:(void(^)(NSString *error))failure{
+    NSString *url = [NSString stringWithFormat:@"nc/search/hotWord.html"];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlSearchNew(url) params:nil success:success failure:failure];
+}
++ (NSURLSessionDataTask *)newSearch:(NSString *)keyWord
+                            success:(void(^)(id object))success
+                            failure:(void(^)(NSString *error))failure{
+    NSString *url = [NSString stringWithFormat:@"search/comp/MA==/20/%@.html",[keyWord base64EncodedString]];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrlSearchNew(url) params:nil success:success failure:failure];
+}
 + (NSURLSessionDataTask *)app_login:(NSString *)account
                            password:(NSString *)password
                             success:(void(^)(id object))success
@@ -84,7 +90,7 @@
     params[@"function"] = @"app_login";
     params[@"login_name"] = account?:@"";
     params[@"pwd"] = password ?: @"";
-    return [GKHomeNetManager method:HttpMethodPost serializer:HttpSerializeJSON urlString:App_LoginURL params:params success:^(id object) {
+    return [GKHomeNetManager method:HttpMethodPost serializer:HttpSerializeJSON urlString:URL_Login params:params success:^(id object) {
         [GKHomeNetManager loginSuccessSaveData:object];
         !success ?: success(object);
     } failure:failure];
@@ -106,13 +112,12 @@
 + (NSURLSessionDataTask *)appLaunch:(NSTimeInterval )timeStamp
                             success:(void(^)(id object))success
                             failure:(void(^)(NSString *error))failure{
-    NSString *path = [NSString stringWithFormat:@"http://g1.163.com/madr"];
     NSMutableDictionary * params = [@{} mutableCopy];
     params[@"app"] = @"7A16FBB6";
     params[@"platform"] = @"ios";
     params[@"category"] = @"startup";
     params[@"location"] =  @"1";
     params[@"timestamp"] =  [NSString stringWithFormat:@"%ld",(long)timeStamp];
-   return [BaseNetManager method:HttpMethodGet serializer:HttpSerializeDefault urlString:path params:params timeOut:2 success:success failure:failure];
+   return [BaseNetManager method:HttpMethodGet serializer:HttpSerializeDefault urlString:URL_Launch params:params timeOut:2 success:success failure:failure];
 }
 @end

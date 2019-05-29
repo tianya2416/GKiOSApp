@@ -10,8 +10,8 @@
 #import "GKHomeHotCollectionViewCell.h"
 #import "GKSearchItemController.h"
 #import "GKSearchModel.h"
-@interface GKSearchResultController ()<VTMagicViewDataSource,VTMagicViewDelegate>
-@property (copy, nonatomic) NSString *keyWorld;
+@interface GKSearchResultController ()//<VTMagicViewDataSource,VTMagicViewDelegate>
+@property (copy, nonatomic) NSString *keyWord;
 @property (strong, nonatomic) VTMagicController * magicController;
 
 @property (strong, nonatomic) NSMutableArray *listTitles;
@@ -22,7 +22,7 @@
 @implementation GKSearchResultController
 + (instancetype)vcWithSearchText:(NSString *)searchText{
     GKSearchResultController *vc = [[[self class] alloc] init];
-    vc.keyWorld = searchText;
+    vc.keyWord = searchText;
     return vc;
 }
 - (void)viewDidLoad {
@@ -30,7 +30,7 @@
     [self loadUI];
 }
 - (void)loadUI {
-    [self showNavTitle:self.keyWorld backItem:YES];
+    [self showNavTitle:self.keyWord backItem:YES];
     [self setupEmpty:self.collectionView];
     [self setupRefresh:self.collectionView option:ATHeaderRefresh|ATHeaderAutoRefresh];
 //    self.listTitles = @[].mutableCopy;
@@ -43,11 +43,11 @@
 }
 - (void)refreshData:(NSInteger)page{
     NSDictionary *params = @{
-                             @"wd": self.keyWorld ?:@"",
+                             @"wd": self.keyWord ?:@"",
                              @"start": @(1+(page-1)*30),
                              @"end" : @(30),
                              };
-    [GKHomeNetManager homeSearch:self.keyWorld params:params success:^(id  _Nonnull object) {
+    [GKHomeNetManager wallSearch:self.keyWord params:params success:^(id  _Nonnull object) {
         if (page == 1) {
             [self.listData removeAllObjects];
         }

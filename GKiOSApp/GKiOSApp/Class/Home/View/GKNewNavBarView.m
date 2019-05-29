@@ -11,8 +11,8 @@
 @implementation GKNewNavBarView
 - (void)awakeFromNib{
     [super awakeFromNib];
-    self.searchBtn.layer.masksToBounds = YES;
-    self.searchBtn.layer.cornerRadius = AppRadius;
+    self.searchView.layer.masksToBounds = YES;
+    self.searchView.layer.cornerRadius = AppRadius;
 }
 
 @end

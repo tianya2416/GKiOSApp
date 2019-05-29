@@ -21,13 +21,16 @@
 #define placeholdersmall [UIImage imageNamed:@"placeholder_small"]
 
 #pragma mark login
-#define App_DB       @"ecom"
-#define App_LoginURL   @"http://27.154.58.198:28099/restful/rpc"//登录
+#define App_DB         @"ecom"
+#define URL_Login      @"http://27.154.58.198:28099/restful/rpc"//登录
 #define URL_Wall       @"http://sj.zol.com.cn/"//壁纸
 #define URL_163New     @"http://c.m.163.com/"//新闻
+#define URL_Launch     @"http://g1.163.com/madr"//开机启动
+#define URL_SearchNew  @"http://c.3g.163.com/"//搜索
 
-#define kUrlWall(url)    [NSString stringWithFormat:@"%@%@", URL_Wall, url]
-#define kUrl163New(url)  [NSString stringWithFormat:@"%@%@", URL_163New, url]
+#define kUrlWall(url)       [NSString stringWithFormat:@"%@%@", URL_Wall, url]
+#define kUrl163New(url)     [NSString stringWithFormat:@"%@%@", URL_163New, url]
+#define kUrlSearchNew(url)  [NSString stringWithFormat:@"%@%@", URL_SearchNew, url]
 
 #ifdef DEBUG
 #ifndef NSLog

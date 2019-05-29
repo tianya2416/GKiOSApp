@@ -10,14 +10,18 @@
 #import "GKNewSelectController.h"
 #import "GKNewItemViewController.h"
 #import "GKSearchViewController.h"
+#import "KLRecycleScrollView.h"
 #import "GKNewNavBarView.h"
 #import "GKNewsModel.h"
-@interface GKNewViewController ()<VTMagicViewDataSource,VTMagicViewDelegate,GKNewSelectDelegate>
+#import "GKNewSearch.h"
+@interface GKNewViewController ()<VTMagicViewDataSource,VTMagicViewDelegate,GKNewSelectDelegate,KLRecycleScrollViewDelegate>
+
 @property (strong, nonatomic) VTMagicController * magicController;
 @property (strong, nonatomic) NSMutableArray <NSString *>*listTitles;
 @property (strong, nonatomic) NSMutableArray <GKNewsTopModel *>*listData;
-
+@property (strong, nonatomic) NSArray <GKNewHotWord *>*listHotWords;
 @property (strong, nonatomic) GKNewNavBarView *navBarView;
+@property (nonatomic, strong) KLRecycleScrollView *vmessage;
 @end
 
 @implementation GKNewViewController
@@ -46,12 +50,19 @@
     }];
     [self setNavRightItemWithImage:[UIImage imageNamed:@"search_white"] action:@selector(searchAction)];
     self.navigationItem.leftBarButtonItem = [self navItemWithImage:[UIImage imageNamed:@"top_navigation_menuicon"] action:@selector(addAction)];
+    [self.navBarView.mainView addSubview:self.vmessage];
+    
 }
 - (void)loadData{
     [GKNewTopQueue getDatasFromDataBase:^(NSArray<GKNewsTopModel *> * _Nonnull listData) {
         listData.count == 0 ? [self getJSONData] :[self reloadUI:listData];
     }];
-
+    [GKHomeNetManager newSearchHotWord:^(id  _Nonnull object) {
+        self.listHotWords = [NSArray modelArrayWithClass:GKNewHotWord.class json:object[@"hotWordList"]];
+        [self.vmessage reloadData:self.listHotWords.count];
+    } failure:^(NSString * _Nonnull error) {
+        
+    }];
 }
 - (void)getJSONData{
     NSError *error = nil;
@@ -165,6 +176,19 @@
 - (void)viewDidLoad:(GKNewSelectController *)vc topModel:(GKNewsTopModel *)topModel{
     [self loadData];
 }
+#pragma mark KLRecycleScrollViewDelegate
+- (UIView *)recycleScrollView:(KLRecycleScrollView *)recycleScrollView viewForItemAtIndex:(NSInteger)index {
+    GKNewHotWord *model = self.listHotWords[index];
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:14];
+    label.textColor = Appx333333;
+    label.text = model.hotWord ?:@"瑞幸纳斯达克上市";
+    label.textAlignment = NSTextAlignmentLeft;
+    return label;
+}
+- (void)recycleScrollView:(KLRecycleScrollView *)recycleScrollView didSelectView:(UIView *)view forItemAtIndex:(NSInteger)index{
+    [self searchAction];
+}
 #pragma mark get
 -(VTMagicController *)magicController {
     
@@ -201,10 +225,22 @@
     if (!_navBarView) {
         _navBarView = [GKNewNavBarView instanceView];
         _navBarView.backgroundColor = AppColor;
-        [_navBarView.searchBtn addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
+       // [_navBarView.searchBtn addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
         [_navBarView.moreBtn addTarget:self action:@selector(addAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _navBarView;
+}
+- (KLRecycleScrollView *)vmessage{
+    if (!_vmessage) {
+        _vmessage = [[KLRecycleScrollView alloc] initWithFrame:CGRectMake(0,0,SCREEN_WIDTH - 100, 35)];
+        _vmessage.delegate = self;
+        _vmessage.direction = KLRecycleScrollViewDirectionTop;
+        _vmessage.pagingEnabled = YES;
+        _vmessage.timerEnabled = YES;
+        _vmessage.scrollInterval = 5;
+        _vmessage.backgroundColor = [UIColor whiteColor];
+    }
+    return _vmessage;
 }
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;

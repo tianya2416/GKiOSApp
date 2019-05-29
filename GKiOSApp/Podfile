@@ -27,6 +27,7 @@ target :GKiOSApp  do
     pod 'HHTransition'
     pod 'VTMagic'
     pod 'SDCycleScrollView'
+    pod 'KLRecycleScrollView'
 #    pod 'YBImageBrowser'
 end
 

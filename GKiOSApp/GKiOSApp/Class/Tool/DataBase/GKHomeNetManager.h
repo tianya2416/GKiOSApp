@@ -11,29 +11,25 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKHomeNetManager : BaseNetManager
-+ (NSURLSessionDataTask *)homeHot:(NSDictionary *)params
+//壁纸
++ (NSURLSessionDataTask *)wallHot:(NSDictionary *)params
                           success:(void(^)(id object))success
                           failure:(void(^)(NSString *error))failure;
-+ (NSURLSessionDataTask *)homeCategory:(NSDictionary *)params
++ (NSURLSessionDataTask *)wallCategory:(NSDictionary *)params
                                success:(void(^)(id object))success
                                failure:(void(^)(NSString *error))failure;
-+ (NSURLSessionDataTask *)homeCategory:(NSString *)categoryId
-                                params:(NSDictionary *)params
-                               success:(void(^)(id object))success
-                               failure:(void(^)(NSString *error))failure;
-
-
-+ (NSURLSessionDataTask *)homeNews:(NSDictionary *)params
-                           success:(void(^)(id object))success
-                           failure:(void(^)(NSString *error))failure;
-
-+ (NSURLSessionDataTask *)homeSearch:(NSString *)searchText
++ (NSURLSessionDataTask *)wallCategoryItem:(NSString *)categoryId
+                                    params:(NSDictionary *)params
+                                   success:(void(^)(id object))success
+                                   failure:(void(^)(NSString *error))failure;
++ (NSURLSessionDataTask *)wallSearch:(NSString *)searchText
                               params:(NSDictionary *)params
                              success:(void(^)(id object))success
                              failure:(void(^)(NSString *error))failure;
 + (NSURLSessionDataTask *)wallDetail:(NSString *)gId
                              success:(void(^)(id object))success
                              failure:(void(^)(NSString *error))failure;
+//新闻
 + (NSURLSessionDataTask *)newHot:(NSString *)categoryId
                             page:(NSInteger)page
                          success:(void(^)(id object))success
@@ -41,17 +37,20 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSURLSessionDataTask *)newsDetail:(NSString *)docid
                              success:(void(^)(id object))success
                              failure:(void(^)(NSString *error))failure;
-
-
 + (NSURLSessionDataTask *)apiPhotoSet:(NSString *)photoSetId
                               success:(void(^)(id object))success
                               failure:(void(^)(NSString *error))failure;
++ (NSURLSessionDataTask *)newSearchHotWord:(void(^)(id object))success
+                                   failure:(void(^)(NSString *error))failure;
++ (NSURLSessionDataTask *)newSearch:(NSString *)keyWord
+                            success:(void(^)(id object))success
+                            failure:(void(^)(NSString *error))failure;
 //登录接口
 + (NSURLSessionDataTask *)app_login:(NSString *)account
                            password:(NSString *)password
                             success:(void(^)(id object))success
                             failure:(void(^)(NSString *error))failure;
-
+//开机启动
 + (NSURLSessionDataTask *)appLaunch:(NSTimeInterval )timeStamp
                             success:(void(^)(id object))success
                             failure:(void(^)(NSString *error))failure;

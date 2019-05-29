@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKNewNavBarView : UIView
-@property (weak, nonatomic) IBOutlet UIButton *searchBtn;
+@property (weak, nonatomic) IBOutlet UIView *searchView;
+
 @property (weak, nonatomic) IBOutlet UIButton *moreBtn;
+@property (weak, nonatomic) IBOutlet UIView *mainView;
 
 @end
 

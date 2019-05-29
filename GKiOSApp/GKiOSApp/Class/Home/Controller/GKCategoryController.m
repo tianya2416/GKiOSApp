@@ -21,7 +21,7 @@
     [self setupRefresh:self.tableView option:ATHeaderRefresh|ATHeaderAutoRefresh];
 }
 - (void)refreshData:(NSInteger)page{
-    [GKHomeNetManager homeCategory:@{} success:^(id  _Nonnull object) {
+    [GKHomeNetManager wallCategory:@{} success:^(id  _Nonnull object) {
         self.listData = [NSArray modelArrayWithClass:GKHomeCategoryModel.class json:object[@"classificationlist"]];
         [self.tableView reloadData];
         [self endRefresh:NO];

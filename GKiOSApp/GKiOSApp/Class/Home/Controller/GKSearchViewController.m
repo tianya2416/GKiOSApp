@@ -8,6 +8,7 @@
 
 #import "GKSearchViewController.h"
 #import "GKSearchResultController.h"
+#import "GKNewSearchResultController.h"
 #import "GKSearchViewCell.h"
 #import "GKSearchTextView.h"
 @interface GKSearchViewController ()<UITextFieldDelegate>
@@ -32,24 +33,6 @@
     if ([self.searchView.textField canBecomeFirstResponder]) {
         [self.searchView.textField becomeFirstResponder];
     }
-//    [self showNavTitle:nil];
-//    UIView *titleView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 100,40)];
-//    titleView.layer.masksToBounds = YES;
-//    titleView.layer.cornerRadius = 0;
-//    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:titleView.bounds];
-//    UITextField *searchField = [searchBar valueForKey:@"searchField"];
-//    if (searchField) {
-//        searchField.layer.masksToBounds = YES;
-//        searchField.layer.cornerRadius = 0;
-//    }
-//    searchBar.delegate = self;
-//    searchBar.tintColor = AppColor;
-//    searchBar.placeholder = @"请输入关键字...";
-//    searchBar.layer.masksToBounds = YES;
-//    searchBar.layer.cornerRadius = 0;
-//    [titleView addSubview:searchBar];
-//    self.navigationItem.titleView = titleView;
-//    [self.navigationItem.titleView sizeToFit];
     [self.view addSubview:self.searchView];
     [self.searchView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.searchView.superview);
@@ -117,12 +100,9 @@
     }];
 }
 - (void)searchText:(NSString *)searchText{
-    if (self.state == GKSearchWall) {
-        GKSearchResultController *vc = [GKSearchResultController vcWithSearchText:searchText];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else{
-        
-    }
+    UIViewController *vc = nil;
+    vc = self.state == GKSearchWall ? [GKSearchResultController vcWithSearchText:searchText] : [GKNewSearchResultController vcWithSearchText:searchText];
+     [self.navigationController pushViewController:vc animated:YES];
 }
 - (NSString *)timeStampTurnToTimesType:(NSString *)timesTamp
 {

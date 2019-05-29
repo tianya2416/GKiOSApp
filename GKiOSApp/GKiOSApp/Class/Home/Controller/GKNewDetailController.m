@@ -30,9 +30,11 @@
 }
 - (void)loadData{
     [GKHomeNetManager newsDetail:self.model.docid success:^(id  _Nonnull object) {
-        self.detailModel = [GKNewDetailModel modelWithJSON:object[self.model.docid]];
-        NSString* htmlstr = [[NSString alloc]initWithContentsOfURL:[NSURL fileURLWithPath:self.detailModel.baseURL] encoding:NSUTF8StringEncoding error:nil];
-        [self loadHTMLString:htmlstr];
+        if (object) {
+            self.detailModel = [GKNewDetailModel modelWithJSON:object[self.model.docid]];
+            NSString* htmlstr = [[NSString alloc]initWithContentsOfURL:[NSURL fileURLWithPath:self.detailModel.baseURL] encoding:NSUTF8StringEncoding error:nil];
+            [self loadHTMLString:htmlstr];
+        }
     } failure:^(NSString * _Nonnull error) {
         
     }];
