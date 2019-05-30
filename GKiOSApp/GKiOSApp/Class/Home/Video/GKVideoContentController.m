@@ -78,7 +78,7 @@
 - (UIButton *)magicView:(VTMagicView *)magicView menuItemAtIndex:(NSUInteger)itemIndex
 {
     
-    static NSString *itemIdentifier = @"com.fd.itemIdentifier";
+    static NSString *itemIdentifier = @"com.video.btn.itemIdentifier";
     UIButton *menuItem = [magicView dequeueReusableItemWithIdentifier:itemIdentifier];
     if (!menuItem) {
         menuItem = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -95,7 +95,7 @@
  */
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex
 {
-    static NSString *itemIdentifier = @"com.gk.itemIdentifier";
+    static NSString *itemIdentifier = @"com.video.item.itemIdentifier";
     GKVideoItemController *vc = [magicView dequeueReusablePageWithIdentifier:itemIdentifier];
     if (!vc) {
         vc = [[GKVideoItemController alloc] init];

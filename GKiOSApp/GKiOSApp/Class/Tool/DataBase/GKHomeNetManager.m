@@ -123,23 +123,28 @@
 
 +(NSURLSessionDataTask *)videoHot:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
 
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"yyyyMMdd"];
-    NSDate *date = [NSDate date];
-    NSString *dateString = [dateFormatter stringFromDate:date];
-
-    NSMutableDictionary * params = [@{} mutableCopy];
-    params[@"num"] =@(page*20);
-    params[@"date"] = dateString ?:@"";
-    params[@"vc"] = @"67";
-    params[@"u"] =  @"011f2924aa2cf27aa5dc8066c041fe08116a9a0c";
-    params[@"v"] =  @"4.1.0";
-    params[@"f"] =  @"iphone";
-    //kUrlVideo(@"v1/feed")
-    NSString * url = kUrlVideo(@"v1/feed");
-    url = @"http://baobab.kaiyanapp.com/api/v3/ranklist?&strategy=monthly";//monthly
-    //url = @"http://baobab.kaiyanapp.com/api/v3/ranklist?&strategy=historical";//monthly
-    url = @"http://baobab.wandoujia.com/api/v3/videos?&categoryId=12&num=20";
-    return [GKHomeNetManager method:HttpMethodGet urlString:url params:params success:success failure:failure];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+//    [dateFormatter setDateFormat:@"yyyyMMdd"];
+//    NSDate *date = [NSDate date];
+//    NSString *dateString = [dateFormatter stringFromDate:date];
+//
+//    NSMutableDictionary * params = [@{} mutableCopy];
+//    params[@"num"] =@(page*20);
+//    params[@"date"] = dateString ?:@"";
+//    params[@"vc"] = @"67";
+//    params[@"u"] =  @"011f2924aa2cf27aa5dc8066c041fe08116a9a0c";
+//    params[@"v"] =  @"4.1.0";
+//    params[@"f"] =  @"iphone";
+//    //kUrlVideo(@"v1/feed")
+//    NSString * url = kUrlVideo(@"v1/feed");
+//    //url = @"http://baobab.kaiyanapp.com/api/v3/ranklist?&strategy=historical";//monthly
+////    //url = @"http://baobab.wandoujia.com/api/v3/videos?&categoryId=12&num=20";
+//    return [GKHomeNetManager method:HttpMethodGet urlString:url params:params success:success failure:failure];
+    NSString *url = [NSString stringWithFormat:@"nc/video/home/%@-30.html",@((page - 1)*20)];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
+}
++(NSURLSessionDataTask *)videoList:(NSString *)sId page:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
+    NSString *url = [NSString stringWithFormat:@"nc/video/list/%@/y/%@-20.html",sId,@((page - 1)*20)];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
 @end

@@ -8,6 +8,18 @@
 
 #import "GKVideoModel.h"
 
-@implementation GKVideoModel
+@implementation GKVideoTopModel
++ (instancetype)vcWithTitle:(NSString *)title sId:(NSString *)sId imgsrc:(NSString *)imgsrc{
+    GKVideoTopModel *model = [[[self class] alloc] init];
+    model.title = title;
+    model.sid = sId ;
+    model.imgsrc = imgsrc;
+    return model;
+}
+@end
 
+@implementation GKVideoModel
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"subTitle" : @[@"description",@"subTitle"]};
+}
 @end

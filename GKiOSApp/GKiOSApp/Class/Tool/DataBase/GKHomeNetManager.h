@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSURLSessionDataTask *)videoHot:(NSInteger)page
                            success:(void(^)(id object))success
                            failure:(void(^)(NSString *error))failure;
++(NSURLSessionDataTask *)videoList:(NSString *)sId
+                              page:(NSInteger)page
+                           success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure;
 
 //登录接口
 + (NSURLSessionDataTask *)app_login:(NSString *)account

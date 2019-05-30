@@ -33,7 +33,7 @@
     if (_model != model) {
         _model = model;
         self.imageV.hidden = NO;
-        [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.thumbnail_url] placeholderImage:placeholders];
+        [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.cover] placeholderImage:placeholders];
     }
 }
 - (void)play{
@@ -44,7 +44,7 @@
         [self.player.playerView removeFromSuperview];
     }
     PLPlayerOption *option = [PLPlayerOption defaultOption];
-    NSString *URLString = [self.model.video_url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *URLString = [self.model.mp4_url stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSURL *url = [NSURL URLWithString:URLString];
     self.player = [PLPlayer playerWithURL:url option:option];
     self.player.delegate = self;

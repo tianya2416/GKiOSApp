@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GKNewItemViewController : BaseTableViewController
 
-@property (strong, nonatomic) NSString *categoryId;
+@property (copy, nonatomic) NSString *categoryId;
 
 @end
 

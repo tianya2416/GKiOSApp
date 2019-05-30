@@ -145,7 +145,7 @@
 - (UIButton *)magicView:(VTMagicView *)magicView menuItemAtIndex:(NSUInteger)itemIndex
 {
     
-    static NSString *itemIdentifier = @"com.fd.itemIdentifier";
+    static NSString *itemIdentifier = @"com.browser.btn.itemIdentifier";
     UIButton *menuItem = [magicView dequeueReusableItemWithIdentifier:itemIdentifier];
     if (!menuItem) {
         menuItem = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -65,10 +65,13 @@
     } failure:^(NSString * _Nonnull error) {
         
     }];
+    {
+        
+    }
 }
 - (void)getJSONData{
     NSError *error = nil;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"topic_news" ofType:@"json"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"new" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     if (!error) {
@@ -132,7 +135,7 @@
 - (UIButton *)magicView:(VTMagicView *)magicView menuItemAtIndex:(NSUInteger)itemIndex
 {
     
-    static NSString *itemIdentifier = @"com.fd.itemIdentifier";
+    static NSString *itemIdentifier = @"com.new.btn.itemIdentifier";
     UIButton *menuItem = [magicView dequeueReusableItemWithIdentifier:itemIdentifier];
     if (!menuItem) {
         menuItem = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -153,7 +156,7 @@
  */
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex
 {
-    static NSString * itemViewCtrlId = @"magicView.identifier";
+    static NSString * itemViewCtrlId = @"com.new.magicView.identifier";
     GKNewItemViewController * viewCtrl = [magicView dequeueReusablePageWithIdentifier:itemViewCtrlId];
     if (!viewCtrl)
     {

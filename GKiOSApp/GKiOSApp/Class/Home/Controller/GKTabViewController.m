@@ -11,6 +11,7 @@
 #import "GKSetViewController.h"
 #import "GKNewContentController.h"
 #import "GKVideoHomeController.h"
+#import "GKVideoBaseController.h"
 @interface GKTabViewController ()<UITabBarControllerDelegate>
 
 @end
@@ -26,7 +27,7 @@
 - (void)loadUI{
     GKBaseHomeController *vcHome = [[GKBaseHomeController alloc]init];
     GKNewContentController * vcMy = [[GKNewContentController alloc]init];
-    GKVideoHomeController *video = [[GKVideoHomeController alloc] init];
+    GKVideoBaseController *video = [[GKVideoBaseController alloc] init];
     GKSetViewController * vcInfo = [[GKSetViewController alloc]init];
     NSArray *titles = @[@"首页",@"新闻",@"视频",@"设置"];
     NSArray *listNormal = @[@"item-01-normal",@"item-02-normal",@"item-03-normal",@"item-04-normal"];

@@ -82,6 +82,7 @@
 		0F1C182C229F7F25009824F5 /* GKNewSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1C182A229F7F25009824F5 /* GKNewSearchCell.m */; };
 		0F1C182D229F7F25009824F5 /* GKNewSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F1C182B229F7F25009824F5 /* GKNewSearchCell.xib */; };
 		0F1C1830229F864A009824F5 /* GKNewSearchHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1C182F229F864A009824F5 /* GKNewSearchHeadView.m */; };
+		0F1C1833229FBFC9009824F5 /* GKVideoBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1C1832229FBFC9009824F5 /* GKVideoBaseController.m */; };
 		0F2398A6228570470059B0FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398A5228570470059B0FE /* AppDelegate.m */; };
 		0F2398AC228570480059B0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AA228570480059B0FE /* Main.storyboard */; };
 		0F2398AE228570490059B0FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AD228570490059B0FE /* Assets.xcassets */; };
@@ -102,7 +103,7 @@
 		0F2398EB228572510059B0FE /* BaseNetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398D8228572510059B0FE /* BaseNetTool.m */; };
 		0F58F490228BFC5700FA5BD0 /* BaseDataQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F58F48F228BFC5700FA5BD0 /* BaseDataQueue.m */; };
 		0FBC9DFD2297F17C00BBA7B0 /* new.css in Resources */ = {isa = PBXBuildFile; fileRef = 0FBC9DFC2297F17C00BBA7B0 /* new.css */; };
-		0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FCE07CB22955A4C005AEA17 /* topic_news.json */; };
+		0FCE07CC22955A4C005AEA17 /* new.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FCE07CB22955A4C005AEA17 /* new.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,6 +242,8 @@
 		0F1C182B229F7F25009824F5 /* GKNewSearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GKNewSearchCell.xib; sourceTree = "<group>"; };
 		0F1C182E229F864A009824F5 /* GKNewSearchHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNewSearchHeadView.h; sourceTree = "<group>"; };
 		0F1C182F229F864A009824F5 /* GKNewSearchHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKNewSearchHeadView.m; sourceTree = "<group>"; };
+		0F1C1831229FBFC9009824F5 /* GKVideoBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKVideoBaseController.h; sourceTree = "<group>"; };
+		0F1C1832229FBFC9009824F5 /* GKVideoBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKVideoBaseController.m; sourceTree = "<group>"; };
 		0F2398A1228570470059B0FE /* GKiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2398A4228570470059B0FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F2398A5228570470059B0FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -279,7 +282,7 @@
 		0F58F48E228BFC5700FA5BD0 /* BaseDataQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDataQueue.h; sourceTree = "<group>"; };
 		0F58F48F228BFC5700FA5BD0 /* BaseDataQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDataQueue.m; sourceTree = "<group>"; };
 		0FBC9DFC2297F17C00BBA7B0 /* new.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = new.css; sourceTree = "<group>"; };
-		0FCE07CB22955A4C005AEA17 /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
+		0FCE07CB22955A4C005AEA17 /* new.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = new.json; sourceTree = "<group>"; };
 		35E854B162092ECD48AFEEB7 /* libPods-GKiOSApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GKiOSApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5946029D4F68ADA9F297FE29 /* Pods-GKiOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.debug.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FDBC29D23DEA47242B9937C2 /* Pods-GKiOSApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GKiOSApp.release.xcconfig"; path = "Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 		0F08AFC9229E538100070D56 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				0F1C1831229FBFC9009824F5 /* GKVideoBaseController.h */,
+				0F1C1832229FBFC9009824F5 /* GKVideoBaseController.m */,
 				0F08AFCE229E538100070D56 /* GKVideoContentController.h */,
 				0F08AFCC229E538100070D56 /* GKVideoContentController.m */,
 				0F08AFCF229E538100070D56 /* GKVideoHomeController.h */,
@@ -468,7 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				0FBC9DFC2297F17C00BBA7B0 /* new.css */,
-				0FCE07CB22955A4C005AEA17 /* topic_news.json */,
+				0FCE07CB22955A4C005AEA17 /* new.json */,
 				0F096C642292948B009E0AF5 /* data.json */,
 			);
 			path = Resources;
@@ -823,7 +828,7 @@
 				0F08B04F229E538100070D56 /* GKNewItemAdCell.xib in Resources */,
 				0FBC9DFD2297F17C00BBA7B0 /* new.css in Resources */,
 				0F186FDB228E9C25006B825E /* GKLoginViewController.xib in Resources */,
-				0FCE07CC22955A4C005AEA17 /* topic_news.json in Resources */,
+				0FCE07CC22955A4C005AEA17 /* new.json in Resources */,
 				0F18B1F022979B23002A968A /* GKLaunchViewController.xib in Resources */,
 				0F08B04C229E538100070D56 /* GKSearchTextView.xib in Resources */,
 				0F1C182D229F7F25009824F5 /* GKNewSearchCell.xib in Resources */,
@@ -967,6 +972,7 @@
 				0F08B02E229E538100070D56 /* GKWallHotController.m in Sources */,
 				0F08B03D229E538100070D56 /* GKWallCommenModel.m in Sources */,
 				0F08B032229E538100070D56 /* GKWallClassController.m in Sources */,
+				0F1C1833229FBFC9009824F5 /* GKVideoBaseController.m in Sources */,
 				0F08B05C229E538100070D56 /* GKNewSelectCell.m in Sources */,
 				0F2398EA228572510059B0FE /* BaseNetManager.m in Sources */,
 				0F08B054229E538100070D56 /* GKNewItemTraCell.m in Sources */,

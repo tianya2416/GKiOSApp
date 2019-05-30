@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKVideoHomeController : GKBaseHotController
-
+@property (copy, nonatomic) NSString *sId;
 @end
 
 NS_ASSUME_NONNULL_END

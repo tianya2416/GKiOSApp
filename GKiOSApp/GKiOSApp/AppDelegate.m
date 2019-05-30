@@ -21,11 +21,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [GKTabViewController new];
     [self.window makeKeyAndVisible];
-    [GKHomeNetManager videoHot:1 success:^(id  _Nonnull object) {
-        
-    } failure:^(NSString * _Nonnull error) {
-        
-    }];
+
     [self setAppLaunchController];
     return YES;
 }
