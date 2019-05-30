@@ -8,6 +8,7 @@
 
 #import "GKVideoBaseController.h"
 #import "GKVideoHomeController.h"
+#import "GKVideoHotController.h"
 #import "GKVideoModel.h"
 @interface GKVideoBaseController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 @property (strong, nonatomic) VTMagicController * magicController;
@@ -46,17 +47,18 @@
 }
 - (void)loadData{
     self.listTitles = @[].mutableCopy;
-    self.listData = @[[GKVideoTopModel vcWithTitle:@"美女" sId:@"VAP4BG6DL" imgsrc:@""]];
     [self reloadUI];
-    [GKHomeNetManager videoHot:1 success:^(id  _Nonnull object) {
+    [GKHomeNetManager videoHome:1 success:^(id  _Nonnull object) {
         self.listData = [NSArray modelArrayWithClass:GKVideoTopModel.class json:object[@"videoSidList"]];
         [self reloadUI];
     } failure:^(NSString * _Nonnull error) {
         
     }];
+
 }
 - (void)reloadUI{
     [self.listTitles removeAllObjects];
+    [self.listTitles addObject:@"热门"];
     [self.listData enumerateObjectsUsingBlock:^(GKVideoTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self.listTitles addObject:obj.title ?:@""];
     }];
@@ -106,12 +108,15 @@
  */
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex
 {
+    if (pageIndex == 0) {
+        return [GKVideoHotController new];
+    }
     static NSString *itemIdentifier = @"com.video.home.itemIdentifier";
     GKVideoHomeController *vc = [magicView dequeueReusablePageWithIdentifier:itemIdentifier];
     if (!vc) {
         vc = [[GKVideoHomeController alloc] init];
     }
-    GKVideoTopModel *model = self.listData[pageIndex];
+    GKVideoTopModel *model = self.listData[pageIndex-1];
     vc.sId = model.sid ?:@"";
     return vc;
 }
@@ -148,14 +153,5 @@
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -23,3 +23,16 @@
     return @{@"subTitle" : @[@"description",@"subTitle"]};
 }
 @end
+
+
+@implementation GKVideoHotModel
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"title" :@"data.title",
+             @"descriptionEditor" :@"data.descriptionEditor",
+             @"playUrl" :@"data.playUrl",
+             @"category" :@"data.category",
+             @"detail" :@"data.cover.detail",
+             };
+}
+
+@end

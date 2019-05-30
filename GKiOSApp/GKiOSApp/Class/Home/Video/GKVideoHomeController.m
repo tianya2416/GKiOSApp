@@ -46,7 +46,7 @@
         NSArray *datas = [NSArray modelArrayWithClass:GKVideoModel.class json:object[self.sId?:@""]];
         [self.listData addObjectsFromArray:datas];
         [self.collectionView reloadData];
-        [self endRefresh:datas.count >= 20];
+        [self endRefresh:datas.count >= 10];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];

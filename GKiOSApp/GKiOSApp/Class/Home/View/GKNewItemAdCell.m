@@ -12,10 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-//    [self.imageV addSubview:self.carouselView];
-//    [self.carouselView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(self.carouselView.superview);
-//    }];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -38,8 +34,16 @@
 }
 - (void)setModel:(GKNewModel *)model{
     [super setModel:model];
-    [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholders];
-    self.titleLab.text  = model.title ?:@"";
+    if ([model isKindOfClass:GKNewModel.class]) {
+        [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholders];
+        self.titleLab.text  = model.title ?:@"";
+    }else if ( [model isKindOfClass:GKVideoHotModel.class]){
+        GKVideoHotModel *hotModel = (GKVideoHotModel *)model;
+        self.imageV.layer.masksToBounds = YES;
+        self.imageV.layer.cornerRadius = AppRadius;
+        self.titleLab.text =hotModel.title ?:@"";
+        [self.imageV sd_setImageWithURL:[NSURL URLWithString:hotModel.detail] placeholderImage:placeholders];
+    }
 //    NSMutableArray *listData = @[].mutableCopy;
 //    NSMutableArray *listTitles = @[].mutableCopy;
 //    [model.ads enumerateObjectsUsingBlock:^(GKNewAdsModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -49,5 +53,23 @@
 //    }];
 //    self.carouselView.imageURLStringsGroup = listData.copy;
 //    self.carouselView.titlesGroup = listTitles.copy;
+}
+@end
+@implementation GKVideoHotCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        self.imageV.layer.masksToBounds = YES;
+        self.imageV.layer.cornerRadius = AppRadius;
+        
+    }
+    return self;
+}
+- (void)setHotModel:(GKVideoHotModel *)hotModel{
+    if (_hotModel!= hotModel) {
+        _hotModel = hotModel;
+        self.titleLab.text = hotModel.title ?:@"";
+        [self.imageV sd_setImageWithURL:[NSURL URLWithString:hotModel.detail] placeholderImage:placeholders];
+    }
 }
 @end

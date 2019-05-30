@@ -120,9 +120,19 @@
     params[@"timestamp"] =  [NSString stringWithFormat:@"%ld",(long)timeStamp];
    return [BaseNetManager method:HttpMethodGet serializer:HttpSerializeDefault urlString:URL_Launch params:params timeOut:2 success:success failure:failure];
 }
-
+//10条才会有更多数据
++(NSURLSessionDataTask *)videoHome:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
+    NSString *url = [NSString stringWithFormat:@"nc/video/home/%@-10.html",@((page - 1)*10)];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
+}
++(NSURLSessionDataTask *)videoList:(NSString *)sId page:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
+    NSString *url = [NSString stringWithFormat:@"nc/video/list/%@/y/%@-10.html",sId,@((page - 1)*10)];
+    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
+}
 +(NSURLSessionDataTask *)videoHot:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
-
+    NSString *url = @"http://baobab.kaiyanapp.com/api/v3/ranklist?&strategy=historical";
+    return [GKHomeNetManager method:HttpMethodGet urlString:url params:nil success:success failure:failure];
+}
 //    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
 //    [dateFormatter setDateFormat:@"yyyyMMdd"];
 //    NSDate *date = [NSDate date];
@@ -140,11 +150,4 @@
 //    //url = @"http://baobab.kaiyanapp.com/api/v3/ranklist?&strategy=historical";//monthly
 ////    //url = @"http://baobab.wandoujia.com/api/v3/videos?&categoryId=12&num=20";
 //    return [GKHomeNetManager method:HttpMethodGet urlString:url params:params success:success failure:failure];
-    NSString *url = [NSString stringWithFormat:@"nc/video/home/%@-30.html",@((page - 1)*20)];
-    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
-}
-+(NSURLSessionDataTask *)videoList:(NSString *)sId page:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
-    NSString *url = [NSString stringWithFormat:@"nc/video/list/%@/y/%@-20.html",sId,@((page - 1)*20)];
-    return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
-}
 @end

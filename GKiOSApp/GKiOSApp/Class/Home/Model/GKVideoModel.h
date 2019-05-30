@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface GKVideoModel : BaseModel
+
 @property (copy, nonatomic) NSString *cover;
 @property (copy, nonatomic) NSString *length;
 @property (copy, nonatomic) NSString *m3u8_url;
@@ -26,6 +27,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *subTitle;
 @property (copy, nonatomic) NSString *votecount;
+
+@end
+
+@interface GKVideoHotModel : BaseModel
+
+@property (copy, nonatomic) NSString *title;
+@property (copy, nonatomic) NSString *descriptionEditor;
+@property (copy, nonatomic) NSString *playUrl;
+@property (copy, nonatomic) NSString *category;
+
+@property (copy, nonatomic) NSString *detail;
+
 @end
 
 NS_ASSUME_NONNULL_END
