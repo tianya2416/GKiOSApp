@@ -28,7 +28,9 @@ target :GKiOSApp  do
     pod 'VTMagic'
     pod 'SDCycleScrollView'
     pod 'KLRecycleScrollView'
-    pod 'ZFPlayer', '~> 3.2.6'
+    pod 'ZFPlayer', '~> 3.0'
+    pod 'ZFPlayer/ControlView', '~> 3.0'
+    pod 'ZFPlayer/AVPlayer', '~> 3.0'
 #    pod 'YBImageBrowser'
 end
 
