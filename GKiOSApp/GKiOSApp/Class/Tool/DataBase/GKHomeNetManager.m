@@ -7,7 +7,7 @@
 //
 
 #import "GKHomeNetManager.h"
-
+  #define kEveryDay @"http://baobab.wandoujia.com/api/v1/feed?num=%d&date=%@&vc=67&u=011f2924aa2cf27aa5dc8066c041fe08116a9a0c&v=4.1.0&f=iphone"
 @implementation GKHomeNetManager
 + (NSURLSessionDataTask *)wallHot:(NSDictionary *)params
                           success:(void(^)(id object))success
@@ -116,8 +116,30 @@
     params[@"app"] = @"7A16FBB6";
     params[@"platform"] = @"ios";
     params[@"category"] = @"startup";
-    params[@"location"] =  @"1";
+    params[@"location"] = @"1";
     params[@"timestamp"] =  [NSString stringWithFormat:@"%ld",(long)timeStamp];
    return [BaseNetManager method:HttpMethodGet serializer:HttpSerializeDefault urlString:URL_Launch params:params timeOut:2 success:success failure:failure];
+}
+
++(NSURLSessionDataTask *)videoHot:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
+    NSDate *date = [NSDate date];
+    NSString *dateString = [dateFormatter stringFromDate:date];
+
+    NSMutableDictionary * params = [@{} mutableCopy];
+    params[@"num"] =@(page*20);
+    params[@"date"] = dateString ?:@"";
+    params[@"vc"] = @"67";
+    params[@"u"] =  @"011f2924aa2cf27aa5dc8066c041fe08116a9a0c";
+    params[@"v"] =  @"4.1.0";
+    params[@"f"] =  @"iphone";
+    //kUrlVideo(@"v1/feed")
+    NSString * url = kUrlVideo(@"v1/feed");
+    url = @"http://baobab.kaiyanapp.com/api/v3/ranklist?&strategy=monthly";//monthly
+    //url = @"http://baobab.kaiyanapp.com/api/v3/ranklist?&strategy=historical";//monthly
+    url = @"http://baobab.wandoujia.com/api/v3/videos?&categoryId=12&num=20";
+    return [GKHomeNetManager method:HttpMethodGet urlString:url params:params success:success failure:failure];
 }
 @end

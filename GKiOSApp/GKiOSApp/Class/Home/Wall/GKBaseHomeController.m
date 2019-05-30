@@ -11,7 +11,7 @@
 #import "GKWallHotController.h"
 #import "GKWallClassController.h"
 #import "GKWallCommenController.h"
-#import "GKSearchViewController.h"
+#import "GKWallSearchController.h"
 #import "GKHomeHotCollectionViewCell.h"
 #import "GKWallCommenModel.h"
 @interface GKBaseHomeController ()<VTMagicViewDataSource,VTMagicViewDelegate>
@@ -68,7 +68,7 @@
 //    [self.magicController.magicView setRightNavigatoinItem:searchButton];
 }
 - (void)searchAction{
-    GKSearchViewController *vc = [[GKSearchViewController alloc] init];
+    GKWallSearchController *vc = [[GKWallSearchController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }

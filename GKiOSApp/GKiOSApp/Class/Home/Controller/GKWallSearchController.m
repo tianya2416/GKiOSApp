@@ -1,25 +1,25 @@
 //
-//  GKSearchViewController.m
+//  GKWallSearchController.m
 //  GKiOSApp
 //
 //  Created by wangws1990 on 2019/5/14.
 //  Copyright © 2019 wangws1990. All rights reserved.
 //
 
-#import "GKSearchViewController.h"
+#import "GKWallSearchController.h"
 #import "GKWallSearchResultController.h"
 #import "GKNewSearchResultController.h"
 #import "GKSearchViewCell.h"
 #import "GKSearchTextView.h"
-@interface GKSearchViewController ()<UITextFieldDelegate>
+@interface GKWallSearchController ()<UITextFieldDelegate>
 @property (strong, nonatomic) NSMutableArray *listData;
 @property (assign, nonatomic) GKSearchState state;
 @property (strong, nonatomic) GKSearchTextView *searchView;
 @end
 
-@implementation GKSearchViewController
+@implementation GKWallSearchController
 + (instancetype)vcWithSearchState:(GKSearchState)state{
-    GKSearchViewController *vc = [[[self class] alloc] init];
+    GKWallSearchController *vc = [[[self class] alloc] init];
     vc.state = state;
     return vc;
 }
@@ -48,7 +48,7 @@
 }
 - (void)refreshData:(NSInteger)page{
     
-    [GKDataQueue getDatasFromDataBase:^(NSArray<GKSearchModel *> * _Nonnull listData) {
+    [GKDataQueue getDatasFromDataBases:^(NSArray<GKSearchModel *> * _Nonnull listData) {
         [self.listData removeAllObjects];
         [listData enumerateObjectsUsingBlock:^(GKSearchModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             (obj.searchState == self.state) ? [self.listData addObject:obj] : nil;

@@ -142,6 +142,39 @@
         }
     });
 }
++ (void)deleteDataToDataBase:(NSString *)tableName
+                   primaryId:(NSString *)primaryId
+                    listData:(NSArray <NSDictionary *>*)listData
+                  completion:(void(^)(BOOL success))completion{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        BaseDataQueue *dataBase = [BaseDataQueue shareInstance];
+        FMDatabaseQueue *dataQueue = dataBase.dataQueue;
+        dataBase.primaryId = primaryId;
+        dataBase.tableName = tableName;
+        [dataBase createDateBaseTable];
+        [dataQueue inDatabase:^(FMDatabase * db) {
+            if ([db open]) {
+                [db beginTransaction];
+                for (NSDictionary * userInfo in listData) {
+                    NSString *userId = userInfo[primaryId];
+                    if (userId) {
+                        NSData * data = [BaseDataQueue archivedDataForData:userInfo];
+                        NSString * v5TableSql = [NSString stringWithFormat:@"delete from '%@' where %@ = '%@'",tableName ?:@"",primaryId?:@"",userId ?: @""];
+                        BOOL res = [db executeUpdate:v5TableSql withArgumentsInArray:@[data,userId]];
+                        if (res) {
+                            NSLog(@"insert or replace into success");
+                        }
+                    }
+                }
+                BOOL success = [db commit];
+                [db close];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    !completion ?: completion(success);
+                });
+            }
+        }];
+    });
+}
 + (void)insertDatasDataBase:(NSString *)tableName
                   primaryId:(NSString *)primaryId
                    listData:(NSArray <NSDictionary *>*)listData

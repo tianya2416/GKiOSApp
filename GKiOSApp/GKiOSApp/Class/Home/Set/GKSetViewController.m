@@ -9,6 +9,10 @@
 #import "GKSetViewController.h"
 #import "GKSetTableViewCell.h"
 #import "GKLoginViewController.h"
+
+#define kEveryDay @"http://baobab.wandoujia.com/api/v1/feed?num=%d&date=%@&vc=67&u=011f2924aa2cf27aa5dc8066c041fe08116a9a0c&v=4.1.0&f=iphone"
+
+
 static NSString *about = @"关于我们";
 static NSString *video =  @"视频介绍";
 static NSString *info =  @"版权信息";
@@ -30,9 +34,10 @@ static NSString *loginOut = @"退出登录";
 }
 - (void)refreshData:(NSInteger)page{
     self.listData = @[about,video,info,tenec,loginOut];
-    //self.listValue = @[@"",@"",@"",cache,@""];
     [self.tableView reloadData];
     [self endRefresh:NO];
+
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;

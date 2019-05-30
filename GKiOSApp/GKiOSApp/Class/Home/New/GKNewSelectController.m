@@ -40,7 +40,7 @@
     [self.collectionView addGestureRecognizer:longPressGesture];
 }
 - (void)refreshData:(NSInteger)page{
-    [GKNewTopQueue getDatasFromDataBase:^(NSArray<GKNewTopModel *> * _Nonnull listData) {
+    [GKNewTopQueue getDatasFromDataBases:^(NSArray<GKNewTopModel *> * _Nonnull listData) {
         [self.listTitles removeAllObjects];
         [self.listData removeAllObjects];
         [listData enumerateObjectsUsingBlock:^(GKNewTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -72,7 +72,7 @@
 }
 //移动
 - (void)moveAction{
-    [GKNewTopQueue insertDatasDataBase:self.listTitles.copy completion:^(BOOL success) {
+    [GKNewTopQueue insertDataToDataBases:self.listTitles.copy completion:^(BOOL success) {
         if (success) {
             if ([self.delegate respondsToSelector:@selector(viewDidLoad:topModel:)]) {
                 [self.delegate viewDidLoad:self topModel:self.model];

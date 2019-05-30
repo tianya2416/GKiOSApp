@@ -27,10 +27,12 @@
 #define URL_163New     @"http://c.m.163.com/"//新闻
 #define URL_Launch     @"http://g1.163.com/madr"//开机启动
 #define URL_SearchNew  @"http://c.3g.163.com/"//搜索
+#define URL_Video      @"http://baobab.wandoujia.com/api/"//视频
 
 #define kUrlWall(url)       [NSString stringWithFormat:@"%@%@", URL_Wall, url]
 #define kUrl163New(url)     [NSString stringWithFormat:@"%@%@", URL_163New, url]
 #define kUrlSearchNew(url)  [NSString stringWithFormat:@"%@%@", URL_SearchNew, url]
+#define kUrlVideo(url)      [NSString stringWithFormat:@"%@%@", URL_Video, url]
 
 #ifdef DEBUG
 #ifndef NSLog

@@ -14,6 +14,12 @@ static NSString *primaryId1 = @"userId";
     NSDictionary *userInfo = [model modelToJSONObject];
     [BaseDataQueue insertDataToDataBase:tableName primaryId:primaryId1 userInfo:userInfo completion:completion];
 }
+/**
+ *  @brief 使用事务来处理批量插入数据问题 效率比较高
+ */
++ (void)insertDataToDataBases:(NSArray <GKSearchModel *>*)listData completion:(void(^)(BOOL success))completion{
+    [BaseDataQueue insertDatasDataBase:tableName primaryId:primaryId1 listData:[listData modelToJSONObject] completion:completion];
+}
 + (void)updateDataToDataBase:(GKSearchModel *)model completion:(void(^)(BOOL success))completion{
     NSDictionary *userInfo = [model modelToJSONObject];
     [BaseDataQueue updateDataToDataBase:tableName primaryId:primaryId1 userInfo:userInfo completion:completion];
@@ -24,21 +30,14 @@ static NSString *primaryId1 = @"userId";
 + (void)deleteDataToDataBase:(NSString *)userId completion:(void(^)(BOOL success))completion{
     [BaseDataQueue deleteDataToDataBase:tableName primaryId:primaryId1 primaryValue:userId completion:completion];
 }
-/**
- *  @brief 使用事务来处理批量插入数据问题 效率比较高
- */
-+ (void)insertDatasDataBase:(NSArray <GKSearchModel *>*)listData completion:(void(^)(BOOL success))completion{
-    NSMutableArray *arrayData = [[NSMutableArray alloc] init];
-    [listData enumerateObjectsUsingBlock:^(GKSearchModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [arrayData addObject:[obj modelToJSONObject]];
-    }];
-    [BaseDataQueue insertDatasDataBase:tableName primaryId:primaryId1 listData:arrayData completion:completion];
++ (void)deleteDataToDataBases:(NSArray <GKSearchModel *>*)listData completion:(void(^)(BOOL success))completion{
+    [BaseDataQueue deleteDataToDataBase:tableName primaryId:primaryId1 listData:[listData modelToJSONObject] completion:completion];
 }
 
 /**
  *  @brief 获取数据
  */
-+ (void)getDatasFromDataBase:(void(^)(NSArray <GKSearchModel *>*listData))completion{
++ (void)getDatasFromDataBases:(void(^)(NSArray <GKSearchModel *>*listData))completion{
     [BaseDataQueue getDatasFromDataBase:tableName primaryId:primaryId1 completion:^(NSArray<NSDictionary *> * _Nonnull listData) {
         NSArray *datas = [NSArray modelArrayWithClass:GKSearchModel.class json:listData];
         !completion ?: completion(datas);

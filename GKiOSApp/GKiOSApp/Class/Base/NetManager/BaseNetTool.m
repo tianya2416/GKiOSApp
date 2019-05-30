@@ -40,7 +40,6 @@
     
     switch (method) {
         case HttpMethodGet: {
-//            urlString = [urlString stringByURLEncode];
             urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
             return [netManager GET:urlString parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 !success ?: success(responseObject);
@@ -108,14 +107,12 @@
                          success:(void(^)(id object))success
                          failure:(void(^)(NSError *error))failure
 {
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:[SectionTool defaultManager] delegateQueue:[NSOperationQueue mainQueue]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
     NSString *methods = @"POST";
     switch (method) {
         case HttpMethodGet:{
             methods = @"GET";
-            urlString = [[NSString stringWithFormat:@"%@%@%@",urlString,params ?@"?":@"",AFQueryStringFromParameters(params)] stringByURLEncode];
+            urlString = [NSString stringWithFormat:@"%@%@%@",urlString,params ?@"?":@"",AFQueryStringFromParameters(params)];
+             urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         }break;
         case HttpMethodPost:
             methods = @"POST";
@@ -130,6 +127,9 @@
         default:
             break;
     }
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:config delegate:[SectionTool defaultManager] delegateQueue:[NSOperationQueue mainQueue]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
     switch (serializer) {
         case HttpSerializeDefault:
             [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

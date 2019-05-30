@@ -9,7 +9,7 @@
 #import "GKNewContentController.h"
 #import "GKNewSelectController.h"
 #import "GKNewItemViewController.h"
-#import "GKSearchViewController.h"
+#import "GKNewSearchController.h"
 #import "KLRecycleScrollView.h"
 #import "GKNewNavBarView.h"
 #import "GKNewModel.h"
@@ -54,10 +54,10 @@
     
 }
 - (void)loadData{
-    [GKNewTopQueue getDatasFromDataBase:^(NSArray<GKNewTopModel *> * _Nonnull listData) {
+    [GKNewTopQueue getDatasFromDataBases:^(NSArray<GKNewTopModel *> * _Nonnull listData) {
         listData.count == 0 ? [self getJSONData] :[self reloadUI:listData];
     }];
-    self.listHotWords = @[@""];
+    self.listHotWords = @[@"瑞幸纳斯达克上市",@"阿里回港上市",@"百度在BAT中已经掉队",@"韩国队公开道歉",@"应届月薪不足六千"];
     [self.vmessage reloadData:self.listHotWords.count];
     [GKHomeNetManager newSearchHotWord:^(id  _Nonnull object) {
         self.listHotWords = [NSArray modelArrayWithClass:GKNewHotWord.class json:object[@"RollhotWordList"]];
@@ -72,7 +72,7 @@
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSDictionary *rootDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     if (!error) {
-        NSArray *datas = [NSArray modelArrayWithClass:GKNewTopModel.class json:rootDict[@"tList"]];
+        NSArray <GKNewTopModel *>*datas = [NSArray modelArrayWithClass:GKNewTopModel.class json:rootDict[@"tList"]];
         [datas enumerateObjectsUsingBlock:^(GKNewTopModel * obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.sort = idx;;
             if (idx < 10) {
@@ -80,7 +80,7 @@
             }
         }];
         [self reloadUI:datas];
-        [GKNewTopQueue insertDatasDataBase:datas completion:^(BOOL success) {
+        [GKNewTopQueue insertDataToDataBases:datas completion:^(BOOL success) {
             NSLog(@"insert Data %@",@(success));
         }];
     }
@@ -105,7 +105,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void)searchAction{
-    GKSearchViewController *vc = [GKSearchViewController vcWithSearchState:GKSearchNew];
+    GKNewSearchController *vc = [[GKNewSearchController alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:NO];
 }
@@ -184,7 +184,12 @@
     label.font = [UIFont systemFontOfSize:14];
     label.textColor = Appx333333;
     GKNewHotWord *model = self.listHotWords[index];
-    label.text =[model isKindOfClass:GKNewHotWord.class] ? model.hotWord :@"瑞幸纳斯达克上市";
+    if ([model isKindOfClass:GKNewHotWord.class]) {
+        label.text = model.hotWord;
+    }else if ([model isKindOfClass:NSString.class]){
+        label.text =(NSString *)model;
+    }
+    
     label.textAlignment = NSTextAlignmentLeft;
     return label;
 }

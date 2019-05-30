@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
                    primaryId:(NSString *)primaryId
                 primaryValue:(NSString *)primaryValue
                   completion:(void(^)(BOOL success))completion;
++ (void)deleteDataToDataBase:(NSString *)tableName
+                   primaryId:(NSString *)primaryId
+                    listData:(NSArray <NSDictionary *>*)listData
+                  completion:(void(^)(BOOL success))completion;
 /**
  *  @brief 使用事务来处理批量插入数据问题 效率比较高
  */

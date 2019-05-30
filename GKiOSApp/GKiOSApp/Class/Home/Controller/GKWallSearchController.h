@@ -1,5 +1,5 @@
 //
-//  GKSearchViewController.h
+//  GKWallSearchController.h
 //  GKiOSApp
 //
 //  Created by wangws1990 on 2019/5/14.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GKSearchViewController : BaseTableViewController
+@interface GKWallSearchController : BaseTableViewController
 + (instancetype)vcWithSearchState:(GKSearchState)state;
 @end
 

@@ -45,6 +45,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSURLSessionDataTask *)newSearch:(NSString *)keyWord
                             success:(void(^)(id object))success
                             failure:(void(^)(NSString *error))failure;
+//视频
++ (NSURLSessionDataTask *)videoHot:(NSInteger)page
+                           success:(void(^)(id object))success
+                           failure:(void(^)(NSString *error))failure;
+
 //登录接口
 + (NSURLSessionDataTask *)app_login:(NSString *)account
                            password:(NSString *)password

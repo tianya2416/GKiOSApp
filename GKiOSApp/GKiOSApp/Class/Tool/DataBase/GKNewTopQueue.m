@@ -14,6 +14,13 @@ static NSString *primaryId1 = @"userId";
     NSDictionary *userInfo = [model modelToJSONObject];
     [BaseDataQueue insertDataToDataBase:topTableName primaryId:primaryId1 userInfo:userInfo completion:completion];
 }
+/**
+ *  @brief 使用事务来处理批量插入数据问题 效率比较高
+ */
++ (void)insertDataToDataBases:(NSArray <GKNewTopModel *>*)listData completion:(void(^)(BOOL success))completion{
+
+    [BaseDataQueue insertDatasDataBase:topTableName primaryId:primaryId1 listData:[listData modelToJSONObject] completion:completion];
+}
 + (void)updateDataToDataBase:(GKNewTopModel *)model completion:(void(^)(BOOL success))completion{
     NSDictionary *userInfo = [model modelToJSONObject];
     [BaseDataQueue updateDataToDataBase:topTableName primaryId:primaryId1 userInfo:userInfo completion:completion];
@@ -24,21 +31,15 @@ static NSString *primaryId1 = @"userId";
 + (void)deleteDataToDataBase:(NSString *)userId completion:(void(^)(BOOL success))completion{
     [BaseDataQueue deleteDataToDataBase:topTableName primaryId:primaryId1 primaryValue:userId completion:completion];
 }
-/**
- *  @brief 使用事务来处理批量插入数据问题 效率比较高
- */
-+ (void)insertDatasDataBase:(NSArray <GKNewTopModel *>*)listData completion:(void(^)(BOOL success))completion{
-    NSMutableArray *arrayData = [[NSMutableArray alloc] init];
-    [listData enumerateObjectsUsingBlock:^(GKNewTopModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [arrayData addObject:[obj modelToJSONObject]];
-    }];
-    [BaseDataQueue insertDatasDataBase:topTableName primaryId:primaryId1 listData:arrayData completion:completion];
++ (void)deleteDataToDataBases:(NSArray <GKNewTopModel *>*)listData completion:(void(^)(BOOL success))completion{
+    [BaseDataQueue deleteDataToDataBase:topTableName primaryId:primaryId1 listData:[listData modelToJSONObject] completion:completion];
 }
+
 
 /**
  *  @brief 获取数据
  */
-+ (void)getDatasFromDataBase:(void(^)(NSArray <GKNewTopModel *>*listData))completion{
++ (void)getDatasFromDataBases:(void(^)(NSArray <GKNewTopModel *>*listData))completion{
     [BaseDataQueue getDatasFromDataBase:topTableName primaryId:primaryId1 completion:^(NSArray<NSDictionary *> * _Nonnull listData) {
         NSArray *datas = [NSArray modelArrayWithClass:GKNewTopModel.class json:listData];
         !completion ?: completion([GKNewTopQueue sortedArrayUsingComparator:datas key:nil ascending:YES]);
