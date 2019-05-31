@@ -48,9 +48,7 @@
     [super viewWillDisappear:animated];
     //[self.navigationController setNavigationBarHidden:NO animated:animated];
 }
-- (UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
+
 - (void)loadUI{
     
     [self addChildViewController:self.magicController];

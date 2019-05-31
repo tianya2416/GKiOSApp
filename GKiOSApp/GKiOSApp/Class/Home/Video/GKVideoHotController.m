@@ -35,6 +35,7 @@
     [self loadUI];
     
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.player.viewControllerDisappear = NO;
@@ -64,8 +65,9 @@
     /// player的tag值必须在cell里设置
     self.player = [ZFPlayerController playerWithScrollView:self.tableView playerManager:playerManager containerViewTag:100];
     self.player.controlView = self.controlView;
+    self.player.shouldAutoPlay = NO;
     /// 移动网络依然自动播放
-    self.player.WWANAutoPlay = YES;
+    self.player.WWANAutoPlay = NO;
     
     /// 1.0是完全消失的时候
     self.player.playerDisapperaPercent = 1.0;

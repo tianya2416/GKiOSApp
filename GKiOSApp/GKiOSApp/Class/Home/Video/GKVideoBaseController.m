@@ -31,6 +31,8 @@
     [self.view addSubview:_magicController.view];
     [self.view setNeedsUpdateConstraints];
     [self.magicController.magicView reloadData];
+
+
 }
 - (void)updateViewConstraints {
     UIView *magicView = _magicController.view;
@@ -132,9 +134,8 @@
         _magicController.magicView.navigationColor = AppColor;
         
         
-        _magicController.magicView.sliderColor = [UIColor colorWithRGB:0xffffff];
+//        _magicController.magicView.sliderColor = [UIColor colorWithRGB:0xffffff];
         _magicController.magicView.sliderExtension = 2;
-        _magicController.magicView.bubbleRadius = 2;
         _magicController.magicView.sliderWidth = 35;
         _magicController.magicView.navigationHeight = 44;
         _magicController.magicView.headerHeight = 44;
@@ -146,11 +147,17 @@
         _magicController.magicView.delegate = self;
         _magicController.magicView.needPreloading = true;
         
+        _magicController.magicView.sliderStyle = VTSliderStyleBubble;
+        _magicController.magicView.bubbleInset = UIEdgeInsetsMake(3,5,3, 5);
+        UIView *sliderView= [[UIView alloc] init];
+        sliderView.layer.masksToBounds = YES;
+        sliderView.layer.cornerRadius = 13;
+        sliderView.layer.borderWidth = 2;
+        sliderView.layer.borderColor = [UIColor whiteColor].CGColor;
+        [_magicController.magicView setSliderView:sliderView];
+        
     }
     return _magicController;
 }
-//- (UIStatusBarStyle)preferredStatusBarStyle{
-//    return UIStatusBarStyleLightContent;
-//}
 
 @end

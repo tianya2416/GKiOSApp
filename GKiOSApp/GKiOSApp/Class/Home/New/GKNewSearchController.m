@@ -165,7 +165,4 @@
     }
     return _searchView;
 }
-//- (UIStatusBarStyle)preferredStatusBarStyle{
-//    return UIStatusBarStyleLightContent;
-//}
 @end

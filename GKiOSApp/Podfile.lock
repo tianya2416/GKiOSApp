@@ -88,7 +88,7 @@ DEPENDENCIES:
   - SDCycleScrollView
   - SDWebImage
   - TXLiteAVSDK_Player
-  - VTMagic
+  - VTMagic (from `https://github.com/tianya2416/VTMagicMacro.git`)
   - YYKit
   - ZFPlayer (~> 3.0)
   - ZFPlayer/AVPlayer (~> 3.0)
@@ -117,7 +117,6 @@ SPEC REPOS:
     - SDCycleScrollView
     - SDWebImage
     - TXLiteAVSDK_Player
-    - VTMagic
     - YYKit
     - ZFPlayer
 
@@ -130,6 +129,8 @@ EXTERNAL SOURCES:
     :git: https://github.com/CoderLT/MMPopupView.git
   PLPlayerKit:
     :podspec: https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec
+  VTMagic:
+    :git: https://github.com/tianya2416/VTMagicMacro.git
 
 CHECKOUT OPTIONS:
   MBProgressHUD:
@@ -141,6 +142,9 @@ CHECKOUT OPTIONS:
   MMPopupView:
     :commit: 3037fead755aae3b7fe86006a3041b24d2da719f
     :git: https://github.com/CoderLT/MMPopupView.git
+  VTMagic:
+    :commit: da473236ccddffdf53e4b95ea67d6d43bfd4ac35
+    :git: https://github.com/tianya2416/VTMagicMacro.git
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -172,6 +176,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: 4260b232df83cc7d571ffaa81e9317b3a74eb57c
 
-PODFILE CHECKSUM: 0bc9a9ce1eb19870e4aa1e99db739884cad0c27a
+PODFILE CHECKSUM: f96741c650006da293674bc9ff69340e4819979d
 
 COCOAPODS: 1.7.0.beta.3

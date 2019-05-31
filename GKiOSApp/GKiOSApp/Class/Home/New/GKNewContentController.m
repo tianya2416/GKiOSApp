@@ -252,8 +252,5 @@
     }
     return _vmessage;
 }
-//- (UIStatusBarStyle)preferredStatusBarStyle{
-//    return UIStatusBarStyleLightContent;
-//}
 
 @end
