@@ -20,7 +20,11 @@
 
 ![image](https://github.com/tianya2416/GKiOSApp/blob/master/GKiOSApp/GKiOSApp/Class/Resources/4.png)
 
+    5、功能介绍
+    下拉刷新、上拉加载、本地数据存储、新闻推荐、视频推荐、视频播放、登录功能、图片功能、搜索功能等
+    
     小编慢慢的会把功能补上，如果喜欢就start吧
+    
     有任何问题可以联系我1203123826@qq.com
     
     
