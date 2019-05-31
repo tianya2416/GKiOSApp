@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,19 +24,19 @@
                             <constraint firstAttribute="width" secondItem="UQF-rf-yCe" secondAttribute="height" multiplier="16:9" id="UzV-Hc-VTx"/>
                         </constraints>
                     </imageView>
-                    <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpG-K9-2aj">
-                        <rect key="frame" x="10" y="0.0" width="300" height="179"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpG-K9-2aj">
+                        <rect key="frame" x="10" y="10" width="300" height="169"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-y2-Vxh">
-                                <rect key="frame" x="124" y="58.5" width="52" height="62"/>
+                                <rect key="frame" x="119" y="53.5" width="62" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="gVj-v0-Rbr"/>
-                                    <constraint firstAttribute="width" constant="52" id="jrm-GM-MaD"/>
+                                    <constraint firstAttribute="width" constant="62" id="jrm-GM-MaD"/>
                                 </constraints>
                                 <state key="normal" image="icon_play_pause"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJp-7f-6hh">
-                                <rect key="frame" x="8" y="153" width="284" height="18"/>
+                                <rect key="frame" x="8" y="143" width="284" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -56,8 +56,8 @@
                     <constraint firstAttribute="trailing" secondItem="UQF-rf-yCe" secondAttribute="trailing" constant="10" id="29K-1v-RGw"/>
                     <constraint firstItem="UQF-rf-yCe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5gk-01-bZi"/>
                     <constraint firstItem="UQF-rf-yCe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="DAO-GO-bPR"/>
+                    <constraint firstItem="VpG-K9-2aj" firstAttribute="top" secondItem="UQF-rf-yCe" secondAttribute="top" id="Q7o-7f-eV5"/>
                     <constraint firstItem="VpG-K9-2aj" firstAttribute="leading" secondItem="UQF-rf-yCe" secondAttribute="leading" id="eB5-k2-T9s"/>
-                    <constraint firstItem="VpG-K9-2aj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="frH-Ag-fLk"/>
                     <constraint firstItem="VpG-K9-2aj" firstAttribute="bottom" secondItem="UQF-rf-yCe" secondAttribute="bottom" id="j6s-4s-Phe"/>
                     <constraint firstAttribute="bottom" secondItem="UQF-rf-yCe" secondAttribute="bottom" priority="900" constant="10" id="kyH-QU-4l2"/>
                     <constraint firstItem="VpG-K9-2aj" firstAttribute="trailing" secondItem="UQF-rf-yCe" secondAttribute="trailing" id="ucy-Pg-p5G"/>
@@ -65,6 +65,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageV" destination="UQF-rf-yCe" id="snm-wE-RIQ"/>
+                <outlet property="mainView" destination="VpG-K9-2aj" id="32g-Kh-eG6"/>
                 <outlet property="playBtn" destination="T8A-y2-Vxh" id="nrN-3z-XGz"/>
                 <outlet property="titleLab" destination="TJp-7f-6hh" id="a6p-i0-V6t"/>
             </connections>

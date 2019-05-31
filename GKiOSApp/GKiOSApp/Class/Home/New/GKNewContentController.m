@@ -207,7 +207,7 @@
         _magicController.magicView.separatorHeight = 0.50f;
         _magicController.magicView.separatorColor = [UIColor colorWithRGB:0xdddddd];
         _magicController.magicView.backgroundColor = [UIColor whiteColor];
-        _magicController.magicView.navigationInset = UIEdgeInsetsMake(0, 12, 0, 12);
+        _magicController.magicView.navigationInset = UIEdgeInsetsMake(0,2, 0,2);
         _magicController.magicView.navigationColor = [UIColor whiteColor];
         _magicController.magicView.switchStyle = VTSwitchStyleDefault;
         
@@ -224,7 +224,7 @@
         _magicController.magicView.againstStatusBar = NO;
         _magicController.magicView.dataSource = self;
         _magicController.magicView.delegate = self;
-        _magicController.magicView.itemScale = 1.2f;
+        _magicController.magicView.itemScale = 1.15f;
         _magicController.magicView.needPreloading = true;
         _magicController.magicView.bounces = false;
         

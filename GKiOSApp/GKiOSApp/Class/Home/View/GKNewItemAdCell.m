@@ -12,6 +12,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.mainView.layer.masksToBounds = YES;
+    self.mainView.layer.cornerRadius = AppRadius;
+    self.mainView.tag = 100;
+//    self.playBtn.layer.masksToBounds = YES;
+//    self.playBtn.layer.cornerRadius = 31;
+//    self.playBtn.layer.borderWidth =1.0f;
+//    self.playBtn.layer.borderColor = Appxdddddd.CGColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,10 +42,12 @@
 - (void)setModel:(GKNewModel *)model{
     [super setModel:model];
     if ([model isKindOfClass:GKNewModel.class]) {
+        self.playBtn.hidden = YES;
         [self.imageV sd_setImageWithURL:[NSURL URLWithString:model.imgsrc] placeholderImage:placeholders];
         self.titleLab.text  = model.title ?:@"";
     }else if ( [model isKindOfClass:GKVideoHotModel.class]){
         GKVideoHotModel *hotModel = (GKVideoHotModel *)model;
+         self.playBtn.hidden = NO;
         self.imageV.layer.masksToBounds = YES;
         self.imageV.layer.cornerRadius = AppRadius;
         self.titleLab.text =hotModel.title ?:@"";

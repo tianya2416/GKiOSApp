@@ -29,10 +29,10 @@
     GKNewContentController * vcMy = [[GKNewContentController alloc]init];
     GKVideoBaseController *video = [[GKVideoBaseController alloc] init];
     GKSetViewController * vcInfo = [[GKSetViewController alloc]init];
-    NSArray *titles = @[@"首页",@"新闻",@"视频",@"设置"];
-    NSArray *listNormal = @[@"item-01-normal",@"item-02-normal",@"item-03-normal",@"item-04-normal"];
-    NSArray *listHi = @[@"item-01-select",@"item-02-select",@"item-03-select",@"item-04-select"];
-    NSArray *listVc =@[vcHome,vcMy,video,vcInfo];
+    NSArray *titles = @[@"新闻",@"视频",@"图片",@"设置"];
+    NSArray *listNormal = @[@"item-02-normal",@"item-03-normal",@"item-01-normal",@"item-04-normal"];
+    NSArray *listHi = @[@"item-02-select",@"item-03-select",@"item-01-select",@"item-04-select"];
+    NSArray *listVc =@[vcMy,video,vcHome,vcInfo];
     
     
     NSMutableArray *listNV = [[NSMutableArray alloc] init];
