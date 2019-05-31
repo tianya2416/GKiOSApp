@@ -27,11 +27,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpG-K9-2aj">
                         <rect key="frame" x="10" y="10" width="300" height="169"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-y2-Vxh">
-                                <rect key="frame" x="119" y="53.5" width="62" height="62"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T8A-y2-Vxh">
+                                <rect key="frame" x="110" y="44.5" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="gVj-v0-Rbr"/>
-                                    <constraint firstAttribute="width" constant="62" id="jrm-GM-MaD"/>
+                                    <constraint firstAttribute="height" constant="80" id="gVj-v0-Rbr"/>
+                                    <constraint firstAttribute="width" constant="80" id="jrm-GM-MaD"/>
                                 </constraints>
                                 <state key="normal" image="icon_play_pause"/>
                             </button>
@@ -73,6 +73,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_play_pause" width="52.5" height="62"/>
+        <image name="icon_play_pause" width="71" height="71"/>
     </resources>
 </document>

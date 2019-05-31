@@ -20,11 +20,6 @@
     [super viewDidLoad];
     [self setupEmpty:self.collectionView];
     [self setupRefresh:self.collectionView option:ATRefreshDefault];
-    [GKUserManager needLogin:^(BOOL success) {
-        if (success) {
-            NSLog(@"登录成功,做你想做");
-        }
-    }];
 }
 - (void)refreshData:(NSInteger)page{
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];

@@ -27,6 +27,11 @@ static NSString *loginOut = @"退出登录";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [GKUserManager needLogin:^(BOOL success) {
+        if (success) {
+            NSLog(@"登录成功,做你想做");
+        }
+    }];
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATRefreshNone];
     [self headerRefreshing];

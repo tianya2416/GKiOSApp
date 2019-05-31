@@ -54,7 +54,6 @@
     } failure:^(NSString * _Nonnull error) {
         
     }];
-
 }
 - (void)reloadUI{
     [self.listTitles removeAllObjects];

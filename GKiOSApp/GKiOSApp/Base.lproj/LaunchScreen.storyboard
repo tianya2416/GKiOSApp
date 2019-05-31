@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10000" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="icon_logon_screen" translatesAutoresizingMaskIntoConstraints="NO" id="s3Y-Mc-hFi">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10000" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="s3Y-Mc-hFi">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -28,6 +29,7 @@
                             <constraint firstItem="s3Y-Mc-hFi" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="Kov-Gj-VR3"/>
                             <constraint firstItem="s3Y-Mc-hFi" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="u9w-3U-M8T"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="x7m-XC-7tH"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -36,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_logon_screen" width="360" height="640"/>
+        <image name="logo" width="2048" height="2048"/>
     </resources>
 </document>
