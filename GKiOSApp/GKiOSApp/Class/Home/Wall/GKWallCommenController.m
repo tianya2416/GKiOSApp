@@ -23,8 +23,8 @@
 }
 - (void)refreshData:(NSInteger)page{
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    params[@"start"] = @(1+(page-1)*30);
-    params[@"end"] = @(30);
+    params[@"start"] = @(1+(page-1)*RefreshPageSize);
+    params[@"end"] = @(RefreshPageSize);
     CGRect rect = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height = (int) (rect.size.height * 2);
@@ -37,7 +37,7 @@
         [self.listData addObjectsFromArray:self.hotModel.groupList];
         self.carouselView.imageURLStringsGroup = self.hotModel.banner;
         [self.collectionView reloadData];
-        [self endRefresh:self.hotModel.groupList.count >=30];
+        [self endRefresh:self.hotModel.groupList.count >=RefreshPageSize];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];

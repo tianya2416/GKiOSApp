@@ -33,8 +33,8 @@
 - (void)refreshData:(NSInteger)page{
     NSDictionary *params = @{
                              @"wd": self.keyWord ?:@"",
-                             @"start": @(1+(page-1)*30),
-                             @"end" : @(30),
+                             @"start": @(1+(page-1)*RefreshPageSize),
+                             @"end" : @(RefreshPageSize),
                              };
     [GKHomeNetManager wallSearch:self.keyWord params:params success:^(id  _Nonnull object) {
         if (page == 1) {
@@ -43,7 +43,7 @@
         NSArray *listData = [NSArray modelArrayWithClass:GKSearchResultModel.class json:object[@"groupList"]];
         [self.listData addObjectsFromArray:listData];
         [self.collectionView reloadData];
-        [self endRefresh:listData.count >= 30];
+        [self endRefresh:listData.count >= RefreshPageSize];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];

@@ -23,8 +23,6 @@ typedef NS_ENUM(NSUInteger, ATRefreshOption) {
     ATFooterDefaultHidden = 1 << 4,
     ATRefreshDefault = (ATHeaderRefresh | ATHeaderAutoRefresh | ATFooterRefresh | ATFooterDefaultHidden),
 };
-#define RefreshPageStart (1)
-#define RefreshPageSize (20)
 
 static NSString *FDMSG_Home_DataRefresh                      = @"数据加载中...";
 static NSString *FDMSG_Home_DataEmpty                        = @"数据空空如也...";

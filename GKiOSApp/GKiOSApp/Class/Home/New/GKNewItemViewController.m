@@ -39,7 +39,7 @@
         NSArray *datas = [NSArray modelArrayWithClass:GKNewModel.class json:object[self.categoryId]];
         [self.listData addObjectsFromArray:datas];
         [self.tableView reloadData];
-        [self endRefresh:datas.count >=20];
+        [self endRefresh:datas.count >=RefreshPageSize];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];

@@ -7,7 +7,7 @@
 //
 
 #import "GKHomeNetManager.h"
-  #define kEveryDay @"http://baobab.wandoujia.com/api/v1/feed?num=%d&date=%@&vc=67&u=011f2924aa2cf27aa5dc8066c041fe08116a9a0c&v=4.1.0&f=iphone"
+
 @implementation GKHomeNetManager
 + (NSURLSessionDataTask *)wallHot:(NSDictionary *)params
                           success:(void(^)(id object))success
@@ -50,7 +50,7 @@
                             page:(NSInteger)page
                          success:(void(^)(id object))success
                          failure:(void(^)(NSString *error))failure{
-    NSString *url = [NSString stringWithFormat:@"nc/article/headline/%@/%@-20.html",categoryId,@((page - 1)*20)];
+    NSString *url = [NSString stringWithFormat:@"nc/article/headline/%@/%@-%@.html",categoryId,@((page - 1)*RefreshPageSize),@(RefreshPageSize)];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
 + (NSURLSessionDataTask *)newsDetail:(NSString *)docid
@@ -77,7 +77,7 @@
 + (NSURLSessionDataTask *)newSearch:(NSString *)keyWord
                             success:(void(^)(id object))success
                             failure:(void(^)(NSString *error))failure{
-    NSString *url = [NSString stringWithFormat:@"search/comp/MA==/20/%@.html",[keyWord base64EncodedString]];
+    NSString *url = [NSString stringWithFormat:@"search/comp/MA==/%@/%@.html",@(RefreshPageSize),[keyWord base64EncodedString]];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrlSearchNew(url) params:nil success:success failure:failure];
 }
 + (NSURLSessionDataTask *)app_login:(NSString *)account

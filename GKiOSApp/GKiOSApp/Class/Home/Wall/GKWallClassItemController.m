@@ -30,8 +30,8 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"cateId"]   = self.categoryID ?:@"";
     params[@"isDown"]    = @"1";
-    params[@"start"]    = @(1+(page-1)*30);
-    params[@"end"]      = @(30);
+    params[@"start"]    = @(1+(page-1)*RefreshPageSize);
+    params[@"end"]      = @(RefreshPageSize);
     CGRect rect     = [UIScreen mainScreen].bounds;
     NSInteger width = (int) (rect.size.width * 2);
     NSInteger height   = (int) (rect.size.height * 2);
@@ -43,7 +43,7 @@
         NSArray *listData= [NSArray modelArrayWithClass:GKWallClassItemModel.class json:object[@"groupList"]];
         [self.listData addObjectsFromArray:listData];
         [self.collectionView reloadData];
-        [self endRefresh:listData.count >=30];
+        [self endRefresh:listData.count >=RefreshPageSize];
     } failure:^(NSString * _Nonnull error) {
         [self endRefreshFailure];
     }];
