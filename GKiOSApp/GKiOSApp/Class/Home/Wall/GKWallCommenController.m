@@ -34,7 +34,7 @@
             [self.listData removeAllObjects];
         }
         self.hotModel = [GKWallCommenInfo modelWithJSON:object];
-        [self.listData addObjectsFromArray:self.hotModel.groupList];
+        self.hotModel.groupList ? [self.listData addObjectsFromArray:self.hotModel.groupList] : nil;
         self.carouselView.imageURLStringsGroup = self.hotModel.banner;
         [self.collectionView reloadData];
         [self endRefresh:self.hotModel.groupList.count >=RefreshPageSize];

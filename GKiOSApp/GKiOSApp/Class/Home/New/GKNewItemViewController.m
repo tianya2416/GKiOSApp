@@ -25,6 +25,12 @@
     [self setupRefresh:self.tableView option:ATRefreshDefault];
 
 }
+- (void)vtm_prepareForReuse{
+    if (!self.reachable) {
+        [self.listData removeAllObjects];
+        [self.tableView reloadData];
+    }
+}
 - (void)setCategoryId:(NSString *)categoryId{
     _categoryId = categoryId;
     [self.tableView setContentOffset:CGPointMake(0,0) animated:NO];
@@ -37,7 +43,9 @@
             [self.listData removeAllObjects];
         }
         NSArray *datas = [NSArray modelArrayWithClass:GKNewModel.class json:object[self.categoryId]];
-        [self.listData addObjectsFromArray:datas];
+        if (datas) {
+            [self.listData addObjectsFromArray:datas];
+        }
         [self.tableView reloadData];
         [self endRefresh:datas.count >=RefreshPageSize];
     } failure:^(NSString * _Nonnull error) {

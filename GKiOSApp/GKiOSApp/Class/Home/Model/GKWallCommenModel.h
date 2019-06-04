@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 @class GKWallCommenModel;
 @interface GKWallCommenInfo : BaseModel
+
 @property (strong, nonatomic) NSArray<GKWallCommenModel *>*groupList;
 @property (strong, nonatomic) NSArray *banner;
+
 @end
 
 @interface GKWallCommenModel : BaseModel

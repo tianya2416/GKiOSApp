@@ -29,7 +29,6 @@
     [self loadUI];
     [self setupEmpty:self.collectionView];
     [self setupRefresh:self.collectionView option:ATRefreshNone];
-    [self headerRefreshing];
     // Do any additional setup after loading the view.
 }
 - (void)loadUI{

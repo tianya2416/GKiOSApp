@@ -19,6 +19,7 @@
     [super viewDidLoad];
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATHeaderRefresh|ATHeaderAutoRefresh];
+    
 }
 - (void)refreshData:(NSInteger)page{
     [GKHomeNetManager wallCategory:@{} success:^(id  _Nonnull object) {

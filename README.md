@@ -25,7 +25,7 @@
     
     小编慢慢的会把功能补上，如果喜欢就start吧
     
-    有任何问题可以联系我1203123826@qq.com
+    有任何问题可以联系我wangws1990@163.com
     
     下载地址：https://github.com/tianya2416/GKiOSApp
     

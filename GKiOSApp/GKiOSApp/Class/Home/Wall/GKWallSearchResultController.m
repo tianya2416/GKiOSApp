@@ -41,7 +41,7 @@
             [self.listData removeAllObjects];
         }
         NSArray *listData = [NSArray modelArrayWithClass:GKSearchResultModel.class json:object[@"groupList"]];
-        [self.listData addObjectsFromArray:listData];
+        listData ? [self.listData addObjectsFromArray:listData] : nil;
         [self.collectionView reloadData];
         [self endRefresh:listData.count >= RefreshPageSize];
     } failure:^(NSString * _Nonnull error) {

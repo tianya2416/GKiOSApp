@@ -29,10 +29,10 @@ static NSString *FDMSG_Home_DataEmpty                        = @"数据空空如
 static NSString *FDNoNetworkMsg                              = @"无网络连接,请检查网络设置";
 
 @interface BaseRefreshController : BaseViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
-@property (nonatomic, weak) UIScrollView *scrollView;
+
 @property (nonatomic, assign, readonly) NSInteger currentPage;
 @property (nonatomic, assign, readonly) BOOL isRefreshing;
-@property (nonatomic, strong) NSDate *lastRefreshDate;
+@property (nonatomic, assign, readonly) BOOL reachable;
 /**
  @brief 设置刷新控件 子类可在refreshData中发起网络请求, 请求结束后回调endRefresh结束刷新动作
  @param scrollView 刷新控件所在scrollView

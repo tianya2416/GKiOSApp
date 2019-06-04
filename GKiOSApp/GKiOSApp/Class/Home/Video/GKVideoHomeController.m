@@ -30,6 +30,12 @@
 - (void)loadUI{
     
 }
+- (void)vtm_prepareForReuse{
+    if (!self.reachable) {
+        [self.listData removeAllObjects];
+        [self.collectionView reloadData];
+    }
+}
 - (void)refreshData:(NSInteger)page{
 //    NSString *path = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
 //    NSData *data = [NSData dataWithContentsOfFile:path];
@@ -44,7 +50,9 @@
             [self.listData removeAllObjects];
         }
         NSArray *datas = [NSArray modelArrayWithClass:GKVideoModel.class json:object[self.sId?:@""]];
-        [self.listData addObjectsFromArray:datas];
+        if (datas) {
+             [self.listData addObjectsFromArray:datas];
+        }
         [self.collectionView reloadData];
         [self endRefresh:datas.count >= 10];
     } failure:^(NSString * _Nonnull error) {

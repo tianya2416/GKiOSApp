@@ -65,9 +65,6 @@
     } failure:^(NSString * _Nonnull error) {
         
     }];
-    {
-        
-    }
 }
 - (void)getJSONData{
     NSError *error = nil;
@@ -165,6 +162,9 @@
     GKNewTopModel *model = self.listData[pageIndex];
     viewCtrl.categoryId = model.userId;
     return viewCtrl;
+}
+- (void)magicView:(VTMagicView *)magicView viewDidAppear:(__kindof UIViewController *)viewController atPage:(NSUInteger)pageIndex{
+    
 }
 #pragma mark GKNewSelectDelegate
 - (void)viewDidItem:(GKNewSelectController *)vc topModel:(GKNewTopModel *)topModel{

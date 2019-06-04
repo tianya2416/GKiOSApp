@@ -34,7 +34,6 @@ static NSString *loginOut = @"退出登录";
     }];
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATRefreshNone];
-    [self headerRefreshing];
     // Do any additional setup after loading the view.
 }
 - (void)refreshData:(NSInteger)page{
