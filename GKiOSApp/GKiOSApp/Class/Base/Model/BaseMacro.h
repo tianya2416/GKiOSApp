@@ -39,7 +39,7 @@
 
 #ifdef DEBUG
 #ifndef NSLog
-#   define NSLog(...)
+//#   define NSLog(...)
 #endif
 #endif
 NS_ASSUME_NONNULL_BEGIN

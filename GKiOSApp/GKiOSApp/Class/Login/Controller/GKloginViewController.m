@@ -8,6 +8,7 @@
 
 #import "GKloginViewController.h"
 #import <PLPlayerKit/PLPlayerKit.h>
+
 @interface GKLoginViewController ()<PLPlayerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *accountText;
 @property (weak, nonatomic) IBOutlet UITextField *passwordText;
