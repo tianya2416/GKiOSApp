@@ -120,11 +120,11 @@
     params[@"timestamp"] =  [NSString stringWithFormat:@"%ld",(long)timeStamp];
    return [BaseNetManager method:HttpMethodGet serializer:HttpSerializeDefault urlString:URL_Launch params:params timeOut:2 success:success failure:failure];
 }
-//10条才会有更多数据
 +(NSURLSessionDataTask *)videoHome:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
     NSString *url = [NSString stringWithFormat:@"nc/video/home/%@-10.html",@((page - 1)*10)];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
+//10条才会有更多数据
 +(NSURLSessionDataTask *)videoList:(NSString *)sId page:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
     NSString *url = [NSString stringWithFormat:@"nc/video/list/%@/y/%@-10.html",sId,@((page - 1)*10)];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];

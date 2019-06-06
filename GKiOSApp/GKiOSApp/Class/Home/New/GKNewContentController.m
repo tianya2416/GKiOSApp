@@ -51,7 +51,10 @@
     [self setNavRightItemWithImage:[UIImage imageNamed:@"search_white"] action:@selector(searchAction)];
     self.navigationItem.leftBarButtonItem = [self navItemWithImage:[UIImage imageNamed:@"top_navigation_menuicon"] action:@selector(addAction)];
     [self.navBarView.mainView addSubview:self.vmessage];
-    
+    UIScrollView *scrow = [self.vmessage valueForKey:@"scrollView"];
+    if (scrow) {
+        scrow.scrollsToTop = NO;
+    }
 }
 - (void)loadData{
     [GKNewTopQueue getDatasFromDataBases:^(NSArray<GKNewTopModel *> * _Nonnull listData) {

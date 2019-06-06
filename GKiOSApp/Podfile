@@ -1,3 +1,4 @@
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 platform :ios, '8.0'
 #use_frameworks!
 
@@ -12,7 +13,6 @@ target :GKiOSApp  do
     pod 'YYKit'
     pod 'SDWebImage'
     pod 'EAIntroView'
-    pod 'Qiniu', '~> 7.1.8'
     pod 'IDMPhotoBrowser'
     pod 'MMPopupView', :git => 'https://github.com/CoderLT/MMPopupView.git'
     pod 'MJRefresh', :git => 'https://github.com/CoderLT/MJRefresh.git'
@@ -20,17 +20,13 @@ target :GKiOSApp  do
     pod 'VTMagic',:git => 'https://github.com/tianya2416/VTMagicMacro.git'
     pod 'DZNEmptyDataSet'
     pod 'KVOController'
-    pod 'QBImagePickerController'
-    pod 'MGJRouter'
     pod 'FDFullscreenPopGesture', '1.1'
     pod 'PLPlayerKit', :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
-    pod 'TXLiteAVSDK_Player'
     pod 'HHTransition'
     pod 'SDCycleScrollView'
     pod 'KLRecycleScrollView'
     pod 'ZFPlayer', '~> 3.0'
     pod 'ZFPlayer/ControlView', '~> 3.0'
     pod 'ZFPlayer/AVPlayer', '~> 3.0'
-#    pod 'YBImageBrowser'
 end
 
