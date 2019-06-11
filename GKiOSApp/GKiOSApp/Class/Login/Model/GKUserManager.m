@@ -22,7 +22,6 @@
             _shareInstance = [[GKUserManager alloc]init];
         }
     });
-    
     return _shareInstance;
 }
 

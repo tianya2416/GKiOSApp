@@ -12,7 +12,7 @@
 #import "GKVideoModel.h"
 @interface GKVideoBaseController ()<VTMagicViewDataSource,VTMagicViewDelegate>
 @property (strong, nonatomic) VTMagicController * magicController;
-
+@property (strong, nonatomic) GKVideoHotController *hotController;
 @property (strong, nonatomic) NSMutableArray *listTitles;
 @property (strong, nonatomic) NSArray *listData;
 @end
@@ -110,7 +110,7 @@
 - (UIViewController *)magicView:(VTMagicView *)magicView viewControllerAtPage:(NSUInteger)pageIndex
 {
     if (pageIndex == 0) {
-        return [GKVideoHotController new];
+        return self.hotController;
     }
     static NSString *itemIdentifier = @"com.video.home.itemIdentifier";
     GKVideoHomeController *vc = [magicView dequeueReusablePageWithIdentifier:itemIdentifier];
@@ -158,6 +158,12 @@
         
     }
     return _magicController;
+}
+- (GKVideoHotController *)hotController{
+    if (!_hotController) {
+        _hotController = [[GKVideoHotController alloc] init];
+    }
+    return _hotController;
 }
 
 @end

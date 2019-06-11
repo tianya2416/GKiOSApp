@@ -40,8 +40,6 @@ static NSString *loginOut = @"退出登录";
     self.listData = @[about,video,info,tenec,loginOut];
     [self.tableView reloadData];
     [self endRefresh:NO];
-
-    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
