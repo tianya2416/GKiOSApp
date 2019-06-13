@@ -69,7 +69,7 @@
     }];
     [self.view addSubview:self.downBtn];
     [self.downBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.offset(26);
+        make.width.height.offset(25);
         make.right.equalTo(self.downBtn.superview).offset(-10);
         make.centerY.equalTo(self.backBtn);
     }];
@@ -212,10 +212,10 @@
         _downBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_downBtn setImage:[UIImage imageNamed:@"icon_down"] forState:UIControlStateNormal];
         [_downBtn addTarget:self action:@selector(saveAction) forControlEvents:UIControlEventTouchUpInside];
-        _downBtn.layer.masksToBounds = YES;
-        _downBtn.layer.cornerRadius = 13;
-        _downBtn.layer.borderWidth = 1.0f;
-        _downBtn.layer.borderColor = [UIColor colorWithRGB:0xdddddd].CGColor;
+//        _downBtn.layer.masksToBounds = YES;
+//        _downBtn.layer.cornerRadius = 13;
+//        _downBtn.layer.borderWidth = 1.0f;
+//        _downBtn.layer.borderColor = [UIColor colorWithRGB:0xdddddd].CGColor;
     }
     return _downBtn;
 }
