@@ -63,9 +63,9 @@
 
     [self.view addSubview:self.backBtn];
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.offset(44);
+        make.width.height.offset(32);
         make.left.equalTo(self.backBtn.superview).offset(10);
-        make.top.equalTo(self.backBtn.superview).offset(STATUS_BAR_HIGHT);
+        make.top.equalTo(self.backBtn.superview).offset(STATUS_BAR_HIGHT+6);
     }];
     [self.view addSubview:self.downBtn];
     [self.downBtn mas_makeConstraints:^(MASConstraintMaker *make) {
