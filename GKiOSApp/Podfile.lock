@@ -84,7 +84,7 @@ DEPENDENCIES:
   - ZFPlayer/ControlView (~> 3.0)
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - AppBaseCategory
     - DACircularProgress
@@ -155,6 +155,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: fdc92702cc611922182a951991dea78566da7605
 
-PODFILE CHECKSUM: 2668ce117424ab047556db093304fae6a418c6da
+PODFILE CHECKSUM: 6f71b712fd54c3f92f78907242c9aeed3ac8597f
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.3

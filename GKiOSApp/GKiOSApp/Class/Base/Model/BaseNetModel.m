@@ -11,7 +11,9 @@
 @implementation BaseNetModel
 
 + (NSDictionary<NSString *,id> *)modelCustomPropertyMapper {
-    return @{@"msg" : @[@"msg", @"err",@"error"],@"resultset":@[@"resultset",@"res",@"result"],@"code":@[@"code",@"errorCode"]};
+    return @{@"msg" : @[@"msg", @"err",@"error"],
+             @"resultset":@[@"resultset",@"res",@"result"],
+             @"code":@[@"code",@"errorCode"]};
 }
 //数据是否正常
 -(BOOL)isDataSuccess
@@ -25,8 +27,7 @@
 }
 + (instancetype)successModel:(id)response urlString:(NSString *)urlString params:(NSDictionary *)params headParams:(NSDictionary *)headParams
 {
-    BaseNetModel * model = [[[self class] alloc] init];
-    [model modelSetWithJSON:response];
+    BaseNetModel * model = [BaseNetModel modelWithJSON:response];
     model.allResultData = response;
     model.requestUrl = urlString;
     model.params = params;
@@ -36,7 +37,9 @@
     }
     if(![model isDataSuccess])
     {
-        NSLog(@"%@\n%@\n%@\n%@\n",urlString,params,headParams,model.allResultData);
+#ifdef DEBUG
+        NSLog(@"url:%@\n params:%@\n headParams:%@\n result:%@\n",urlString,params,headParams,model.allResultData);
+#endif
     }
     return model;
 }
@@ -66,7 +69,6 @@
     }else if ([response isKindOfClass:[NSArray class]]){
         obj = response;
     }
-    NSLog(@"%@",obj);
     return obj;
 }
 + (instancetype)netErrorModel:(NSString *)error

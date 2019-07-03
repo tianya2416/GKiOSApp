@@ -38,8 +38,7 @@
 }
 - (void)refreshData:(NSInteger)page{
     [GKHomeNetManager newHot:self.categoryId page:page success:^(id  _Nonnull object) {
-        NSLog(@"====%@",object);
-        if (page == 1) {
+        if (page == RefreshPageStart) {
             [self.listData removeAllObjects];
         }
         NSArray *datas = [NSArray modelArrayWithClass:GKNewModel.class json:object[self.categoryId]];
