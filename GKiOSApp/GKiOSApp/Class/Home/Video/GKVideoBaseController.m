@@ -165,5 +165,19 @@
     }
     return _hotController;
 }
-
+- (BOOL)shouldAutorotate {
+    return self.magicController.currentViewController.shouldAutorotate;
+}
+//返回支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return self.magicController.currentViewController.supportedInterfaceOrientations;
+}
+//这个是返回优先方向
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return self.magicController.currentViewController.preferredInterfaceOrientationForPresentation;
+    
+}
+- (BOOL)prefersStatusBarHidden {
+    return self.magicController.currentViewController.prefersStatusBarHidden;
+}
 @end

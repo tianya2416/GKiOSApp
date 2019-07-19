@@ -36,16 +36,6 @@
     
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.player.viewControllerDisappear = NO;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    self.player.viewControllerDisappear = YES;
-}
-
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     CGFloat y = CGRectGetMaxY(self.navigationController.navigationBar.frame);
@@ -66,14 +56,9 @@
     self.player = [ZFPlayerController playerWithScrollView:self.tableView playerManager:playerManager containerViewTag:100];
     self.player.controlView = self.controlView;
     self.player.shouldAutoPlay = NO;
-    /// 移动网络依然自动播放
-    self.player.WWANAutoPlay = NO;
-    
     /// 1.0是完全消失的时候
     self.player.playerDisapperaPercent = 1.0;
-    /// 0.0是刚开始显示的时候
-    self.player.playerApperaPercent = 0.0;
-    
+    self.player.stopWhileNotVisible = YES;
     @weakify(self)
     self.player.orientationWillChange = ^(ZFPlayerController * _Nonnull player, BOOL isFullScreen) {
         @strongify(self)
@@ -81,15 +66,10 @@
         [UIViewController attemptRotationToDeviceOrientation];
         self.tableView.scrollsToTop = !isFullScreen;
     };
-    
     self.player.playerDidToEnd = ^(id  _Nonnull asset) {
         @strongify(self)
-        [self.controlView resetControlView];
         [self.player stopCurrentPlayingCell];
     };
-    
-    /// 以下设置滑出屏幕后不停止播放
-    self.player.stopWhileNotVisible = NO;
     
     CGFloat margin = 15;
     CGFloat w = SCREEN_WIDTH/2;
@@ -107,7 +87,7 @@
 - (void)playTheVideoAtIndexPath:(NSIndexPath *)indexPath scrollToTop:(BOOL)scrollToTop {
     [self.player playTheIndexPath:indexPath scrollToTop:scrollToTop];
     GKVideoHotModel *model = self.listData[indexPath.row];
-    [self.controlView showTitle:model.title coverURLString:model.detail fullScreenMode:ZFFullScreenModePortrait];
+    [self.controlView showTitle:model.title coverURLString:model.detail fullScreenMode:ZFFullScreenModeLandscape];
 }
 - (void)refreshData:(NSInteger)page{
     NSMutableArray *urls = @[].mutableCopy;
@@ -194,6 +174,7 @@
     return _controlView;
 }
 - (BOOL)shouldAutorotate {
+    /// 如果只是支持iOS9+ 那直接return NO即可，这里为了适配iOS8
     return self.player.shouldAutorotate;
 }
 
@@ -212,7 +193,6 @@
 }
 
 - (BOOL)prefersStatusBarHidden {
-    /// 如果只是支持iOS9+ 那直接return NO即可，这里为了适配iOS8
     return self.player.isStatusBarHidden;
 }
 

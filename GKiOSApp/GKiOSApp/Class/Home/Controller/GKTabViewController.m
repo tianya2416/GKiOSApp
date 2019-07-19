@@ -12,6 +12,8 @@
 #import "GKNewContentController.h"
 #import "GKVideoHomeController.h"
 #import "GKVideoBaseController.h"
+
+#import "GKVideoHotController.h"
 @interface GKTabViewController ()<UITabBarControllerDelegate>
 
 @end
@@ -64,5 +66,21 @@
     NSInteger count = [userInfo[@"count"] integerValue];
     UIViewController *vc = self.viewControllers.lastObject;
     vc.tabBarItem.badgeValue = count > 0 ? [NSString stringWithFormat:@"%@",@(count)] : nil;
+}
+
+////是否自动旋转,返回YES可以自动旋转
+- (BOOL)shouldAutorotate {
+    return [self.selectedViewController shouldAutorotate];
+}
+//返回支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return [self.selectedViewController supportedInterfaceOrientations];
+}
+//这个是返回优先方向
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return [self.selectedViewController preferredInterfaceOrientationForPresentation];
+}
+- (BOOL)prefersStatusBarHidden {
+    return [self.selectedViewController prefersStatusBarHidden];
 }
 @end

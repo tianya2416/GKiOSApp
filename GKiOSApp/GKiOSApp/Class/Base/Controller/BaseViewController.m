@@ -44,4 +44,18 @@
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+- (BOOL)prefersStatusBarHidden {
+    return NO;
+}
+//返回支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+//这个是返回优先方向
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
 @end

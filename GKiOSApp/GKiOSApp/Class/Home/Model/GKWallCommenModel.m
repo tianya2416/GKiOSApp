@@ -13,10 +13,13 @@
     return @{@"groupList" : GKWallCommenModel.class };
 }
 - (NSArray *)banner{
-    GKWallCommenModel *model = self.groupList.firstObject;
-    GKWallCommenModel *model1 = self.groupList.lastObject;
-    GKWallCommenModel *model2 = self.groupList[1];
-    return @[model.coverImgUrl,model1.coverImgUrl,model2.coverImgUrl];
+    NSInteger index = arc4random() % (self.groupList.count - 3);
+    NSArray *listData = self.groupList.count >= 3 ? [self.groupList subarrayWithRange:NSMakeRange(index, 3)] : self.groupList.copy;
+    NSMutableArray *datas = [[NSMutableArray alloc] init];
+    [listData enumerateObjectsUsingBlock:^(GKWallCommenModel*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [datas addObject:obj.coverImgUrl?:@""];
+    }];
+    return datas.copy;
 }
 @end
 @implementation GKWallCommenModel
