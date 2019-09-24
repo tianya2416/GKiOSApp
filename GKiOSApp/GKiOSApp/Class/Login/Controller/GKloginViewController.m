@@ -28,8 +28,11 @@
 }
 - (void)loadUI{
     self.fd_prefersNavigationBarHidden = YES;
-    [self.accountText setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-    [self.passwordText setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    NSMutableAttributedString *placeholderString = [[NSMutableAttributedString alloc] initWithString:@"请输入账号" attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.accountText.attributedPlaceholder = placeholderString;
+    
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"请输入密码" attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    self.passwordText.attributedPlaceholder = str;
     self.accountText.delegate = self;
     self.passwordText.delegate = self;
     self.accountText.tintColor = self.passwordText.tintColor = AppColor;
