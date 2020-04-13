@@ -43,19 +43,20 @@
         obj.title = titles[idx];
         nv.tabBarItem.image = [[UIImage imageNamed:listNormal[idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         nv.tabBarItem.selectedImage = [[UIImage imageNamed:listHi[idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        if (@available(iOS 13.0, *)) {
-            [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:Appx999999} forState:UIControlStateDisabled];
-            [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:AppColor} forState:UIControlStateNormal];
-        } else {
-            [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:Appx999999} forState:UIControlStateNormal];
-            [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:AppColor} forState:UIControlStateSelected];
-        }
+        [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:Appx999999} forState:UIControlStateNormal];
+        [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:AppColor} forState:UIControlStateSelected];
         [listNV addObject:nv];
     }];
     self.viewControllers = listNV;
     self.tabBar.translucent = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     self.delegate = self;
+    self.tabBar.tintColor = AppColor;
+    if (@available(iOS 10.0, *)) {
+        self.tabBar.unselectedItemTintColor = Appx999999;
+    } else {
+
+    }
 }
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     NSInteger selectedIndex = [tabBarController.viewControllers indexOfObject:viewController];
