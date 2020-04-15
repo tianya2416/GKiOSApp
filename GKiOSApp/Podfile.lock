@@ -36,15 +36,16 @@ PODS:
   - MJRefresh (3.1.15.2)
   - MMPopupView (1.7.3):
     - Masonry
-  - PLPlayerKit (3.4.1):
-    - PLPlayerKit/universal (= 3.4.1)
-  - PLPlayerKit/universal (3.4.1)
+  - PLPlayerKit (3.4.3):
+    - PLPlayerKit/iphoneos (= 3.4.3)
+  - PLPlayerKit/iphoneos (3.4.3)
   - pop (1.0.12)
   - SDCycleScrollView (1.80):
     - SDWebImage (>= 5.0.0)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
   - SDWebImage/Core (5.0.6)
+  - VIMediaCache (0.3)
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
   - VTMagic/Core (1.2.4)
@@ -74,9 +75,10 @@ DEPENDENCIES:
   - MBProgressHUD (from `https://github.com/tianya2416/MBProgress.git`)
   - MJRefresh (from `https://github.com/CoderLT/MJRefresh.git`)
   - MMPopupView (from `https://github.com/CoderLT/MMPopupView.git`)
-  - PLPlayerKit (from `https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec`)
+  - PLPlayerKit
   - SDCycleScrollView
   - SDWebImage
+  - VIMediaCache
   - VTMagic (from `https://github.com/tianya2416/VTMagicMacro.git`)
   - YYKit
   - ZFPlayer (~> 3.0)
@@ -84,7 +86,7 @@ DEPENDENCIES:
   - ZFPlayer/ControlView (~> 3.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - AppBaseCategory
     - DACircularProgress
@@ -98,11 +100,14 @@ SPEC REPOS:
     - KLRecycleScrollView
     - KVOController
     - Masonry
+    - PLPlayerKit
     - pop
     - SDCycleScrollView
     - SDWebImage
     - YYKit
     - ZFPlayer
+  trunk:
+    - VIMediaCache
 
 EXTERNAL SOURCES:
   MBProgressHUD:
@@ -111,8 +116,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/CoderLT/MJRefresh.git
   MMPopupView:
     :git: https://github.com/CoderLT/MMPopupView.git
-  PLPlayerKit:
-    :podspec: https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec
   VTMagic:
     :git: https://github.com/tianya2416/VTMagicMacro.git
 
@@ -147,14 +150,15 @@ SPEC CHECKSUMS:
   MBProgressHUD: 0f5bb58f04db85da16d8b9e9781df7f88cadd4ec
   MJRefresh: f845c1a10f0309233fb352425475897a5c50e9f0
   MMPopupView: b717b7fe100707ef3fcd17c93b050e4b9d0a60da
-  PLPlayerKit: 8dbda4525878842315e0ae6329dcefa7b5d8cc7e
+  PLPlayerKit: a44734dc78c1f8f9fb22c537fa1916612fa46b06
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  VIMediaCache: 02c03af2adf2526eddc8ee3b06e41f26e9546f38
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: fdc92702cc611922182a951991dea78566da7605
 
-PODFILE CHECKSUM: 6f71b712fd54c3f92f78907242c9aeed3ac8597f
+PODFILE CHECKSUM: 860d74592555f19d62446489d53c3574f6c868a0
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.8.4

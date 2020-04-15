@@ -1,4 +1,5 @@
 #source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+source      'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 #use_frameworks!
 
@@ -21,12 +22,14 @@ target :GKiOSApp  do
     pod 'DZNEmptyDataSet'
     pod 'KVOController'
     pod 'FDFullscreenPopGesture', '1.1'
-    pod 'PLPlayerKit', :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
+    pod 'PLPlayerKit'
+#    , :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
     pod 'HHTransition'
     pod 'SDCycleScrollView'
     pod 'KLRecycleScrollView'
     pod 'ZFPlayer', '~> 3.0'
     pod 'ZFPlayer/ControlView', '~> 3.0'
     pod 'ZFPlayer/AVPlayer', '~> 3.0'
+    pod 'VIMediaCache'
 end
 
