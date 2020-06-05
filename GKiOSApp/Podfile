@@ -1,4 +1,3 @@
-#source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 source      'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 #use_frameworks!
@@ -7,7 +6,7 @@ inhibit_all_warnings!
 
 target :GKiOSApp  do
     #-------- 开源第三方库 -----
-    pod 'AppBaseCategory'
+    pod 'ATKit_ObjectC',:git => 'https://github.com/tianya2416/ATKit_ObjectC.git'
     pod 'FMDB'
     pod 'Masonry'
     pod 'AFNetworking'
@@ -22,8 +21,7 @@ target :GKiOSApp  do
     pod 'DZNEmptyDataSet'
     pod 'KVOController'
     pod 'FDFullscreenPopGesture', '1.1'
-    pod 'PLPlayerKit'
-#    , :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
+    pod 'PLPlayerKit'    , :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
     pod 'HHTransition'
     pod 'SDCycleScrollView'
     pod 'KLRecycleScrollView'
@@ -31,5 +29,7 @@ target :GKiOSApp  do
     pod 'ZFPlayer/ControlView', '~> 3.0'
     pod 'ZFPlayer/AVPlayer', '~> 3.0'
     pod 'VIMediaCache'
+    pod 'HWPanModal'
+    pod 'HWPopController'
 end
 

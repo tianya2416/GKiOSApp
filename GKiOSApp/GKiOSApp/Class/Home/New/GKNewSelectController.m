@@ -26,6 +26,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.fd_prefersNavigationBarHidden = true;
     [self loadUI];
     [self setupEmpty:self.collectionView];
     [self setupRefresh:self.collectionView option:ATRefreshNone];
@@ -133,7 +134,9 @@
         [self updateAction:model];
     }else if (indexPath.section == 0){
         if (self.editor) {
-            self.model = nil;
+            if (self.model == model) {
+                self.model = nil;
+            }
             [self updateAction:model];
         }else{
             if ([self.delegate respondsToSelector:@selector(viewDidItem:topModel:)]) {
@@ -181,11 +184,27 @@
             break;
         case UIGestureRecognizerStateEnded:
             [self.collectionView endInteractiveMovement];
-//            [self.collectionView reloadData];
             break;
         default:
             [self.collectionView cancelInteractiveMovement];
             break;
     }
+}
+
+#pragma mark HWPanModalPresentable
+- (PanModalHeight)longFormHeight {
+    return PanModalHeightMake(PanModalHeightTypeContent,(SCREEN_HEIGHT - STATUS_BAR_HIGHT));
+}
+- (BOOL)showDragIndicator {
+    return NO;
+}
+- (BOOL)shouldRespondToPanModalGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer{
+    return true;
+}
+- (CGFloat)cornerRadius{
+    return 5.0;
+}
+- (CGFloat)backgroundAlpha{
+    return 0.35;
 }
 @end

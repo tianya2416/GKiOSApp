@@ -17,24 +17,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    sleep(1);
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [GKTabViewController new];
     [self.window makeKeyAndVisible];
-
     [self setAppLaunchController];
     return YES;
 }
 
 - (void)setAppLaunchController{
-//    UIViewController *rootViewController = self.window.rootViewController;
     UIView *contentView = [MBProgressHUD defaultView];
     GKLaunchViewController *launchController = [[GKLaunchViewController alloc]init];
     [contentView addSubview:launchController.view];
     launchController.view.frame = contentView.frame;
-//    [rootViewController addChildViewController:launchController];
-//    launchController.view.frame = rootViewController.view.frame;
-//    [rootViewController.view addSubview:launchController.view];
 }
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     return UIInterfaceOrientationMaskPortrait;

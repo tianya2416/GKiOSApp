@@ -85,7 +85,6 @@
 		0F1C1833229FBFC9009824F5 /* GKVideoBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1C1832229FBFC9009824F5 /* GKVideoBaseController.m */; };
 		0F1C18F1229FDA68009824F5 /* GKVideoHotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F1C18F0229FDA68009824F5 /* GKVideoHotController.m */; };
 		0F2398A6228570470059B0FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398A5228570470059B0FE /* AppDelegate.m */; };
-		0F2398AC228570480059B0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AA228570480059B0FE /* Main.storyboard */; };
 		0F2398AE228570490059B0FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AD228570490059B0FE /* Assets.xcassets */; };
 		0F2398B1228570490059B0FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F2398AF228570490059B0FE /* LaunchScreen.storyboard */; };
 		0F2398B4228570490059B0FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2398B3228570490059B0FE /* main.m */; };
@@ -256,10 +255,9 @@
 		0F1C1832229FBFC9009824F5 /* GKVideoBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKVideoBaseController.m; sourceTree = "<group>"; };
 		0F1C18EF229FDA68009824F5 /* GKVideoHotController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKVideoHotController.h; sourceTree = "<group>"; };
 		0F1C18F0229FDA68009824F5 /* GKVideoHotController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKVideoHotController.m; sourceTree = "<group>"; };
-		0F2398A1228570470059B0FE /* GKiOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GKiOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F2398A1228570470059B0FE /* MorePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2398A4228570470059B0FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F2398A5228570470059B0FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0F2398AB228570480059B0FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F2398AD228570490059B0FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F2398B0228570490059B0FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F2398B2228570490059B0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -678,7 +676,7 @@
 		0F2398A2228570470059B0FE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0F2398A1228570470059B0FE /* GKiOSApp.app */,
+				0F2398A1228570470059B0FE /* MorePlay.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -694,7 +692,6 @@
 				0F2398B2228570490059B0FE /* Info.plist */,
 				0F2398AF228570490059B0FE /* LaunchScreen.storyboard */,
 				0F2398B3228570490059B0FE /* main.m */,
-				0F2398AA228570480059B0FE /* Main.storyboard */,
 			);
 			path = GKiOSApp;
 			sourceTree = "<group>";
@@ -809,7 +806,7 @@
 			);
 			name = GKiOSApp;
 			productName = GKiOSApp;
-			productReference = 0F2398A1228570470059B0FE /* GKiOSApp.app */;
+			productReference = 0F2398A1228570470059B0FE /* MorePlay.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -877,7 +874,6 @@
 				0F08B04B229E538100070D56 /* GKNewSelectCell.xib in Resources */,
 				0FB76AE422A12F9F0099A41D /* 5.png in Resources */,
 				0F08B05A229E538100070D56 /* GKHomeCollectionReusableView.xib in Resources */,
-				0F2398AC228570480059B0FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,14 +1026,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0F2398AA228570480059B0FE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0F2398AB228570480059B0FE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0F2398AF228570490059B0FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1166,7 +1154,6 @@
 			baseConfigurationReference = 5946029D4F68ADA9F297FE29 /* Pods-GKiOSApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AH5A6D2MR2;
@@ -1179,7 +1166,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.3733SDK.sdk;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MorePlay;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1190,7 +1177,6 @@
 			baseConfigurationReference = FDBC29D23DEA47242B9937C2 /* Pods-GKiOSApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AH5A6D2MR2;
@@ -1203,7 +1189,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.3733SDK.sdk;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MorePlay;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

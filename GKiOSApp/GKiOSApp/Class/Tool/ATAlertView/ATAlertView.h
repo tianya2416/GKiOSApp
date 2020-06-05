@@ -9,8 +9,6 @@
 #import <MMPopupView/MMAlertView.h>
 
 typedef void(^ATAlertViewCompletion)(NSUInteger index, NSString *buttonTitle);
-typedef BOOL(^ATAlertInputViewConfig)(NSUInteger index, UITextField *textField);
-typedef BOOL(^ATAlertInputViewHandler)(NSUInteger index, NSArray<NSString *> *texts);
 typedef NSUInteger(^ATAlertInputViewTextDidChange)(NSUInteger index, UITextField *textField, NSString *text, UIButton *confirmButton);
 
 @interface ATAlertView : MMAlertView
@@ -30,22 +28,4 @@ typedef NSUInteger(^ATAlertInputViewTextDidChange)(NSUInteger index, UITextField
             normalButtons:(NSArray<NSString *> *)normalButtons
          highlightButtons:(NSArray<NSString *> *)highlightButtons
                completion:(ATAlertViewCompletion)completion;
-@end
-
-@interface ATAlertInputView : MMPopupView
-
-/**
- *  显示一个带输入框的弹窗
- *
- *  @param title                 标题
- *  @param inputConfig           输入框样式设置(UIKeyboardType\placeholder等), 输入框的个数返回BOOL参数决定, YES则继续配置下一个输入框
- *  @param notifyChange          输入框值改变时回调函数(NSIntger: 返回允许字符长度, 负数为不限制, index: 输入框编号, textField: 输入框, text: 输入框文本, confirm: 确定按钮)
- *  @param inputHandler          按钮点击回调(BOOL: 是否允许消失, index: 被点击的按钮编号 texts: 输入框文本数组)
- *
- *  @return 弹窗实例
- */
-+ (instancetype)showWithTitle:(NSString *)title
-                  inputConfig:(ATAlertInputViewConfig)inputConfig
-                 notifyChange:(ATAlertInputViewTextDidChange)notifyChange
-                      handler:(ATAlertInputViewHandler)inputHandler;
 @end

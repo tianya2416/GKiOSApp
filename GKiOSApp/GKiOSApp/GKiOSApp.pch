@@ -10,7 +10,7 @@
 #define GKiOSApp_pch
 #import "Masonry.h"
 #import "YYKit.h"
-#import "CategoryKit.h"
+#import <ATKit.h>
 #import "MBProgressHUD.h"
 #import <SDWebImage/SDWebImageManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -18,7 +18,7 @@
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "VTMagic.h"
 #import "MBProgressHUD+ATAdd.h"
-
+#import <HWPanModal.h>
 #import "BaseMacro.h"
 #import "BaseModel.h"
 #import "BaseConnectionController.h"

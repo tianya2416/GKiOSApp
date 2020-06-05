@@ -8,7 +8,6 @@
 
 #import "BaseRefreshController.h"
 #define defaultDataEmpty [UIImage imageNamed:@"icon_data_empty"]//空数据图片
-#define defaultDataLoad [UIImage imageNamed:@"icon_data_load"]//
 #define defaultNetError [UIImage imageNamed:@"icon_net_error"]//无网络图片
 @interface BaseRefreshController () {
     BOOL _isSetKVO;
@@ -22,9 +21,29 @@
 @property (nonatomic, strong) UIImage *emptyImage;
 @property (nonatomic, assign) BOOL isRefreshing;
 @property (nonatomic, assign) BOOL reachable;
+@property (nonatomic, strong) UIImage *loadImage;
 @end
 
 @implementation BaseRefreshController
+- (UIImage *)loadImage{
+    if (!_loadImage) {
+        NSMutableArray *listData = @[].mutableCopy;
+        for (int i = 0; i<6; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"episode_loading_0%@",@( i + 1)]];
+            if (image) {
+                [listData addObject:image];
+            }
+        }
+        for (int i = 6; i>=0; i--) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"episode_loading_0%@",@(i)]];
+            if (image) {
+                [listData addObject:image];
+            }
+        }
+        _loadImage = [UIImage animatedImageWithImages:listData duration:0.3];
+    }
+    return _loadImage;
+}
 - (void)dealloc {
     _scrollView.delegate = nil;
 }
@@ -219,7 +238,7 @@
     return nil;
 }
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    UIImage *imageEmpty = self.isRefreshing ? defaultDataLoad : self.emptyImage;
+    UIImage *imageEmpty = self.isRefreshing ? self.loadImage : self.emptyImage;
     return self.reachable ?imageEmpty : defaultNetError;
 }
 
@@ -277,15 +296,5 @@
 - (BOOL)reachable{
      return  [YYReachability reachability].status != YYReachabilityStatusNone;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

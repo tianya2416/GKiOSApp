@@ -104,8 +104,10 @@
 - (void)addAction{
     GKNewTopModel *model = self.listData[self.magicController.currentPage];
     GKNewSelectController *vc = [GKNewSelectController vcWithSelect:model delegate:self];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+//    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
+    
+    [self presentPanModal:vc];
 }
 - (void)searchAction{
     GKNewSearchController *vc = [[GKNewSearchController alloc] init];

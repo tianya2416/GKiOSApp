@@ -17,8 +17,8 @@
 #define Appxf8f8f8               [UIColor colorWithRGB:0xf8f8f8]
 #define AppRadius             4.0f
 
-#define placeholders     [UIImage imageNamed:@"placeholder_big"]
-#define placeholdersmall [UIImage imageNamed:@"placeholder_small"]
+#define placeholders         [UIImage imageWithColor:[UIColor colorWithRGB:0xf4f4f4]]
+#define placeholdersmall     [UIImage imageWithColor:[UIColor colorWithRGB:0xf4f4f4]]
 
 #pragma mark login
 #define App_DB         @"ecom"
@@ -39,7 +39,7 @@
 
 #ifdef DEBUG
 #ifndef NSLog
-//#   define NSLog(...)
+#   define NSLog(...)
 #endif
 #endif
 NS_ASSUME_NONNULL_BEGIN
