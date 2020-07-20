@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *subTitleLab;
 @property (weak, nonatomic) IBOutlet UIButton *watchBtn;
 @property (weak, nonatomic) IBOutlet UILabel *timeLab;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *height;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *top;
 
 @end
 

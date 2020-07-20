@@ -33,6 +33,7 @@
     return state;
 }
 - (CGFloat)cellHeight{
+    return  UITableViewAutomaticDimension;
     CGFloat height = 0.01;
     switch (self.states) {
         case GKNewsAdvertise://banner
