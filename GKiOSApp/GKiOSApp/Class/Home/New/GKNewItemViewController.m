@@ -58,8 +58,7 @@
     return self.listData.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GKNewModel *model = self.listData[indexPath.row];
-    return model.cellHeight;
+    return UITableViewAutomaticDimension;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GKNewModel *model = self.listData[indexPath.row];

@@ -7,13 +7,6 @@
 //
 
 #import "ATBrowserItemController.h"
-// 判断是否为iPhone X 系列  这样写消除了在Xcode10上的警告。
-//#define IPHONE_X \
-//({BOOL isPhoneX = NO;\
-//if (@available(iOS 11.0, *)) {\
-//isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
-//}\
-//(isPhoneX);})
 
 
 @interface ATBrowserItemController ()

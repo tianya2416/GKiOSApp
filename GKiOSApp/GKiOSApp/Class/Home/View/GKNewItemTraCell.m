@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.focusLab.textColor = AppColor;
+
     // Initialization code
 }
 
@@ -28,5 +30,14 @@
     NSString *lastUrl = model.imgextra.lastObject[@"imgsrc"];
     [self.imageCenter sd_setImageWithURL:[NSURL URLWithString:firstUrl] placeholderImage:placeholders];
     [self.imageLast sd_setImageWithURL:[NSURL URLWithString:lastUrl] placeholderImage:placeholders];
+    
+    self.focusLab.text = model.replyCount;
+    
+    NSMutableParagraphStyle *stype = [[NSMutableParagraphStyle alloc] init];
+    stype.lineSpacing = SCALEW(4.0f);
+    stype.paragraphSpacing = SCALEW(4.0f);
+    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:model.digest ?:@"" attributes:@{NSParagraphStyleAttributeName :stype}];
+    self.subTitleLab.attributedText = att;
+    self.timeLab.text = model.mtime ?: @"";
 }
 @end

@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *imageFirst;
 @property (weak, nonatomic) IBOutlet UIImageView *imageCenter;
 @property (weak, nonatomic) IBOutlet UIImageView *imageLast;
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLab;
+@property (weak, nonatomic) IBOutlet UILabel *timeLab;
+@property (weak, nonatomic) IBOutlet UILabel *focusLab;
 
 @end
 
