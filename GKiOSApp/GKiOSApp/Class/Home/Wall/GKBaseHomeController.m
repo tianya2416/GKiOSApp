@@ -58,12 +58,7 @@
     [searchButton setImage:[UIImage imageNamed:@"search_white"] forState:UIControlStateNormal];
     [searchButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
     searchButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    if (iPhone_Bang) {
-        searchButton.frame = CGRectMake(0,0,50,64);
-        [searchButton setImageEdgeInsets:UIEdgeInsetsMake(10, 0, -10, 0)];
-    }else{
-        searchButton.frame = CGRectMake(0,0,50,44);
-    }
+    searchButton.frame = CGRectMake(0,0,50,44);
     self.magicController.magicView.rightNavigatoinItem = searchButton;
 //    [self.magicController.magicView setRightNavigatoinItem:searchButton];
 }
@@ -134,7 +129,7 @@
         _magicController.magicView.bubbleRadius = 2;
         _magicController.magicView.sliderWidth = 35;
         _magicController.magicView.navigationHeight = 44;
-        _magicController.magicView.headerHeight = 44;
+        _magicController.magicView.headerHeight = 0;
         _magicController.magicView.sliderHeight = 4.0;
         _magicController.magicView.itemSpacing = 20;
         

@@ -53,69 +53,62 @@
 #pragma mark - refresh 刷新处理
 - (void)setupRefresh:(UIScrollView *)scrollView option:(ATRefreshOption)option {
     self.scrollView = scrollView;
-    if (ATRefreshNone == option) {
+    if (option == ATRefreshNone) {
         [self headerRefreshing];
-    }else{
-        if (option & ATHeaderRefresh) {
-            MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
-            header.automaticallyChangeAlpha = YES;
-            header.lastUpdatedTimeLabel.hidden = YES;
-            header.stateLabel.hidden = YES;
-            NSMutableArray * images = [NSMutableArray array];
-            for (int i = 1; i <= 95; i++) {
-                UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"下拉loading_%04d.png", i]];
-                if (!image) {
-                    break;
-                }
-                [images addObject:image];
+    }
+    if (option & ATHeaderRefresh) {
+        MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshing)];
+        header.automaticallyChangeAlpha = YES;
+        header.lastUpdatedTimeLabel.hidden = YES;
+        header.stateLabel.hidden = YES;
+        NSMutableArray * images = [NSMutableArray array];
+        for (int i = 1; i <= 95; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"下拉loading_%04d.png", i]];
+            if (!image) {
+                break;
             }
-            if (images.count > 0) {
-                [header setImages:@[images.firstObject] forState:MJRefreshStateIdle];
-                [header setImages:images duration:1 forState:MJRefreshStateRefreshing];
-            }
-            
-            if (option & ATHeaderAutoRefresh) {
-                [self headerRefreshing];
-            }
-            scrollView.mj_header = header;
+            [images addObject:image];
+        }
+        if (images.count > 0) {
+            [header setImages:@[images.firstObject] forState:MJRefreshStateIdle];
+            [header setImages:images duration:1 forState:MJRefreshStateRefreshing];
         }
         
-        if (option & ATFooterRefresh) {
-            MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshing)];
-            footer.triggerAutomaticallyRefreshPercent = -20.0f;
-            footer.stateLabel.hidden = NO;
-            footer.labelLeftInset = -22;
-            
-            NSMutableArray * images = [NSMutableArray array];
-            for (int i = 1; i <= 35; i++) {
-                UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"上拉loading_%04d.png", i]];
-                if (!image) {
-                    break;
-                }
-                [images addObject:image];
-            }
-            if (images.count > 0) {
-                [footer setImages:@[images[0]] forState:MJRefreshStateIdle];
-                [footer setImages:images duration:1.0f forState:MJRefreshStateRefreshing];
-            }
-            [footer setTitle:@"已经到底了" forState:MJRefreshStateNoMoreData];
-            [footer setTitle:@"" forState:MJRefreshStatePulling];
-            [footer setTitle:@"" forState:MJRefreshStateRefreshing];
-            [footer setTitle:@"" forState:MJRefreshStateWillRefresh];
-            [footer setTitle:@"" forState:MJRefreshStateIdle];
-            
-            
-            if (option & ATFooterAutoRefresh) {
-                if (self.currentPage == 0) {
-                    self.isRefreshing = YES;
-                }
-                [self footerRefreshing];
-            }
-            else if (option & ATFooterDefaultHidden) {
-                footer.hidden = YES;
-            }
-            scrollView.mj_footer = footer;
+        if (option & ATHeaderAutoRefresh) {
+            [self headerRefreshing];
         }
+        scrollView.mj_header = header;
+    }
+    
+    if (option & ATFooterRefresh) {
+        MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshing)];
+        footer.triggerAutomaticallyRefreshPercent = -20.0f;
+        footer.stateLabel.hidden = NO;
+        footer.labelLeftInset = -22;
+        
+        NSMutableArray * images = [NSMutableArray array];
+        for (int i = 1; i <= 35; i++) {
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"上拉loading_%04d.png", i]];
+            if (!image) {
+                break;
+            }
+            [images addObject:image];
+        }
+        if (images.count > 0) {
+            [footer setImages:@[images[0]] forState:MJRefreshStateIdle];
+            [footer setImages:images duration:1.0f forState:MJRefreshStateRefreshing];
+        }
+        [footer setTitle:@"已经到底了" forState:MJRefreshStateNoMoreData];
+        [footer setTitle:@"" forState:MJRefreshStatePulling];
+        [footer setTitle:@"" forState:MJRefreshStateRefreshing];
+        [footer setTitle:@"" forState:MJRefreshStateWillRefresh];
+        [footer setTitle:@"" forState:MJRefreshStateIdle];
+        
+        
+        if (option & ATFooterAutoRefresh) {
+            [self footerRefreshing];
+        }
+        scrollView.mj_footer = footer;
     }
 }
 - (void)scroolToTopBeginRefresh {
@@ -127,16 +120,21 @@
     }
 }
 - (void)headerRefreshing {
-    self.isRefreshing = YES;
-    self.scrollView.mj_footer.hidden = YES;
-    self.currentPage = RefreshPageStart;
-    [self refreshData:self.currentPage];
-    self.lastRefreshDate = [NSDate date];
+    if (!self.isRefreshing) {
+        self.isRefreshing = YES;
+        self.scrollView.mj_footer.hidden = YES;
+        self.currentPage = RefreshPageStart;
+        [self refreshData:self.currentPage];
+        self.lastRefreshDate = [NSDate date];
+    }
 }
 
 - (void)footerRefreshing {
-    self.currentPage++;
-    [self refreshData:self.currentPage];
+    if (!self.isRefreshing) {
+        self.isRefreshing = YES;
+        self.currentPage++;
+        [self refreshData:self.currentPage];
+    }
 }
 
 - (void)endRefreshFailure {
@@ -238,8 +236,8 @@
     return nil;
 }
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    UIImage *imageEmpty = self.isRefreshing ? self.loadImage : self.emptyImage;
-    return self.reachable ?imageEmpty : defaultNetError;
+    UIImage *imageEmpty = self.isRefreshing ? self.loadImage : (self.reachable ? self.emptyImage : defaultNetError);
+    return imageEmpty;
 }
 
 #pragma mark - DZNEmptyDataSetDelegate

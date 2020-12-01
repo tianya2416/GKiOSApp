@@ -18,9 +18,15 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSArray *listData;
 @property (strong, nonatomic) GKLaunchModel *model;
+@property (copy, nonatomic)void(^completion)(void);
 @end
 
 @implementation GKLaunchViewController
++ (instancetype)vcWithCompletion:(void(^)(void))completion{
+    GKLaunchViewController *vc = [[[self class] alloc] init];
+    vc.completion = completion;
+    return vc;
+}
 - (void)dealloc{
     [self stopTimer];
 }
@@ -111,13 +117,14 @@
 }
 - (void)dismissController
 {
-    [UIView animateWithDuration:0.6 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
-        self.view.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        [self.view removeFromSuperview];
-        [self removeFromParentViewController];
-    }];
+    !self.completion ?: self.completion();
+//    [UIView animateWithDuration:0.6 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//        self.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
+//        self.view.alpha = 0.0;
+//    } completion:^(BOOL finished) {
+//        [self.view removeFromSuperview];
+//        [self removeFromParentViewController];
+//    }];
 }
 - (NSString *)launchImageName{
     NSString *viewOrientation = @"Portrait";

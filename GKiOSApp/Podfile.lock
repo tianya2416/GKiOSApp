@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - ATKit_ObjectC (0.1.6)
+  - ATKit_ObjectC (0.2.0)
   - DACircularProgress (2.3.1)
   - DZNEmptyDataSet (1.8.1)
   - EAIntroView (2.12.0):
@@ -129,7 +129,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ATKit_ObjectC:
-    :commit: 708a893977aa4dbd30a5338f54a2091d4d5ffbfd
+    :commit: f3b0163bfa8462d842b98fb04ae01a5946223e88
     :git: https://github.com/tianya2416/ATKit_ObjectC.git
   MBProgressHUD:
     :commit: 9454198b351732bd4eb8cbd7658b6dd73e1e43c8
@@ -141,12 +141,12 @@ CHECKOUT OPTIONS:
     :commit: 3037fead755aae3b7fe86006a3041b24d2da719f
     :git: https://github.com/CoderLT/MMPopupView.git
   VTMagic:
-    :commit: da473236ccddffdf53e4b95ea67d6d43bfd4ac35
+    :commit: 05050a8e6f3243e6ddc9c4211769428afc11c592
     :git: https://github.com/tianya2416/VTMagicMacro.git
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  ATKit_ObjectC: 161d1363668484ba9f04682deac285d6b0d2a786
+  ATKit_ObjectC: 205558bad000275e3e393dafb1fa98b683a9bfd4
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   EAIntroView: 249559079ddfdbe80e5bcb755c04c3b964b2ac27
@@ -174,4 +174,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 55117d636628d9002751708deeb3c5dd77f58e62
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

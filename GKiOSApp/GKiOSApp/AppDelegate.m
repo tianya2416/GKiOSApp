@@ -19,18 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     sleep(1);
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [GKTabViewController new];
+    UIViewController *vc = [GKLaunchViewController vcWithCompletion:^{
+        self.window.rootViewController = [GKTabViewController new];
+    }];
+    self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
-    [self setAppLaunchController];
     return YES;
 }
 
-- (void)setAppLaunchController{
-    UIView *contentView = [MBProgressHUD defaultView];
-    GKLaunchViewController *launchController = [[GKLaunchViewController alloc]init];
-    [contentView addSubview:launchController.view];
-    launchController.view.frame = contentView.frame;
-}
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
     return UIInterfaceOrientationMaskPortrait;
 }

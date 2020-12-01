@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GKLaunchViewController : BaseViewController
-
++ (instancetype)vcWithCompletion:(void(^)(void))completion;
 @end
 
 NS_ASSUME_NONNULL_END
