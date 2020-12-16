@@ -31,13 +31,13 @@
     
     GKNewContentController * vcHome = [[GKNewContentController alloc]init];
     [self createController:vcHome title:@"新闻" normal:@"item-02-normal" select:@"item-02-select"];
-    GKVideoBaseController *video = [[GKVideoBaseController alloc] init];
-    [self createController:video title:@"视频" normal:@"item-03-normal" select:@"item-03-select"];
-    
-    GKBaseHomeController *vcPic = [[GKBaseHomeController alloc]init];
-    [self createController:vcPic title:@"图片" normal:@"item-01-normal" select:@"item-01-select"];
-    GKSetViewController * vcInfo = [[GKSetViewController alloc]init];
-    [self createController:vcInfo title:@"设置" normal:@"item-04-normal" select:@"item-04-select"];
+//    GKVideoBaseController *video = [[GKVideoBaseController alloc] init];
+//    [self createController:video title:@"视频" normal:@"item-03-normal" select:@"item-03-select"];
+//    
+//    GKBaseHomeController *vcPic = [[GKBaseHomeController alloc]init];
+//    [self createController:vcPic title:@"图片" normal:@"item-01-normal" select:@"item-01-select"];
+//    GKSetViewController * vcInfo = [[GKSetViewController alloc]init];
+//    [self createController:vcInfo title:@"设置" normal:@"item-04-normal" select:@"item-04-select"];
 
     self.viewControllers = self.listData;
     self.tabBar.translucent = NO;

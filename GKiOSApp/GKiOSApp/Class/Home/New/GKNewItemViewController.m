@@ -24,6 +24,7 @@
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATRefreshDefault];
 
+
 }
 - (void)vtm_prepareForReuse{
     if (!self.reachable) {
@@ -89,6 +90,7 @@
         }break;
     }
     UITableViewCell *cell =  [UITableViewCell cellForTableView:tableView indexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"UITableViewCell : %@",@(indexPath.row + 1)];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

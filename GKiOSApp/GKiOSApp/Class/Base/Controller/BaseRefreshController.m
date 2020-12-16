@@ -292,7 +292,7 @@
     
 }
 - (BOOL)reachable{
-     return  [YYReachability reachability].status != YYReachabilityStatusNone;
+    return [AFNetworkReachabilityManager manager].networkReachabilityStatus != AFNetworkReachabilityStatusNotReachable;
 }
 
 @end

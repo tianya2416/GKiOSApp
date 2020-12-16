@@ -14,6 +14,7 @@
 #import "GKNewNavBarView.h"
 #import "GKNewModel.h"
 #import "GKNewSearch.h"
+#import "GKTestViewController.h"
 @interface GKNewContentController ()<VTMagicViewDataSource,VTMagicViewDelegate,GKNewSelectDelegate,KLRecycleScrollViewDelegate>
 
 @property (strong, nonatomic) VTMagicController * magicController;

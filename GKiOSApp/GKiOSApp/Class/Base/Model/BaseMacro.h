@@ -37,11 +37,11 @@
 #define RefreshPageStart (1)
 #define RefreshPageSize (20)
 
-#ifdef DEBUG
-#ifndef NSLog
-#   define NSLog(...)
-#endif
-#endif
+//#ifdef DEBUG
+//#ifndef NSLog
+//#   define NSLog(...)
+//#endif
+//#endif
 NS_ASSUME_NONNULL_BEGIN
 @interface BaseMacro : NSObject
 
