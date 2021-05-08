@@ -59,6 +59,10 @@
             return ;
         }
         self.listData = [NSArray modelArrayWithClass:GKLaunchModel.class json:object[@"ads"]];
+        if(self.listData.count == 0){
+            [self skipAction];
+            return;
+        }
         NSInteger index = arc4random() % [self.listData count];
         self.model = self.listData[index] ;
         if (self.model.res_url.firstObject) {

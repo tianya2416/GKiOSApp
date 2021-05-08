@@ -49,14 +49,14 @@ static void *FDWebBrowserContext = &FDWebBrowserContext;
 -(WKWebView *)wkWebView
 {
     if (!_wkWebView) {
-//        NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
-//
-//        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-//        WKUserContentController *wkUController = [[WKUserContentController alloc] init];
-//        [wkUController addUserScript:wkUScript];
+        NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+
+        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+        WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+        [wkUController addUserScript:wkUScript];
         
         WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-        //config.userContentController = wkUController;
+        config.userContentController = wkUController;
         // 创建设置对象
         WKPreferences *preference = [[WKPreferences alloc]init];
         // 设置字体大小(最小的字体大小)
@@ -239,5 +239,30 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     [self.progressView setTrackTintColor:trackColor];
     [self.progressView setTintColor:tintColor];
 }
+
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+ 
+        completionHandler();
+    }]];
+    [[UIViewController rootTopPresentedController] presentViewController:alertController animated:YES completion:nil];
+}
+ 
+//// 显示两个按钮，通过completionHandler回调判断用户点击的确定还是取消按钮
+//- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler{
+//
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//
+//        completionHandler(YES);
+//    }]];
+//    [alertController addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//
+//        completionHandler(NO);
+//    }]];
+//    [self presentViewController:alertController animated:YES completion:nil];
+//}
 
 @end

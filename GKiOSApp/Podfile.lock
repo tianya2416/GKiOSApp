@@ -31,6 +31,7 @@ PODS:
     - DACircularProgress
     - pop
     - SDWebImage
+  - JXCategoryView (1.5.5)
   - KLRecycleScrollView (1.1.5)
   - KVOController (1.2.0)
   - Masonry (1.1.0)
@@ -51,6 +52,7 @@ PODS:
   - VTMagic (1.2.4):
     - VTMagic/Core (= 1.2.4)
   - VTMagic/Core (1.2.4)
+  - YNPageViewController (0.2.6)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -73,6 +75,7 @@ DEPENDENCIES:
   - HWPanModal
   - HWPopController
   - IDMPhotoBrowser
+  - JXCategoryView
   - KLRecycleScrollView
   - KVOController
   - Masonry
@@ -84,6 +87,7 @@ DEPENDENCIES:
   - SDWebImage
   - VIMediaCache
   - VTMagic (from `https://github.com/tianya2416/VTMagicMacro.git`)
+  - YNPageViewController (from `https://gitee.com/tianya24/YNPageViewController.git`)
   - YYKit
   - ZFPlayer (~> 3.0)
   - ZFPlayer/AVPlayer (~> 3.0)
@@ -102,6 +106,7 @@ SPEC REPOS:
     - HWPanModal
     - HWPopController
     - IDMPhotoBrowser
+    - JXCategoryView
     - KLRecycleScrollView
     - KVOController
     - Masonry
@@ -126,6 +131,8 @@ EXTERNAL SOURCES:
     :podspec: https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec
   VTMagic:
     :git: https://github.com/tianya2416/VTMagicMacro.git
+  YNPageViewController:
+    :git: https://gitee.com/tianya24/YNPageViewController.git
 
 CHECKOUT OPTIONS:
   ATKit_ObjectC:
@@ -143,6 +150,9 @@ CHECKOUT OPTIONS:
   VTMagic:
     :commit: 05050a8e6f3243e6ddc9c4211769428afc11c592
     :git: https://github.com/tianya2416/VTMagicMacro.git
+  YNPageViewController:
+    :commit: 9018ca54347f928f38626cfc567fce0d9149e58b
+    :git: https://gitee.com/tianya24/YNPageViewController.git
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
@@ -157,6 +167,7 @@ SPEC CHECKSUMS:
   HWPanModal: b8725bae4e632f065c93d31574c9dd805c4fc6ac
   HWPopController: 7a079918fe8ca5bf7de3d971faf1cab7fc905529
   IDMPhotoBrowser: 4bb459b1faffc228e92bccdf7c54ad6d6b7e8c37
+  JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
   KLRecycleScrollView: 1dce1ccb7f94ec96b5c1973b568a2c5926d47c7c
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
@@ -169,9 +180,10 @@ SPEC CHECKSUMS:
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   VIMediaCache: 02c03af2adf2526eddc8ee3b06e41f26e9546f38
   VTMagic: b49e5f456dbcbfd9a3588ba92417233a105bc193
+  YNPageViewController: 33040d429adf0b415d4449ffeec848d8339934ea
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: fdc92702cc611922182a951991dea78566da7605
 
-PODFILE CHECKSUM: 55117d636628d9002751708deeb3c5dd77f58e62
+PODFILE CHECKSUM: daecdb35c03ac13a62f1155e8a1b692894f83aa7
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

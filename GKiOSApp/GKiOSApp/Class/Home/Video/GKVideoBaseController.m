@@ -26,7 +26,6 @@
 }
 - (void)loadUI{
     self.fd_prefersNavigationBarHidden = YES;
-    self.edgesForExtendedLayout = UIRectEdgeAll;
     [self addChildViewController:self.magicController];
     [self.view addSubview:_magicController.view];
     [self.view setNeedsUpdateConstraints];

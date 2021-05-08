@@ -126,7 +126,11 @@
 }
 //10条才会有更多数据
 +(NSURLSessionDataTask *)videoList:(NSString *)sId page:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
-    NSString *url = [NSString stringWithFormat:@"nc/video/list/%@/y/%@-10.html",sId,@((page - 1)*10)];
+    return  [self videoList:sId page:page size:10 success:success failure:failure];
+}
+//10条才会有更多数据
++(NSURLSessionDataTask *)videoList:(NSString *)sId page:(NSInteger)page size:(NSInteger)size success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{
+    NSString *url = [NSString stringWithFormat:@"nc/video/list/%@/y/%@-10.html",sId,@((page - 1)*size)];
     return [GKHomeNetManager method:HttpMethodGet urlString:kUrl163New(url) params:nil success:success failure:failure];
 }
 +(NSURLSessionDataTask *)videoHot:(NSInteger)page success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure{

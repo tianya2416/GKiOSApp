@@ -12,7 +12,7 @@
 #import "GKNewContentController.h"
 #import "GKVideoHomeController.h"
 #import "GKVideoBaseController.h"
-
+#import "GKShotVideoContentController.h"
 #import "GKVideoHotController.h"
 @interface GKTabViewController ()<UITabBarControllerDelegate>
 @property (strong, nonatomic) NSMutableArray *listData;
@@ -31,16 +31,17 @@
     
     GKNewContentController * vcHome = [[GKNewContentController alloc]init];
     [self createController:vcHome title:@"新闻" normal:@"item-02-normal" select:@"item-02-select"];
-//    GKVideoBaseController *video = [[GKVideoBaseController alloc] init];
-//    [self createController:video title:@"视频" normal:@"item-03-normal" select:@"item-03-select"];
-//    
-//    GKBaseHomeController *vcPic = [[GKBaseHomeController alloc]init];
-//    [self createController:vcPic title:@"图片" normal:@"item-01-normal" select:@"item-01-select"];
-//    GKSetViewController * vcInfo = [[GKSetViewController alloc]init];
-//    [self createController:vcInfo title:@"设置" normal:@"item-04-normal" select:@"item-04-select"];
+    GKVideoBaseController *video = [[GKVideoBaseController alloc] init];
+    [self createController:video title:@"视频" normal:@"item-03-normal" select:@"item-03-select"];
+    
+    GKShotVideoContentController *vcPic = [[GKShotVideoContentController alloc]init];
+    [self createController:vcPic title:@"短视频" normal:@"item-01-normal" select:@"item-01-select"];
+    
+    GKSetViewController * vcInfo = [[GKSetViewController alloc]init];
+    [self createController:vcInfo title:@"设置" normal:@"item-04-normal" select:@"item-04-select"];
 
     self.viewControllers = self.listData;
-    self.tabBar.translucent = NO;
+    self.tabBar.translucent = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     self.delegate = self;
     self.tabBar.tintColor = AppColor;
@@ -48,6 +49,15 @@
         self.tabBar.unselectedItemTintColor = Appx999999;
     } else {
 
+    }
+    if (iPhone_X) {
+        self.tabBar.shadowImage = [UIImage imageWithColor:Appxf8f8f8];
+        self.tabBar.backgroundImage = [UIImage imageWithColor:[UIColor whiteColor]];
+        self.tabBar.backgroundColor = [UIColor whiteColor];
+    }else{
+        self.tabBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor]];
+        self.tabBar.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
+        self.tabBar.backgroundColor = [UIColor clearColor];
     }
 }
 - (void)createController:(UIViewController *)vc title:(NSString *)title normal:(NSString *)normal select:(NSString *)select{

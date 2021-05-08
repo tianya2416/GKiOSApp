@@ -56,6 +56,7 @@
     if (scrow) {
         scrow.scrollsToTop = NO;
     }
+
 }
 - (void)loadData{
     [GKNewTopQueue getDatasFromDataBases:^(NSArray<GKNewTopModel *> * _Nonnull listData) {

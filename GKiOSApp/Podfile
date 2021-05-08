@@ -18,6 +18,7 @@ target :GKiOSApp  do
     pod 'MJRefresh', :git => 'https://github.com/CoderLT/MJRefresh.git'
     pod 'MBProgressHUD',:git => 'https://github.com/tianya2416/MBProgress.git'
     pod 'VTMagic',:git => 'https://github.com/tianya2416/VTMagicMacro.git'
+    pod 'YNPageViewController',:git => 'https://gitee.com/tianya24/YNPageViewController.git'
     pod 'DZNEmptyDataSet'
     pod 'KVOController'
     pod 'FDFullscreenPopGesture', '1.1'
@@ -31,5 +32,6 @@ target :GKiOSApp  do
     pod 'VIMediaCache'
     pod 'HWPanModal'
     pod 'HWPopController'
+    pod 'JXCategoryView'
 end
 

@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *subTitle;
 @property (copy, nonatomic) NSString *votecount;
 
+@property (copy, nonatomic) NSString *topicName;
+@property (copy, nonatomic) NSString *topicImg;
+
 @end
 
 @interface GKVideoHotModel : BaseModel

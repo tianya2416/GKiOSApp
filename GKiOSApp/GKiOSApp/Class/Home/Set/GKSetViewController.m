@@ -9,10 +9,10 @@
 #import "GKSetViewController.h"
 #import "GKSetTableViewCell.h"
 #import "GKLoginViewController.h"
-
+#import "GKWebController.h"
 #define kEveryDay @"http://baobab.wandoujia.com/api/v1/feed?num=%d&date=%@&vc=67&u=011f2924aa2cf27aa5dc8066c041fe08116a9a0c&v=4.1.0&f=iphone"
 
-
+#import "GKVideoPlayController.h"
 static NSString *about = @"关于我们";
 static NSString *video =  @"视频介绍";
 static NSString *info =  @"版权信息";
@@ -61,6 +61,11 @@ static NSString *loginOut = @"退出登录";
     NSString *title = self.listData[indexPath.row];
     if ([title isEqualToString:loginOut]) {
         [GKUserManager loginOut];
+    }else{
+        UIViewController *vc = [[GKVideoPlayController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:true];
+    
     }
 }
 /*
