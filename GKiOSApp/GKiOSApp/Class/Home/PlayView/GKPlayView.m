@@ -311,6 +311,9 @@
     [self.currentPlayView duration:player.duration];
     [self.currentPlayView hiddenLoading];
     self.currentPlayView.imageV.hidden = YES;
+    UIViewController *vc = [UIViewController rootTopPresentedController];
+    
+    NSLog(@"%@",vc.classForCoder);
 }
 
 - (void)player:(nonnull QNPlayer *)player progress:(NSTimeInterval)progress {
@@ -420,29 +423,32 @@
     if (scrollView.contentOffset.y == 0) {
         if (self.playUrl == self.topView.model.mp4_url) return;
         [self playVideoFrom:self.topView];
-        if (self.index > 0 && self.videos.count > self.index + 1) {
-            self.ctrView.model = self.videos[self.index + 1];
+        NSInteger currentIndex = [self.videos indexOfObject:self.topView.model];
+        if (currentIndex >= 0 && self.videos.count > currentIndex + 1) {
+            self.ctrView.model = self.videos[currentIndex + 1];
         }
-        if (self.index > 0 && self.videos.count > self.index + 2) {
-            self.btmView.model = self.videos[self.index + 2];
+        if (currentIndex >= 0 && self.videos.count > currentIndex + 2) {
+            self.btmView.model = self.videos[currentIndex + 2];
         }
     }else if (scrollView.contentOffset.y == SCREEN_HEIGHT) {
         if (self.playUrl == self.ctrView.model.mp4_url) return;
         [self playVideoFrom:self.ctrView];
-        if (self.index > 0 && self.videos.count > self.index) {
-            self.topView.model = self.videos[self.index - 1];
+        NSInteger currentIndex = [self.videos indexOfObject:self.ctrView.model];
+        if (currentIndex > 0 && self.videos.count > currentIndex - 1) {
+            self.topView.model = self.videos[currentIndex - 1];
         }
-        if (self.index > 0 && self.videos.count > self.index + 1) {
-            self.btmView.model = self.videos[self.index + 1];
+        if (currentIndex > 0 && self.videos.count > currentIndex + 1) {
+            self.btmView.model = self.videos[currentIndex + 1];
         }
     }else if (scrollView.contentOffset.y == 2 * SCREEN_HEIGHT) {
         if (self.playUrl == self.btmView.model.mp4_url) return;
         [self playVideoFrom:self.btmView];
-        if (self.index > 0 && self.videos.count > self.index - 1) {
-            self.ctrView.model = self.videos[self.index - 1];
+        NSInteger currentIndex = [self.videos indexOfObject:self.btmView.model];
+        if (currentIndex > 0 && self.videos.count > currentIndex - 1) {
+            self.ctrView.model = self.videos[currentIndex - 1];
         }
-        if (self.index > 0 && self.videos.count > self.index - 2) {
-            self.topView.model = self.videos[self.index - 2];
+        if (currentIndex > 0 && self.videos.count > currentIndex - 2) {
+            self.topView.model = self.videos[currentIndex - 2];
         }
     }
 }
