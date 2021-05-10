@@ -27,15 +27,11 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-        [self setEdgesForExtendedLayout:UIRectEdgeAll];
-    }
     self.view.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.playView];
     [self.playView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.playView.superview);
     }];
-    self.playView.delegate = self;
     [self loadData];
 }
 - (void)viewDidAppear:(BOOL)animated{
@@ -52,7 +48,8 @@
 }
 - (GKPlayView *)playView{
     if (!_playView) {
-        _playView = [[GKPlayView alloc]init];
+        CGFloat height = iPhone_X ? (SCREEN_HEIGHT - 49 - TAB_BAR_ADDING) : SCREEN_HEIGHT;
+        _playView = [[GKPlayView alloc] initWithHeight:height delegate:self];
     }
     return _playView;
 }

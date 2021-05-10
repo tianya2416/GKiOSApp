@@ -26,6 +26,11 @@
     [self loadUI];
 }
 - (void)loadUI{
+    if (iPhone_X) {
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    }else{
+        [self setEdgesForExtendedLayout:UIRectEdgeAll];
+    }
     self.fd_prefersNavigationBarHidden = YES;
     [self addChildViewController:self.magicController];
     [self.view addSubview:self.magicController.view];
@@ -38,9 +43,6 @@
     self.magicController.view.hidden = true;
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATRefreshNone];
-    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
-        [self setEdgesForExtendedLayout:UIRectEdgeAll];
-    }
 }
 - (void)refreshData:(NSInteger)page{
     self.listTitles = @[].mutableCopy;

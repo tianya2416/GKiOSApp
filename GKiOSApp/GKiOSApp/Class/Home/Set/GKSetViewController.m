@@ -61,11 +61,6 @@ static NSString *loginOut = @"退出登录";
     NSString *title = self.listData[indexPath.row];
     if ([title isEqualToString:loginOut]) {
         [GKUserManager loginOut];
-    }else{
-        UIViewController *vc = [[GKVideoPlayController alloc] init];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:true];
-    
     }
 }
 /*

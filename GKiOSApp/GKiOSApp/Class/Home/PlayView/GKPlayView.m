@@ -41,9 +41,19 @@
 @property (nonatomic, strong) UIView  *refreshView;
 @property (nonatomic, strong) GKBallLoadingView *loadView;
 @property (nonatomic ,strong) GKEmptyView *emptyView;
+
+@property (nonatomic, assign) CGFloat contentHeight;
+@property (assign, nonatomic)  id<GKPlayDelegate>delegate;
 @end
 
 @implementation GKPlayView
+- (instancetype)initWithHeight:(CGFloat)height delegate:(id<GKPlayDelegate>)delegate{
+    if (self = [super init]) {
+        self.contentHeight = height;
+        self.delegate = delegate;
+    }
+    return self;
+}
 - (void)dealloc{
     self.player.delegate = nil;
 }
@@ -77,7 +87,7 @@
         self.ctrView.hidden = YES;
         self.btmView.hidden = YES;
         
-        self.scrollView.contentSize = CGSizeMake(0, SCREEN_HEIGHT);
+        self.scrollView.contentSize = CGSizeMake(0, self.contentHeight);
         self.topView.model = self.videos.firstObject;
         self.scrollView.contentOffset = CGPointZero;
         [self playVideoFrom:self.topView];
@@ -85,11 +95,11 @@
         self.topView.hidden = NO;
         self.ctrView.hidden = NO;
         self.btmView.hidden = YES;
-        self.scrollView.contentSize = CGSizeMake(0, SCREEN_HEIGHT * 2);
+        self.scrollView.contentSize = CGSizeMake(0, self.contentHeight * 2);
         self.topView.model  = self.videos.firstObject;
         self.ctrView.model  = self.videos.lastObject;
         if (index == 1) {
-            self.scrollView.contentOffset = CGPointMake(0, SCREEN_HEIGHT);
+            self.scrollView.contentOffset = CGPointMake(0, self.contentHeight);
             [self playVideoFrom:self.ctrView];
         }else {
             self.scrollView.contentOffset = CGPointZero;
@@ -99,7 +109,7 @@
         self.topView.hidden = NO;
         self.ctrView.hidden = NO;
         self.btmView.hidden = NO;
-        self.scrollView.contentSize = CGSizeMake(0, SCREEN_HEIGHT * 3);
+        self.scrollView.contentSize = CGSizeMake(0, self.contentHeight * 3);
         if (index == 0) {   // 如果是第一个，则显示上视图，且预加载中下视图
             self.topView.model = self.videos[index];
             self.ctrView.model = self.videos[index + 1];
@@ -110,13 +120,13 @@
             self.btmView.model = self.videos[index];
             self.ctrView.model = self.videos[index - 1];
             self.topView.model = self.videos[index - 2];
-            self.scrollView.contentOffset = CGPointMake(0, SCREEN_HEIGHT * 2);
+            self.scrollView.contentOffset = CGPointMake(0, self.contentHeight * 2);
             [self playVideoFrom:self.btmView];
         }else { // 显示中间，播放中间，预加载上下
             self.ctrView.model = self.videos[index];
             self.topView.model = self.videos[index - 1];
             self.btmView.model = self.videos[index + 1];
-            self.scrollView.contentOffset = CGPointMake(0, SCREEN_HEIGHT);
+            self.scrollView.contentOffset = CGPointMake(0, self.contentHeight);
             [self playVideoFrom:self.ctrView];
         }
     }
@@ -181,7 +191,7 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     CGFloat width = self.scrollView.frame.size.width;
-    CGFloat height = self.scrollView.frame.size.height;
+    CGFloat height = self.contentHeight;
     [self.topView setFrame:CGRectMake(0, 0, width, height)];
     [self.ctrView setFrame:CGRectMake(0, height, width, height)];
     [self.btmView setFrame:CGRectMake(0, height * 2, width, height)];
@@ -341,33 +351,27 @@
     if (self.currentPlayIndex == 0 && scrollView.contentOffset.y < 0) {
         self.scrollView.contentOffset = CGPointZero;
     }
-
     // 小于等于三个，不用处理
     if (self.videos.count <= 3){
         return;
     }
-    if (scrollView.contentOffset.y == SCREEN_HEIGHT) {
-        if (self.index == 0) {
-            self.index = self.index + 1;
-        }else if (self.index == 1) {
-            self.index = self.index - 1;
-        }
+    if (scrollView.contentOffset.y == self.contentHeight) {
         return;
     }
     // 上滑到第一个
-    if (self.index == 0 && scrollView.contentOffset.y <= SCREEN_HEIGHT) {
+    if (self.index == 0 && scrollView.contentOffset.y <= self.contentHeight) {
         return;
     }
     // 下滑到最后一个
-    if (self.index > 0 && self.index == self.videos.count - 1 && scrollView.contentOffset.y > SCREEN_HEIGHT) {
+    if (self.index > 0 && self.index == self.videos.count - 1 && scrollView.contentOffset.y > self.contentHeight) {
         return;
     }
     // 判断是从中间视图上滑还是下滑
-    if (scrollView.contentOffset.y >= 2 * SCREEN_HEIGHT) {  // 上滑
+    if (scrollView.contentOffset.y >= 2 * self.contentHeight) {  // 上滑
         [self destoryPlayer];
         if (self.index == 0) {
             self.index += 2;
-            scrollView.contentOffset = CGPointMake(0, SCREEN_HEIGHT);
+            scrollView.contentOffset = CGPointMake(0, self.contentHeight);
             
             self.topView.model = self.ctrView.model;
             self.ctrView.model = self.btmView.model;
@@ -378,8 +382,7 @@
             if (self.index == self.videos.count - 1) {
                 self.ctrView.model = self.videos[self.index - 1];
             }else {
-                scrollView.contentOffset = CGPointMake(0, SCREEN_HEIGHT);
-                
+                scrollView.contentOffset = CGPointMake(0, self.contentHeight);
                 self.topView.model = self.ctrView.model;
                 self.ctrView.model = self.btmView.model;
             }
@@ -400,7 +403,7 @@
             }else {
                 self.index -=1;
             }
-            scrollView.contentOffset = CGPointMake(0, SCREEN_HEIGHT);
+            scrollView.contentOffset = CGPointMake(0, self.contentHeight);
             
             self.btmView.model = self.ctrView.model;
             self.ctrView.model = self.topView.model;
@@ -411,7 +414,7 @@
         }
     }
     // 自动刷新，如果想要去掉自动刷新功能，去掉下面代码即可
-    if (scrollView.contentOffset.y == SCREEN_HEIGHT) {
+    if (scrollView.contentOffset.y == self.contentHeight) {
         // 播放到倒数第二个时，请求更多内容
         if (self.currentPlayIndex == self.videos.count - 3) {
             [self refreshMore:2];
@@ -419,7 +422,6 @@
     }
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"currentIndex : %@ %@",@(self.currentPlayIndex),@(self.index));
     if (scrollView.contentOffset.y == 0) {
         if (self.playUrl == self.topView.model.mp4_url) return;
         [self playVideoFrom:self.topView];
@@ -430,7 +432,7 @@
         if (currentIndex >= 0 && self.videos.count > currentIndex + 2) {
             self.btmView.model = self.videos[currentIndex + 2];
         }
-    }else if (scrollView.contentOffset.y == SCREEN_HEIGHT) {
+    }else if (scrollView.contentOffset.y == self.contentHeight) {
         if (self.playUrl == self.ctrView.model.mp4_url) return;
         [self playVideoFrom:self.ctrView];
         NSInteger currentIndex = [self.videos indexOfObject:self.ctrView.model];
@@ -440,7 +442,7 @@
         if (currentIndex > 0 && self.videos.count > currentIndex + 1) {
             self.btmView.model = self.videos[currentIndex + 1];
         }
-    }else if (scrollView.contentOffset.y == 2 * SCREEN_HEIGHT) {
+    }else if (scrollView.contentOffset.y == 2 * self.contentHeight) {
         if (self.playUrl == self.btmView.model.mp4_url) return;
         [self playVideoFrom:self.btmView];
         NSInteger currentIndex = [self.videos indexOfObject:self.btmView.model];

@@ -37,6 +37,7 @@
     self.slider.thumbTintColor = [UIColor clearColor];
     self.slider.minimumTrackTintColor = [UIColor colorWithRGB:0xf4f4f4];
     self.slider.maximumTrackTintColor = [UIColor clearColor];
+    self.slider.userInteractionEnabled = true;
     
     self.slider.userInteractionEnabled = NO;
     self.imageIcon.layer.masksToBounds = true;

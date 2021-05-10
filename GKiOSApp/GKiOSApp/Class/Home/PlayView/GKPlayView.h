@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)playView:(GKPlayView *)playView page:(NSInteger)page;
 @end
 @interface GKPlayView : UIView
-@property (assign, nonatomic)  id<GKPlayDelegate>delegate;
+
+- (instancetype)initWithHeight:(CGFloat)height delegate:(id<GKPlayDelegate>)delegate;
+
 //下拉刷新或者首次加载时候使用
 - (void)setModels:(NSArray *)models index:(NSInteger)index;
 //加载更多时候数据赋值
