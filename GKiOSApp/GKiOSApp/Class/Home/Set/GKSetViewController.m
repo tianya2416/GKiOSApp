@@ -2,17 +2,17 @@
 //  GKSetViewController.m
 //  GKiOSApp
 //
-//  Created by wangws1990 on 2019/5/10.
-//  Copyright © 2019 wangws1990. All rights reserved.
+//  Created by wangws1990 on 2017/5/10.
+//  Copyright © 2017 wangws1990. All rights reserved.
 //
 
 #import "GKSetViewController.h"
 #import "GKSetTableViewCell.h"
 #import "GKLoginViewController.h"
-
+#import "GKWebController.h"
 #define kEveryDay @"http://baobab.wandoujia.com/api/v1/feed?num=%d&date=%@&vc=67&u=011f2924aa2cf27aa5dc8066c041fe08116a9a0c&v=4.1.0&f=iphone"
 
-
+#import "GKVideoPlayController.h"
 static NSString *about = @"关于我们";
 static NSString *video =  @"视频介绍";
 static NSString *info =  @"版权信息";
@@ -27,11 +27,11 @@ static NSString *loginOut = @"退出登录";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [GKUserManager needLogin:^(BOOL success) {
-        if (success) {
-            NSLog(@"登录成功,做你想做");
-        }
-    }];
+//    [GKUserManager needLogin:^(BOOL success) {
+//        if (success) {
+//            NSLog(@"登录成功,做你想做");
+//        }
+//    }];
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATRefreshNone];
     // Do any additional setup after loading the view.

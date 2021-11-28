@@ -2,8 +2,8 @@
 //  GKLaunchViewController.m
 //  GKiOSApp
 //
-//  Created by wangws1990 on 2019/5/24.
-//  Copyright © 2019 wangws1990. All rights reserved.
+//  Created by wangws1990 on 2017/5/24.
+//  Copyright © 2017 wangws1990. All rights reserved.
 //
 
 #import "GKLaunchViewController.h"
@@ -18,9 +18,15 @@
 @property (strong, nonatomic) NSTimer *timer;
 @property (strong, nonatomic) NSArray *listData;
 @property (strong, nonatomic) GKLaunchModel *model;
+@property (copy, nonatomic)void(^completion)(void);
 @end
 
 @implementation GKLaunchViewController
++ (instancetype)vcWithCompletion:(void(^)(void))completion{
+    GKLaunchViewController *vc = [[[self class] alloc] init];
+    vc.completion = completion;
+    return vc;
+}
 - (void)dealloc{
     [self stopTimer];
 }
@@ -53,6 +59,10 @@
             return ;
         }
         self.listData = [NSArray modelArrayWithClass:GKLaunchModel.class json:object[@"ads"]];
+        if(self.listData.count == 0){
+            [self skipAction];
+            return;
+        }
         NSInteger index = arc4random() % [self.listData count];
         self.model = self.listData[index] ;
         if (self.model.res_url.firstObject) {
@@ -111,13 +121,14 @@
 }
 - (void)dismissController
 {
-    [UIView animateWithDuration:0.6 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
-        self.view.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        [self.view removeFromSuperview];
-        [self removeFromParentViewController];
-    }];
+    !self.completion ?: self.completion();
+//    [UIView animateWithDuration:0.6 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//        self.view.transform = CGAffineTransformMakeScale(1.1, 1.1);
+//        self.view.alpha = 0.0;
+//    } completion:^(BOOL finished) {
+//        [self.view removeFromSuperview];
+//        [self removeFromParentViewController];
+//    }];
 }
 - (NSString *)launchImageName{
     NSString *viewOrientation = @"Portrait";

@@ -2,8 +2,8 @@
 //  GKHomeNetManager.h
 //  GKiOSApp
 //
-//  Created by wangws1990 on 2019/5/13.
-//  Copyright © 2019 wangws1990. All rights reserved.
+//  Created by wangws1990 on 2017/5/13.
+//  Copyright © 2017 wangws1990. All rights reserved.
 //
 
 #import "BaseNetManager.h"
@@ -53,6 +53,12 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSURLSessionDataTask *)videoList:(NSString *)sId
                               page:(NSInteger)page
                            success:(void (^)(id _Nonnull))success failure:(void (^)(NSString * _Nonnull))failure;
++(NSURLSessionDataTask *)videoList:(NSString *)sId
+                              page:(NSInteger)page
+                              size:(NSInteger)size
+                           success:(void (^)(id _Nonnull))success
+                           failure:(void (^)(NSString * _Nonnull))failure;
+
 + (NSURLSessionDataTask *)videoHot:(NSInteger)page
                            success:(void(^)(id object))success
                            failure:(void(^)(NSString *error))failure;

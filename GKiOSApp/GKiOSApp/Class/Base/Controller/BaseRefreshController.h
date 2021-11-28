@@ -20,8 +20,7 @@ typedef NS_ENUM(NSUInteger, ATRefreshOption) {
     ATFooterRefresh = 1 << 1,
     ATHeaderAutoRefresh = 1 << 2,
     ATFooterAutoRefresh = 1 << 3,
-    ATFooterDefaultHidden = 1 << 4,
-    ATRefreshDefault = (ATHeaderRefresh | ATHeaderAutoRefresh | ATFooterRefresh | ATFooterDefaultHidden),
+    ATRefreshDefault = (ATHeaderRefresh | ATHeaderAutoRefresh | ATFooterRefresh | ATFooterAutoRefresh),
 };
 
 static NSString *FDMSG_Home_DataRefresh                      = @"数据加载中...";

@@ -2,8 +2,8 @@
 //  GKVideoModel.h
 //  GKiOSApp
 //
-//  Created by wangws1990 on 2019/5/20.
-//  Copyright © 2019 wangws1990. All rights reserved.
+//  Created by wangws1990 on 2017/5/20.
+//  Copyright © 2017 wangws1990. All rights reserved.
 //
 
 #import "BaseModel.h"
@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic) NSString *title;
 @property (copy, nonatomic) NSString *subTitle;
 @property (copy, nonatomic) NSString *votecount;
+
+@property (copy, nonatomic) NSString *topicName;
+@property (copy, nonatomic) NSString *topicImg;
 
 @end
 

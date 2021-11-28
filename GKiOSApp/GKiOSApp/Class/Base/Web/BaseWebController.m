@@ -16,8 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setNavRightItemWithTitle:@"测试" action:@selector(action)];
     [self createNav];
     [self createContentView];
+}
+- (void)action{
+    NSString *title = [NSString stringWithFormat:@"getToken('%@')",@"参数asdfasdfasdfadasasfasdfas"];
+    [self.webView.wkWebView evaluateJavaScript:title completionHandler:^(id _Nullable objc, NSError * _Nullable error) {
+        NSLog(@"%@,%@",objc,error);
+    }];
 }
 #pragma mark - 控件初始化
 -(ProgressWKWebView *)webView

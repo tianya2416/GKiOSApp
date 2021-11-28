@@ -2,8 +2,8 @@
 //  GKTabViewController.m
 //  GKiOSApp
 //
-//  Created by wangws1990 on 2019/5/10.
-//  Copyright © 2019 wangws1990. All rights reserved.
+//  Created by wangws1990 on 2017/5/10.
+//  Copyright © 2017 wangws1990. All rights reserved.
 //
 
 #import "GKTabViewController.h"
@@ -12,10 +12,10 @@
 #import "GKNewContentController.h"
 #import "GKVideoHomeController.h"
 #import "GKVideoBaseController.h"
-
+#import "GKShotVideoContentController.h"
 #import "GKVideoHotController.h"
 @interface GKTabViewController ()<UITabBarControllerDelegate>
-
+@property (strong, nonatomic) NSMutableArray *listData;
 @end
 
 @implementation GKTabViewController
@@ -27,28 +27,21 @@
     // Do any additional setup after loading the view.
 }
 - (void)loadUI{
-    GKBaseHomeController *vcHome = [[GKBaseHomeController alloc]init];
-    GKNewContentController * vcMy = [[GKNewContentController alloc]init];
+    self.listData = @[].mutableCopy;
+    
+    GKNewContentController * vcHome = [[GKNewContentController alloc]init];
+    [self createController:vcHome title:@"新闻" normal:@"item-02-normal" select:@"item-02-select"];
     GKVideoBaseController *video = [[GKVideoBaseController alloc] init];
+    [self createController:video title:@"视频" normal:@"item-03-normal" select:@"item-03-select"];
+    
+    GKShotVideoContentController *vcPic = [[GKShotVideoContentController alloc]init];
+    [self createController:vcPic title:@"短视频" normal:@"item-01-normal" select:@"item-01-select"];
+    
     GKSetViewController * vcInfo = [[GKSetViewController alloc]init];
-    NSArray *titles = @[@"新闻",@"视频",@"图片",@"设置"];
-    NSArray *listNormal = @[@"item-02-normal",@"item-03-normal",@"item-01-normal",@"item-04-normal"];
-    NSArray *listHi = @[@"item-02-select",@"item-03-select",@"item-01-select",@"item-04-select"];
-    NSArray *listVc =@[vcMy,video,vcHome,vcInfo];
-    
-    
-    NSMutableArray *listNV = [[NSMutableArray alloc] init];
-    [listVc enumerateObjectsUsingBlock:^(UIViewController*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        BaseNavigationController* nv = [[BaseNavigationController alloc]initWithRootViewController:obj];
-        obj.title = titles[idx];
-        nv.tabBarItem.image = [[UIImage imageNamed:listNormal[idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        nv.tabBarItem.selectedImage = [[UIImage imageNamed:listHi[idx]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:Appx999999} forState:UIControlStateNormal];
-        [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:AppColor} forState:UIControlStateSelected];
-        [listNV addObject:nv];
-    }];
-    self.viewControllers = listNV;
-    self.tabBar.translucent = NO;
+    [self createController:vcInfo title:@"设置" normal:@"item-04-normal" select:@"item-04-select"];
+
+    self.viewControllers = self.listData;
+    self.tabBar.translucent = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     self.delegate = self;
     self.tabBar.tintColor = AppColor;
@@ -57,6 +50,25 @@
     } else {
 
     }
+    if (iPhone_X) {
+        self.tabBar.shadowImage = [UIImage imageWithColor:Appxf8f8f8];
+        self.tabBar.backgroundImage = [UIImage imageWithColor:[UIColor whiteColor]];
+        self.tabBar.backgroundColor = [UIColor whiteColor];
+    }else{
+        self.tabBar.shadowImage = [UIImage imageWithColor:[UIColor clearColor]];
+        self.tabBar.backgroundImage = [UIImage imageWithColor:[UIColor clearColor]];
+        self.tabBar.backgroundColor = [UIColor clearColor];
+    }
+}
+- (void)createController:(UIViewController *)vc title:(NSString *)title normal:(NSString *)normal select:(NSString *)select{
+    BaseNavigationController* nv = [[BaseNavigationController alloc]initWithRootViewController:vc];
+    [vc showNavTitle:title backItem:NO];
+    nv.tabBarItem.title = title;
+    nv.tabBarItem.image = [[UIImage imageNamed:normal] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nv.tabBarItem.selectedImage = [[UIImage imageNamed:select] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:Appx999999} forState:UIControlStateNormal];
+    [nv.tabBarItem setTitleTextAttributes:@{NSForegroundColorAttributeName:AppColor} forState:UIControlStateSelected];
+    [self.listData addObject:nv];
 }
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     NSInteger selectedIndex = [tabBarController.viewControllers indexOfObject:viewController];

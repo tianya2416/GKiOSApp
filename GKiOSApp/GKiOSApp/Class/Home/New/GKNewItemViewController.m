@@ -2,8 +2,8 @@
 //  GKNewItemViewController.m
 //  GKiOSApp
 //
-//  Created by wangws1990 on 2019/5/16.
-//  Copyright © 2019 wangws1990. All rights reserved.
+//  Created by wangws1990 on 2017/5/16.
+//  Copyright © 2017 wangws1990. All rights reserved.
 //
 
 #import "GKNewItemViewController.h"
@@ -23,6 +23,7 @@
     self.listData = @[].mutableCopy;
     [self setupEmpty:self.tableView];
     [self setupRefresh:self.tableView option:ATRefreshDefault];
+
 
 }
 - (void)vtm_prepareForReuse{
@@ -58,8 +59,7 @@
     return self.listData.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    GKNewModel *model = self.listData[indexPath.row];
-    return model.cellHeight;
+    return UITableViewAutomaticDimension;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GKNewModel *model = self.listData[indexPath.row];
@@ -90,6 +90,7 @@
         }break;
     }
     UITableViewCell *cell =  [UITableViewCell cellForTableView:tableView indexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"UITableViewCell : %@",@(indexPath.row + 1)];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

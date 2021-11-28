@@ -2,8 +2,8 @@
 //  BaseViewController.m
 //  MyCountDownDay
 //
-//  Created by wangws1990 on 2019/1/21.
-//  Copyright © 2019 wangws1990. All rights reserved.
+//  Created by wangws1990 on 2017/1/21.
+//  Copyright © 2017 wangws1990. All rights reserved.
 //
 
 #import "BaseViewController.h"
@@ -52,7 +52,7 @@
 }
 //返回支持的方向
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
+    return UIInterfaceOrientationMaskAll;
 }
 //这个是返回优先方向
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
