@@ -39,9 +39,9 @@ PODS:
   - MJRefresh (3.1.15.2)
   - MMPopupView (1.7.3):
     - Masonry
-  - PLPlayerKit (3.4.3):
-    - PLPlayerKit/universal (= 3.4.3)
-  - PLPlayerKit/universal (3.4.3)
+  - PLPlayerKit (3.4.7):
+    - PLPlayerKit/universal (= 3.4.7)
+  - PLPlayerKit/universal (3.4.7)
   - pop (1.0.12)
   - SDCycleScrollView (1.80):
     - SDWebImage (>= 5.0.0)
@@ -174,7 +174,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 0f5bb58f04db85da16d8b9e9781df7f88cadd4ec
   MJRefresh: f845c1a10f0309233fb352425475897a5c50e9f0
   MMPopupView: b717b7fe100707ef3fcd17c93b050e4b9d0a60da
-  PLPlayerKit: 5eecac081fbf4dc88a142887f82c4095d9095887
+  PLPlayerKit: ecfd08f9596aa0d9bc13c1580bbfa642f3d52a44
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
@@ -184,6 +184,6 @@ SPEC CHECKSUMS:
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: fdc92702cc611922182a951991dea78566da7605
 
-PODFILE CHECKSUM: daecdb35c03ac13a62f1155e8a1b692894f83aa7
+PODFILE CHECKSUM: 1d72347e0ae9a895ec2d270730cc05991d4400f0
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.9.3

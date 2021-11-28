@@ -858,8 +858,8 @@
 				0F23989D228570470059B0FE /* Sources */,
 				0F23989E228570470059B0FE /* Frameworks */,
 				0F23989F228570470059B0FE /* Resources */,
-				E1659AC1296253D81CA1145D /* [CP] Embed Pods Frameworks */,
 				5763C7EFC50CDFF33D726F57 /* [CP] Copy Pods Resources */,
+				0155408CBF7757CF31C8A252 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -942,6 +942,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0155408CBF7757CF31C8A252 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1FA6F43E83E52EBDF96EF3AB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -979,23 +996,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E1659AC1296253D81CA1145D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GKiOSApp/Pods-GKiOSApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

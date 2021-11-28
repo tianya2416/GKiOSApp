@@ -22,6 +22,36 @@
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.interactivePopGestureRecognizer.enabled = YES;
     }
+    
+    UIColor *color = AppColor;
+    UIImage *imageColor = [UIImage imageWithColor:color];
+    UINavigationBar *naviBar = self.navigationBar;
+    [naviBar setTranslucent:NO];
+    [naviBar setTitleTextAttributes:[self defaultNvi]];
+    [naviBar setBackgroundImage:imageColor forBarMetrics:UIBarMetricsDefault];
+    naviBar.shadowImage = imageColor;
+    
+    if (@available(iOS 15.0, *)) {
+        UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+        appearance.shadowColor = color;
+        appearance.backgroundImage = imageColor;
+        appearance.backgroundColor = color;
+        appearance.titleTextAttributes = [self defaultNvi];
+        naviBar.scrollEdgeAppearance = appearance;
+        naviBar.standardAppearance = appearance;
+        naviBar.compactAppearance = appearance;
+        naviBar.compactScrollEdgeAppearance = appearance;
+    } else {
+        // Fallback on earlier versions
+    }
+    
+    
+}
+- (NSDictionary *)defaultNvi{
+    NSMutableDictionary *attribute = [NSMutableDictionary dictionary];
+    attribute[NSForegroundColorAttributeName] = [UIColor whiteColor];
+    attribute[NSFontAttributeName] = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
+    return  attribute;
 }
 #pragma mark UINavigationControllerDelegate
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -36,21 +66,6 @@
 }
 -(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     self.pushing = NO;
-}
-/**
- 设置导航栏样式
- */
-+ (void)load {
-    
-    NSArray *array = [NSArray arrayWithObjects:[self class], nil]; //iOS9.0后使用
-    UINavigationBar *navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:array];
-    NSMutableDictionary *attribute = [NSMutableDictionary dictionary];
-    attribute[NSForegroundColorAttributeName] = [UIColor whiteColor];
-    attribute[NSFontAttributeName] = [UIFont systemFontOfSize:18 weight:UIFontWeightHeavy];
-    navBar.titleTextAttributes = attribute;
-    UIImage *backgroundImage = [UIImage imageWithColor:AppColor];
-    [navBar setBackgroundImage:backgroundImage forBarMetrics:UIBarMetricsDefault];
-    [navBar setShadowImage:[UIImage new]];
 }
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;

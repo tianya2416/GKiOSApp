@@ -22,7 +22,7 @@ target :GKiOSApp  do
     pod 'DZNEmptyDataSet'
     pod 'KVOController'
     pod 'FDFullscreenPopGesture', '1.1'
-    pod 'PLPlayerKit'    , :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
+    pod "PLPlayerKit", :podspec => 'https://raw.githubusercontent.com/pili-engineering/PLPlayerKit/master/PLPlayerKit-Universal.podspec'
     pod 'HHTransition'
     pod 'SDCycleScrollView'
     pod 'KLRecycleScrollView'
